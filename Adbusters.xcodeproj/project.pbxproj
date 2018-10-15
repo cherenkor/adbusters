@@ -13,6 +13,7 @@
 		D08873692174A4B8008C8B71 /* Adbusters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D08873672174A4B8008C8B71 /* Adbusters.xcdatamodeld */; };
 		D088736B2174A4B9008C8B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D088736A2174A4B9008C8B71 /* Assets.xcassets */; };
 		D088736E2174A4B9008C8B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D088736C2174A4B9008C8B71 /* LaunchScreen.storyboard */; };
+		D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088737A2174AE85008C8B71 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D088736A2174A4B9008C8B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D088736D2174A4B9008C8B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D088736F2174A4B9008C8B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D088737A2174AE85008C8B71 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				D08873602174A4B8008C8B71 /* AppDelegate.swift */,
 				D08873622174A4B8008C8B71 /* ViewController.swift */,
+				D088737A2174AE85008C8B71 /* WelcomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D08873632174A4B8008C8B71 /* ViewController.swift in Sources */,
+				D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */,
 				D08873612174A4B8008C8B71 /* AppDelegate.swift in Sources */,
 				D08873692174A4B8008C8B71 /* Adbusters.xcdatamodeld in Sources */,
 			);
