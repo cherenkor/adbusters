@@ -257,6 +257,9 @@
                                         <state key="normal" title="Увійти">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginTapped:" destination="fpY-VD-T2B" eventType="touchUpInside" id="3JF-ji-SCE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eG0-HL-V10">
                                         <rect key="frame" x="40" y="282" width="240" height="42"/>
@@ -348,6 +351,8 @@
                         <viewLayoutGuide key="safeArea" id="S2f-AJ-fII"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="roL-bV-gwI" id="3D3-br-Szf"/>
+                        <outlet property="passwordTextField" destination="kxE-SP-0fA" id="tIg-Xe-2IN"/>
                         <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="EvD-pB-eBB"/>
                     </connections>
                 </viewController>
@@ -556,6 +561,9 @@
                                         <state key="normal" title="Зареєструватися">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerTapped:" destination="4eh-G6-NAI" eventType="touchUpInside" id="orZ-Vn-eOi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -610,6 +618,6 @@
         <image name="logo_violet" width="539" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rrR-fL-ES1"/>
+        <segue reference="EvD-pB-eBB"/>
     </inferredMetricsTieBreakers>
 </document>
