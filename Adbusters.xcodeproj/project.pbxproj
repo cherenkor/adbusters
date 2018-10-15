@@ -10,6 +10,8 @@
 		34430E72EDCBBC5970431C2F /* Pods_Adbusters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C8CCB0075BCA4D1AB8846 /* Pods_Adbusters.framework */; };
 		D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C832174B320005CABC3 /* LoginViewController.swift */; };
 		D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C852174B32F005CABC3 /* RegisterViewController.swift */; };
+		D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447121750E1D0085A8BA /* SegueFromLeft.swift */; };
+		D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447221750E1D0085A8BA /* SegueFromRight.swift */; };
 		D08873612174A4B8008C8B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08873602174A4B8008C8B71 /* AppDelegate.swift */; };
 		D08873632174A4B8008C8B71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08873622174A4B8008C8B71 /* ViewController.swift */; };
 		D08873662174A4B8008C8B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08873642174A4B8008C8B71 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 		C3DE4BCA7FA8154E16830394 /* Pods-Adbusters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adbusters.release.xcconfig"; path = "Pods/Target Support Files/Pods-Adbusters/Pods-Adbusters.release.xcconfig"; sourceTree = "<group>"; };
 		D0749C832174B320005CABC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0749C852174B32F005CABC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D084447121750E1D0085A8BA /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		D084447221750E1D0085A8BA /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
 		D088735D2174A4B8008C8B71 /* Adbusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adbusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08873602174A4B8008C8B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D08873622174A4B8008C8B71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D084447021750DE70085A8BA /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				D084447121750E1D0085A8BA /* SegueFromLeft.swift */,
+				D084447221750E1D0085A8BA /* SegueFromRight.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		D08873542174A4B8008C8B71 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +104,7 @@
 		D08873762174A4E0008C8B71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D084447021750DE70085A8BA /* Animations */,
 				D08873602174A4B8008C8B71 /* AppDelegate.swift */,
 				D08873622174A4B8008C8B71 /* ViewController.swift */,
 				D0749C852174B32F005CABC3 /* RegisterViewController.swift */,
@@ -247,6 +261,8 @@
 			files = (
 				D08873632174A4B8008C8B71 /* ViewController.swift in Sources */,
 				D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */,
+				D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */,
+				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
 				D08873612174A4B8008C8B71 /* AppDelegate.swift in Sources */,
 				D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */,
 				D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */,
