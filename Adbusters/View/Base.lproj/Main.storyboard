@@ -107,7 +107,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="roL-bV-gwI" customClass="TweePlaceholderTextField" customModule="TweeTextField">
-                                        <rect key="frame" x="40" y="106" width="240" height="42"/>
+                                        <rect key="frame" x="40" y="102" width="240" height="42"/>
                                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -140,7 +140,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxE-SP-0fA" customClass="TweePlaceholderTextField" customModule="TweeTextField">
-                                        <rect key="frame" x="40" y="163" width="240" height="42"/>
+                                        <rect key="frame" x="40" y="162" width="240" height="42"/>
                                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -173,7 +173,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYp-hG-Yc8">
-                                        <rect key="frame" x="40" y="220" width="240" height="42"/>
+                                        <rect key="frame" x="40" y="222" width="240" height="42"/>
                                         <color key="backgroundColor" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="tFY-zO-AgV"/>
@@ -183,14 +183,25 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eG0-HL-V10">
+                                        <rect key="frame" x="40" y="282" width="240" height="42"/>
+                                        <color key="backgroundColor" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="bKL-b0-dkM"/>
+                                            <constraint firstAttribute="height" constant="42" id="lhD-Dr-pqQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Зареєструватися">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0U-7W-M2V">
-                                        <rect key="frame" x="40" y="387" width="240" height="42"/>
+                                        <rect key="frame" x="40" y="410" width="240" height="42"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fG9-sx-p0a">
-                                                <rect key="frame" x="50" y="0.0" width="190" height="42"/>
+                                                <rect key="frame" x="50" y="0.0" width="182" height="42"/>
                                                 <color key="backgroundColor" red="0.2196078431372549" green="0.35686274509803922" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="muG-AQ-5cG"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="182" id="muG-AQ-5cG"/>
                                                 </constraints>
                                                 <state key="normal" title="Facebook">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -214,11 +225,11 @@
                                             <constraint firstAttribute="height" constant="42" id="T4k-9X-lOQ"/>
                                             <constraint firstAttribute="width" constant="240" id="iSb-nT-5P2"/>
                                             <constraint firstAttribute="bottom" secondItem="hTH-4c-vuO" secondAttribute="bottom" constant="13" id="pYY-hy-0Xy"/>
-                                            <constraint firstAttribute="trailing" secondItem="fG9-sx-p0a" secondAttribute="trailing" id="rcn-6B-NOe"/>
+                                            <constraint firstAttribute="trailing" secondItem="fG9-sx-p0a" secondAttribute="trailing" constant="8" id="rcn-6B-NOe"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Увійти через соціальну мережу" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjy-nQ-c94">
-                                        <rect key="frame" x="40" y="327" width="240" height="52"/>
+                                        <rect key="frame" x="40" y="350" width="240" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="ylG-Er-kDL"/>
                                         </constraints>
@@ -226,38 +237,27 @@
                                         <color key="textColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eG0-HL-V10">
-                                        <rect key="frame" x="40" y="270" width="240" height="42"/>
-                                        <color key="backgroundColor" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="bKL-b0-dkM"/>
-                                            <constraint firstAttribute="height" constant="42" id="lhD-Dr-pqQ"/>
-                                        </constraints>
-                                        <state key="normal" title="Зареєструватися">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="F0U-7W-M2V" firstAttribute="leading" secondItem="G8e-61-JyH" secondAttribute="leading" constant="40" id="3tT-Bf-16c"/>
                                     <constraint firstItem="NYp-hG-Yc8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G8e-61-JyH" secondAttribute="leading" constant="20" symbolic="YES" id="Bsq-OI-oxF"/>
                                     <constraint firstItem="kjy-nQ-c94" firstAttribute="leading" secondItem="F0U-7W-M2V" secondAttribute="leading" id="CHU-BP-1fN"/>
-                                    <constraint firstItem="eG0-HL-V10" firstAttribute="top" secondItem="NYp-hG-Yc8" secondAttribute="bottom" constant="8" id="DL5-nE-JaD"/>
+                                    <constraint firstItem="eG0-HL-V10" firstAttribute="top" secondItem="NYp-hG-Yc8" secondAttribute="bottom" constant="18" id="DL5-nE-JaD"/>
                                     <constraint firstItem="eG0-HL-V10" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G8e-61-JyH" secondAttribute="leading" constant="20" symbolic="YES" id="Hhf-E2-zlc"/>
                                     <constraint firstItem="roL-bV-gwI" firstAttribute="leading" secondItem="G8e-61-JyH" secondAttribute="leading" constant="40" id="Lht-HJ-fwU"/>
-                                    <constraint firstItem="roL-bV-gwI" firstAttribute="top" secondItem="hBF-uw-fmY" secondAttribute="bottom" constant="40" id="UaA-q5-jb7"/>
+                                    <constraint firstItem="roL-bV-gwI" firstAttribute="top" secondItem="hBF-uw-fmY" secondAttribute="bottom" constant="36" id="UaA-q5-jb7"/>
                                     <constraint firstAttribute="trailing" secondItem="NYp-hG-Yc8" secondAttribute="trailing" constant="40" id="YFh-ks-Ieg"/>
-                                    <constraint firstItem="kjy-nQ-c94" firstAttribute="top" secondItem="eG0-HL-V10" secondAttribute="bottom" constant="15" id="aMk-eE-7Qr"/>
-                                    <constraint firstItem="F0U-7W-M2V" firstAttribute="top" secondItem="kjy-nQ-c94" secondAttribute="bottom" constant="8" symbolic="YES" id="bcE-aQ-NKZ"/>
+                                    <constraint firstItem="kjy-nQ-c94" firstAttribute="top" secondItem="eG0-HL-V10" secondAttribute="bottom" constant="26" id="aMk-eE-7Qr"/>
+                                    <constraint firstItem="F0U-7W-M2V" firstAttribute="top" secondItem="kjy-nQ-c94" secondAttribute="bottom" constant="8" id="bcE-aQ-NKZ"/>
                                     <constraint firstAttribute="height" constant="460" id="ena-l4-yP0"/>
-                                    <constraint firstItem="NYp-hG-Yc8" firstAttribute="top" secondItem="kxE-SP-0fA" secondAttribute="bottom" constant="15" id="fOR-xG-N5S"/>
+                                    <constraint firstItem="NYp-hG-Yc8" firstAttribute="top" secondItem="kxE-SP-0fA" secondAttribute="bottom" constant="18" id="fOR-xG-N5S"/>
                                     <constraint firstItem="hBF-uw-fmY" firstAttribute="leading" secondItem="G8e-61-JyH" secondAttribute="leading" constant="40" id="jmi-6w-JgX"/>
                                     <constraint firstAttribute="trailing" secondItem="eG0-HL-V10" secondAttribute="trailing" constant="40" id="kHc-Ns-BSo"/>
                                     <constraint firstItem="hBF-uw-fmY" firstAttribute="top" secondItem="G8e-61-JyH" secondAttribute="top" constant="24" id="qqd-Pu-5tU"/>
                                     <constraint firstItem="kjy-nQ-c94" firstAttribute="trailing" secondItem="F0U-7W-M2V" secondAttribute="trailing" id="uPl-A7-HvK"/>
                                     <constraint firstAttribute="width" constant="320" id="v6c-Fy-hpp"/>
-                                    <constraint firstItem="kxE-SP-0fA" firstAttribute="top" secondItem="roL-bV-gwI" secondAttribute="bottom" constant="15" id="zgN-73-heH"/>
+                                    <constraint firstItem="kxE-SP-0fA" firstAttribute="top" secondItem="roL-bV-gwI" secondAttribute="bottom" constant="18" id="zgN-73-heH"/>
                                     <constraint firstItem="kxE-SP-0fA" firstAttribute="leading" secondItem="G8e-61-JyH" secondAttribute="leading" constant="40" id="zhk-cD-OpI"/>
                                 </constraints>
                             </view>
