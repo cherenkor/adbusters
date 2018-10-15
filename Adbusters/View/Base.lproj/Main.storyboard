@@ -319,7 +319,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
                                                 <color key="value" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Введіть пароль"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Введіть ім'я"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                 <color key="value" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
@@ -385,7 +385,7 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="activeLineColor">
                                                 <color key="value" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Введіть пароль"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="tweePlaceholder" value="Повторіть пароль"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                 <color key="value" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
