@@ -31,6 +31,9 @@
                                         <state key="normal" title="Пропустити">
                                             <color key="titleColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="gQg-cU-FWQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-y6-bTB">
                                         <rect key="frame" x="40" y="265" width="240" height="42"/>
@@ -87,6 +90,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46.376811594202906" y="33.423913043478265"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="REk-8T-opT">
+            <objects>
+                <viewController id="cLT-OV-9Rz" customClass="MapViewController" customModule="Adbusters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zll-Tt-Gmy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jqy-WD-UY7">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            </mapView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9w-Hb-cGy">
+                                <rect key="frame" x="224" y="380" width="80" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnl-Wg-uOa">
+                                        <rect key="frame" x="20" y="24" width="40" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="63B-gN-1Q8"/>
+                                            <constraint firstAttribute="height" constant="32" id="92c-1g-GTf"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_add_photo_white">
+                                            <color key="titleShadowColor" red="0.36078431370000003" green="0.14229881759999999" blue="0.48681175710000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="R74-02-yGZ"/>
+                                    <constraint firstItem="Rnl-Wg-uOa" firstAttribute="centerX" secondItem="V9w-Hb-cGy" secondAttribute="centerX" id="RvQ-zV-JdX"/>
+                                    <constraint firstItem="Rnl-Wg-uOa" firstAttribute="centerY" secondItem="V9w-Hb-cGy" secondAttribute="centerY" id="nCR-Za-WVj"/>
+                                    <constraint firstAttribute="width" constant="80" id="pRH-V5-L7d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0m-dv-Ov5">
+                                <rect key="frame" x="262" y="94" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="anK-c9-hfX"/>
+                                    <constraint firstAttribute="height" constant="42" id="q1W-ci-Lmo"/>
+                                </constraints>
+                                <state key="normal" image="icon_location"/>
+                                <connections>
+                                    <action selector="getCurrentLocationTapped:" destination="cLT-OV-9Rz" eventType="touchUpInside" id="SmP-ZC-Aqg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jqy-WD-UY7" firstAttribute="top" secondItem="87c-yH-Vxc" secondAttribute="top" id="4g7-pV-VXy"/>
+                            <constraint firstItem="87c-yH-Vxc" firstAttribute="trailing" secondItem="V9w-Hb-cGy" secondAttribute="trailing" constant="16" id="CXY-8n-BLP"/>
+                            <constraint firstItem="P0m-dv-Ov5" firstAttribute="top" secondItem="87c-yH-Vxc" secondAttribute="top" constant="74" id="Rrd-W2-mrQ"/>
+                            <constraint firstItem="87c-yH-Vxc" firstAttribute="bottom" secondItem="V9w-Hb-cGy" secondAttribute="bottom" constant="20" id="axK-tK-Ias"/>
+                            <constraint firstItem="jqy-WD-UY7" firstAttribute="leading" secondItem="87c-yH-Vxc" secondAttribute="leading" id="eq4-ho-jH2"/>
+                            <constraint firstItem="jqy-WD-UY7" firstAttribute="trailing" secondItem="87c-yH-Vxc" secondAttribute="trailing" id="hEo-Sn-RQY"/>
+                            <constraint firstItem="jqy-WD-UY7" firstAttribute="bottom" secondItem="87c-yH-Vxc" secondAttribute="bottom" id="jrc-mS-O3Y"/>
+                            <constraint firstItem="87c-yH-Vxc" firstAttribute="trailing" secondItem="P0m-dv-Ov5" secondAttribute="trailing" constant="16" id="pfW-8v-CqS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="87c-yH-Vxc"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="jqy-WD-UY7" id="NfX-qg-Ydr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ib-rg-CJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1194.375" y="32.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ybr-oA-jq9">
@@ -272,10 +347,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S2f-AJ-fII"/>
                     </view>
+                    <connections>
+                        <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="EvD-pB-eBB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5w-Iv-z1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168.125" y="-807.5"/>
+            <point key="canvasLocation" x="1166" y="-1044"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="o09-E0-cpO">
@@ -514,16 +592,24 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hqo-mc-h4S"/>
                     </view>
+                    <connections>
+                        <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="rrR-fL-ES1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KR6-MH-UeZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133.75" y="-808.75"/>
+            <point key="canvasLocation" x="2153" y="-1044"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icon_add_photo_white" width="103" height="92"/>
         <image name="icon_facebook" width="35" height="67"/>
+        <image name="icon_location" width="49" height="49"/>
         <image name="logo_garlic" width="291" height="125"/>
         <image name="logo_large" width="795" height="891"/>
         <image name="logo_violet" width="539" height="133"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rrR-fL-ES1"/>
+    </inferredMetricsTieBreakers>
 </document>
