@@ -56,15 +56,39 @@
 		D088735F2174A4B8008C8B71 /* Adbusters */ = {
 			isa = PBXGroup;
 			children = (
-				D08873602174A4B8008C8B71 /* AppDelegate.swift */,
-				D08873622174A4B8008C8B71 /* ViewController.swift */,
-				D08873642174A4B8008C8B71 /* Main.storyboard */,
-				D088736A2174A4B9008C8B71 /* Assets.xcassets */,
-				D088736C2174A4B9008C8B71 /* LaunchScreen.storyboard */,
-				D088736F2174A4B9008C8B71 /* Info.plist */,
+				D08873772174A4E6008C8B71 /* Model */,
+				D08873762174A4E0008C8B71 /* Controller */,
+				D08873752174A4DA008C8B71 /* View */,
 				D08873672174A4B8008C8B71 /* Adbusters.xcdatamodeld */,
+				D088736F2174A4B9008C8B71 /* Info.plist */,
 			);
 			path = Adbusters;
+			sourceTree = "<group>";
+		};
+		D08873752174A4DA008C8B71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D08873642174A4B8008C8B71 /* Main.storyboard */,
+				D088736C2174A4B9008C8B71 /* LaunchScreen.storyboard */,
+				D088736A2174A4B9008C8B71 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D08873762174A4E0008C8B71 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D08873602174A4B8008C8B71 /* AppDelegate.swift */,
+				D08873622174A4B8008C8B71 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D08873772174A4E6008C8B71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +123,7 @@
 				TargetAttributes = {
 					D088735C2174A4B8008C8B71 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -287,6 +312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Adbusters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -294,7 +320,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = chesno.Adbusters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -304,6 +330,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Adbusters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -311,7 +338,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = chesno.Adbusters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
