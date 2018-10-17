@@ -15,11 +15,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
+    
+    @IBAction func logoPressed(_ sender: Any) {
+        let url = URL(string: "http://chesno.org")
+        UIApplication.shared.open(url!)
+    }
+    
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.show()
         locationManager.startUpdatingLocation()
-        SVProgressHUD.dismiss()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,18 +66,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Call stopUpdatingLocation() to stop listening for location updates,
         // other wise this function will be called every time when user location changes.
         //manager.stopUpdatingLocation()
-        
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         mapView.setRegion(region, animated: true)
+        SVProgressHUD.dismiss()
         
         // Drop a pin at user's Current Location
-        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-        myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude - 0.005, userLocation.coordinate.longitude - 0.005);
-        myAnnotation.title = "Current location"
-        
-        mapView.addAnnotation(myAnnotation)
+//        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+//        myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude - 0.005, userLocation.coordinate.longitude - 0.005);
+//        myAnnotation.title = "Current location"
+//
+//        mapView.addAnnotation(myAnnotation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
