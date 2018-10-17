@@ -233,6 +233,21 @@
             </objects>
             <point key="canvasLocation" x="1194.375" y="32.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bL0-Wc-NFe">
+            <objects>
+                <viewController id="Scf-Ba-FFU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tLx-F5-f5s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Gm9-TX-g2h"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFj-9L-TPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="1030"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="POg-gs-I3J">
             <objects>
@@ -378,6 +393,7 @@
                         <segue destination="zX8-dB-ntb" kind="custom" identifier="goToRate" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="8cA-ot-PQl"/>
                         <segue destination="Aqc-NX-n8v" kind="custom" identifier="goToMyAds" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="9LO-tQ-BRv"/>
                         <segue destination="pX7-we-gp6" kind="custom" identifier="goToInstructions" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="lvE-Si-E7H"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToMain" id="XVb-xz-XLe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXE-NX-XNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1014,6 +1030,7 @@
         <image name="logo_white" width="539" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="lvE-Si-E7H"/>
         <segue reference="pU2-eh-hHY"/>
         <segue reference="vBf-0B-zvl"/>
     </inferredMetricsTieBreakers>

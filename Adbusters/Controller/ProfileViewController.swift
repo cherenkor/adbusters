@@ -1,5 +1,6 @@
 import UIKit
 import MessageUI
+import SVProgressHUD
 
 var menu : [String]?
 var isLogged = false
@@ -13,6 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         tableView.separatorColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,7 +27,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if (isLogged) {
             menu = ["Рейтинг", "Інструкція", "Зворотній зв'язок", "Facebook", "Вийти"]
         } else {
-            menu = ["Рейтинг", "Моя реклама", "Інструкція", "Зворотній зв'язок", "Увійти", "Facebook"]
+            menu = ["Рейтинг", "Моя реклама", "Інструкція", "Зворотній зв'язок", "Facebook", "Увійти"]
         }
         
         return menu!.count
@@ -56,12 +58,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else if (menu![myIndex] == "Інструкція") {
             performSegue(withIdentifier: "goToInstructions", sender: nil)
         } else if (menu![myIndex] == "Вийти") {
-            isLogged = false
+            SVProgressHUD.showSuccess(withStatus: "Успішно вийшли")
+            SVProgressHUD.dismiss(withDelay: 1.0) {
+                self.performSegue(withIdentifier: "goToMain", sender: nil)
+                isLogged = false
+            }
         } else if (menu![myIndex] == "Увійти") {
-            isLogged = true
+            SVProgressHUD.showSuccess(withStatus: "Успішно увійшли")
+            SVProgressHUD.dismiss(withDelay: 1.0) {
+                isLogged = true
+                tableView.reloadData()
+            }
         }
-        
-        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
