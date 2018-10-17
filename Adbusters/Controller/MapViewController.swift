@@ -9,13 +9,16 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SVProgressHUD
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
+        SVProgressHUD.show()
         locationManager.startUpdatingLocation()
+        SVProgressHUD.dismiss()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

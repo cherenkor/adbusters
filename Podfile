@@ -4,4 +4,5 @@ platform :ios, '9.0'
 target 'Adbusters' do
   use_frameworks!
 	pod 'TweeTextField'
+	pod 'SVProgressHUD'
 end

@@ -282,15 +282,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uX-Kn-fgN">
                                 <rect key="frame" x="0.0" y="64" width="320" height="120"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="e3t-Ta-Zq3">
-                                        <rect key="frame" x="30" y="24" width="72" height="72"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="e3t-Ta-Zq3">
+                                        <rect key="frame" x="8" y="24" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="78K-4E-hHh"/>
                                             <constraint firstAttribute="height" constant="72" id="Rri-dE-TpN"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Василенко Альберт" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDF-Fj-Dbl">
-                                        <rect key="frame" x="110" y="34" width="224" height="32"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Василенко Альберт" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDF-Fj-Dbl">
+                                        <rect key="frame" x="88" y="34" width="224" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="Ja4-n9-H0r"/>
                                             <constraint firstAttribute="height" constant="32" id="Jfb-8e-MJ2"/>
@@ -299,8 +299,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10 часничків" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-4h-fqZ">
-                                        <rect key="frame" x="110" y="56" width="224" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 часничків" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-4h-fqZ">
+                                        <rect key="frame" x="88" y="56" width="224" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="XKS-aW-aod"/>
                                             <constraint firstAttribute="height" constant="30" id="iPG-LP-vu6"/>
@@ -803,6 +803,7 @@
         <image name="logo_white" width="539" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="G9J-Jw-yyF"/>
         <segue reference="vBf-0B-zvl"/>
     </inferredMetricsTieBreakers>
 </document>
