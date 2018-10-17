@@ -27,7 +27,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             menu = ["Рейтинг", "Моя реклама", "Інструкція", "Зворотній зв'язок", "Увійти", "Facebook"]
         }
-        print(menu!.count)
         
         return menu!.count
     }
@@ -50,14 +49,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let url = URL(string: "mailto:info.chesno@gmail.com") {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
-            print("Open mail app")
         } else if (menu![myIndex] == "Рейтинг") {
-            performSegue(withIdentifier: "menu-rate", sender: nil)
+            performSegue(withIdentifier: "goToRate", sender: nil)
+        } else if (menu![myIndex] == "Моя реклама") {
+            performSegue(withIdentifier: "goToMyAds", sender: nil)
         } else if (menu![myIndex] == "Інструкція") {
-            performSegue(withIdentifier: "menu-instructions", sender: nil)
-        } else {
-            performSegue(withIdentifier: "menu-item", sender: nil)
+            performSegue(withIdentifier: "goToInstructions", sender: nil)
+        } else if (menu![myIndex] == "Вийти") {
+            isLogged = false
+        } else if (menu![myIndex] == "Увійти") {
+            isLogged = true
         }
+        
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

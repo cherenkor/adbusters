@@ -24,6 +24,8 @@
 		D0EBA43721752FCD003CCBDC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBA43621752FCD003CCBDC /* MapKit.framework */; };
 		D0EBA43921753AFF003CCBDC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBA43821753AFE003CCBDC /* CoreLocation.framework */; };
 		D0EBA43B2176F617003CCBDC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA43A2176F617003CCBDC /* ProfileViewController.swift */; };
+		D0EBA43D2177D648003CCBDC /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA43C2177D647003CCBDC /* RateViewController.swift */; };
+		D0EBA43F2177D763003CCBDC /* MyAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA43E2177D763003CCBDC /* MyAdsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		D0EBA43621752FCD003CCBDC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D0EBA43821753AFE003CCBDC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D0EBA43A2176F617003CCBDC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D0EBA43C2177D647003CCBDC /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		D0EBA43E2177D763003CCBDC /* MyAdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsViewController.swift; sourceTree = "<group>"; };
 		E12C8CCB0075BCA4D1AB8846 /* Pods_Adbusters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Adbusters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,6 +129,8 @@
 				D088737A2174AE85008C8B71 /* WelcomeViewController.swift */,
 				D084447521751ED50085A8BA /* MapViewController.swift */,
 				D0EBA43A2176F617003CCBDC /* ProfileViewController.swift */,
+				D0EBA43C2177D647003CCBDC /* RateViewController.swift */,
+				D0EBA43E2177D763003CCBDC /* MyAdsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -298,7 +304,9 @@
 				D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */,
 				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
 				D084447621751ED50085A8BA /* MapViewController.swift in Sources */,
+				D0EBA43F2177D763003CCBDC /* MyAdsViewController.swift in Sources */,
 				D0EBA435217526ED003CCBDC /* RoundShadowView.swift in Sources */,
+				D0EBA43D2177D648003CCBDC /* RateViewController.swift in Sources */,
 				D0EBA43B2176F617003CCBDC /* ProfileViewController.swift in Sources */,
 				D08873612174A4B8008C8B71 /* AppDelegate.swift in Sources */,
 				D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */,
