@@ -117,6 +117,9 @@
                                                 <state key="normal" image="icon_add_photo_white">
                                                     <color key="titleShadowColor" red="0.36078431370000003" green="0.14229881759999999" blue="0.48681175710000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="Scf-Ba-FFU" kind="custom" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="MyF-gz-SLx"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,20 +236,42 @@
             </objects>
             <point key="canvasLocation" x="1194.375" y="32.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Ads View Controller-->
         <scene sceneID="bL0-Wc-NFe">
             <objects>
-                <viewController id="Scf-Ba-FFU" sceneMemberID="viewController">
+                <viewController id="Scf-Ba-FFU" customClass="AddAdsViewController" customModule="Adbusters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tLx-F5-f5s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXV-Ov-s36" userLabel="TopBar">
+                                <rect key="frame" x="0.0" y="20" width="320" height="61"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="LdG-yI-ovj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJd-FQ-VNK">
+                                <rect key="frame" x="0.0" y="81" width="320" height="399"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WXV-Ov-s36" firstAttribute="trailing" secondItem="Gm9-TX-g2h" secondAttribute="trailing" id="PiN-Oi-zOT"/>
+                            <constraint firstItem="WXV-Ov-s36" firstAttribute="top" secondItem="Gm9-TX-g2h" secondAttribute="top" id="QBV-ER-sLn"/>
+                            <constraint firstItem="WXV-Ov-s36" firstAttribute="leading" secondItem="Gm9-TX-g2h" secondAttribute="leading" id="edV-hw-hqe"/>
+                            <constraint firstItem="VJd-FQ-VNK" firstAttribute="bottom" secondItem="Gm9-TX-g2h" secondAttribute="bottom" id="fse-NC-i2G"/>
+                            <constraint firstItem="VJd-FQ-VNK" firstAttribute="top" secondItem="WXV-Ov-s36" secondAttribute="bottom" id="vBg-jT-tUd"/>
+                            <constraint firstItem="VJd-FQ-VNK" firstAttribute="leading" secondItem="Gm9-TX-g2h" secondAttribute="leading" id="wmS-Am-izY"/>
+                            <constraint firstItem="VJd-FQ-VNK" firstAttribute="trailing" secondItem="Gm9-TX-g2h" secondAttribute="trailing" id="xTY-bC-o8c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Gm9-TX-g2h"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFj-9L-TPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="1030"/>
+            <point key="canvasLocation" x="1192.5" y="850"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="POg-gs-I3J">
@@ -1030,7 +1055,6 @@
         <image name="logo_white" width="539" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lvE-Si-E7H"/>
         <segue reference="pU2-eh-hHY"/>
         <segue reference="vBf-0B-zvl"/>
     </inferredMetricsTieBreakers>
