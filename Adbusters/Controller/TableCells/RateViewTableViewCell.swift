@@ -1,11 +1,3 @@
-//
-//  RateViewTableViewCell.swift
-//  Adbusters
-//
-//  Created by MacBookAir on 10/18/18.
-//  Copyright © 2018 MacBookAir. All rights reserved.
-//
-
 import UIKit
 
 class RateViewTableViewCell: UITableViewCell {

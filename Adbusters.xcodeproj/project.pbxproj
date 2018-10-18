@@ -28,6 +28,7 @@
 		D0EBA43F2177D763003CCBDC /* MyAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA43E2177D763003CCBDC /* MyAdsViewController.swift */; };
 		D0EBA4412177E0C4003CCBDC /* AddAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA4402177E0C4003CCBDC /* AddAdsViewController.swift */; };
 		D0EBA4442178FB52003CCBDC /* RateViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA4432178FB51003CCBDC /* RateViewTableViewCell.swift */; };
+		D0EBA446217920B3003CCBDC /* MyAdsViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA445217920B3003CCBDC /* MyAdsViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		D0EBA43E2177D763003CCBDC /* MyAdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsViewController.swift; sourceTree = "<group>"; };
 		D0EBA4402177E0C4003CCBDC /* AddAdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdsViewController.swift; sourceTree = "<group>"; };
 		D0EBA4432178FB51003CCBDC /* RateViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewTableViewCell.swift; sourceTree = "<group>"; };
+		D0EBA445217920B3003CCBDC /* MyAdsViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsViewTableViewCell.swift; sourceTree = "<group>"; };
 		E12C8CCB0075BCA4D1AB8846 /* Pods_Adbusters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Adbusters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				D0EBA4432178FB51003CCBDC /* RateViewTableViewCell.swift */,
+				D0EBA445217920B3003CCBDC /* MyAdsViewTableViewCell.swift */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				D08873632174A4B8008C8B71 /* ViewController.swift in Sources */,
 				D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */,
 				D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */,
+				D0EBA446217920B3003CCBDC /* MyAdsViewTableViewCell.swift in Sources */,
 				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
 				D084447621751ED50085A8BA /* MapViewController.swift in Sources */,
 				D0EBA43F2177D763003CCBDC /* MyAdsViewController.swift in Sources */,
