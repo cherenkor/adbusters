@@ -45,6 +45,6 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
-        selectedCell.contentView.backgroundColor = UIColor.darkGray
+        selectedCell.contentView.backgroundColor = UIColor(red:178.0, green:178.0, blue:178.0, alpha:1.0)
     }
 }
