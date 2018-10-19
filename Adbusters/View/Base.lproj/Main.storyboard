@@ -337,6 +337,9 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="32" maxX="20" maxY="32"/>
                                                 <state key="normal" image="icon_add_photo_violet"/>
+                                                <connections>
+                                                    <action selector="addAdImage:" destination="Scf-Ba-FFU" eventType="touchUpInside" id="wQi-Uz-Q5i"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -370,7 +373,7 @@
                                                 <segue destination="cLT-OV-9Rz" kind="custom" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="Vm1-cd-a2B"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="success.png" id="qZm-ga-UiT">
+                                        <barButtonItem key="rightBarButtonItem" title="✓" image="success.png" landscapeImage="success.png" largeContentSizeImage="success.png" style="done" id="qZm-ga-UiT">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="saveAd:" destination="Scf-Ba-FFU" id="Jfc-Cw-bMM"/>
@@ -393,6 +396,7 @@
                         <viewLayoutGuide key="safeArea" id="Gm9-TX-g2h"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="fbn-Nb-ej6" id="Djb-6Y-17u"/>
                         <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="ChZ-b1-s46"/>
                     </connections>
                 </viewController>
