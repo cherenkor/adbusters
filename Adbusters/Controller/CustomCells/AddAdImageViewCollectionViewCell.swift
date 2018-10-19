@@ -11,5 +11,10 @@ import UIKit
 class AddAdImageViewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var adImageView: UIImageView!
+//    let imageIndex : Int = Int?
     
+
+    @IBAction func deleteAdImage(_ sender: Any) {
+        
+    }
 }
