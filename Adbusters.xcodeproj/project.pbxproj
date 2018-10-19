@@ -29,6 +29,7 @@
 		D0EBA4412177E0C4003CCBDC /* AddAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA4402177E0C4003CCBDC /* AddAdsViewController.swift */; };
 		D0EBA4442178FB52003CCBDC /* RateViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA4432178FB51003CCBDC /* RateViewTableViewCell.swift */; };
 		D0EBA446217920B3003CCBDC /* MyAdsViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA445217920B3003CCBDC /* MyAdsViewTableViewCell.swift */; };
+		D0EBA44A217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA449217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		D0EBA4402177E0C4003CCBDC /* AddAdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdsViewController.swift; sourceTree = "<group>"; };
 		D0EBA4432178FB51003CCBDC /* RateViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewTableViewCell.swift; sourceTree = "<group>"; };
 		D0EBA445217920B3003CCBDC /* MyAdsViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsViewTableViewCell.swift; sourceTree = "<group>"; };
+		D0EBA449217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdImageViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		E12C8CCB0075BCA4D1AB8846 /* Pods_Adbusters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Adbusters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,7 +128,7 @@
 		D08873762174A4E0008C8B71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D0EBA4422178FB1C003CCBDC /* TableCells */,
+				D0EBA4422178FB1C003CCBDC /* CustomCells */,
 				D0EBA4332175268E003CCBDC /* Shared */,
 				D084447021750DE70085A8BA /* Animations */,
 				D08873602174A4B8008C8B71 /* AppDelegate.swift */,
@@ -158,13 +160,14 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		D0EBA4422178FB1C003CCBDC /* TableCells */ = {
+		D0EBA4422178FB1C003CCBDC /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
 				D0EBA4432178FB51003CCBDC /* RateViewTableViewCell.swift */,
 				D0EBA445217920B3003CCBDC /* MyAdsViewTableViewCell.swift */,
+				D0EBA449217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift */,
 			);
-			path = TableCells;
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		DA811CE56CDFFC8B5F307D4A /* Pods */ = {
@@ -320,6 +323,7 @@
 				D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */,
 				D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */,
 				D0EBA446217920B3003CCBDC /* MyAdsViewTableViewCell.swift in Sources */,
+				D0EBA44A217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift in Sources */,
 				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
 				D084447621751ED50085A8BA /* MapViewController.swift in Sources */,
 				D0EBA43F2177D763003CCBDC /* MyAdsViewController.swift in Sources */,

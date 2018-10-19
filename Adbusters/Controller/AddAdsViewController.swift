@@ -8,23 +8,26 @@
 
 import UIKit
 
-class AddAdsViewController: UIViewController {
-
+class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    let images = [UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveAd(_ sender: Any) {
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AddAdImageViewCollectionViewCell
+        cell.adImageView.image = images[indexPath.row]
+        
+        return cell
+    }
 }
