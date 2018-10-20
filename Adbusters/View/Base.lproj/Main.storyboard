@@ -445,6 +445,34 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CvS-8K-726">
+                                        <rect key="frame" x="8" y="336" width="304" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Місце положення" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVf-Bi-c2x">
+                                                <rect key="frame" x="8" y="0.0" width="139" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="134" id="adK-4B-cZJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njS-vA-Auk">
+                                                <rect key="frame" x="247" y="0.0" width="51" height="30"/>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="njS-vA-Auk" firstAttribute="top" secondItem="CvS-8K-726" secondAttribute="top" id="38f-U8-5r9"/>
+                                            <constraint firstItem="XVf-Bi-c2x" firstAttribute="top" secondItem="CvS-8K-726" secondAttribute="top" id="6Bw-c6-DmO"/>
+                                            <constraint firstItem="njS-vA-Auk" firstAttribute="leading" secondItem="XVf-Bi-c2x" secondAttribute="trailing" constant="100" id="JTb-hH-4pW"/>
+                                            <constraint firstAttribute="bottom" secondItem="njS-vA-Auk" secondAttribute="bottom" id="RB3-j6-DQ7"/>
+                                            <constraint firstAttribute="bottom" secondItem="XVf-Bi-c2x" secondAttribute="bottom" id="aOB-82-pBI"/>
+                                            <constraint firstAttribute="trailing" secondItem="njS-vA-Auk" secondAttribute="trailing" constant="8" id="dkK-Nt-2ht"/>
+                                            <constraint firstAttribute="height" constant="30" id="kks-rV-VBM"/>
+                                            <constraint firstItem="XVf-Bi-c2x" firstAttribute="leading" secondItem="CvS-8K-726" secondAttribute="leading" constant="8" id="sQr-L0-dUv"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeS-Z4-2t2">
                                         <rect key="frame" x="8" y="298" width="304" height="30"/>
                                         <subviews>
@@ -500,6 +528,7 @@
                                     <constraint firstAttribute="trailing" secondItem="jeS-Z4-2t2" secondAttribute="trailing" constant="8" id="9y7-av-uUo"/>
                                     <constraint firstItem="jeS-Z4-2t2" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="8" id="AIP-SM-UTL"/>
                                     <constraint firstItem="zRA-eH-jnq" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="8" id="Ny5-EY-5Za"/>
+                                    <constraint firstItem="CvS-8K-726" firstAttribute="top" secondItem="jeS-Z4-2t2" secondAttribute="bottom" constant="8" id="OUR-Wn-3CM"/>
                                     <constraint firstItem="a7h-id-dbJ" firstAttribute="top" secondItem="fbn-Nb-ej6" secondAttribute="bottom" constant="22" id="Pim-aM-Cvz"/>
                                     <constraint firstItem="KOV-v9-2jW" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="8" id="Qd7-Qm-z7T"/>
                                     <constraint firstAttribute="trailing" secondItem="a7h-id-dbJ" secondAttribute="trailing" constant="8" id="Scg-ma-cqa"/>
@@ -508,6 +537,8 @@
                                     <constraint firstAttribute="trailing" secondItem="KOV-v9-2jW" secondAttribute="trailing" constant="8" id="d92-3r-EAx"/>
                                     <constraint firstItem="ZVf-0W-lQQ" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="8" id="g7e-aQ-jKY"/>
                                     <constraint firstAttribute="trailing" secondItem="ZVf-0W-lQQ" secondAttribute="trailing" constant="8" id="hgD-Sa-r4E"/>
+                                    <constraint firstAttribute="trailing" secondItem="CvS-8K-726" secondAttribute="trailing" constant="8" id="mry-sf-tnv"/>
+                                    <constraint firstItem="CvS-8K-726" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="8" id="p2O-dc-APp"/>
                                     <constraint firstItem="ZVf-0W-lQQ" firstAttribute="top" secondItem="a7h-id-dbJ" secondAttribute="bottom" constant="8" id="pM7-PR-UCx"/>
                                     <constraint firstItem="zRA-eH-jnq" firstAttribute="top" secondItem="VJd-FQ-VNK" secondAttribute="top" constant="32" id="qHW-4k-2UZ"/>
                                     <constraint firstItem="a7h-id-dbJ" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="18" id="qKi-sy-ulQ"/>
