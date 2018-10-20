@@ -11,10 +11,12 @@ import UIKit
 class AddAdImageViewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var adImageView: UIImageView!
-//    let imageIndex : Int = Int?
     
-
-    @IBAction func deleteAdImage(_ sender: Any) {
-        
-    }
+    @IBOutlet weak var deleteImageButton: UIButton!
+    
+//    @IBAction func deleteAdImage(_ sender: Any) {
+//        let i : Int = (sender.layer.valueForKey("index")) as! Int
+//        addingImages.removeAtIndex(i)
+//        collectionView.reloadData()
+//    }
 }

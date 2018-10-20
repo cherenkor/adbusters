@@ -38,6 +38,8 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Дозвольте відкрити Вашу камеру</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Дозвольте відкрити Вашу галерею</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>

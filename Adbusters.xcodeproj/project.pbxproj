@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		34430E72EDCBBC5970431C2F /* Pods_Adbusters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C8CCB0075BCA4D1AB8846 /* Pods_Adbusters.framework */; };
+		D00F54F6217BC5EE00D11A5B /* UIDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54F5217BC5EE00D11A5B /* UIDropDownTextField.swift */; };
+		D00F54F8217BC8A100D11A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00F54F7217BC8A100D11A5B /* Assets.xcassets */; };
 		D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C832174B320005CABC3 /* LoginViewController.swift */; };
 		D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C852174B32F005CABC3 /* RegisterViewController.swift */; };
 		D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447121750E1D0085A8BA /* SegueFromLeft.swift */; };
@@ -17,7 +19,6 @@
 		D08873632174A4B8008C8B71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08873622174A4B8008C8B71 /* ViewController.swift */; };
 		D08873662174A4B8008C8B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08873642174A4B8008C8B71 /* Main.storyboard */; };
 		D08873692174A4B8008C8B71 /* Adbusters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D08873672174A4B8008C8B71 /* Adbusters.xcdatamodeld */; };
-		D088736B2174A4B9008C8B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D088736A2174A4B9008C8B71 /* Assets.xcassets */; };
 		D088736E2174A4B9008C8B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D088736C2174A4B9008C8B71 /* LaunchScreen.storyboard */; };
 		D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088737A2174AE85008C8B71 /* WelcomeViewController.swift */; };
 		D0EBA435217526ED003CCBDC /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA434217526ED003CCBDC /* RoundShadowView.swift */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		4B53C458ED4DF5A9CA0B5BA7 /* Pods-Adbusters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adbusters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Adbusters/Pods-Adbusters.debug.xcconfig"; sourceTree = "<group>"; };
 		C3DE4BCA7FA8154E16830394 /* Pods-Adbusters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adbusters.release.xcconfig"; path = "Pods/Target Support Files/Pods-Adbusters/Pods-Adbusters.release.xcconfig"; sourceTree = "<group>"; };
+		D00F54F5217BC5EE00D11A5B /* UIDropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropDownTextField.swift; sourceTree = "<group>"; };
+		D00F54F7217BC8A100D11A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		D0749C832174B320005CABC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0749C852174B32F005CABC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D084447121750E1D0085A8BA /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
@@ -45,7 +48,6 @@
 		D08873622174A4B8008C8B71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D08873652174A4B8008C8B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D08873682174A4B8008C8B71 /* Adbusters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Adbusters.xcdatamodel; sourceTree = "<group>"; };
-		D088736A2174A4B9008C8B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D088736D2174A4B9008C8B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D088736F2174A4B9008C8B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D088737A2174AE85008C8B71 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		D088735F2174A4B8008C8B71 /* Adbusters */ = {
 			isa = PBXGroup;
 			children = (
+				D00F54F7217BC8A100D11A5B /* Assets.xcassets */,
 				D08873772174A4E6008C8B71 /* Model */,
 				D08873762174A4E0008C8B71 /* Controller */,
 				D08873752174A4DA008C8B71 /* View */,
@@ -120,7 +123,6 @@
 			children = (
 				D08873642174A4B8008C8B71 /* Main.storyboard */,
 				D088736C2174A4B9008C8B71 /* LaunchScreen.storyboard */,
-				D088736A2174A4B9008C8B71 /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				D0EBA434217526ED003CCBDC /* RoundShadowView.swift */,
+				D00F54F5217BC5EE00D11A5B /* UIDropDownTextField.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -258,7 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D088736E2174A4B9008C8B71 /* LaunchScreen.storyboard in Resources */,
-				D088736B2174A4B9008C8B71 /* Assets.xcassets in Resources */,
+				D00F54F8217BC8A100D11A5B /* Assets.xcassets in Resources */,
 				D08873662174A4B8008C8B71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +300,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Adbusters/Pods-Adbusters-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/TweeTextField/TweeTextField.framework",
 			);
@@ -304,6 +308,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TweeTextField.framework",
 			);
@@ -319,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00F54F6217BC5EE00D11A5B /* UIDropDownTextField.swift in Sources */,
 				D08873632174A4B8008C8B71 /* ViewController.swift in Sources */,
 				D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */,
 				D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */,
