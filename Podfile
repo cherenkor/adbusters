@@ -5,5 +5,5 @@ target 'Adbusters' do
   use_frameworks!
 	pod 'TweeTextField'
 	pod 'SVProgressHUD'
-	pod 'DropDown', '~> 2.3.2'
+	pod 'DropDown'
 end

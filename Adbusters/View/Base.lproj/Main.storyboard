@@ -428,7 +428,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7h-id-dbJ" customClass="TweeBorderedTextField" customModule="TweeTextField">
-                                        <rect key="frame" x="8" y="164" width="304" height="30"/>
+                                        <rect key="frame" x="18" y="164" width="294" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Ypv-4P-mEp"/>
                                         </constraints>
@@ -446,50 +446,51 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeS-Z4-2t2">
-                                        <rect key="frame" x="8" y="298" width="304" height="110"/>
+                                        <rect key="frame" x="8" y="298" width="304" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип реклами" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vM-95-E8j">
-                                                <rect key="frame" x="8" y="0.0" width="183" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vM-95-E8j">
+                                                <rect key="frame" x="8" y="0.0" width="40" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="183" id="fnI-GB-j5c"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="fnI-GB-j5c"/>
                                                     <constraint firstAttribute="height" constant="30" id="wRh-Tl-oCB"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1U-dg-NO4" customClass="UIDropDownTextField" customModule="Adbusters" customModuleProvider="target">
-                                                <rect key="frame" x="188" y="38" width="97" height="30"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY9-M4-0xX">
+                                                <rect key="frame" x="234" y="0.0" width="50" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="xwH-J5-DUZ"/>
+                                                </constraints>
+                                                <state key="normal" image="drop-down-arrow"/>
+                                                <connections>
+                                                    <action selector="showDropDown:" destination="Scf-Ba-FFU" eventType="touchUpInside" id="7OW-IN-tag"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бігборд" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNF-ca-I5N">
+                                                <rect key="frame" x="106" y="0.0" width="120" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="P76-Bs-Hoy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cellHeight">
-                                                        <real key="value" value="30"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumItems">
-                                                        <integer key="value" value="7"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonBackground">
-                                                        <color key="value" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="o1U-dg-NO4" firstAttribute="top" secondItem="jeS-Z4-2t2" secondAttribute="top" constant="38" id="5eg-Q4-741"/>
                                             <constraint firstItem="8vM-95-E8j" firstAttribute="top" secondItem="jeS-Z4-2t2" secondAttribute="top" id="65t-yf-L7r"/>
-                                            <constraint firstItem="o1U-dg-NO4" firstAttribute="leading" secondItem="8vM-95-E8j" secondAttribute="trailing" constant="-3" id="7oa-UT-oPB"/>
                                             <constraint firstItem="8vM-95-E8j" firstAttribute="leading" secondItem="jeS-Z4-2t2" secondAttribute="leading" constant="8" id="APc-2Z-czq"/>
-                                            <constraint firstAttribute="bottom" secondItem="o1U-dg-NO4" secondAttribute="bottom" constant="42" id="CBB-Ar-IrP"/>
-                                            <constraint firstAttribute="trailing" secondItem="o1U-dg-NO4" secondAttribute="trailing" constant="19" id="g1D-UH-zBU"/>
+                                            <constraint firstItem="eY9-M4-0xX" firstAttribute="top" secondItem="jeS-Z4-2t2" secondAttribute="top" id="FOO-VI-3Oe"/>
+                                            <constraint firstAttribute="trailing" secondItem="eY9-M4-0xX" secondAttribute="trailing" constant="20" id="WUH-ti-RDH"/>
+                                            <constraint firstAttribute="bottom" secondItem="YNF-ca-I5N" secondAttribute="bottom" id="aXY-dF-4mh"/>
+                                            <constraint firstAttribute="bottom" secondItem="eY9-M4-0xX" secondAttribute="bottom" id="bON-vC-FfP"/>
+                                            <constraint firstItem="YNF-ca-I5N" firstAttribute="top" secondItem="jeS-Z4-2t2" secondAttribute="top" id="d8E-6v-Ar1"/>
+                                            <constraint firstItem="YNF-ca-I5N" firstAttribute="top" secondItem="jeS-Z4-2t2" secondAttribute="top" id="fw8-Op-Vij"/>
+                                            <constraint firstAttribute="bottom" secondItem="YNF-ca-I5N" secondAttribute="bottom" id="hYW-hq-SJl"/>
+                                            <constraint firstAttribute="height" constant="30" id="jHZ-4u-J6K"/>
+                                            <constraint firstItem="eY9-M4-0xX" firstAttribute="leading" secondItem="YNF-ca-I5N" secondAttribute="trailing" constant="8" id="lGF-v0-r0G"/>
+                                            <constraint firstItem="YNF-ca-I5N" firstAttribute="leading" secondItem="8vM-95-E8j" secondAttribute="trailing" constant="58" id="ocq-WA-jBl"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -509,7 +510,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ZVf-0W-lQQ" secondAttribute="trailing" constant="8" id="hgD-Sa-r4E"/>
                                     <constraint firstItem="ZVf-0W-lQQ" firstAttribute="top" secondItem="a7h-id-dbJ" secondAttribute="bottom" constant="8" id="pM7-PR-UCx"/>
                                     <constraint firstItem="zRA-eH-jnq" firstAttribute="top" secondItem="VJd-FQ-VNK" secondAttribute="top" constant="32" id="qHW-4k-2UZ"/>
-                                    <constraint firstItem="a7h-id-dbJ" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="8" id="qKi-sy-ulQ"/>
+                                    <constraint firstItem="a7h-id-dbJ" firstAttribute="leading" secondItem="VJd-FQ-VNK" secondAttribute="leading" constant="18" id="qKi-sy-ulQ"/>
                                     <constraint firstItem="fbn-Nb-ej6" firstAttribute="top" secondItem="VJd-FQ-VNK" secondAttribute="top" id="r5T-Zr-lkJ"/>
                                     <constraint firstItem="fbn-Nb-ej6" firstAttribute="leading" secondItem="zRA-eH-jnq" secondAttribute="trailing" constant="8" id="rdV-3u-WSa"/>
                                 </constraints>
@@ -528,8 +529,9 @@
                         <viewLayoutGuide key="safeArea" id="Gm9-TX-g2h"/>
                     </view>
                     <connections>
+                        <outlet property="adType" destination="YNF-ca-I5N" id="TOg-y0-sqz"/>
+                        <outlet property="adTypeView" destination="jeS-Z4-2t2" id="XkL-Dc-Gm3"/>
                         <outlet property="collectionView" destination="fbn-Nb-ej6" id="Djb-6Y-17u"/>
-                        <outlet property="dropTextField" destination="o1U-dg-NO4" id="hkg-cQ-uJw"/>
                         <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="ChZ-b1-s46"/>
                     </connections>
                 </viewController>
@@ -1511,6 +1513,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="drop-down-arrow" width="12.800000190734863" height="12.800000190734863"/>
         <image name="icon_add_photo_violet" width="152" height="139"/>
         <image name="icon_add_photo_white" width="103" height="92"/>
         <image name="icon_done" width="72" height="72"/>

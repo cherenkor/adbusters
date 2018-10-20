@@ -108,11 +108,11 @@
 		D088735F2174A4B8008C8B71 /* Adbusters */ = {
 			isa = PBXGroup;
 			children = (
-				D00F54F7217BC8A100D11A5B /* Assets.xcassets */,
 				D08873772174A4E6008C8B71 /* Model */,
 				D08873762174A4E0008C8B71 /* Controller */,
 				D08873752174A4DA008C8B71 /* View */,
 				D08873672174A4B8008C8B71 /* Adbusters.xcdatamodeld */,
+				D00F54F7217BC8A100D11A5B /* Assets.xcassets */,
 				D088736F2174A4B9008C8B71 /* Info.plist */,
 			);
 			path = Adbusters;

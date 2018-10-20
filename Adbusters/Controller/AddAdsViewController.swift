@@ -1,31 +1,31 @@
 import UIKit
 import SVProgressHUD
+import DropDown
 
-class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIDropDownTextFieldDelegate {
+class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var addingImages = [UIImage]()
-    var adType : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.show()
-        dropTextField.dropDownDelegate = self
-        dropTextField.backgroundColor = UIColor(white: 1, alpha: 0.0)
         
-        let bigboard = UIDropDownObject(title: "Бігборд", value: "Бігборд", icon: nil)
-        let cityLight = UIDropDownObject(title: "Сітілайт", value: "Сітілайт", icon: nil)
-        let newspaper = UIDropDownObject(title: "Газета", value: "Газета", icon: nil)
-        let paper = UIDropDownObject(title: "Листівка", value: "Листівка", icon: nil)
-        let camp = UIDropDownObject(title: "Намет", value: "Намет", icon: nil)
-        let transport = UIDropDownObject(title: "Транспорт", value: "Транспорт", icon: nil)
-        let other = UIDropDownObject(title: "Інше", value: "Facebook", icon: nil)
-        adsTypeList = [bigboard, cityLight, newspaper, paper, camp, transport, other]
+        dropDown.anchorView = adTypeView
+        dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]
+        
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.adType.text = item
+        }
+        
+        // Will set a custom width instead of the anchor view width
+        dropDown.width = 200
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        dropDown.hide()
     }
     
     @IBAction func saveAd(_ sender: Any) {
@@ -96,17 +96,13 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     // Ads type picker
-    @IBOutlet var dropTextField: UIDropDownTextField!
-     var adsTypeList: [UIDropDownObject] = [UIDropDownObject]()
     
-    func dropDownTextField(_ dropDownTextField: UIDropDownTextField, didSelectRowAt indexPath: IndexPath)
-    {
-        let aDropDownObject: UIDropDownObject = adsTypeList[indexPath.row]
-        adType = aDropDownObject.title
-    }
+    @IBOutlet weak var adTypeView: UIView!
     
-    func dropDownTextField(_ dropDownTextField: UIDropDownTextField, setOfItemsInDropDownMenu items: [UIDropDownObject]) -> [UIDropDownObject]
-    {
-        return adsTypeList
+    var dropDown = DropDown()
+    @IBOutlet weak var adType: UILabel!
+    
+    @IBAction func showDropDown(_ sender: Any) {
+        dropDown.show()
     }
 }

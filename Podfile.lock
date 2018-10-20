@@ -1,0 +1,24 @@
+PODS:
+  - DropDown (2.3.6)
+  - SVProgressHUD (2.2.5)
+  - TweeTextField (1.5.0)
+
+DEPENDENCIES:
+  - DropDown
+  - SVProgressHUD
+  - TweeTextField
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DropDown
+    - SVProgressHUD
+    - TweeTextField
+
+SPEC CHECKSUMS:
+  DropDown: e8bfbce001b2e6b7e8abfdd42e12b565712d84f4
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TweeTextField: 3ae42dd5944571a25a34cbebd361edbb62931c79
+
+PODFILE CHECKSUM: 4fee0479137e81cf637bfc7baf24d793edd4bf43
+
+COCOAPODS: 1.5.3
