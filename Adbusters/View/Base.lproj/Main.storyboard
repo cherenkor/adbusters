@@ -361,7 +361,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="xVi-c1-Jjl" kind="custom" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="m3B-0v-n4O"/>
+                                                    <segue destination="xVi-c1-Jjl" kind="custom" identifier="party" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="m3B-0v-n4O"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -392,14 +392,13 @@
                                                 <rect key="frame" x="204" y="4" width="100" height="32"/>
                                                 <color key="backgroundColor" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="D1t-7u-GaE"/>
                                                     <constraint firstAttribute="height" constant="32" id="Qij-o6-jdJ"/>
                                                 </constraints>
                                                 <state key="normal" title="Вибрати">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="E0S-PE-JXq" kind="custom" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="tfB-VN-QsA"/>
+                                                    <segue destination="E0S-PE-JXq" kind="custom" identifier="politician" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="tfB-VN-QsA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
