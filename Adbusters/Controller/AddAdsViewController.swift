@@ -3,7 +3,30 @@ import SVProgressHUD
 import DropDown
 import Material
 
-class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PoliticianDelegate, PartyDelegate {
+    
+    func haveParty(partyName: String) {
+        print(partyName)
+        if partyName != "" {
+            partyLabel.text = partyName
+            partyLabel.textColor = .black
+        } else {
+            print("No party")
+            SVProgressHUD.showError(withStatus: "Партію не обрано")
+            SVProgressHUD.dismiss(withDelay: 1.0)
+        }
+    }
+    
+    func havePolitician(politicianName: String) {
+        if politician != "" {
+            politicianLabel.text = politicianName
+            politicianLabel.textColor = .black
+        } else {
+            print("No politician")
+            SVProgressHUD.showError(withStatus: "Політика не обрано")
+            SVProgressHUD.dismiss(withDelay: 1.0)
+        }
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     var addingImages = [UIImage]()
@@ -18,15 +41,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         
-        if party != nil {
-            partyLabel.text = party
-            partyLabel.textColor = .black
-        }
-        if politician != nil {
-            politicianLabel.text = politician
-            politicianLabel.textColor = .black
-        }
-        
         dropDown.anchorView = adTypeView
         dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]
         
@@ -37,6 +51,16 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Will set a custom width instead of the anchor view width
         dropDown.width = 200
         prepareSwitch()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "party" {
+            let partiesVC = segue.destination as! PartiesViewController
+            partiesVC.delegate = self
+        } else if segue.identifier == "politician" {
+            let politicianVC = segue.destination as! PoliticiansViewController
+            politicianVC.delegate = self
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

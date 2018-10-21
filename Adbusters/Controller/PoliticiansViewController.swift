@@ -1,13 +1,13 @@
 import UIKit
 import SVProgressHUD
 
-protocol politicianDelegate {
+protocol PoliticianDelegate {
     func havePolitician(politicianName: String)
 }
 
 class PoliticiansViewController: UIViewController {
     
-    var delegate : politicianDelegate?
+    var delegate : PoliticianDelegate?
     
     var politicians = ["Антон Яценко","Володимир Бідьовка","Владислав Лук’янов","Артем Щербань","Микола Дмитрук","Вадим Колесніченко","Нестор Шуфрич","Юрій Самойленко","Анатолій Гончаров","Інна Богословська","Яків Безбах","Василь Поляков","Артем Семенюк","Сергій Дунаєв","Геннадій Федоряк","Андрій Пінчук","Володимир Кацуба","Ігор Молоток","Михайло Чечетов","Анатолій Кінах","Сергій Брайко","Володимир Сальдо","Володимир Мисик","Сергій Буряк","Юрій Боярський","Олександр Єгоров","Олександр Єдін","Микола Жук","Михайло Ланьо","Іван Бушко","Олег Царьов","Василь Ковач","Олег Парасків","Микола Сорока"]
     var searchPoliticians = [String]()
@@ -27,18 +27,19 @@ class PoliticiansViewController: UIViewController {
     }
     
     @IBAction func savePolitician(_ sender: Any) {
-        if selectedPolitician != nil {
-            performSegue(withIdentifier: "goToAddAds", sender: nil)
-        } else {
-            SVProgressHUD.showError(withStatus: "Виберіть політика")
-            SVProgressHUD.dismiss(withDelay: 1.0)
-        }
+         self.dismiss(animated: true, completion: nil)
+//        if selectedPolitician != nil {
+//            performSegue(withIdentifier: "goToAddAds", sender: nil)
+//        } else {
+//            SVProgressHUD.showError(withStatus: "Виберіть політика")
+//            SVProgressHUD.dismiss(withDelay: 1.0)
+//        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let addAdsViewController = segue.destination as! AddAdsViewController
-        addAdsViewController.politician = selectedPolitician!
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let addAdsViewController = segue.destination as! AddAdsViewController
+//        addAdsViewController.politician = selectedPolitician!
+//    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,8 +71,10 @@ extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searching {
             selectedPolitician = searchPoliticians[indexPath.row]
+            delegate?.havePolitician(politicianName: selectedPolitician!)
         } else {
             selectedPolitician = politicians[indexPath.row]
+            delegate?.havePolitician(politicianName: selectedPolitician!)
         }
     }
 }
