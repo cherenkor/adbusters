@@ -8,10 +8,24 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     var addingImages = [UIImage]()
     
+    var party: String?
+    var politician: String?
+    @IBOutlet weak var partyLabel: UILabel!
+    @IBOutlet weak var politicianLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-        SVProgressHUD.show()
+        
+        if party != nil {
+            partyLabel.text = party
+            partyLabel.textColor = .black
+        }
+        if politician != nil {
+            politicianLabel.text = politician
+            politicianLabel.textColor = .black
+        }
         
         dropDown.anchorView = adTypeView
         dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]

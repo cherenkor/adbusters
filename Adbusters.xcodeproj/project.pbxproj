@@ -12,6 +12,8 @@
 		D00F54F8217BC8A100D11A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00F54F7217BC8A100D11A5B /* Assets.xcassets */; };
 		D00F54FA217CFBCE00D11A5B /* PartiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54F9217CFBCD00D11A5B /* PartiesViewController.swift */; };
 		D00F54FC217CFC1200D11A5B /* PoliticiansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54FB217CFC1200D11A5B /* PoliticiansViewController.swift */; };
+		D00F54FE217D006A00D11A5B /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54FD217D006A00D11A5B /* PartyTableViewCell.swift */; };
+		D00F5500217D008B00D11A5B /* PoliticianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54FF217D008B00D11A5B /* PoliticianTableViewCell.swift */; };
 		D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C832174B320005CABC3 /* LoginViewController.swift */; };
 		D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C852174B32F005CABC3 /* RegisterViewController.swift */; };
 		D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447121750E1D0085A8BA /* SegueFromLeft.swift */; };
@@ -42,6 +44,8 @@
 		D00F54F7217BC8A100D11A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		D00F54F9217CFBCD00D11A5B /* PartiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiesViewController.swift; sourceTree = "<group>"; };
 		D00F54FB217CFC1200D11A5B /* PoliticiansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansViewController.swift; sourceTree = "<group>"; };
+		D00F54FD217D006A00D11A5B /* PartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
+		D00F54FF217D008B00D11A5B /* PoliticianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticianTableViewCell.swift; sourceTree = "<group>"; };
 		D0749C832174B320005CABC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0749C852174B32F005CABC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D084447121750E1D0085A8BA /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				D0EBA4432178FB51003CCBDC /* RateViewTableViewCell.swift */,
 				D0EBA445217920B3003CCBDC /* MyAdsViewTableViewCell.swift */,
 				D0EBA449217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift */,
+				D00F54FD217D006A00D11A5B /* PartyTableViewCell.swift */,
+				D00F54FF217D008B00D11A5B /* PoliticianTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 				D08873632174A4B8008C8B71 /* ViewController.swift in Sources */,
 				D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */,
 				D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */,
+				D00F54FE217D006A00D11A5B /* PartyTableViewCell.swift in Sources */,
 				D0EBA446217920B3003CCBDC /* MyAdsViewTableViewCell.swift in Sources */,
 				D0EBA44A217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift in Sources */,
 				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
@@ -352,6 +359,7 @@
 				D0EBA4412177E0C4003CCBDC /* AddAdsViewController.swift in Sources */,
 				D08873612174A4B8008C8B71 /* AppDelegate.swift in Sources */,
 				D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */,
+				D00F5500217D008B00D11A5B /* PoliticianTableViewCell.swift in Sources */,
 				D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */,
 				D08873692174A4B8008C8B71 /* Adbusters.xcdatamodeld in Sources */,
 			);
