@@ -22,6 +22,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         // Will set a custom width instead of the anchor view width
         dropDown.width = 200
+        prepareSwitch()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -111,4 +112,25 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var userLocationSwitchView: UIView!
     
     
+}
+
+
+
+extension AddAdsViewController {
+    fileprivate func prepareSwitch() {
+        let control = Switch(state: .on, style: .light, size: .small)
+        control.delegate = self
+        control.buttonOnColor = UIColor(red:0.36, green:0.82, blue:0.67, alpha:1.0)
+        control.buttonOffColor = .white
+        control.trackOnColor = UIColor(red:0.80, green:0.93, blue:0.88, alpha:1.0)
+        control.trackOffColor = .gray
+        
+        userLocationSwitchView.layout(control).center()
+    }
+}
+
+extension AddAdsViewController: SwitchDelegate {
+    func switchDidChangeState(control: Switch, state: SwitchState) {
+        print("Switch changed state to: ", .on == state ? "on" : "off")
+    }
 }
