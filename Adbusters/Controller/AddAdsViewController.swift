@@ -111,6 +111,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     // User current location
     @IBOutlet weak var userLocationSwitchView: UIView!
     
+    @IBOutlet weak var chooseLocationView: UIView!
     
 }
 
@@ -131,6 +132,6 @@ extension AddAdsViewController {
 
 extension AddAdsViewController: SwitchDelegate {
     func switchDidChangeState(control: Switch, state: SwitchState) {
-        print("Switch changed state to: ", .on == state ? "on" : "off")
+        chooseLocationView.isHidden = .off == state
     }
 }

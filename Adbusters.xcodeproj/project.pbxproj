@@ -10,6 +10,8 @@
 		34430E72EDCBBC5970431C2F /* Pods_Adbusters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12C8CCB0075BCA4D1AB8846 /* Pods_Adbusters.framework */; };
 		D00F54F6217BC5EE00D11A5B /* UIDropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54F5217BC5EE00D11A5B /* UIDropDownTextField.swift */; };
 		D00F54F8217BC8A100D11A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00F54F7217BC8A100D11A5B /* Assets.xcassets */; };
+		D00F54FA217CFBCE00D11A5B /* PartiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54F9217CFBCD00D11A5B /* PartiesViewController.swift */; };
+		D00F54FC217CFC1200D11A5B /* PoliticiansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54FB217CFC1200D11A5B /* PoliticiansViewController.swift */; };
 		D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C832174B320005CABC3 /* LoginViewController.swift */; };
 		D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C852174B32F005CABC3 /* RegisterViewController.swift */; };
 		D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447121750E1D0085A8BA /* SegueFromLeft.swift */; };
@@ -38,6 +40,8 @@
 		C3DE4BCA7FA8154E16830394 /* Pods-Adbusters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adbusters.release.xcconfig"; path = "Pods/Target Support Files/Pods-Adbusters/Pods-Adbusters.release.xcconfig"; sourceTree = "<group>"; };
 		D00F54F5217BC5EE00D11A5B /* UIDropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropDownTextField.swift; sourceTree = "<group>"; };
 		D00F54F7217BC8A100D11A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		D00F54F9217CFBCD00D11A5B /* PartiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiesViewController.swift; sourceTree = "<group>"; };
+		D00F54FB217CFC1200D11A5B /* PoliticiansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansViewController.swift; sourceTree = "<group>"; };
 		D0749C832174B320005CABC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0749C852174B32F005CABC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D084447121750E1D0085A8BA /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				D0EBA43C2177D647003CCBDC /* RateViewController.swift */,
 				D0EBA43E2177D763003CCBDC /* MyAdsViewController.swift */,
 				D0EBA4402177E0C4003CCBDC /* AddAdsViewController.swift */,
+				D00F54F9217CFBCD00D11A5B /* PartiesViewController.swift */,
+				D00F54FB217CFC1200D11A5B /* PoliticiansViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -340,7 +346,9 @@
 				D0EBA4442178FB52003CCBDC /* RateViewTableViewCell.swift in Sources */,
 				D0EBA435217526ED003CCBDC /* RoundShadowView.swift in Sources */,
 				D0EBA43D2177D648003CCBDC /* RateViewController.swift in Sources */,
+				D00F54FC217CFC1200D11A5B /* PoliticiansViewController.swift in Sources */,
 				D0EBA43B2176F617003CCBDC /* ProfileViewController.swift in Sources */,
+				D00F54FA217CFBCE00D11A5B /* PartiesViewController.swift in Sources */,
 				D0EBA4412177E0C4003CCBDC /* AddAdsViewController.swift in Sources */,
 				D08873612174A4B8008C8B71 /* AppDelegate.swift in Sources */,
 				D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */,
