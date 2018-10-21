@@ -6,4 +6,5 @@ target 'Adbusters' do
 	pod 'TweeTextField'
 	pod 'SVProgressHUD'
 	pod 'DropDown'
+	pod 'Material'
 end

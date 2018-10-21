@@ -1,6 +1,7 @@
 import UIKit
 import SVProgressHUD
 import DropDown
+import Material
 
 class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -105,4 +106,9 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBAction func showDropDown(_ sender: Any) {
         dropDown.show()
     }
+    
+    // User current location
+    @IBOutlet weak var userLocationSwitchView: UIView!
+    
+    
 }

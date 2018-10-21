@@ -1,24 +1,36 @@
 PODS:
   - DropDown (2.3.6)
+  - Material (2.16.4):
+    - Material/Core (= 2.16.4)
+  - Material/Core (2.16.4):
+    - Motion (~> 1.4.3)
+  - Motion (1.4.3):
+    - Motion/Core (= 1.4.3)
+  - Motion/Core (1.4.3)
   - SVProgressHUD (2.2.5)
   - TweeTextField (1.5.0)
 
 DEPENDENCIES:
   - DropDown
+  - Material
   - SVProgressHUD
   - TweeTextField
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DropDown
+    - Material
+    - Motion
     - SVProgressHUD
     - TweeTextField
 
 SPEC CHECKSUMS:
   DropDown: e8bfbce001b2e6b7e8abfdd42e12b565712d84f4
+  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
+  Motion: 153ba49692997888556c7a95207278a8b1f8be95
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TweeTextField: 3ae42dd5944571a25a34cbebd361edbb62931c79
 
-PODFILE CHECKSUM: 4fee0479137e81cf637bfc7baf24d793edd4bf43
+PODFILE CHECKSUM: 7f2d0d6d3287a58d54add6294d132b51ddbbbbb8
 
 COCOAPODS: 1.5.3
