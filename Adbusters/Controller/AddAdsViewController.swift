@@ -3,7 +3,13 @@ import SVProgressHUD
 import DropDown
 import Material
 
+protocol AdvertiseDelegate {
+    func addAdvertise(party: String, politician: String, type: String, date: String, image: UIImage)
+}
+
 class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PoliticianDelegate, PartyDelegate {
+    
+    var delegate: AdvertiseDelegate?
     
     func haveParty(partyName: String) {
         print(partyName)
@@ -27,8 +33,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             SVProgressHUD.dismiss(withDelay: 1.0)
         }
     }
-    
-    
     
     @IBOutlet weak var collectionView: UICollectionView!
     var addingImages = [UIImage]()
@@ -72,7 +76,14 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func saveAd(_ sender: Any) {
-        
+        print("Pa \(String(describing: partyLabel.text)), po \(String(describing: politicianLabel.text)), co \(addingImages.count)")
+        if partyLabel.text == nil || politicianLabel.text == nil || addingImages.count == 0 || adType.text == nil {
+            SVProgressHUD.showError(withStatus: "Заповнiть усi поля")
+            SVProgressHUD.dismiss(withDelay: 1.0)
+        } else {
+            delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: "12 жов, 2019", image: addingImages[0] )
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // Adding image

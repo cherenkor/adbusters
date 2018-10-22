@@ -11,7 +11,37 @@ import MapKit
 import CoreLocation
 import SVProgressHUD
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AdvertiseDelegate {
+    
+    func addAdvertise (party: String, politician: String, type: String, date: String, image: UIImage) {
+        print("Done with \(party)")
+        popupView.isHidden = false
+        partyLbl.text = party
+        typeLbl.text = type
+        dateLbl.text = date
+        adImage.image = image
+    }
+    
+    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var adImage: UIImageView!
+    @IBOutlet weak var partyLbl: UILabel!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    
+    @IBAction func closePopup(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            self.popupView.alpha = 0.0
+        }) { (isCompleted) in
+            self.popupView.isHidden = true
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAddAds" {
+            let addAds = segue.destination as! AddAdsViewController
+            addAds.delegate = self
+        }
+    }
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()

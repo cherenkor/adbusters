@@ -118,7 +118,7 @@
                                                     <color key="titleShadowColor" red="0.36078431370000003" green="0.14229881759999999" blue="0.48681175710000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Scf-Ba-FFU" kind="custom" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="MyF-gz-SLx"/>
+                                                    <segue destination="Scf-Ba-FFU" kind="custom" identifier="goToAddAds" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="MyF-gz-SLx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -167,7 +167,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoG-x0-T6n" userLabel="PopupView">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoG-x0-T6n" userLabel="PopupView">
                                         <rect key="frame" x="0.0" y="8" width="320" height="410"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPU-B0-2Xm">
@@ -184,6 +184,9 @@
                                                         <state key="normal" title="Закрити">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="closePopup:" destination="cLT-OV-9Rz" eventType="touchUpInside" id="nsL-K1-Gax"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -291,7 +294,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2s-Xi-iXh">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 жов, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2s-Xi-iXh">
                                                                         <rect key="frame" x="0.0" y="56" width="207" height="16"/>
                                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -363,6 +366,7 @@
                                     <constraint firstAttribute="bottom" secondItem="xoG-x0-T6n" secondAttribute="bottom" id="Ne9-Un-ncV"/>
                                     <constraint firstAttribute="trailing" secondItem="xoG-x0-T6n" secondAttribute="trailing" id="T02-GQ-syL"/>
                                     <constraint firstAttribute="trailing" secondItem="jqy-WD-UY7" secondAttribute="trailing" id="Tna-fo-5Nc"/>
+                                    <constraint firstItem="xoG-x0-T6n" firstAttribute="centerX" secondItem="o00-p5-laq" secondAttribute="centerX" id="Y8c-LR-ULo"/>
                                     <constraint firstItem="LUU-mu-g0L" firstAttribute="leading" secondItem="jqy-WD-UY7" secondAttribute="trailing" constant="-68" id="jcG-Dc-E83"/>
                                     <constraint firstItem="jqy-WD-UY7" firstAttribute="top" secondItem="LUU-mu-g0L" secondAttribute="bottom" constant="-84" id="k6a-hd-ds5"/>
                                     <constraint firstItem="jqy-WD-UY7" firstAttribute="top" secondItem="o00-p5-laq" secondAttribute="top" constant="8" id="ocu-mq-fYT"/>
@@ -421,7 +425,12 @@
                         <viewLayoutGuide key="safeArea" id="87c-yH-Vxc"/>
                     </view>
                     <connections>
+                        <outlet property="adImage" destination="Q2J-iq-ZvO" id="oXf-ZQ-kRd"/>
+                        <outlet property="dateLbl" destination="v2s-Xi-iXh" id="YJb-YF-JlM"/>
                         <outlet property="mapView" destination="jqy-WD-UY7" id="NfX-qg-Ydr"/>
+                        <outlet property="partyLbl" destination="tyA-4X-tdR" id="7ML-Dv-9fw"/>
+                        <outlet property="popupView" destination="xoG-x0-T6n" id="bbZ-o5-5NH"/>
+                        <outlet property="typeLbl" destination="pqA-TC-0By" id="XbR-DT-VJP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ib-rg-CJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -833,7 +842,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFj-9L-TPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192.5" y="1237.5"/>
+            <point key="canvasLocation" x="1011" y="1050"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="POg-gs-I3J">
@@ -2013,6 +2022,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="G9J-Jw-yyF"/>
         <segue reference="MyF-gz-SLx"/>
-        <segue reference="gQg-cU-FWQ"/>
+        <segue reference="ChZ-b1-s46"/>
     </inferredMetricsTieBreakers>
 </document>
