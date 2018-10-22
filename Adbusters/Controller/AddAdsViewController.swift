@@ -28,6 +28,8 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var addingImages = [UIImage]()
     
@@ -35,6 +37,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     var politician: String?
     @IBOutlet weak var partyLabel: UILabel!
     @IBOutlet weak var politicianLabel: UILabel!
+    @IBOutlet weak var adLocation: UILabel!
     
     
     override func viewDidLoad() {
