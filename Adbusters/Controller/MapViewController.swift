@@ -20,7 +20,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         typeLbl.text = type
         dateLbl.text = date
         adImage.image = image
+           
     }
+    
+    @IBAction func addAdButtonPressed(_ sender: Any) {
+        if isLogged == false {
+            SVProgressHUD.showError(withStatus: "Спочатку увiйдiть")
+            SVProgressHUD.dismiss(withDelay: 1.0) {
+                self.performSegue(withIdentifier: "goToLogin", sender: nil)
+            }
+        } else {
+            performSegue(withIdentifier: "goToAddAds", sender: self)
+        }
+    }
+    
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var adImage: UIImageView!
@@ -52,7 +65,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.show()
         locationManager.startUpdatingLocation()
     }
@@ -62,6 +74,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         configMap()
         determinateCurrentLocation()
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
 
 //        let userLocation = mapView.userLocation
 //        let region = MKCoordinateRegion(center: (userLocation.location?.coordinate)!, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
