@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Дозвольте відкрити Вашу камеру</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Дозвольте дізнатися вашу позицію для додатку</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Дозвольте дізнатися вашу позицію для додатку</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

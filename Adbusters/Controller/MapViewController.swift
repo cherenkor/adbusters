@@ -66,7 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
         SVProgressHUD.show()
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
     }
     
     override func viewDidLoad() {
@@ -95,7 +95,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestLocation()
         
         if CLLocationManager.locationServicesEnabled() {
             // If allow get location
@@ -113,6 +113,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         mapView.setRegion(region, animated: true)
+        manager.stopUpdatingLocation()
         SVProgressHUD.dismiss()
         
         // Drop a pin at user's Current Location
@@ -125,7 +126,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
-        print("Error \(error)")
+        SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
+        SVProgressHUD.dismiss(withDelay: 1.0)
+        manager.stopUpdatingLocation()
     }
     
 }
