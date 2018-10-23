@@ -550,7 +550,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="deleteAdImage:" destination="MVs-Ej-MIN" eventType="touchUpInside" id="6LY-4g-LiU"/>
+                                                                <action selector="deleteAdImage:" destination="MVs-Ej-MIN" eventType="touchUpInside" id="qMb-8P-3di"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -564,7 +564,6 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="adImageView" destination="DkJ-DP-mQK" id="gas-Tq-cGO"/>
-                                                    <outlet property="deleteImageButton" destination="b2V-dM-Um9" id="mwH-65-ya8"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

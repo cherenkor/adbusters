@@ -35,7 +35,12 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var addingImages = [UIImage]()
+    var addingImages = [UIImage]() {
+        didSet {
+            collectionView.reloadData()
+            print("Images updated")
+        }
+    }
     
     var party: String?
     var politician: String?
@@ -120,7 +125,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
         addingImages.append(image!)
-        collectionView.reloadData()
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -137,8 +141,10 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AddAdImageViewCollectionViewCell
         cell.adImageView.image = addingImages[indexPath.row]
-        cell.deleteImageButton?.tag = indexPath.row
-        cell.deleteImageButton?.addTarget(self, action: #selector(deleteAdImage), for: .touchUpInside)
+        cell.imageIndex = indexPath.row
+        cell.deleteImageClb = {imageIndex in
+            self.addingImages.remove(at: imageIndex)
+        }
         return cell
     }
     
@@ -146,7 +152,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         let i : Int = sender.tag
         print("Delete \(i)")
         addingImages.remove(at:i)
-        collectionView.reloadData()
     }
     
     // Ads type picker
