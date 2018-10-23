@@ -3,7 +3,7 @@ import UIKit
 class RoundShadowView: UIView {
     
     let containerView = UIView()
-    let cornerRadius: CGFloat = 6.0
+//    let cornerRadius: CGFloat = 6.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,22 +25,22 @@ class RoundShadowView: UIView {
         layer.shadowRadius = 4.0
         
         // set the cornerRadius of the containerView's layer
-        containerView.layer.cornerRadius = cornerRadius
-        containerView.layer.masksToBounds = true
+//        containerView.layer.cornerRadius = cornerRadius
+//        containerView.layer.masksToBounds = true
         
-        addSubview(containerView)
+//        addSubview(containerView)
         
         //
         // add additional views to the containerView here
         //
         
         // add constraints
-        containerView.translatesAutoresizingMaskIntoConstraints = false
+//        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         // pin the containerView to the edges to the view
-        containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+//        containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+//        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+//        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }
