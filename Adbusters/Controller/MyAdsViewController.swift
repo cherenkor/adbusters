@@ -58,7 +58,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         currentParty = ads[index]["party"]
         currentType = ads[index]["type"]
-        currentDate = "Жов \(index + 1), 2019"
+        currentDate = ads[index]["date"]
         performSegue(withIdentifier: "goToSingleAd", sender: nil)
     }
 }
