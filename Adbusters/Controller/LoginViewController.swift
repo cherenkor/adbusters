@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginTapped(_ sender: Any) {
         
-        if (emailTextField.text == "me@me.com" && passwordTextField.text == "admin") {
+        if (emailTextField.text == "admin" && passwordTextField.text == "admin") {
         performSegue(withIdentifier: "goToMap", sender: self)
         }
     }
