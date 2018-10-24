@@ -8,6 +8,12 @@
 
 import UIKit
 
+var currentAdsImages = [UIImage]()
+var currentParty: String?
+var currentType: String?
+var currentDate: String?
+var isLogged = false
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

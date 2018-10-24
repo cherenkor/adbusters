@@ -3,7 +3,6 @@ import MessageUI
 import SVProgressHUD
 
 var menu : [String]?
-var isLogged = false
 var myIndex = 0
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {

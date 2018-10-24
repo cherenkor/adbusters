@@ -17,15 +17,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.5</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Дозвольте відкрити Вашу камеру</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Дозвольте дізнатися вашу позицію для додатку</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Дозвольте дізнатися вашу позицію для додатку</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Дозвольте дізнатися вашу позицію для додатку</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

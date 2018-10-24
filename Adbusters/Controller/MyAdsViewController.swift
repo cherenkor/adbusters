@@ -11,13 +11,13 @@ import UIKit
 class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let ads = [
-        ["photo": "default", "title": "Опозиційний блок", "type": "Бігборд", "date": "Жов 7, 2018"],
-        ["photo": "default", "title": "Народний блок", "type": "Газета", "date": "Лип 11, 2018"],
-        ["photo": "default", "title": "Блок Юлії Тимошенко", "type": "Бумажна листівка", "date": "Бер 9, 2018"],
-        ["photo": "default", "title": "Блок Петра Порошенка", "type": "Транспорт", "date": "Січ 5, 2018"],
-        ["photo": "default", "title": "Партія Олександра Соломанського", "type": "Інше", "date": "Лис 2, 2018"],
-        ["photo": "default", "title": "Коаліційний блок", "type": "Палатка", "date": "Сер 22, 2018"],
-        ["photo": "default", "title": "Антикорумційний блок", "type": "Світлина", "date": "Гру 17, 2018"],
+        ["photo": "default", "party": "Опозиційний блок", "type": "Бігборд", "date": "Жов 7, 2018"],
+        ["photo": "default", "party": "Народний блок", "type": "Газета", "date": "Лип 11, 2018"],
+        ["photo": "default", "party": "Блок Юлії Тимошенко", "type": "Бумажна листівка", "date": "Бер 9, 2018"],
+        ["photo": "default", "party": "Блок Петра Порошенка", "type": "Транспорт", "date": "Січ 5, 2018"],
+        ["photo": "default", "party": "Партія Олександра Соломанського", "type": "Інше", "date": "Лис 2, 2018"],
+        ["photo": "default", "party": "Коаліційний блок", "type": "Палатка", "date": "Сер 22, 2018"],
+        ["photo": "default", "party": "Антикорумційний блок", "type": "Світлина", "date": "Гру 17, 2018"],
     ]
     
     @IBOutlet weak var tableView: UITableView!
@@ -36,7 +36,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyAdsViewTableViewCell
-        cell.title.text = ads[indexPath.row]["title"]
+        cell.title.text = ads[indexPath.row]["party"]
         cell.type.text = ads[indexPath.row]["type"]
         cell.date.text = ads[indexPath.row]["date"]
         
@@ -45,6 +45,20 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
-        selectedCell.contentView.backgroundColor = UIColor(red:178.0, green:178.0, blue:178.0, alpha:1.0)
+        selectedCell.contentView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        
+        setCurrent(index: indexPath.row)
+    }
+    
+    func setCurrent(index: Int) {
+        if index == 0 {
+            currentAdsImages = [UIImage(named: "logo")]  as! [UIImage]
+        } else {
+            currentAdsImages = [UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo")] as! [UIImage]
+        }
+        currentParty = ads[index]["party"]
+        currentType = ads[index]["type"]
+        currentDate = "Жов \(index + 1), 2019"
+        performSegue(withIdentifier: "goToSingleAd", sender: nil)
     }
 }
