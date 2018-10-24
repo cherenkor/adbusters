@@ -458,6 +458,7 @@
                     </view>
                     <connections>
                         <outlet property="adImage" destination="Q2J-iq-ZvO" id="oXf-ZQ-kRd"/>
+                        <outlet property="currentAdView" destination="qoX-7T-Xbt" id="pyz-5k-BUs"/>
                         <outlet property="dateLbl" destination="v2s-Xi-iXh" id="YJb-YF-JlM"/>
                         <outlet property="mapView" destination="jqy-WD-UY7" id="NfX-qg-Ydr"/>
                         <outlet property="partyLbl" destination="tyA-4X-tdR" id="7ML-Dv-9fw"/>
@@ -2280,9 +2281,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aPl-pC-Vdb"/>
-        <segue reference="ybb-UJ-Wha"/>
+        <segue reference="wJo-3A-m8h"/>
         <segue reference="mm9-QN-m4G"/>
-        <segue reference="L9R-ll-7yp"/>
+        <segue reference="G9J-Jw-yyF"/>
         <segue reference="a9S-fS-bVK"/>
         <segue reference="ChZ-b1-s46"/>
     </inferredMetricsTieBreakers>

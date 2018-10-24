@@ -13,14 +13,14 @@ import SVProgressHUD
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AdvertiseDelegate {
     
-    func addAdvertise (party: String, politician: String, type: String, date: String, image: UIImage) {
+    func addAdvertise (party: String, politician: String, type: String, date: String, images: [UIImage]) {
         print("Done with \(party)")
         popupView.isHidden = false
         partyLbl.text = party
         typeLbl.text = type
         dateLbl.text = date
-        adImage.image = image
-           
+        adImage.image = images[0]
+        currentAdsImages = images 
     }
     
     @IBAction func addAdButtonPressed(_ sender: Any) {
@@ -41,6 +41,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     
+    @IBOutlet weak var currentAdView: UIView!
+
+    @objc func showSingleAd(_ sender:UITapGestureRecognizer){
+        currentParty = partyLbl.text
+        currentType = typeLbl.text
+        currentDate = dateLbl.text
+        performSegue(withIdentifier: "goToSingleAd", sender: nil)
+    }
+
     @IBAction func closePopup(_ sender: Any) {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.popupView.alpha = 0.0
@@ -71,6 +80,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.showSingleAd (_:)))
+        currentAdView.addGestureRecognizer(gesture)
         
         configMap()
         determinateCurrentLocation()

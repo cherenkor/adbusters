@@ -4,7 +4,7 @@ import DropDown
 import Material
 
 protocol AdvertiseDelegate {
-    func addAdvertise(party: String, politician: String, type: String, date: String, image: UIImage)
+    func addAdvertise(party: String, politician: String, type: String, date: String, images: [UIImage])
 }
 
 class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PoliticianDelegate, PartyDelegate {
@@ -86,7 +86,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             SVProgressHUD.showError(withStatus: "Заповнiть усi поля")
             SVProgressHUD.dismiss(withDelay: 1.0)
         } else {
-            delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: "12 жов, 2019", image: addingImages[0] )
+            delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: "12 жов, 2019", images: addingImages )
             self.dismiss(animated: true, completion: nil)
         }
     }
