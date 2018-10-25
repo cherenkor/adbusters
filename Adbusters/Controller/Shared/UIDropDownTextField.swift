@@ -131,9 +131,25 @@ class UIDropDownTextField: UITextField, UITextFieldDelegate, UITableViewDelegate
         self.dropDownTextField.textInputView.contentMode = self.textInputView.contentMode
         self.dropDownTextField.autocapitalizationType = self.autocapitalizationType
         self.dropDownTextField.autocorrectionType = self.autocorrectionType
-        self.dropDownTextField.smartDashesType = self.smartDashesType
-        self.dropDownTextField.smartInsertDeleteType = self.smartInsertDeleteType
-        self.dropDownTextField.smartQuotesType = self.smartQuotesType
+        if #available(iOS 11.0, *) {
+            self.dropDownTextField.smartDashesType = self.smartDashesType
+        } else {
+            // Fallback on earlier versions
+        };if #available(iOS 11.0, *) {
+            self.dropDownTextField.smartDashesType = self.smartDashesType
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 11.0, *) {
+            self.dropDownTextField.smartInsertDeleteType = self.smartInsertDeleteType
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 11.0, *) {
+            self.dropDownTextField.smartQuotesType = self.smartQuotesType
+        } else {
+            // Fallback on earlier versions
+        }
         self.dropDownTextField.spellCheckingType = self.spellCheckingType
         self.dropDownTextField.isSecureTextEntry = self.isSecureTextEntry
         self.dropDownTextField.contentVerticalAlignment = self.contentVerticalAlignment
