@@ -23,13 +23,16 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: Any) {
         
         if (emailTextField.text == "admin" && passwordTextField.text == "admin") {
+            isLogged = true
         performSegue(withIdentifier: "goToMap", sender: self)
         }
     }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
+    @IBAction func loginWithFacebook(_ sender: Any) {
+        print("Login with facebook")
+    }
 }

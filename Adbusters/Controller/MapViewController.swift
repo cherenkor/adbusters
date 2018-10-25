@@ -49,7 +49,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         currentDate = dateLbl.text
         performSegue(withIdentifier: "goToSingleAd", sender: nil)
     }
-
+    
+    
+    @IBAction func deleteAdImage(_ sender: Any) {
+        print("DELETE SINGLE AD IMAGE")
+    }
+    
     @IBAction func closePopup(_ sender: Any) {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.popupView.alpha = 0.0

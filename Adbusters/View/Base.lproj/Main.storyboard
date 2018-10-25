@@ -280,6 +280,9 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" title="Видалити"/>
+                                                                <connections>
+                                                                    <action selector="deleteAdImage:" destination="cLT-OV-9Rz" eventType="touchUpInside" id="bt5-i1-gr4"/>
+                                                                </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_violet" translatesAutoresizingMaskIntoConstraints="NO" id="Q2J-iq-ZvO">
                                                                 <rect key="frame" x="17" y="15" width="76" height="84"/>
@@ -1528,7 +1531,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2599" y="2266"/>
+            <point key="canvasLocation" x="1011" y="1945"/>
         </scene>
         <!--Instructions View Controller-->
         <scene sceneID="0hM-0E-jdN">
@@ -2009,6 +2012,9 @@
                                                 <state key="normal" title="Facebook">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="loginWithFacebook:" destination="fpY-VD-T2B" eventType="touchUpInside" id="OWX-hY-FbA"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="hTH-4c-vuO">
                                                 <rect key="frame" x="0.0" y="13" width="42" height="16"/>
@@ -2249,6 +2255,9 @@
                                                 <state key="normal" title="Facebook">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="loginWithFacebook:" destination="4eh-G6-NAI" eventType="touchUpInside" id="LFs-fb-cbr"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="9yV-yJ-nsW">
                                                 <rect key="frame" x="0.0" y="13" width="42" height="16"/>
@@ -2347,12 +2356,11 @@
         <image name="logo_white" width="539" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9Gm-hI-zrT"/>
         <segue reference="aPl-pC-Vdb"/>
-        <segue reference="pLc-ry-dsO"/>
+        <segue reference="wJo-3A-m8h"/>
         <segue reference="mm9-QN-m4G"/>
         <segue reference="G9J-Jw-yyF"/>
-        <segue reference="a9S-fS-bVK"/>
-        <segue reference="ChZ-b1-s46"/>
+        <segue reference="gpM-Vc-U4X"/>
+        <segue reference="EvD-pB-eBB"/>
     </inferredMetricsTieBreakers>
 </document>
