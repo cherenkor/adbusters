@@ -105,7 +105,6 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         getAdress { address, error in
             if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
-                print(a)
                 self.currentLocationLbl.text = "\(street), \(city), \(country)"
                 self.delegate?.haveManualLocation(street: street, city: city, country: country)
             } else {
