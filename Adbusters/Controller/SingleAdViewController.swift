@@ -36,4 +36,9 @@ class SingleAdViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.imageView.image = currentAdsImages[indexPath.row]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currentAdImage = currentAdsImages[indexPath.row]
+        performSegue(withIdentifier: "goToSingleAdImage", sender: nil)
+    }
 }

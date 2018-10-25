@@ -54,7 +54,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if index == 0 {
             currentAdsImages = [UIImage(named: "logo")]  as! [UIImage]
         } else {
-            currentAdsImages = [UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo"), UIImage(named: "logo")] as! [UIImage]
+            currentAdsImages = [UIImage(named: "logo"), UIImage(named: "logo_large"), UIImage(named: "logo"), UIImage(named: "logo_white"), UIImage(named: "logo"), UIImage(named: "logo")] as! [UIImage]
         }
         currentParty = ads[index]["party"]
         currentType = ads[index]["type"]

@@ -9,6 +9,7 @@
 import UIKit
 
 var currentAdsImages = [UIImage]()
+var currentAdImage: UIImage?
 var currentParty: String?
 var currentType: String?
 var currentDate: String?

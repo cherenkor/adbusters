@@ -1812,11 +1812,78 @@
                         <outlet property="currentPartyLbl" destination="oUh-Sq-98y" id="bcV-Tf-FUX"/>
                         <outlet property="currentTypeLbl" destination="Dq8-UA-3LJ" id="2Z1-LF-Wu1"/>
                         <segue destination="Aqc-NX-n8v" kind="custom" identifier="goToMyAds" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="mm9-QN-m4G"/>
+                        <segue destination="dph-3G-zaN" kind="custom" identifier="goToSingleAdImage" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="9Gm-hI-zrT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjV-Do-qoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4974.375" y="863.75"/>
+        </scene>
+        <!--Single Ad Image View Controller-->
+        <scene sceneID="Irn-NS-gIk">
+            <objects>
+                <viewController id="dph-3G-zaN" customClass="SingleAdImageViewController" customModule="Adbusters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bmT-Tw-HQM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYX-tl-h8z">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VBv-CN-bGm"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="rog-y6-38d"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Зображення" id="HbE-8S-uyN">
+                                        <barButtonItem key="leftBarButtonItem" title="Назад" id="dUR-Mx-DxF">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <segue destination="JCm-1Y-yCe" kind="custom" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="pLc-ry-dsO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eY-P6-G6x">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fkP-y9-uMt">
+                                        <rect key="frame" x="8" y="8" width="304" height="400"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fkP-y9-uMt" secondAttribute="bottom" constant="8" id="cMe-NA-UrJ"/>
+                                    <constraint firstItem="fkP-y9-uMt" firstAttribute="top" secondItem="6eY-P6-G6x" secondAttribute="top" constant="8" id="faL-Wh-IpA"/>
+                                    <constraint firstAttribute="trailing" secondItem="fkP-y9-uMt" secondAttribute="trailing" constant="8" id="hec-dW-9nw"/>
+                                    <constraint firstItem="fkP-y9-uMt" firstAttribute="leading" secondItem="6eY-P6-G6x" secondAttribute="leading" constant="8" id="qYX-aK-tH9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6eY-P6-G6x" firstAttribute="leading" secondItem="0KM-ng-NEC" secondAttribute="leading" id="2Xw-wZ-XsV"/>
+                            <constraint firstItem="IYX-tl-h8z" firstAttribute="top" secondItem="0KM-ng-NEC" secondAttribute="top" id="38W-S3-6cb"/>
+                            <constraint firstItem="IYX-tl-h8z" firstAttribute="trailing" secondItem="0KM-ng-NEC" secondAttribute="trailing" id="LiH-Nn-dLT"/>
+                            <constraint firstItem="6eY-P6-G6x" firstAttribute="top" secondItem="IYX-tl-h8z" secondAttribute="bottom" id="dlM-jz-pAo"/>
+                            <constraint firstItem="IYX-tl-h8z" firstAttribute="leading" secondItem="0KM-ng-NEC" secondAttribute="leading" id="jnN-oi-4iG"/>
+                            <constraint firstItem="6eY-P6-G6x" firstAttribute="trailing" secondItem="0KM-ng-NEC" secondAttribute="trailing" id="qvM-c2-z4Z"/>
+                            <constraint firstItem="6eY-P6-G6x" firstAttribute="bottom" secondItem="0KM-ng-NEC" secondAttribute="bottom" id="wFT-QM-WmT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0KM-ng-NEC"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="fkP-y9-uMt" id="QRk-gH-Qjy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TD5-1B-bTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5964.375" y="855"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ybr-oA-jq9">
@@ -2280,8 +2347,9 @@
         <image name="logo_white" width="539" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="9Gm-hI-zrT"/>
         <segue reference="aPl-pC-Vdb"/>
-        <segue reference="wJo-3A-m8h"/>
+        <segue reference="pLc-ry-dsO"/>
         <segue reference="mm9-QN-m4G"/>
         <segue reference="G9J-Jw-yyF"/>
         <segue reference="a9S-fS-bVK"/>
