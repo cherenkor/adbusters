@@ -80,7 +80,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
         SVProgressHUD.show()
-        locationManager.requestLocation()
+        if let userLocation = locationManager.location?.coordinate {
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion(viewRegion, animated: true)
+            SVProgressHUD.dismiss()
+        } else {
+            SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
+            SVProgressHUD.dismiss(withDelay: 1.0)
+        }
     }
     
     override func viewDidLoad() {
@@ -105,46 +112,49 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsScale = true
         mapView.showsUserLocation = true
         mapView.delegate = self
-        
     }
     
     func determinateCurrentLocation ()
     {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestLocation()
         
-        if CLLocationManager.locationServicesEnabled() {
-            // If allow get location
-            locationManager.startUpdatingLocation()
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            SVProgressHUD.showError(withStatus: "Дозвольте визначити вашi координати")
+            SVProgressHUD.dismiss(withDelay: 1.0)
         }
+        
+        if let userLocation = locationManager.location?.coordinate {
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            mapView.setRegion(viewRegion, animated: true)
+        } else {
+            SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
+            SVProgressHUD.dismiss(withDelay: 1.0)
+        }
+        
+//        DispatchQueue.main.async {
+//            self.locationManager.startUpdatingLocation()
+//        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
-        
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
-        //manager.stopUpdatingLocation()
-        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
-        mapView.setRegion(region, animated: true)
-        manager.stopUpdatingLocation()
-        SVProgressHUD.dismiss()
-        
-        // Drop a pin at user's Current Location
-//        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-//        myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude - 0.005, userLocation.coordinate.longitude - 0.005);
-//        myAnnotation.title = "Current location"
-//
-//        mapView.addAnnotation(myAnnotation)
+        if let location = locations.last{
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            self.mapView.setRegion(region, animated: true)
+            SVProgressHUD.dismiss()
+        } else {
+            SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
+            SVProgressHUD.dismiss(withDelay: 1.0)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
-        SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
-        SVProgressHUD.dismiss(withDelay: 1.0)
         manager.stopUpdatingLocation()
     }
     

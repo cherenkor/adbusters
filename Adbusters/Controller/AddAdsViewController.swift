@@ -7,7 +7,7 @@ protocol AdvertiseDelegate {
     func addAdvertise(party: String, politician: String, type: String, date: String, images: [UIImage])
 }
 
-class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PoliticianDelegate, PartyDelegate {
+class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PoliticianDelegate, PartyDelegate, LocationDelegate {
     
     var delegate: AdvertiseDelegate?
     
@@ -32,6 +32,10 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             SVProgressHUD.showError(withStatus: "Політика не обрано")
             SVProgressHUD.dismiss(withDelay: 1.0)
         }
+    }
+    
+    func haveManualLocation(street: String, city: String, country: String) {
+        adLocation.text = "\(street), \(city), \(country)"
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -72,6 +76,9 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         } else if segue.identifier == "politician" {
             let politicianVC = segue.destination as! PoliticiansViewController
             politicianVC.delegate = self
+        } else if segue.identifier == "location" {
+            let locationVC = segue.destination as! AddCustomLocationViewController
+            locationVC.delegate = self
         }
     }
     

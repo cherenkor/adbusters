@@ -30,6 +30,7 @@
 		D088736E2174A4B9008C8B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D088736C2174A4B9008C8B71 /* LaunchScreen.storyboard */; };
 		D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088737A2174AE85008C8B71 /* WelcomeViewController.swift */; };
 		D0C487E8218245C700D106BD /* SingleAdImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C487E7218245C700D106BD /* SingleAdImageViewController.swift */; };
+		D0C487EA2182519500D106BD /* AddCustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C487E92182519500D106BD /* AddCustomLocationViewController.swift */; };
 		D0EBA435217526ED003CCBDC /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA434217526ED003CCBDC /* RoundShadowView.swift */; };
 		D0EBA43721752FCD003CCBDC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBA43621752FCD003CCBDC /* MapKit.framework */; };
 		D0EBA43921753AFF003CCBDC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBA43821753AFE003CCBDC /* CoreLocation.framework */; };
@@ -69,6 +70,7 @@
 		D088736F2174A4B9008C8B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D088737A2174AE85008C8B71 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D0C487E7218245C700D106BD /* SingleAdImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdImageViewController.swift; sourceTree = "<group>"; };
+		D0C487E92182519500D106BD /* AddCustomLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomLocationViewController.swift; sourceTree = "<group>"; };
 		D0EBA434217526ED003CCBDC /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		D0EBA43621752FCD003CCBDC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D0EBA43821753AFE003CCBDC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -166,6 +168,7 @@
 				D00F5504217FBEC700D11A5B /* InstructionsViewController.swift */,
 				D036A42E21811A9000DC8F3C /* SingleAdViewController.swift */,
 				D0C487E7218245C700D106BD /* SingleAdImageViewController.swift */,
+				D0C487E92182519500D106BD /* AddCustomLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */,
 				D00F54FE217D006A00D11A5B /* PartyTableViewCell.swift in Sources */,
 				D00F5505217FBEC700D11A5B /* InstructionsViewController.swift in Sources */,
+				D0C487EA2182519500D106BD /* AddCustomLocationViewController.swift in Sources */,
 				D0EBA446217920B3003CCBDC /* MyAdsViewTableViewCell.swift in Sources */,
 				D0EBA44A217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift in Sources */,
 				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
