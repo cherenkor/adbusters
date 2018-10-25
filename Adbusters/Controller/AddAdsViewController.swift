@@ -35,7 +35,8 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func haveManualLocation(street: String, city: String, country: String) {
-        adLocation.text = "\(street), \(city), \(country)"
+        currentLocation = "\(street), \(city), \(country)"
+        adLocation.text = currentLocation
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -55,6 +56,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        adLocation.text = currentLocation
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         
         dropDown.anchorView = adTypeView

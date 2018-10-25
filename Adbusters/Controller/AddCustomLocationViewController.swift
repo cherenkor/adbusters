@@ -17,9 +17,12 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
     var locationManager = CLLocationManager()
     var location = [String:String]()
     
+    @IBOutlet weak var currentLocationLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        currentLocationLbl.backgroundColor = UIColor.white
         
         configMap()
         determinateCurrentLocation()
@@ -80,7 +83,7 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
         if let location = locations.last{
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.mapView.setRegion(region, animated: true)
+            mapView.setRegion(region, animated: true)
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
@@ -101,9 +104,12 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         getAdress { address, error in
-            if let a = address {
+            if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
                 print(a)
-                self.delegate?.haveManualLocation(street: a["Street"] as! String, city: a["City"] as! String, country: a["Country"] as! String)
+                self.currentLocationLbl.text = "\(street), \(city), \(country)"
+                self.delegate?.haveManualLocation(street: street, city: city, country: country)
+            } else {
+                currentLocation = "Невiдомо"
             }
         }
     }
@@ -138,6 +144,5 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
                 }
                 
             }
-        
     }
 }

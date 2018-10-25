@@ -13,6 +13,7 @@ var currentAdImage: UIImage?
 var currentParty: String?
 var currentType: String?
 var currentDate: String?
+var currentLocation: String?
 var isLogged = false
 
 class ViewController: UIViewController {

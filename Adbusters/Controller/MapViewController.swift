@@ -83,6 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let userLocation = locationManager.location?.coordinate {
             let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
             mapView.setRegion(viewRegion, animated: true)
+            setCurrentAdress()
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
@@ -130,6 +131,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         if let userLocation = locationManager.location?.coordinate {
             let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            setCurrentAdress()
             mapView.setRegion(viewRegion, animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
@@ -145,7 +147,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let location = locations.last{
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.mapView.setRegion(region, animated: true)
+            mapView.setRegion(region, animated: true)
+            setCurrentAdress()
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
@@ -158,4 +161,45 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         manager.stopUpdatingLocation()
     }
     
+    func setCurrentAdress () {
+        
+        getAdress { address, error in
+            if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
+                currentLocation = "\(street), \(city), \(country)"
+            } else {
+                currentLocation = "Невiдомо"
+            }
+        }
+    }
+    
+    func getAdress(completion: @escaping (_ address: JSONDictionary?, _ error: Error?) -> ()) {
+        
+        let currentLocation =  self.locationManager.location
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(currentLocation!) { placemarks, error in
+            
+            if let e = error {
+                
+                completion(nil, e)
+                
+            } else {
+                
+                let placeArray = placemarks
+                
+                var placeMark: CLPlacemark!
+                
+                placeMark = placeArray?[0]
+                
+                guard let address = placeMark.addressDictionary as? JSONDictionary else {
+                    return
+                }
+                
+                completion(address, nil)
+                
+            }
+            
+        }
+    }
 }

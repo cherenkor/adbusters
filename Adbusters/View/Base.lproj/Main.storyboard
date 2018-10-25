@@ -968,16 +968,48 @@
                                             <constraint firstAttribute="width" constant="32" id="f8E-Zs-FCx"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7M8-3k-L4T">
+                                        <rect key="frame" x="40" y="343" width="240" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2To-mW-rgi">
+                                                <rect key="frame" x="8" y="8" width="224" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="2To-mW-rgi" secondAttribute="bottom" constant="8" id="EEs-MC-66R"/>
+                                            <constraint firstItem="2To-mW-rgi" firstAttribute="top" secondItem="7M8-3k-L4T" secondAttribute="top" constant="8" id="LWe-ge-Wf6"/>
+                                            <constraint firstAttribute="width" constant="240" id="Tl0-iC-ItU"/>
+                                            <constraint firstItem="2To-mW-rgi" firstAttribute="leading" secondItem="7M8-3k-L4T" secondAttribute="leading" constant="8" id="YzI-uR-EzO"/>
+                                            <constraint firstAttribute="height" constant="50" id="ui9-ev-gLb"/>
+                                            <constraint firstAttribute="trailing" secondItem="2To-mW-rgi" secondAttribute="trailing" constant="8" id="xlv-Sx-Fk3"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="BJ2-hb-Fox" firstAttribute="centerX" secondItem="fIX-pV-DAa" secondAttribute="centerX" id="2PB-ec-V89"/>
+                                    <constraint firstAttribute="trailing" secondItem="7M8-3k-L4T" secondAttribute="trailing" constant="40" id="2k1-wg-8Zw"/>
                                     <constraint firstAttribute="bottom" secondItem="Wm3-ln-dCO" secondAttribute="bottom" id="9ht-RE-cet"/>
                                     <constraint firstItem="Wm3-ln-dCO" firstAttribute="leading" secondItem="fIX-pV-DAa" secondAttribute="leading" id="Fw3-iu-g3n"/>
                                     <constraint firstAttribute="trailing" secondItem="QsR-Eb-REN" secondAttribute="trailing" constant="23" id="HdO-Pj-gMs"/>
                                     <constraint firstItem="QsR-Eb-REN" firstAttribute="top" secondItem="fIX-pV-DAa" secondAttribute="top" constant="47" id="SWm-89-cQ9"/>
                                     <constraint firstAttribute="trailing" secondItem="Wm3-ln-dCO" secondAttribute="trailing" id="Tr0-TE-xjN"/>
+                                    <constraint firstItem="7M8-3k-L4T" firstAttribute="top" secondItem="Wm3-ln-dCO" secondAttribute="bottom" constant="-73" id="Yvm-C0-cCJ"/>
                                     <constraint firstItem="BJ2-hb-Fox" firstAttribute="centerY" secondItem="fIX-pV-DAa" secondAttribute="centerY" constant="-21" id="Zfs-4O-ADh"/>
+                                    <constraint firstItem="7M8-3k-L4T" firstAttribute="leading" secondItem="fIX-pV-DAa" secondAttribute="leading" constant="40" id="ePZ-AP-BnA"/>
                                     <constraint firstItem="Wm3-ln-dCO" firstAttribute="top" secondItem="fIX-pV-DAa" secondAttribute="top" id="fgc-RP-LeM"/>
                                 </constraints>
                             </view>
@@ -994,7 +1026,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YOx-q6-V7J"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="currentLocationLbl" destination="2To-mW-rgi" id="uA2-br-LQI"/>
                         <outlet property="mapView" destination="Wm3-ln-dCO" id="wsT-n9-OYb"/>
                     </connections>
                 </viewController>
@@ -2477,7 +2516,6 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FOR-f4-kyd"/>
         <segue reference="aPl-pC-Vdb"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="mm9-QN-m4G"/>
