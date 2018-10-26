@@ -13,14 +13,15 @@ import SVProgressHUD
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AdvertiseDelegate {
     
-    func addAdvertise (party: String, politician: String, type: String, date: String, images: [UIImage]) {
-        print("Done with \(party)")
+    func addAdvertise (party: String, politician: String, type: String, date: String, comment: String, images: [UIImage]) {
+        print("Done with \(comment)")
         popupView.isHidden = false
         partyLbl.text = party
         typeLbl.text = type
         dateLbl.text = date
         adImage.image = images[0]
-        currentAdsImages = images 
+        currentAdsImages = images
+        currentComment = comment
     }
     
     @IBAction func addAdButtonPressed(_ sender: Any) {
@@ -174,32 +175,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func getAdress(completion: @escaping (_ address: JSONDictionary?, _ error: Error?) -> ()) {
         
-        let currentLocation =  self.locationManager.location
+        if let currentLocation = self.locationManager.location {
         
-        let geoCoder = CLGeocoder()
+            let geoCoder = CLGeocoder()
         
-        geoCoder.reverseGeocodeLocation(currentLocation!) { placemarks, error in
-            
-            if let e = error {
+            geoCoder.reverseGeocodeLocation(currentLocation) { placemarks, error in
                 
-                completion(nil, e)
+                if let e = error {
+                    
+                    completion(nil, e)
+                    
+                } else {
+                    
+                    let placeArray = placemarks
+                    
+                    var placeMark: CLPlacemark!
+                    
+                    placeMark = placeArray?[0]
+                    
+                    guard let address = placeMark.addressDictionary as? JSONDictionary else {
+                        return
+                    }
+                    
+                    completion(address, nil)
                 
-            } else {
-                
-                let placeArray = placemarks
-                
-                var placeMark: CLPlacemark!
-                
-                placeMark = placeArray?[0]
-                
-                guard let address = placeMark.addressDictionary as? JSONDictionary else {
-                    return
                 }
-                
-                completion(address, nil)
-                
-            }
             
+            }
         }
     }
 }

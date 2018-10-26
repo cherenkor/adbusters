@@ -28,6 +28,10 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
         determinateCurrentLocation()
     }
     
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveLocation(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

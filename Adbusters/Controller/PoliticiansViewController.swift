@@ -26,6 +26,10 @@ class PoliticiansViewController: UIViewController {
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
     }
     
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func savePolitician(_ sender: Any) {
          self.dismiss(animated: true, completion: nil)
 //        if selectedPolitician != nil {

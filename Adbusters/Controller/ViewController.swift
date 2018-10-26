@@ -13,6 +13,7 @@ var currentAdImage: UIImage?
 var currentParty: String?
 var currentType: String?
 var currentDate: String?
+var currentComment: String?
 var currentLocation: String?
 var isLogged = false
 

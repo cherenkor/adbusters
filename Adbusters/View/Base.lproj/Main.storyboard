@@ -875,6 +875,7 @@
                         <outlet property="adTypeView" destination="jeS-Z4-2t2" id="XkL-Dc-Gm3"/>
                         <outlet property="chooseLocationView" destination="5N4-Jk-Ufm" id="pIB-q2-wFo"/>
                         <outlet property="collectionView" destination="fbn-Nb-ej6" id="Djb-6Y-17u"/>
+                        <outlet property="commentLbl" destination="a7h-id-dbJ" id="A5L-UD-E5i"/>
                         <outlet property="partyLabel" destination="RiR-pP-VBk" id="oqq-mQ-cWO"/>
                         <outlet property="politicianLabel" destination="cJ8-ch-OvR" id="gyq-8o-o3V"/>
                         <outlet property="userLocationSwitchView" destination="5u7-M1-kzU" id="n72-k7-Zli"/>
@@ -908,7 +909,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Назад" id="PS3-sD-XbZ">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="Scf-Ba-FFU" kind="custom" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="Teq-qP-EbO"/>
+                                                <action selector="goBack:" destination="eib-zy-3w8" id="MAi-8l-inw"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="icon_done" landscapeImage="icon_done" largeContentSizeImage="icon_done" style="done" id="bWe-Nm-aeZ">
@@ -1035,6 +1036,7 @@
                     <connections>
                         <outlet property="currentLocationLbl" destination="2To-mW-rgi" id="uA2-br-LQI"/>
                         <outlet property="mapView" destination="Wm3-ln-dCO" id="wsT-n9-OYb"/>
+                        <segue destination="Scf-Ba-FFU" kind="custom" identifier="goToAddAds" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="s3p-55-XnR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9K-7r-Xf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1519,7 +1521,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Назад" id="suE-JI-5X4">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="Scf-Ba-FFU" kind="custom" identifier="goToAddAds" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="3Gd-0s-ywG"/>
+                                                <action selector="goBack:" destination="xVi-c1-Jjl" id="KTD-Fk-5tS"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="icon_done" landscapeImage="icon_done" largeContentSizeImage="icon_done" style="done" id="e2R-jm-Y92">
@@ -1585,6 +1587,7 @@
                     <connections>
                         <outlet property="searchBar" destination="1UI-sS-KFI" id="RmK-GJ-1Pg"/>
                         <outlet property="tableView" destination="G18-EO-8Mr" id="nEE-9B-1Xs"/>
+                        <segue destination="Scf-Ba-FFU" kind="custom" identifier="goToAddAds" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="wba-ga-xQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfu-Ci-qX5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1639,7 +1642,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Назад" id="OIx-8o-onH">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="Scf-Ba-FFU" kind="custom" identifier="goToAddAds" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="gpM-Vc-U4X"/>
+                                                <action selector="goBack:" destination="E0S-PE-JXq" id="jvi-M5-K50"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="icon_done" landscapeImage="icon_done" largeContentSizeImage="icon_done" style="done" id="e8m-Iz-Aav">
@@ -1678,6 +1681,7 @@
                         <outlet property="searchBar" destination="GZZ-kr-7Tq" id="o6V-ZB-fan"/>
                         <outlet property="searchDisplayController" destination="vCC-co-wWS" id="JbI-q4-wSa"/>
                         <outlet property="tableView" destination="6Yi-Cq-SaX" id="yqW-ay-IJ0"/>
+                        <segue destination="Scf-Ba-FFU" kind="custom" identifier="goToAddAds" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="FNT-sG-CSb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AF7-LU-wJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2516,11 +2520,12 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="FOR-f4-kyd"/>
         <segue reference="aPl-pC-Vdb"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="mm9-QN-m4G"/>
         <segue reference="G9J-Jw-yyF"/>
-        <segue reference="Teq-qP-EbO"/>
+        <segue reference="s3p-55-XnR"/>
         <segue reference="ChZ-b1-s46"/>
     </inferredMetricsTieBreakers>
 </document>

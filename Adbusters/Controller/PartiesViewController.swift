@@ -26,6 +26,11 @@ class PartiesViewController: UIViewController {
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
     }
     
+    
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveParty(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
 //        if selectedParty != nil {
