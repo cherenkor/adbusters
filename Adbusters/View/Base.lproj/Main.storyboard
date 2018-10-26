@@ -1132,14 +1132,8 @@
                                             <constraint firstAttribute="width" constant="72" id="78K-4E-hHh"/>
                                             <constraint firstAttribute="height" constant="72" id="Rri-dE-TpN"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="37"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Василенко Альберт" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDF-Fj-Dbl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Прiзвище Iм'я" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDF-Fj-Dbl">
                                         <rect key="frame" x="88" y="34" width="224" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="Ja4-n9-H0r"/>
@@ -1149,7 +1143,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 часничків" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-4h-fqZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-4h-fqZ">
                                         <rect key="frame" x="88" y="56" width="224" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="XKS-aW-aod"/>
@@ -1191,6 +1185,9 @@
                         <viewLayoutGuide key="safeArea" id="L57-3u-UP4"/>
                     </view>
                     <connections>
+                        <outlet property="currentUserGarlicsAmountLbl" destination="fyk-4h-fqZ" id="PcE-Dk-bej"/>
+                        <outlet property="currentUserImageView" destination="e3t-Ta-Zq3" id="RhL-tM-YnP"/>
+                        <outlet property="currentUsernameLbl" destination="XDF-Fj-Dbl" id="Uw9-Xd-Cwq"/>
                         <outlet property="tableView" destination="wT1-6f-Aoh" id="q2I-cq-H1f"/>
                         <segue destination="zX8-dB-ntb" kind="custom" identifier="goToRate" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="8cA-ot-PQl"/>
                         <segue destination="Aqc-NX-n8v" kind="custom" identifier="goToMyAds" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="9LO-tQ-BRv"/>
@@ -2520,12 +2517,11 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FOR-f4-kyd"/>
         <segue reference="aPl-pC-Vdb"/>
         <segue reference="wJo-3A-m8h"/>
-        <segue reference="mm9-QN-m4G"/>
+        <segue reference="9LO-tQ-BRv"/>
         <segue reference="G9J-Jw-yyF"/>
         <segue reference="s3p-55-XnR"/>
-        <segue reference="ChZ-b1-s46"/>
+        <segue reference="vBf-0B-zvl"/>
     </inferredMetricsTieBreakers>
 </document>

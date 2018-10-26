@@ -9,8 +9,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var currentUsernameLbl: UILabel!
+    @IBOutlet weak var currentUserGarlicsAmountLbl: UILabel!
+    @IBOutlet weak var currentUserImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentUserImageView.layer.masksToBounds = true
+        currentUserImageView.layer.cornerRadius = 37
         tableView.tableFooterView = UIView()
         tableView.separatorColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
@@ -24,9 +30,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if (isLogged) {
-            menu = ["Рейтинг", "Інструкція", "Зворотній зв'язок", "Facebook", "Вийти"]
+            menu = ["Рейтинг", "Моя реклама", "Інструкція", "Зворотній зв'язок", "Facebook", "Вийти"]
         } else {
-            menu = ["Рейтинг", "Моя реклама", "Інструкція", "Зворотній зв'язок", "Facebook", "Увійти"]
+            menu = ["Рейтинг", "Інструкція", "Зворотній зв'язок", "Facebook", "Увійти"]
         }
         
         return menu!.count
@@ -57,13 +63,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else if (menu![myIndex] == "Інструкція") {
             performSegue(withIdentifier: "goToInstructions", sender: nil)
         } else if (menu![myIndex] == "Вийти") {
-            SVProgressHUD.showSuccess(withStatus: "Успішно вийшли")
+            SVProgressHUD.showSuccess(withStatus: "До зустрiчi")
+            setUser("Прiзвище Iм'я", "", UIImage(named: "icon_profile")!)
             SVProgressHUD.dismiss(withDelay: 1.0) {
                 self.performSegue(withIdentifier: "goToMain", sender: nil)
                 isLogged = false
             }
         } else if (menu![myIndex] == "Увійти") {
-            SVProgressHUD.showSuccess(withStatus: "Успішно увійшли")
+            SVProgressHUD.showSuccess(withStatus: "Ласкаво просимо")
+            setUser("Iван Франко", "18 часничкiв", UIImage(named: "avatar")!)
             SVProgressHUD.dismiss(withDelay: 1.0) {
                 isLogged = true
                 tableView.reloadData()
@@ -73,5 +81,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+    
+    func setUser (_ username: String, _ garlics: String, _ image: UIImage) {
+        currentUsernameLbl.text = username
+        currentUserGarlicsAmountLbl.text = garlics
+        currentUserImageView.image = image
     }
 }
