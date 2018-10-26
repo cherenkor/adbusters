@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUser()
         currentUserImageView.layer.masksToBounds = true
         currentUserImageView.layer.cornerRadius = 37
         tableView.tableFooterView = UIView()
@@ -64,18 +65,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             performSegue(withIdentifier: "goToInstructions", sender: nil)
         } else if (menu![myIndex] == "Вийти") {
             SVProgressHUD.showSuccess(withStatus: "До зустрiчi")
-            setUser("Прiзвище Iм'я", "", UIImage(named: "icon_profile")!)
             SVProgressHUD.dismiss(withDelay: 1.0) {
-                self.performSegue(withIdentifier: "goToMain", sender: nil)
-                isLogged = false
+                self.logout()
             }
         } else if (menu![myIndex] == "Увійти") {
-            SVProgressHUD.showSuccess(withStatus: "Ласкаво просимо")
-            setUser("Iван Франко", "18 часничкiв", UIImage(named: "avatar")!)
-            SVProgressHUD.dismiss(withDelay: 1.0) {
-                isLogged = true
-                tableView.reloadData()
-            }
+            performSegue(withIdentifier: "goToLogin", sender: nil)
         }
     }
     
@@ -83,9 +77,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 60.0
     }
     
-    func setUser (_ username: String, _ garlics: String, _ image: UIImage) {
-        currentUsernameLbl.text = username
-        currentUserGarlicsAmountLbl.text = garlics
-        currentUserImageView.image = image
+    func logout () {
+        self.performSegue(withIdentifier: "goToMain", sender: nil)
+        isLogged = false
+        currentUsername = "Прiзвище Iм'я"
+        currentUserGarlics = ""
+        currentUserImage = UIImage(named: "icon_profile")
+    }
+    
+    func setUser () {
+        if isLogged {
+            currentUsernameLbl.text = currentUsername
+            currentUserGarlicsAmountLbl.text = currentUserGarlics
+            currentUserImageView.image = currentUserImage
+        }
     }
 }

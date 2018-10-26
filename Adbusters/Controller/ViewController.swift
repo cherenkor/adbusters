@@ -15,13 +15,15 @@ var currentType: String?
 var currentDate: String?
 var currentComment: String?
 var currentLocation: String?
+var currentUsername: String?
+var currentUserGarlics: String?
+var currentUserImage: UIImage?
 var isLogged = false
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
 

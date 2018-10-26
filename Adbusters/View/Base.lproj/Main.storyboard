@@ -1193,6 +1193,7 @@
                         <segue destination="Aqc-NX-n8v" kind="custom" identifier="goToMyAds" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="9LO-tQ-BRv"/>
                         <segue destination="pX7-we-gp6" kind="custom" identifier="goToInstructions" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="lvE-Si-E7H"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToMain" id="XVb-xz-XLe"/>
+                        <segue destination="fpY-VD-T2B" kind="show" identifier="goToLogin" id="pUg-Yd-q9W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXE-NX-XNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2109,7 +2110,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
                                                 <real key="value" value="0.20000000000000001"/>
@@ -2315,7 +2316,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
                                                 <real key="value" value="0.20000000000000001"/>
@@ -2348,7 +2349,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
                                                 <real key="value" value="0.20000000000000001"/>
@@ -2517,11 +2518,11 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aPl-pC-Vdb"/>
+        <segue reference="pUg-Yd-q9W"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="9LO-tQ-BRv"/>
         <segue reference="G9J-Jw-yyF"/>
         <segue reference="s3p-55-XnR"/>
-        <segue reference="vBf-0B-zvl"/>
+        <segue reference="rrR-fL-ES1"/>
     </inferredMetricsTieBreakers>
 </document>

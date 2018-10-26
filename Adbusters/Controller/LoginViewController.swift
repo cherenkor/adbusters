@@ -8,6 +8,7 @@
 
 import UIKit
 import TweeTextField
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -17,14 +18,23 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
     }
     
     @IBAction func loginTapped(_ sender: Any) {
         
         if (emailTextField.text == "admin" && passwordTextField.text == "admin") {
             isLogged = true
-        performSegue(withIdentifier: "goToMap", sender: self)
+            currentUsername = "Iван Франко"
+            currentUserGarlics = "18 часничкiв"
+            currentUserImage = UIImage(named: "avatar")
+            SVProgressHUD.showSuccess(withStatus: "Ласкаво просимо")
+            SVProgressHUD.dismiss(withDelay: 1.0) {
+                self.performSegue(withIdentifier: "goToMap", sender: self)
+            }
+        } else {
+            SVProgressHUD.showError(withStatus: "Щось пiшло не так. Перевiрте введенi данi")
+            SVProgressHUD.dismiss(withDelay: 1.0)
         }
     }
     
