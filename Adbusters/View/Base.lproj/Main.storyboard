@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ko0-QD-P32">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMU-jJ-csc">
                                         <rect key="frame" x="40" y="315" width="240" height="42"/>
@@ -62,34 +62,121 @@
                                             <constraint firstAttribute="width" constant="240" id="vHj-eA-PIl"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lx9-A2-zTq">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNp-si-aLU">
+                                                <rect key="frame" x="100" y="402" width="120" height="32"/>
+                                                <color key="backgroundColor" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="IvX-vy-gNM"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="kgs-QJ-Xvf"/>
+                                                </constraints>
+                                                <state key="normal" title="Закрити">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeInstructions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMg-gJ-XJ3"/>
+                                                    <action selector="closePopup:" destination="cLT-OV-9Rz" eventType="touchUpInside" id="VO8-0D-PxY"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Інструкція" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TG-Fh-JIr">
+                                                <rect key="frame" x="16" y="8" width="288" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="3IN-OU-eyC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" red="0.36078431370000003" green="0.14229881759999999" blue="0.48681175710000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGX-wI-47X">
+                                                <rect key="frame" x="16" y="56" width="288" height="326"/>
+                                                <subviews>
+                                                    <textView opaque="NO" multipleTouchEnabled="YES" contentMode="top" semanticContentAttribute="forceLeftToRight" showsHorizontalScrollIndicator="NO" indicatorStyle="black" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Hq-JH-FXw">
+                                                        <rect key="frame" x="1" y="1" width="286" height="324"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment>
+                                                                <string key="content">“Мисливця за Рекламою” створено, щоб викрити фінансові махінації та тіньові кошти на рекламу партіями та політиками. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларувала партія видатки на неї в офіційних фінансових звітах партій та кандидатів. Так ми разом оцінимо реальну ціну “входу в політику” та виявимо, хто ж насправді спонсорує політичні бренди.
+
+Як користуватися?
+
+1. Авторизуйся через соцмережі Facebook, Twitter, або Google. Без авторизації ти зможеш тільки переглядати інформацію. 
+2. Увімкни геолокацію у налаштуваннях, аби ми знали де ти спіймав/спіймала рекламу. 
+3. Ти побачиш карту зі “здобиччю” інших користувачів - мітками, де вже були зроблені фото реклами 
+4. Якщо побачиш політичну рекламу - мерщій роби фото за завантажуй. Обов’язково вкажи назву партії або кандидата, які рекламуються. 
+5. Ти дуже допоможеш, якщо зазначиш тип рекламного носія. 
+6. За кожне завантажене фото ти отримаєш від нас часничок, на зможеш змагатися за рейтинг з іншими користувачами. 
+7. Якщо тебе зацікавила реклама - можеш пошерити її через соціальні мережі.</string>
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="system" size="15"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="6Hq-JH-FXw" secondAttribute="trailing" constant="1" id="0KJ-tl-Q1r"/>
+                                                    <constraint firstAttribute="bottom" secondItem="6Hq-JH-FXw" secondAttribute="bottom" constant="1" id="2jj-fI-K9z"/>
+                                                    <constraint firstItem="6Hq-JH-FXw" firstAttribute="leading" secondItem="zGX-wI-47X" secondAttribute="leading" constant="1" id="LHW-kN-FSz"/>
+                                                    <constraint firstItem="6Hq-JH-FXw" firstAttribute="top" secondItem="zGX-wI-47X" secondAttribute="top" constant="1" id="pXP-fp-8ha"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="zGX-wI-47X" secondAttribute="trailing" constant="16" id="3CG-7D-SO2"/>
+                                            <constraint firstItem="zGX-wI-47X" firstAttribute="top" secondItem="6TG-Fh-JIr" secondAttribute="bottom" constant="8" id="Bkn-ND-Hh0"/>
+                                            <constraint firstAttribute="bottom" secondItem="lNp-si-aLU" secondAttribute="bottom" constant="26" id="Nbi-gw-b6v"/>
+                                            <constraint firstItem="lNp-si-aLU" firstAttribute="centerX" secondItem="lx9-A2-zTq" secondAttribute="centerX" id="XP2-EP-OWu"/>
+                                            <constraint firstItem="zGX-wI-47X" firstAttribute="leading" secondItem="lx9-A2-zTq" secondAttribute="leading" constant="16" id="Z4F-9D-WqF"/>
+                                            <constraint firstAttribute="trailing" secondItem="6TG-Fh-JIr" secondAttribute="trailing" constant="16" id="ZYW-02-2tq"/>
+                                            <constraint firstItem="6TG-Fh-JIr" firstAttribute="leading" secondItem="lx9-A2-zTq" secondAttribute="leading" constant="16" id="aOh-K3-JJ8"/>
+                                            <constraint firstItem="lNp-si-aLU" firstAttribute="top" secondItem="zGX-wI-47X" secondAttribute="bottom" constant="20" id="cyf-p4-wqf"/>
+                                            <constraint firstAttribute="trailing" secondItem="lNp-si-aLU" secondAttribute="trailing" constant="100" id="gtw-pR-Bx6"/>
+                                            <constraint firstItem="6TG-Fh-JIr" firstAttribute="top" secondItem="lx9-A2-zTq" secondAttribute="top" constant="8" id="llJ-D0-3Nm"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="wJp-w8-xTj" firstAttribute="top" secondItem="uMU-jJ-csc" secondAttribute="bottom" constant="24" id="14V-Y1-oZF"/>
                                     <constraint firstItem="O9c-y6-bTB" firstAttribute="top" secondItem="xIt-DA-b5E" secondAttribute="bottom" constant="57" id="2WN-ZU-N4D"/>
                                     <constraint firstItem="xIt-DA-b5E" firstAttribute="top" secondItem="Ko0-QD-P32" secondAttribute="top" constant="58" id="GFa-af-Ccw"/>
-                                    <constraint firstAttribute="bottom" secondItem="wJp-w8-xTj" secondAttribute="bottom" constant="67" id="QF5-uA-AB5"/>
+                                    <constraint firstAttribute="bottom" secondItem="wJp-w8-xTj" secondAttribute="bottom" constant="47" id="QF5-uA-AB5"/>
+                                    <constraint firstItem="lx9-A2-zTq" firstAttribute="top" secondItem="Ko0-QD-P32" secondAttribute="top" id="QV8-AT-UvA"/>
                                     <constraint firstItem="O9c-y6-bTB" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="UUq-Hf-2H1"/>
+                                    <constraint firstItem="lx9-A2-zTq" firstAttribute="leading" secondItem="Ko0-QD-P32" secondAttribute="leading" id="atk-vO-mrb"/>
                                     <constraint firstItem="uMU-jJ-csc" firstAttribute="top" secondItem="O9c-y6-bTB" secondAttribute="bottom" constant="8" id="e3G-qC-23D"/>
+                                    <constraint firstAttribute="trailing" secondItem="lx9-A2-zTq" secondAttribute="trailing" id="k9I-gP-0Sh"/>
                                     <constraint firstItem="xIt-DA-b5E" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="kFl-Sd-wEb"/>
                                     <constraint firstItem="uMU-jJ-csc" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="r3z-KS-dse"/>
                                     <constraint firstItem="wJp-w8-xTj" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="v6t-vw-qas"/>
+                                    <constraint firstAttribute="bottom" secondItem="lx9-A2-zTq" secondAttribute="bottom" id="yeF-GI-JOb"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.30588235294117649" green="0.13333333333333333" blue="0.46666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ko0-QD-P32" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Gxo-t9-uFg"/>
                             <constraint firstItem="Ko0-QD-P32" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eGa-CB-t30"/>
-                            <constraint firstItem="Ko0-QD-P32" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wsi-Mf-YuW"/>
+                            <constraint firstItem="Ko0-QD-P32" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="wsi-Mf-YuW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ko0-QD-P32" secondAttribute="bottom" id="zv9-tK-0I7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="instructionsView" destination="lx9-A2-zTq" id="sOk-hy-7vD"/>
+                        <outlet property="textField" destination="6Hq-JH-FXw" id="fJh-yG-xn7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.376811594202906" y="33.423913043478265"/>
+            <point key="canvasLocation" x="45" y="32.5"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="REk-8T-opT">
@@ -2518,11 +2605,11 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pUg-Yd-q9W"/>
+        <segue reference="xfT-lN-0KB"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="9LO-tQ-BRv"/>
-        <segue reference="G9J-Jw-yyF"/>
-        <segue reference="s3p-55-XnR"/>
-        <segue reference="rrR-fL-ES1"/>
+        <segue reference="pU2-eh-hHY"/>
+        <segue reference="a9S-fS-bVK"/>
+        <segue reference="gQg-cU-FWQ"/>
     </inferredMetricsTieBreakers>
 </document>
