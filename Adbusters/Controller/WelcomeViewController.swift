@@ -12,9 +12,11 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var instructionsView: UIView!
     @IBOutlet weak var textField: UITextView!
+    var defaults = UserDefaults.standard
     
     @IBAction func closeInstructions(_ sender: Any) {
         instructionsView.isHidden = true
+        defaults.set(true, forKey: "showInstructions")
     }
     
     override func viewDidLoad() {
@@ -23,6 +25,7 @@ class WelcomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        let showInstructions = defaults.bool(forKey: "showInstructions")
+        instructionsView.isHidden = showInstructions
     }
 }

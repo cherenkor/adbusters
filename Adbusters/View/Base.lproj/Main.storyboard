@@ -77,7 +77,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="closeInstructions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMg-gJ-XJ3"/>
-                                                    <action selector="closePopup:" destination="cLT-OV-9Rz" eventType="touchUpInside" id="VO8-0D-PxY"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Інструкція" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TG-Fh-JIr">
