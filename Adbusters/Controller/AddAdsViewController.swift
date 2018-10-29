@@ -59,6 +59,12 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        SVProgressHUD.show()
+        DispatchQueue.main.async{
+            self.presentImagePicker()
+            SVProgressHUD.dismiss()
+        }
         adLocation.text = currentLocation
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         
@@ -108,12 +114,16 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // Adding image
     @IBAction func addAdImage(_ sender: Any) {
+        presentImagePicker()
+    }
+    
+    func presentImagePicker () {
         let imageController = UIImagePickerController()
         imageController.delegate = self
         imageController.allowsEditing = true
-
+        
         let actionSheet = UIAlertController(title: "Спосіб завантаження", message: "Виберіть спосіб завантаження", preferredStyle: .actionSheet)
-
+        
         actionSheet.addAction(UIAlertAction(title: "Камера", style: .default, handler: { (UIAlertAction) in
             
             if UIImagePickerController.isSourceTypeAvailable(.camera ) {
@@ -125,14 +135,14 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 print("Camera is not available")
             }
         }))
-
+        
         actionSheet.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { (UIAlertAction) in
             imageController.sourceType = .photoLibrary
             self.present(imageController, animated: true, completion: nil)
         }))
-
+        
         actionSheet.addAction(UIAlertAction(title: "Відмінити", style: .cancel, handler: nil))
-
+        
         self.present(actionSheet, animated: true, completion: nil)
     }
     
