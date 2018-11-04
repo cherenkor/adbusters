@@ -9,8 +9,8 @@ class PartiesViewController: UIViewController {
     
     var delegate: PartyDelegate?
     
-    var parties = ["Партія Регіонів", "Всеукраїнське об'єднання Батьківщина", "Фронт Змін", "УДАР", "Комуністична партія України", "Всеукраїнське об'єднання Свобода", "Народна партія України", "Соціалістична партія України", "Україна - Вперед!", "Громадянська позиція", "Партія Зелених України", "Наша Україна"]
-    var searchParties = [String]()
+    
+    var searchParties = [Party]()
     var searching = false
     var selectedParty: String?
     
@@ -20,10 +20,17 @@ class PartiesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        parties = parties.sorted(by: { $0 < $1 })
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         tableView.tableFooterView = UIView()
         tableView.separatorColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        
+        getPartiesRequest(url: "http://www.chesno.org/party/api", controller: self) { (json, error) in
+            partiesList = json!.results.sorted(by: { $0.title! < $1.title! })
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     
@@ -57,7 +64,7 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
         if searching {
             return searchParties.count
         } else {
-            return parties.count
+            return partiesList?.count ?? 0
         }
     }
     
@@ -65,9 +72,9 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
         if searching {
-            cell?.textLabel?.text = searchParties[indexPath.row]
+            cell?.textLabel?.text = searchParties[indexPath.row].title!
         } else {
-            cell?.textLabel?.text = parties[indexPath.row]
+            cell?.textLabel?.text = partiesList![indexPath.row].title!
         }
         
         return cell!
@@ -75,10 +82,10 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searching {
-            selectedParty = searchParties[indexPath.row]
+            selectedParty = searchParties[indexPath.row].title!
             delegate?.haveParty(partyName: selectedParty!)
         } else {
-            selectedParty = parties[indexPath.row]
+            selectedParty = partiesList![indexPath.row].title!
             delegate?.haveParty(partyName: selectedParty!)
         }
     }
@@ -86,8 +93,8 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension PartiesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchParties = parties.filter({$0.prefix(searchText.count) == searchText})
-        searchParties = searchParties.sorted(by: { $0 < $1 })
+        searchParties = partiesList!.filter({$0.title!.prefix(searchText.count) == searchText})
+        searchParties = searchParties.sorted(by: { $0.title! < $1.title! })
         searching = true
         tableView.reloadData()
     }

@@ -18,7 +18,8 @@ var currentLocation: String?
 var currentUsername: String?
 var currentUserGarlics: String?
 var currentUserImage: UIImage?
-var isLogged = false
+var isLogged = true
+var partiesList: [Party]?
 
 class ViewController: UIViewController {
 

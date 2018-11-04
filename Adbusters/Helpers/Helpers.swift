@@ -1,0 +1,49 @@
+//
+//  Helpers.swift
+//  Adbusters
+//
+//  Created by MacBookAir on 11/4/18.
+//  Copyright © 2018 MacBookAir. All rights reserved.
+//
+
+import Foundation
+import SVProgressHUD
+import UIKit
+
+func getPartiesRequest(url: String, controller: UIViewController, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
+    SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+    let urlObject = URL(string: url)
+    let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
+        do {
+            SVProgressHUD.show()
+            let result = try JSONDecoder().decode(Parties.self, from: data!)
+            //Do other things
+            completion(result, error)
+            SVProgressHUD.dismiss()
+            print("Loaded parties")
+        } catch let error {
+            error.alert(with: controller, message: "Проблеми з сервером або iнтернетом")
+            print("Помилка завантаження партiй", error)
+//            completion(nil, error)
+        }
+        SVProgressHUD.dismiss()
+    }
+    
+    task.resume()
+}
+
+
+// UI
+
+/// Extending error to make it alertable
+extension Error {
+    
+    /// displays alert from source controller
+    func alert(with controller: UIViewController, title: String = "Помилка завантаження", message: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        controller.present(alertController, animated: true, completion: nil)
+    }
+}

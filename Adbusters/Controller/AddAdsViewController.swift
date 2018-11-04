@@ -61,10 +61,12 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.show()
+        
         DispatchQueue.main.async{
             self.presentImagePicker()
             SVProgressHUD.dismiss()
         }
+        
         adLocation.text = currentLocation
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         

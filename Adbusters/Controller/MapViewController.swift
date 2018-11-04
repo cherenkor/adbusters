@@ -88,7 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
-            SVProgressHUD.dismiss(withDelay: 1.0)
+            SVProgressHUD.dismiss(withDelay: 0.8)
         }
     }
     
@@ -99,6 +99,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         currentAdView.addGestureRecognizer(gesture)
         
         configMap()
+        
         determinateCurrentLocation()
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
 
@@ -127,7 +128,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             locationManager.requestWhenInUseAuthorization()
         } else {
             SVProgressHUD.showError(withStatus: "Дозвольте визначити вашi координати")
-            SVProgressHUD.dismiss(withDelay: 1.0)
+            SVProgressHUD.dismiss(withDelay: 0.8)
         }
         
         if let userLocation = locationManager.location?.coordinate {
@@ -136,7 +137,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapView.setRegion(viewRegion, animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
-            SVProgressHUD.dismiss(withDelay: 1.0)
+            SVProgressHUD.dismiss(withDelay: 0.8)
         }
         
 //        DispatchQueue.main.async {
@@ -153,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
-            SVProgressHUD.dismiss(withDelay: 1.0)
+            SVProgressHUD.dismiss(withDelay: 0.8)
         }
     }
     

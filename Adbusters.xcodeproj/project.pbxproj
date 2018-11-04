@@ -31,6 +31,8 @@
 		D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088737A2174AE85008C8B71 /* WelcomeViewController.swift */; };
 		D0C487E8218245C700D106BD /* SingleAdImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C487E7218245C700D106BD /* SingleAdImageViewController.swift */; };
 		D0C487EA2182519500D106BD /* AddCustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C487E92182519500D106BD /* AddCustomLocationViewController.swift */; };
+		D0E3C350218E53B300FD310A /* PartyAndPolitician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C34F218E53B300FD310A /* PartyAndPolitician.swift */; };
+		D0E3C353218F4DB200FD310A /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C352218F4DB200FD310A /* Helpers.swift */; };
 		D0EBA435217526ED003CCBDC /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBA434217526ED003CCBDC /* RoundShadowView.swift */; };
 		D0EBA43721752FCD003CCBDC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBA43621752FCD003CCBDC /* MapKit.framework */; };
 		D0EBA43921753AFF003CCBDC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBA43821753AFE003CCBDC /* CoreLocation.framework */; };
@@ -71,6 +73,8 @@
 		D088737A2174AE85008C8B71 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D0C487E7218245C700D106BD /* SingleAdImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdImageViewController.swift; sourceTree = "<group>"; };
 		D0C487E92182519500D106BD /* AddCustomLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomLocationViewController.swift; sourceTree = "<group>"; };
+		D0E3C34F218E53B300FD310A /* PartyAndPolitician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartyAndPolitician.swift; path = Adbusters/Controller/PartyAndPolitician.swift; sourceTree = SOURCE_ROOT; };
+		D0E3C352218F4DB200FD310A /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		D0EBA434217526ED003CCBDC /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		D0EBA43621752FCD003CCBDC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D0EBA43821753AFE003CCBDC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -128,6 +132,7 @@
 		D088735F2174A4B8008C8B71 /* Adbusters */ = {
 			isa = PBXGroup;
 			children = (
+				D0E3C351218F4D9800FD310A /* Helpers */,
 				D08873772174A4E6008C8B71 /* Model */,
 				D08873762174A4E0008C8B71 /* Controller */,
 				D08873752174A4DA008C8B71 /* View */,
@@ -176,8 +181,17 @@
 		D08873772174A4E6008C8B71 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0E3C34F218E53B300FD310A /* PartyAndPolitician.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D0E3C351218F4D9800FD310A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3C352218F4DB200FD310A /* Helpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D0EBA4332175268E003CCBDC /* Shared */ = {
@@ -371,11 +385,13 @@
 				D0EBA44A217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift in Sources */,
 				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
 				D084447621751ED50085A8BA /* MapViewController.swift in Sources */,
+				D0E3C353218F4DB200FD310A /* Helpers.swift in Sources */,
 				D0EBA43F2177D763003CCBDC /* MyAdsViewController.swift in Sources */,
 				D0EBA4442178FB52003CCBDC /* RateViewTableViewCell.swift in Sources */,
 				D0EBA435217526ED003CCBDC /* RoundShadowView.swift in Sources */,
 				D0EBA43D2177D648003CCBDC /* RateViewController.swift in Sources */,
 				D00F54FC217CFC1200D11A5B /* PoliticiansViewController.swift in Sources */,
+				D0E3C350218E53B300FD310A /* PartyAndPolitician.swift in Sources */,
 				D0EBA43B2176F617003CCBDC /* ProfileViewController.swift in Sources */,
 				D00F54FA217CFBCE00D11A5B /* PartiesViewController.swift in Sources */,
 				D036A42D21811A5200DC8F3C /* SingleAdCollectionViewCell.swift in Sources */,
