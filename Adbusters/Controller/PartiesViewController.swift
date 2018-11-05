@@ -13,6 +13,9 @@ class PartiesViewController: UIViewController {
     var searchParties = [Party]()
     var searching = false
     var selectedParty: String?
+    var page = 1
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,15 +27,60 @@ class PartiesViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
         
-        getPartiesRequest(url: "http://www.chesno.org/party/api", controller: self) { (json, error) in
-            partiesList = json!.results.sorted(by: { $0.title! < $1.title! })
+        loadPartiesFromApi()
+    }
+    
+    func loadPartiesFromApi () {
+        if page == 0 { return }
+        
+        showIndicator(true)
+        
+        getPartiesRequest(url: "http://www.chesno.org/party/api?page=\(page)", controller: self) { (json, error) in
+            
+            if let error = error {
+                self.showIndicator(false)
+                let lastPageError = "The data couldn’t be read because it is missing."
+                if error.localizedDescription == lastPageError {
+                    self.page = 0
+                } else {
+                    error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+                }
+                print("ERROR WAR", error.localizedDescription)
+                return
+            }
+            
+            var tempPartyList = [Party]()
+            
+            for partyItem in json!.results {
+                tempPartyList.append(partyItem)
+            }
+            
+            tempPartyList = tempPartyList.sorted(by: { $0.title! < $1.title! })
+            
+            for partyItem in tempPartyList {
+                partiesList.append(partyItem)
+            }
+            
+            self.showIndicator(false)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.page += self.page
             }
         }
     }
     
+    func showIndicator (_ show: Bool) {
+        DispatchQueue.main.async {
+            self.activityIndicator.isHidden = !show
+            
+            if show {
+                self.activityIndicator.startAnimating()
+            } else {
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
     
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -64,7 +112,7 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
         if searching {
             return searchParties.count
         } else {
-            return partiesList?.count ?? 0
+            return partiesList.count
         }
     }
     
@@ -74,7 +122,7 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
         if searching {
             cell?.textLabel?.text = searchParties[indexPath.row].title!
         } else {
-            cell?.textLabel?.text = partiesList![indexPath.row].title!
+            cell?.textLabel?.text = partiesList[indexPath.row].title!
         }
         
         return cell!
@@ -85,15 +133,24 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
             selectedParty = searchParties[indexPath.row].title!
             delegate?.haveParty(partyName: selectedParty!)
         } else {
-            selectedParty = partiesList![indexPath.row].title!
+            selectedParty = partiesList[indexPath.row].title!
             delegate?.haveParty(partyName: selectedParty!)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = partiesList.count - 1
+        
+        if indexPath.row == lastItem {
+            print("Load MORE needed")
+            loadPartiesFromApi()
         }
     }
 }
 
 extension PartiesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchParties = partiesList!.filter({$0.title!.prefix(searchText.count) == searchText})
+        searchParties = partiesList.filter({$0.title!.prefix(searchText.count) == searchText})
         searchParties = searchParties.sorted(by: { $0.title! < $1.title! })
         searching = true
         tableView.reloadData()

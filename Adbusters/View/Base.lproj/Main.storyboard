@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1652,11 +1652,16 @@
                                     <outlet property="delegate" destination="xVi-c1-Jjl" id="usk-jb-Vwr"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BWH-hF-WS4">
+                                <rect key="frame" x="150" y="230" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1UI-sS-KFI" firstAttribute="trailing" secondItem="kQc-Tc-dWD" secondAttribute="trailing" id="BTs-th-zkg"/>
                             <constraint firstItem="G18-EO-8Mr" firstAttribute="leading" secondItem="kQc-Tc-dWD" secondAttribute="leading" id="Mwd-00-Z7v"/>
+                            <constraint firstItem="BWH-hF-WS4" firstAttribute="centerY" secondItem="zro-c5-Dwh" secondAttribute="centerY" id="O8x-6k-Ki7"/>
+                            <constraint firstItem="BWH-hF-WS4" firstAttribute="centerX" secondItem="zro-c5-Dwh" secondAttribute="centerX" id="OuI-Md-4cq"/>
                             <constraint firstItem="g7X-P9-qqo" firstAttribute="leading" secondItem="kQc-Tc-dWD" secondAttribute="leading" id="W7v-xZ-UlU"/>
                             <constraint firstItem="g7X-P9-qqo" firstAttribute="top" secondItem="kQc-Tc-dWD" secondAttribute="top" id="XFj-Tq-GVP"/>
                             <constraint firstItem="g7X-P9-qqo" firstAttribute="trailing" secondItem="kQc-Tc-dWD" secondAttribute="trailing" id="ZNw-Vl-P1K"/>
@@ -1669,6 +1674,7 @@
                         <viewLayoutGuide key="safeArea" id="kQc-Tc-dWD"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="BWH-hF-WS4" id="3sz-Jk-fCB"/>
                         <outlet property="searchBar" destination="1UI-sS-KFI" id="RmK-GJ-1Pg"/>
                         <outlet property="tableView" destination="G18-EO-8Mr" id="nEE-9B-1Xs"/>
                         <segue destination="Scf-Ba-FFU" kind="custom" identifier="goToAddAds" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="wba-ga-xQQ"/>
@@ -2604,11 +2610,12 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="m3B-0v-n4O"/>
         <segue reference="xfT-lN-0KB"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="9LO-tQ-BRv"/>
         <segue reference="pU2-eh-hHY"/>
-        <segue reference="a9S-fS-bVK"/>
-        <segue reference="gQg-cU-FWQ"/>
+        <segue reference="wba-ga-xQQ"/>
+        <segue reference="ChZ-b1-s46"/>
     </inferredMetricsTieBreakers>
 </document>
