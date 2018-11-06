@@ -9,24 +9,34 @@
 import Foundation
 import UIKit
 
-func getPartiesRequest(url: String, controller: UIViewController, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
+func getRequest(url: String, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
     let urlObject = URL(string: url)
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         do {
             let result = try JSONDecoder().decode(Parties.self, from: data!)
-            //Do other things
             completion(result, error)
-            print("Loaded parties")
         } catch let error {
             completion(nil, error)
         }
     }
-    
     task.resume()
 }
 
 
 // UI
+
+// Spinner, native
+func showIndicator (_ show: Bool, indicator: UIActivityIndicatorView) {
+    DispatchQueue.main.async {
+        indicator.isHidden = !show
+        
+        if show {
+            indicator.startAnimating()
+        } else {
+            indicator.stopAnimating()
+        }
+    }
+}
 
 /// Extending error to make it alertable
 extension Error {

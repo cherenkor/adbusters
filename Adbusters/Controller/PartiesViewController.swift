@@ -33,12 +33,12 @@ class PartiesViewController: UIViewController {
     func loadPartiesFromApi () {
         if page == 0 { return }
         
-        showIndicator(true)
+        showIndicator(true, indicator: activityIndicator)
         
-        getPartiesRequest(url: "http://www.chesno.org/party/api?page=\(page)", controller: self) { (json, error) in
+        getRequest(url: "http://www.chesno.org/party/api?page=\(page)") { (json, error) in
             
             if let error = error {
-                self.showIndicator(false)
+                showIndicator(false, indicator: self.activityIndicator)
                 let lastPageError = "The data couldn’t be read because it is missing."
                 if error.localizedDescription == lastPageError {
                     self.page = 0
@@ -61,23 +61,11 @@ class PartiesViewController: UIViewController {
                 partiesList.append(partyItem)
             }
             
-            self.showIndicator(false)
+            showIndicator(false, indicator: self.activityIndicator)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.page += self.page
-            }
-        }
-    }
-    
-    func showIndicator (_ show: Bool) {
-        DispatchQueue.main.async {
-            self.activityIndicator.isHidden = !show
-            
-            if show {
-                self.activityIndicator.startAnimating()
-            } else {
-                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -88,19 +76,7 @@ class PartiesViewController: UIViewController {
     
     @IBAction func saveParty(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-//        if selectedParty != nil {
-//            performSegue(withIdentifier: "goToAddAds", sender: nil)
-//        } else {
-//            SVProgressHUD.showError(withStatus: "Виберіть політика")
-//            SVProgressHUD.dismiss(withDelay: 1.0)
-//        }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let addAdsViewController = segue.destination as! AddAdsViewController
-//        addAdsViewController.party = selectedParty!
-//    }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.tableView.endEditing(true)
