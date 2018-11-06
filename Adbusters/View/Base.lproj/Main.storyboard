@@ -1751,6 +1751,9 @@
                                     <outlet property="delegate" destination="E0S-PE-JXq" id="Xod-9m-doo"/>
                                 </connections>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-xJ-2ym">
+                                <rect key="frame" x="150" y="230" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1758,6 +1761,8 @@
                             <constraint firstItem="6Yi-Cq-SaX" firstAttribute="top" secondItem="GZZ-kr-7Tq" secondAttribute="bottom" id="1XT-qL-G7L"/>
                             <constraint firstItem="yUZ-Vz-WoG" firstAttribute="top" secondItem="saV-yr-QYA" secondAttribute="top" id="8dw-0t-8A9"/>
                             <constraint firstItem="6Yi-Cq-SaX" firstAttribute="leading" secondItem="saV-yr-QYA" secondAttribute="leading" id="C31-oE-sZ7"/>
+                            <constraint firstItem="JiT-xJ-2ym" firstAttribute="centerX" secondItem="fCf-bf-bQ1" secondAttribute="centerX" id="C7J-Y6-bgf"/>
+                            <constraint firstItem="JiT-xJ-2ym" firstAttribute="centerY" secondItem="fCf-bf-bQ1" secondAttribute="centerY" id="KGq-SZ-NLT"/>
                             <constraint firstItem="yUZ-Vz-WoG" firstAttribute="trailing" secondItem="saV-yr-QYA" secondAttribute="trailing" id="Nul-ay-n2N"/>
                             <constraint firstItem="GZZ-kr-7Tq" firstAttribute="leading" secondItem="saV-yr-QYA" secondAttribute="leading" id="SMc-VR-bnk"/>
                             <constraint firstItem="yUZ-Vz-WoG" firstAttribute="leading" secondItem="saV-yr-QYA" secondAttribute="leading" id="e2v-za-N7U"/>
@@ -1768,6 +1773,7 @@
                         <viewLayoutGuide key="safeArea" id="saV-yr-QYA"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="JiT-xJ-2ym" id="XF2-OE-17G"/>
                         <outlet property="searchBar" destination="GZZ-kr-7Tq" id="o6V-ZB-fan"/>
                         <outlet property="searchDisplayController" destination="vCC-co-wWS" id="JbI-q4-wSa"/>
                         <outlet property="tableView" destination="6Yi-Cq-SaX" id="yqW-ay-IJ0"/>
@@ -2610,12 +2616,11 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m3B-0v-n4O"/>
         <segue reference="xfT-lN-0KB"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="9LO-tQ-BRv"/>
         <segue reference="pU2-eh-hHY"/>
-        <segue reference="wba-ga-xQQ"/>
+        <segue reference="FNT-sG-CSb"/>
         <segue reference="ChZ-b1-s46"/>
     </inferredMetricsTieBreakers>
 </document>

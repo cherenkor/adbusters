@@ -15,6 +15,13 @@ struct Parties: Decodable {
     var results: [Party]
 }
 
+struct Politicians: Decodable {
+    var count: Int?
+    var next: String?
+    var previous: String?
+    var results: [Politician]
+}
+
 struct Party: Decodable {
     var id: Int?
     var title: String?

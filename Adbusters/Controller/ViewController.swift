@@ -20,6 +20,7 @@ var currentUserGarlics: String?
 var currentUserImage: UIImage?
 var isLogged = true
 var partiesList = [Party]()
+var politiciansList = [Politician]()
 
 class ViewController: UIViewController {
 

@@ -35,7 +35,7 @@ class PartiesViewController: UIViewController {
         
         showIndicator(true, indicator: activityIndicator)
         
-        getRequest(url: "http://www.chesno.org/party/api?page=\(page)") { (json, error) in
+        getPartiesRequest(url: "http://www.chesno.org/party/api?page=\(page)") { (json, error) in
             
             if let error = error {
                 showIndicator(false, indicator: self.activityIndicator)
@@ -118,7 +118,6 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
         let lastItem = partiesList.count - 1
         
         if indexPath.row == lastItem {
-            print("Load MORE needed")
             loadPartiesFromApi()
         }
     }

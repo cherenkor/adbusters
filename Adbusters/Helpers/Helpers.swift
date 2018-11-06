@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-func getRequest(url: String, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
+// MARK: WORK WITH APU
+func getPartiesRequest(url: String, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
     let urlObject = URL(string: url)
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         do {
@@ -22,10 +23,24 @@ func getRequest(url: String, completion: @escaping (_ json: Parties?, _ error: E
     task.resume()
 }
 
+func getPoliticiansRequest(url: String, completion: @escaping (_ json: Politicians?, _ error: Error?)->()) {
+    let urlObject = URL(string: url)
+    let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
+        do {
+            let result = try JSONDecoder().decode(Politicians.self, from: data!)
+            completion(result, error)
+        } catch let error {
+            completion(nil, error)
+        }
+    }
+    task.resume()
+}
+
 
 // UI
 
 // Spinner, native
+
 func showIndicator (_ show: Bool, indicator: UIActivityIndicatorView) {
     DispatchQueue.main.async {
         indicator.isHidden = !show
