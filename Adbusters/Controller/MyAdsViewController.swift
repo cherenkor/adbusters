@@ -18,6 +18,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         tableView.separatorColor = UIColor.white
+        currentAdsImageUrls = [AdImage]()
         // Do any additional setup after loading the view.
         
         loadAds()
