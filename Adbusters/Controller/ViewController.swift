@@ -9,6 +9,7 @@
 import UIKit
 
 var currentAdsImages = [UIImage]()
+var currentAdsImageUrls: [AdImage]?
 var currentAdImage: UIImage?
 var currentParty: String?
 var currentType: String?
@@ -22,13 +23,12 @@ var isLogged = true
 var partiesList = [Party]()
 var politiciansList = [Politician]()
 var ads: [AdModel]?
+let imageCache = NSCache<AnyObject, AnyObject>()
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
 }
 

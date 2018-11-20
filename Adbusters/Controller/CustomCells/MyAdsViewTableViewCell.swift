@@ -13,7 +13,7 @@ class MyAdsViewTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var date: UILabel!
-    
+    @IBOutlet weak var adImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,4 +25,13 @@ class MyAdsViewTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        //Do reset here
+        title.text = ""
+        type.text = ""
+        date.text = ""
+        adImageView.image = UIImage(named: "logo_white")
+        
+    }
 }

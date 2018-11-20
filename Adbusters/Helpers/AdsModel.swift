@@ -1,11 +1,3 @@
-//
-//  AdsModel.swift
-//  Adbusters
-//
-//  Created by MacBookAir on 11/18/18.
-//  Copyright © 2018 MacBookAir. All rights reserved.
-//
-
 import Foundation
 
 struct AdsModel: Codable {
@@ -26,7 +18,7 @@ struct AdModel: Codable {
     var created_date: String?
 }
 
-struct AdImage:Codable {
+struct AdImage: Codable {
     var image: String?
 }
 

@@ -10,15 +10,7 @@ import UIKit
 
 class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-//    let ads = [
-//        ["photo": "default", "party": "Опозиційний блок", "type": "Бігборд", "date": "Жов 7, 2018"],
-//        ["photo": "default", "party": "Народний блок", "type": "Газета", "date": "Лип 11, 2018"],
-//        ["photo": "default", "party": "Блок Юлії Тимошенко", "type": "Бумажна листівка", "date": "Бер 9, 2018"],
-//        ["photo": "default", "party": "Блок Петра Порошенка", "type": "Транспорт", "date": "Січ 5, 2018"],
-//        ["photo": "default", "party": "Партія Олександра Соломанського", "type": "Інше", "date": "Лис 2, 2018"],
-//        ["photo": "default", "party": "Коаліційний блок", "type": "Палатка", "date": "Сер 22, 2018"],
-//        ["photo": "default", "party": "Антикорумційний блок", "type": "Світлина", "date": "Гру 17, 2018"],
-//    ]
+    var imageUrlString: String?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -57,6 +49,34 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.title.text = ads?[indexPath.row].party?.name
         cell.type.text = "\(ads![indexPath.row].type!)"
         cell.date.text = convertDate(dateStr: ads![indexPath.row].created_date!)
+        let images = ads![indexPath.row].images!
+        
+        if (images.count > 0) {
+            let urlString = images[0].image!
+            imageUrlString = urlString
+            
+            if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+                cell.adImageView.image = imageFromCache
+            } else {
+                if let url = URL(string: urlString) {
+                    URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
+                        guard let data = data, error == nil else {
+                            print("\nerror on download \(error ?? "" as! Error)")
+                            return
+                        }
+                        DispatchQueue.main.async(execute: {
+                            let imageToCache = UIImage(data: data)
+                            
+                            if self.imageUrlString == urlString {
+                                cell.adImageView.image = imageToCache
+                            }
+                            
+                            imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+                        })
+                    }).resume()
+                }
+            }
+        }
         
         return cell
     }
@@ -68,12 +88,13 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         setCurrent(index: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180.0
+    }
+    
     func setCurrent(index: Int) {
-        if index == 0 {
-            currentAdsImages = [UIImage(named: "logo")]  as! [UIImage]
-        } else {
-            currentAdsImages = [UIImage(named: "logo"), UIImage(named: "logo_large"), UIImage(named: "logo"), UIImage(named: "logo_white"), UIImage(named: "logo"), UIImage(named: "logo")] as! [UIImage]
-        }
+        
+        currentAdsImageUrls = ads?[index].images!
         currentParty = ads?[index].party?.name
         currentType = "\(ads![index].type!)"
         currentDate = convertDate(dateStr: ads![index].created_date!)

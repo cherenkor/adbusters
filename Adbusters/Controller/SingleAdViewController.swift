@@ -20,20 +20,45 @@ class SingleAdViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        currentAdsImages = [UIImage]()
         currentPartyLbl.text = currentParty
         currentTypeLbl.text = currentType
         currentDateLbl.text = currentDate
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return currentAdsImages.count
+        return currentAdsImageUrls!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SingleAdCollectionViewCell
-        cell.imageView.image = currentAdsImages[indexPath.row]
+        
+        if let images = currentAdsImageUrls {
+        
+            if (images.count > 0) {
+                for imageModel in images {
+                    let urlString = imageModel.image!
+                    
+                    if let url = URL(string: urlString) {
+                        URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
+                            guard let data = data, error == nil else {
+                                print("\nerror on download \(error ?? "" as! Error)")
+                                return
+                            }
+                            DispatchQueue.main.async(execute: {
+                                let currentImage = UIImage(data: data)!
+                                cell.imageView.image = currentImage
+                                currentAdsImages.append(currentImage)
+                                self.collectionView.reloadData()
+                            })
+                        }).resume()
+                    }
+                }
+            }
+        }
+        
         return cell
     }
     
