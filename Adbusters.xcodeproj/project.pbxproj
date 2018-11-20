@@ -29,6 +29,7 @@
 		D08873692174A4B8008C8B71 /* Adbusters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D08873672174A4B8008C8B71 /* Adbusters.xcdatamodeld */; };
 		D088736E2174A4B9008C8B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D088736C2174A4B9008C8B71 /* LaunchScreen.storyboard */; };
 		D088737B2174AE85008C8B71 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088737A2174AE85008C8B71 /* WelcomeViewController.swift */; };
+		D0AF7F2521A2036400316D4D /* AdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AF7F2421A2036400316D4D /* AdsModel.swift */; };
 		D0C487E8218245C700D106BD /* SingleAdImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C487E7218245C700D106BD /* SingleAdImageViewController.swift */; };
 		D0C487EA2182519500D106BD /* AddCustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C487E92182519500D106BD /* AddCustomLocationViewController.swift */; };
 		D0E3C350218E53B300FD310A /* PartyAndPolitician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C34F218E53B300FD310A /* PartyAndPolitician.swift */; };
@@ -71,6 +72,7 @@
 		D088736D2174A4B9008C8B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D088736F2174A4B9008C8B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D088737A2174AE85008C8B71 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		D0AF7F2421A2036400316D4D /* AdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdsModel.swift; path = Adbusters/Helpers/AdsModel.swift; sourceTree = SOURCE_ROOT; };
 		D0C487E7218245C700D106BD /* SingleAdImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdImageViewController.swift; sourceTree = "<group>"; };
 		D0C487E92182519500D106BD /* AddCustomLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomLocationViewController.swift; sourceTree = "<group>"; };
 		D0E3C34F218E53B300FD310A /* PartyAndPolitician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartyAndPolitician.swift; path = Adbusters/Controller/PartyAndPolitician.swift; sourceTree = SOURCE_ROOT; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				D0E3C34F218E53B300FD310A /* PartyAndPolitician.swift */,
+				D0AF7F2421A2036400316D4D /* AdsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				D0EBA446217920B3003CCBDC /* MyAdsViewTableViewCell.swift in Sources */,
 				D0EBA44A217A471E003CCBDC /* AddAdImageViewCollectionViewCell.swift in Sources */,
 				D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */,
+				D0AF7F2521A2036400316D4D /* AdsModel.swift in Sources */,
 				D084447621751ED50085A8BA /* MapViewController.swift in Sources */,
 				D0E3C353218F4DB200FD310A /* Helpers.swift in Sources */,
 				D0EBA43F2177D763003CCBDC /* MyAdsViewController.swift in Sources */,

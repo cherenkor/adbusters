@@ -14,11 +14,10 @@ import SVProgressHUD
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AdvertiseDelegate {
     
     func addAdvertise (party: String, politician: String, type: String, date: String, comment: String, images: [UIImage]) {
-        print("Done with \(comment)")
         popupView.isHidden = false
         partyLbl.text = party
         typeLbl.text = type
-        dateLbl.text = date
+        dateLbl.text = convertDate(dateStr: date)
         adImage.image = images[0]
         currentAdsImages = images
         currentComment = comment

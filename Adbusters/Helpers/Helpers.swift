@@ -1,11 +1,3 @@
-//
-//  Helpers.swift
-//  Adbusters
-//
-//  Created by MacBookAir on 11/4/18.
-//  Copyright © 2018 MacBookAir. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -31,6 +23,21 @@ func getPoliticiansRequest(url: String, completion: @escaping (_ json: Politicia
             completion(result, error)
         } catch let error {
             completion(nil, error)
+        }
+    }
+    task.resume()
+}
+
+func getAds(url: String, completion: @escaping (_ json: Array<AdModel>?, _ error: Error?)->()) {
+    let urlObject = URL(string: url)
+    let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
+        if let data = data {
+            do {
+                let result = try JSONDecoder().decode(Array<AdModel>.self, from: data)
+                completion(result, error)
+            } catch let error {
+                completion(nil, error)
+            }
         }
     }
     task.resume()
@@ -66,3 +73,32 @@ extension Error {
         }
     }
 }
+
+
+// Date
+
+func convertDate (dateStr : String) -> String {
+    let formatter = DateFormatter()
+    formatter.calendar = Calendar(identifier: .gregorian)
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+    if let date = formatter.date(from: dateStr) {
+        formatter.locale = Locale(identifier: "uk_UA")
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        formatter.dateFormat = "MMM d, HH:mm"
+        let string = formatter.string(from: date)
+        return string.capitalized
+    } else {
+        return dateStr
+    }
+}
+
+func getDateNow () -> String {
+    let format = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = format
+    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+    let date = Date()
+    return dateFormatter.string(from: date)
+}
+

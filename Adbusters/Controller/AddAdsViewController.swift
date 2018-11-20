@@ -106,10 +106,9 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             SVProgressHUD.showError(withStatus: "Заповнiть усi поля")
             SVProgressHUD.dismiss(withDelay: 1.0)
         } else {
-            let date = Date()
-            print("Date now \(date.description)")
-            print(date)
-            delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: date.description, comment: commentLbl.text ?? "", images: addingImages )
+            let date = getDateNow()
+            
+            delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: date, comment: commentLbl.text ?? "", images: addingImages )
             self.dismiss(animated: true, completion: nil)
         }
     }

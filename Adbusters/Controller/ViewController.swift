@@ -21,6 +21,7 @@ var currentUserImage: UIImage?
 var isLogged = true
 var partiesList = [Party]()
 var politiciansList = [Politician]()
+var ads: [AdModel]?
 
 class ViewController: UIViewController {
 
