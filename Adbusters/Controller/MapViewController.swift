@@ -15,12 +15,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func addAdvertise (party: String, politician: String, type: String, date: String, comment: String, images: [UIImage]) {
         popupView.isHidden = false
-        partyLbl.text = party
+        partyLbl.text = party == "Партія не вибрана" ? "" : party
         typeLbl.text = type
         dateLbl.text = convertDate(dateStr: date)
         adImage.image = images[0]
         currentAdsImages = images
         currentComment = comment
+        currentPolitician = politician == "Політик не вибраний" ? "" : politician
     }
     
     @IBAction func addAdButtonPressed(_ sender: Any) {
@@ -40,10 +41,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var partyLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
+    var currentPolitician = ""
     
     @IBOutlet weak var currentAdView: UIView!
 
     @objc func showSingleAd(_ sender:UITapGestureRecognizer){
+        isAddAdsView = true
         currentParty = partyLbl.text
         currentType = typeLbl.text
         currentDate = dateLbl.text

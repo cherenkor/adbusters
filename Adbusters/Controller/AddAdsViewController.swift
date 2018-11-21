@@ -12,7 +12,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     var delegate: AdvertiseDelegate?
     
     func haveParty(partyName: String) {
-        print(partyName)
         if partyName != "" {
             partyLabel.text = partyName
             partyLabel.textColor = .black
@@ -43,7 +42,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     var addingImages = [UIImage]() {
         didSet {
             collectionView.reloadData()
-            print("Images updated")
         }
     }
     
@@ -102,8 +100,8 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBAction func saveAd(_ sender: Any) {
         print("Pa \(String(describing: partyLabel.text)), po \(String(describing: politicianLabel.text)), co \(addingImages.count)")
-        if partyLabel.text == nil || politicianLabel.text == nil || addingImages.count == 0 || adType.text == nil {
-            SVProgressHUD.showError(withStatus: "Заповнiть усi поля")
+        if addingImages.count == 0 || adType.text == nil || adLocation.text == nil {
+            SVProgressHUD.showError(withStatus: "Перевiрте поля")
             SVProgressHUD.dismiss(withDelay: 1.0)
         } else {
             let date = getDateNow()

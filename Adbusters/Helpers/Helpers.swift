@@ -81,6 +81,7 @@ func convertDate (dateStr : String) -> String {
     let formatter = DateFormatter()
     formatter.calendar = Calendar(identifier: .gregorian)
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+    formatter.timeZone = TimeZone(abbreviation: "UTC")
     if let date = formatter.date(from: dateStr) {
         formatter.locale = Locale(identifier: "uk_UA")
         formatter.dateStyle = .medium
@@ -97,7 +98,7 @@ func getDateNow () -> String {
     let format = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
-    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
     let date = Date()
     return dateFormatter.string(from: date)
 }

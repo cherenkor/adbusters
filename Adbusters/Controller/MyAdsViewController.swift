@@ -32,7 +32,15 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 return
             }
             
-            ads = json!
+//            ads = json!
+//            ads = json!.filter() {
+//                if let type = ($0)["id"] as String {
+//                    return type.rangeOfString("Sushi") != nil
+//                } else {
+//                    return false
+//                }
+//            }
+            ads = json!.filter({ $0.user == 16})
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -94,7 +102,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func setCurrent(index: Int) {
-        
+        isAddAdsView = false
         currentAdsImageUrls = ads?[index].images!
         currentParty = ads?[index].party?.name
         currentType = "\(ads![index].type!)"

@@ -8,6 +8,8 @@
 
 import UIKit
 
+var currentUserId: Int?
+var isAddAdsView = false
 var currentAdsImages = [UIImage]()
 var currentAdsImageUrls: [AdImage]?
 var currentAdImage: UIImage?
@@ -29,6 +31,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentUserId = 16
     }
 }
 
