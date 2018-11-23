@@ -63,21 +63,21 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         DispatchQueue.main.async{
             self.presentImagePicker()
             SVProgressHUD.dismiss()
+            self.adLocation.text = currentLocation
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+            
+            self.dropDown.anchorView = self.adTypeView
+            self.dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]
+            
+            self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+                self.adType.text = item
+            }
+            
+            // Will set a custom width instead of the anchor view width
+            self.dropDown.width = 200
+            self.prepareSwitch()
         }
         
-        adLocation.text = currentLocation
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-        
-        dropDown.anchorView = adTypeView
-        dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]
-        
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.adType.text = item
-        }
-        
-        // Will set a custom width instead of the anchor view width
-        dropDown.width = 200
-        prepareSwitch()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,6 +107,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             let date = getDateNow()
             
             delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: date, comment: commentLbl.text ?? "", images: addingImages )
+            adsAll = [AdModel]()
             self.dismiss(animated: true, completion: nil)
         }
     }

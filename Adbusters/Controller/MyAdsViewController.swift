@@ -25,25 +25,35 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func loadAds() {
+        if loadedAds == true { return }
+        if let haveAds = adsAll {
+            if haveAds.count > 0 {
+                ads = haveAds.filter({ $0.user == currentUserId })
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                return
+            }
+        }
+        
+        print("RELOAd")
+        
         getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
             
             if let error = error {
                 print("ERROR WAR", error)
+                error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
                 return
             }
             
-//            ads = json!
-//            ads = json!.filter() {
-//                if let type = ($0)["id"] as String {
-//                    return type.rangeOfString("Sushi") != nil
-//                } else {
-//                    return false
-//                }
-//            }
-            ads = json!.filter({ $0.user == 16})
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            if let jsonData = json {
+                ads = jsonData.filter({ $0.user == currentUserId})
+                loadedAds = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                error?.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
             }
         }
     }
@@ -56,7 +66,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyAdsViewTableViewCell
         cell.title.text = ads?[indexPath.row].party?.name
-        cell.type.text = "\(ads![indexPath.row].type!)"
+        cell.type.text = getTypeText(ads![indexPath.row].type!)
         cell.date.text = convertDate(dateStr: ads![indexPath.row].created_date!)
         let images = ads![indexPath.row].images!
         
@@ -105,7 +115,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         isAddAdsView = false
         currentAdsImageUrls = ads?[index].images!
         currentParty = ads?[index].party?.name
-        currentType = "\(ads![index].type!)"
+        currentType = getTypeText(ads![index].type!)
         currentDate = convertDate(dateStr: ads![index].created_date!)
         performSegue(withIdentifier: "goToSingleAd", sender: nil)
     }

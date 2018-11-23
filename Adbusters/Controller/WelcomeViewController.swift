@@ -22,6 +22,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.textAlignment = .natural
+        currentUserId = 21
     }
     
     override func viewDidAppear(_ animated: Bool) {

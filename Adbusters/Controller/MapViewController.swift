@@ -46,6 +46,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var currentAdView: UIView!
 
     @objc func showSingleAd(_ sender:UITapGestureRecognizer){
+        loadedAds = false
         isAddAdsView = true
         currentParty = partyLbl.text
         currentType = typeLbl.text
@@ -100,16 +101,43 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.showSingleAd (_:)))
         currentAdView.addGestureRecognizer(gesture)
         
-        configMap()
+        DispatchQueue.main.async {
+            self.configMap()
+            self.determinateCurrentLocation()
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+            self.loadAds()
+        }
+    }
+    
+    func loadAds () {
+        if let adsExist = adsAll {
+            setPinsOnMap(jsonData: adsExist)
+        }
         
-        determinateCurrentLocation()
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-
-//        let userLocation = mapView.userLocation
-//        let region = MKCoordinateRegion(center: (userLocation.location?.coordinate)!, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-////
-//        mapView.setRegion(region, animated: true)
-        
+        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
+            
+            if let error = error {
+                print("ERROR WAR", error)
+                error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+                return
+            }
+            
+            if let jsonData = json {
+                adsAll = jsonData
+                self.setPinsOnMap(jsonData: jsonData)
+            } else {
+                error?.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+            }
+        }
+    }
+    
+    func setPinsOnMap (jsonData: [AdModel]) {
+        var annotaions = [MyAnnotation]()
+        for ad in jsonData {
+            let annotation = self.setPin(id: ad.id!, latitude: ad.latitude!, longitude: ad.longitude!, grouped: ad.grouped!)
+            annotaions.append(annotation)
+        }
+        self.mapView.addAnnotations(annotaions)
     }
     
     func configMap () {
@@ -141,10 +169,31 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
             SVProgressHUD.dismiss(withDelay: 0.8)
         }
-        
-//        DispatchQueue.main.async {
-//            self.locationManager.startUpdatingLocation()
-//        }
+    }
+    
+    func setPin (id: Int, latitude: Double, longitude: Double, grouped: Bool) -> MyAnnotation {
+        let marker = MyAnnotation(id: id, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), grouped: grouped)
+        return marker
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
+    {
+        if let myAnnotation = view.annotation as? MyAnnotation{
+            print("ad with id - \(String(describing: myAnnotation.id!))");
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? MyAnnotation {
+            let identifier = "identifier"
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView.image = annotation.image //add this
+            annotationView.canShowCallout = true
+            annotationView.calloutOffset = CGPoint(x: -2, y: 2)
+            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            return annotationView
+        }
+        return nil
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import MapKit
 
 // MARK: WORK WITH APU
 func getPartiesRequest(url: String, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
@@ -74,6 +75,24 @@ extension Error {
     }
 }
 
+// JSON settings
+func getTypeText (_ typeInt: Int) -> String {
+    if typeInt == 1 {
+        return "Бігборд"
+    } else if typeInt == 2 {
+        return "Сітілайт"
+    } else if typeInt == 3 {
+        return "Газета"
+    } else if typeInt == 4 {
+        return "Листівка"
+    } else if typeInt == 5 {
+        return "Намет"
+    } else if typeInt == 6 {
+        return "Транспорт"
+    } else {
+        return "Інше"
+    }
+}
 
 // Date
 
@@ -103,3 +122,36 @@ func getDateNow () -> String {
     return dateFormatter.string(from: date)
 }
 
+
+// MAP
+class MyAnnotation: NSObject, MKAnnotation {
+    let title: String?
+    let subtitle: String?
+    let coordinate: CLLocationCoordinate2D
+    var image: UIImage? = nil
+    var id: Int? = nil
+    var grouped: Bool? = nil
+    
+    init(id: Int, coordinate: CLLocationCoordinate2D, grouped: Bool) {
+        var resizedImage = grouped == true ? UIImage(named: "marker_group") : UIImage(named: "marker")
+        resizedImage = resizedImage!.resize(toWidth: 30.0)!
+        resizedImage = resizedImage!.resize(toHeight: 30.0)!
+        self.title = "Ads \(id)"
+        self.subtitle = ""
+        self.id = id
+        self.coordinate = coordinate
+        self.image = resizedImage
+        self.grouped = grouped
+        super.init()
+    }
+}
+
+
+// Additional Types
+struct Pin {
+    let id: Int
+    let latitude: Double
+    let longitude: Double
+    let imageUrl: [AdImage]
+    let grouped: Bool
+}

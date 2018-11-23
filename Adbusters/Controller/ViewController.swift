@@ -25,13 +25,14 @@ var isLogged = true
 var partiesList = [Party]()
 var politiciansList = [Politician]()
 var ads: [AdModel]?
+var adsAll: [AdModel]?
 let imageCache = NSCache<AnyObject, AnyObject>()
+var loadedAds = false
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUserId = 16
     }
 }
 

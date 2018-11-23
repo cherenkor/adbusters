@@ -2617,7 +2617,6 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FOR-f4-kyd"/>
         <segue reference="xfT-lN-0KB"/>
         <segue reference="ybb-UJ-Wha"/>
         <segue reference="9LO-tQ-BRv"/>

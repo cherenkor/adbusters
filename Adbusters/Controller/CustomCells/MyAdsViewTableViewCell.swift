@@ -9,11 +9,14 @@
 import UIKit
 
 class MyAdsViewTableViewCell: UITableViewCell {
+    
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var adImageView: UIImageView!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

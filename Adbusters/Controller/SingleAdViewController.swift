@@ -41,7 +41,6 @@ class SingleAdViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SingleAdCollectionViewCell
-        print(isAddAdsView, "DONE", currentAdsImages)
         if isAddAdsView {
             cell.imageView.image = currentAdsImages[indexPath.row]
             return cell
