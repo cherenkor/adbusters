@@ -44,6 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var currentPolitician = ""
     
     @IBOutlet weak var currentAdView: UIView!
+    var centralLocationCoordinate : CLLocationCoordinate2D?
 
     @objc func showSingleAd(_ sender:UITapGestureRecognizer){
         loadedAds = false
@@ -105,17 +106,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.configMap()
             self.determinateCurrentLocation()
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-            self.loadAds()
         }
     }
     
-    func loadAds () {
+    func loadAds (_ lat: Double, _ lon: Double, _ radius: Double) {
         if let adsExist = adsAll {
             setPinsOnMap(jsonData: adsExist)
         }
         
-        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
-            
+//        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
+        getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longtitude=\(lon)&radius=\(radius)") { (json, error) in
+        
             if let error = error {
                 print("ERROR WAR", error)
                 error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
@@ -255,5 +256,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             }
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let lat = mapView.centerCoordinate.latitude
+        let lon = mapView.centerCoordinate.longitude
+        let centralLocation = CLLocation(latitude: lat, longitude: lon)
+        centralLocationCoordinate = mapView.centerCoordinate
+        let radius = self.getRadius(centralLocation: centralLocation)
+        print("Lat - \(lat), Lon - \(lon), Radius - \(radius)")
+        
+        DispatchQueue.main.async {
+            self.loadAds(lat, lon, radius)
+        }
+    }
+    
+    
+    func getRadius(centralLocation: CLLocation) -> Double{
+        let topCentralLat:Double = centralLocation.coordinate.latitude -  mapView.region.span.latitudeDelta/2
+        let topCentralLocation = CLLocation(latitude: topCentralLat, longitude: centralLocation.coordinate.longitude)
+        let radius = centralLocation.distance(from: topCentralLocation)
+        return radius / 1000.0 // to convert radius to meters
     }
 }
