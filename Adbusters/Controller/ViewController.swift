@@ -8,7 +8,6 @@
 
 import UIKit
 
-var currentUserId: Int?
 var isAddAdsView = false
 var currentAdsImages = [UIImage]()
 var currentAdsImageUrls: [AdImage]?
@@ -18,10 +17,15 @@ var currentType: String?
 var currentDate: String?
 var currentComment: String?
 var currentLocation: String?
-var currentUsername: String?
-var currentUserGarlics: String?
+
+// User Data
+var currentUserName: String?
+var currentUserGarlics: Int?
 var currentUserImage: UIImage?
+var currentUserId: Int?
+var userToken: String?
 var isLogged = true
+
 var partiesList = [Party]()
 var politiciansList = [Politician]()
 var ads: [AdModel]?

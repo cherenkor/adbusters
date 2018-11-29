@@ -115,7 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
 //        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
-        getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longtitude=\(lon)&radius=\(radius)") { (json, error) in
+        getAds(url: "http://127.0.0.1:8000/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
         
             if let error = error {
                 print("ERROR WAR", error)
@@ -276,6 +276,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let topCentralLat:Double = centralLocation.coordinate.latitude -  mapView.region.span.latitudeDelta/2
         let topCentralLocation = CLLocation(latitude: topCentralLat, longitude: centralLocation.coordinate.longitude)
         let radius = centralLocation.distance(from: topCentralLocation)
-        return radius / 1000.0 // to convert radius to meters
+        return radius //  radius / 1000.0 - if you want to convert radius to meters
     }
 }

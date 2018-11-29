@@ -80,15 +80,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func logout () {
         self.performSegue(withIdentifier: "goToMain", sender: nil)
         isLogged = false
-        currentUsername = "Прiзвище Iм'я"
-        currentUserGarlics = ""
+        currentUserName = "Прiзвище Iм'я"
+        currentUserGarlics = 0
         currentUserImage = UIImage(named: "icon_profile")
     }
     
     func setUser () {
         if isLogged {
-            currentUsernameLbl.text = currentUsername
-            currentUserGarlicsAmountLbl.text = currentUserGarlics
+            currentUsernameLbl.text = currentUserName
+            currentUserGarlicsAmountLbl.text = "\(currentUserGarlics ?? 0) часничкiв"
             currentUserImageView.image = currentUserImage
         }
     }

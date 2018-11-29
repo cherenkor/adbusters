@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'Adbusters' do
   use_frameworks!
@@ -7,4 +7,5 @@ target 'Adbusters' do
 	pod 'SVProgressHUD'
 	pod 'DropDown'
 	pod 'Material'
+	pod 'FacebookLogin'
 end

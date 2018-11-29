@@ -44,6 +44,71 @@ func getAds(url: String, completion: @escaping (_ json: Array<AdModel>?, _ error
     task.resume()
 }
 
+func getUserData(url: String, token: String, completion: @escaping (_ json: UserData?, _ error: Error?)->()) {
+    let urlLink = URL(string: url)!
+    var request = URLRequest(url: urlLink)
+    request.httpMethod = "GET"
+    request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
+    request.setValue("application/json" , forHTTPHeaderField: "Content-Type")
+    let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+        if let data = data {
+            do {
+                let result = try JSONDecoder().decode(UserData.self, from: data)
+                completion(result, error)
+            } catch let error {
+                completion(nil, error)
+            }
+        }
+    }
+    task.resume()
+}
+
+func loginUserFB(url: String, token: String, email: String, name: String, pictureUrl: String, completion: @escaping (_ result: Any?, _ error: Error?)->()) {
+    let urlLink = URL(string: url)!
+    var request = URLRequest(url: urlLink)
+    
+    var dict = Dictionary<String, Any>()
+    
+    dict["access_token"] = token
+    dict["name"] = name
+    dict["email"] = email
+    dict["picture"] = pictureUrl
+    
+    do {
+        let data = try JSONSerialization.data(withJSONObject: dict, options: [])
+        request.httpMethod = "POST"
+        request.addValue("application/json",forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json",forHTTPHeaderField: "Accept")
+        request.httpBody = data
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if let data = data {
+                completion(data, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+        task.resume()
+    } catch let error {
+        print("Error", error)
+    }
+}
+
+
+// USER
+
+func setCurrentUser (token: String, email: String, name: String, pictureUrl: String, garlics: Int) {
+    currentUserName = name
+    currentUserGarlics = garlics
+    
+    if let url = NSURL(string: pictureUrl) {
+        if let data = NSData(contentsOf: url as URL){
+            currentUserImage = UIImage(data: data as Data)
+            print("has photo", data)
+        } else {
+            currentUserImage = UIImage(named: "icon_profile")!
+        }
+    }
+}
 
 // UI
 
@@ -148,10 +213,9 @@ class MyAnnotation: NSObject, MKAnnotation {
 
 
 // Additional Types
-struct Pin {
-    let id: Int
-    let latitude: Double
-    let longitude: Double
-    let imageUrl: [AdImage]
-    let grouped: Bool
+struct UserData: Decodable {
+    var email: String?
+    var rating: Int?
+    var name: String?
+    var picture: String?
 }
