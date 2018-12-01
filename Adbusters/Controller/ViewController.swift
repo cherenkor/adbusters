@@ -24,7 +24,7 @@ var currentUserGarlics: Int?
 var currentUserImage: UIImage?
 var currentUserId: Int?
 var userToken: String?
-var isLogged = true
+var isLogged = false
 
 var partiesList = [Party]()
 var politiciansList = [Politician]()

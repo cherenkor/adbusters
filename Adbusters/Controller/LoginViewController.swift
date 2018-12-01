@@ -23,11 +23,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: Any) {
-        
-        if (emailTextField.text == "admin" && passwordTextField.text == "admin") {
-            loggedSuccessfully()
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        if (email != "" && password != "" ) {
+            loginToServerEmail(email: email!, password: password!)
         } else {
-            SVProgressHUD.showError(withStatus: "Щось пiшло не так. Перевiрте введенi данi")
+            SVProgressHUD.showError(withStatus: "Заповніть усі поля")
             SVProgressHUD.dismiss(withDelay: 1.0)
         }
     }
@@ -68,7 +69,7 @@ class LoginViewController: UIViewController {
                             let email = responseDictionary["email"] as! String
                             let pictureUrl = data["url"] as! String
                             
-                            self.loginToServer(token: token, email: email, name: name, pictureUrl: pictureUrl)
+                            self.loginToServerFB(token: token, email: email, name: name, pictureUrl: pictureUrl)
                         }
                     }
                 }
@@ -76,12 +77,23 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func loginToServer(token: String, email: String, name: String, pictureUrl: String) {
+    func loginToServerEmail(email: String, password: String) {
+        loginUserEmail(url: "http://adbusters.chesno.org/login/email/", email: email, password: password) { (error) in
+            if error == nil {
+                self.loadUserData(token: "")
+            } else {
+                SVProgressHUD.showError(withStatus: "Помилка завантаження")
+                SVProgressHUD.dismiss(withDelay: 1.0)
+            }
+        }
+    }
+    
+    func loginToServerFB(token: String, email: String, name: String, pictureUrl: String) {
         loginUserFB(url: "http://adbusters.chesno.org/login/facebook/", token: token, email: email, name: name, pictureUrl: pictureUrl) { (data, error) in
             if let error = error {
                 print("ERROR WAR", error)
                 SVProgressHUD.showError(withStatus: "Помилка завантаження")
-                SVProgressHUD.dismiss(withDelay: 2.0)
+                SVProgressHUD.dismiss(withDelay: 1.0)
                 return
             }
             
@@ -90,18 +102,23 @@ class LoginViewController: UIViewController {
     }
     
     func loadUserData (token: String) {
-        getUserData(url: "http://adbusters.chesno.org/profile", token: token) { (json, error) in
+        getUserData(url: "http://adbusters.chesno.org/profile/", token: token) { (json, error) in
             SVProgressHUD.dismiss()
             if let error = error {
                 print("ERROR WAR", error)
                 SVProgressHUD.showError(withStatus: "Помилка завантаження")
-                SVProgressHUD.dismiss(withDelay: 2.0)
+                SVProgressHUD.dismiss(withDelay: 1.0)
                 return
             }
-            
+            print("HAVE DATA", json!)
             if let jsonData = json {
-                setCurrentUser(token: token, email: jsonData.email!, name: jsonData.name!, pictureUrl: jsonData.picture!, garlics: jsonData.rating!)
-                self.loggedSuccessfully()
+                if let email = jsonData.email {
+                    setCurrentUser(token: token, email: email, name: jsonData.name!, pictureUrl: jsonData.picture ?? "", garlics: jsonData.rating!)
+                    self.loggedSuccessfully()
+                } else {
+                    SVProgressHUD.showError(withStatus: "Перевірте ваші дані")
+                    SVProgressHUD.dismiss(withDelay: 1.0)
+                }
             }
         }
     }

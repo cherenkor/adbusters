@@ -16,6 +16,7 @@
 		D00F5500217D008B00D11A5B /* PoliticianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F54FF217D008B00D11A5B /* PoliticianTableViewCell.swift */; };
 		D00F5503217FB3E600D11A5B /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F5502217FB3E500D11A5B /* ShadowButton.swift */; };
 		D00F5505217FBEC700D11A5B /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F5504217FBEC700D11A5B /* InstructionsViewController.swift */; };
+		D01B08FD21B3357500961F29 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01B08FC21B3357500961F29 /* Api.swift */; };
 		D036A42D21811A5200DC8F3C /* SingleAdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036A42C21811A5200DC8F3C /* SingleAdCollectionViewCell.swift */; };
 		D036A42F21811A9000DC8F3C /* SingleAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036A42E21811A9000DC8F3C /* SingleAdViewController.swift */; };
 		D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C832174B320005CABC3 /* LoginViewController.swift */; };
@@ -57,6 +58,7 @@
 		D00F54FF217D008B00D11A5B /* PoliticianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticianTableViewCell.swift; sourceTree = "<group>"; };
 		D00F5502217FB3E500D11A5B /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		D00F5504217FBEC700D11A5B /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		D01B08FC21B3357500961F29 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		D036A42C21811A5200DC8F3C /* SingleAdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdCollectionViewCell.swift; sourceTree = "<group>"; };
 		D036A42E21811A9000DC8F3C /* SingleAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdViewController.swift; sourceTree = "<group>"; };
 		D0749C832174B320005CABC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				D0E3C352218F4DB200FD310A /* Helpers.swift */,
+				D01B08FC21B3357500961F29 /* Api.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				D00F5500217D008B00D11A5B /* PoliticianTableViewCell.swift in Sources */,
 				D036A42F21811A9000DC8F3C /* SingleAdViewController.swift in Sources */,
 				D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */,
+				D01B08FD21B3357500961F29 /* Api.swift in Sources */,
 				D08873692174A4B8008C8B71 /* Adbusters.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

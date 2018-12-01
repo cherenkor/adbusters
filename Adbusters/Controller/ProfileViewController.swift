@@ -1,6 +1,8 @@
 import UIKit
 import MessageUI
 import SVProgressHUD
+import FacebookCore
+import FacebookLogin
 
 var menu : [String]?
 var myIndex = 0
@@ -64,10 +66,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else if (menu![myIndex] == "Інструкція") {
             performSegue(withIdentifier: "goToInstructions", sender: nil)
         } else if (menu![myIndex] == "Вийти") {
-            SVProgressHUD.showSuccess(withStatus: "До зустрiчi")
-            SVProgressHUD.dismiss(withDelay: 1.0) {
-                self.logout()
-            }
+            SVProgressHUD.show()
+            logout()
         } else if (menu![myIndex] == "Увійти") {
             performSegue(withIdentifier: "goToLogin", sender: nil)
         }
@@ -78,11 +78,25 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func logout () {
-        self.performSegue(withIdentifier: "goToMain", sender: nil)
-        isLogged = false
-        currentUserName = "Прiзвище Iм'я"
-        currentUserGarlics = 0
-        currentUserImage = UIImage(named: "icon_profile")
+        logoutRequest { (error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self.setUser()
+                    let loginManager = LoginManager()
+                    loginManager.logOut()
+                    SVProgressHUD.showSuccess(withStatus: "До зустрiчi")
+                    SVProgressHUD.dismiss()
+                    isLogged = false
+                    currentUserName = "Гiсть"
+                    currentUserGarlics = 0
+                    currentUserImage = UIImage(named: "icon_profile")
+                    self.performSegue(withIdentifier: "goToLogin", sender: nil)
+                }
+            } else {
+                SVProgressHUD.showError(withStatus: "Помилка cервера")
+                SVProgressHUD.dismiss()
+            }
+        }
     }
     
     func setUser () {

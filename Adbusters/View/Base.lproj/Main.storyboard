@@ -1219,7 +1219,7 @@
                                             <constraint firstAttribute="height" constant="72" id="Rri-dE-TpN"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Прiзвище Iм'я" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDF-Fj-Dbl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гість" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDF-Fj-Dbl">
                                         <rect key="frame" x="88" y="34" width="224" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="Ja4-n9-H0r"/>
@@ -1229,7 +1229,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-4h-fqZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 часничків" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyk-4h-fqZ">
                                         <rect key="frame" x="88" y="56" width="224" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="XKS-aW-aod"/>
@@ -2617,11 +2617,11 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xfT-lN-0KB"/>
+        <segue reference="pUg-Yd-q9W"/>
         <segue reference="ybb-UJ-Wha"/>
         <segue reference="9LO-tQ-BRv"/>
         <segue reference="L9R-ll-7yp"/>
         <segue reference="s3p-55-XnR"/>
-        <segue reference="ChZ-b1-s46"/>
+        <segue reference="vBf-0B-zvl"/>
     </inferredMetricsTieBreakers>
 </document>
