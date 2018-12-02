@@ -26,10 +26,15 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text
         let password = passwordTextField.text
         if (email != "" && password != "" ) {
-            loginToServerEmail(email: email!, password: password!)
+            if isValidEmail(testStr: email ?? "") {
+                loginToServerEmail(email: email!, password: password!, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) })
+            } else {
+                SVProgressHUD.showError(withStatus: "Перевірте email")
+                SVProgressHUD.dismiss(withDelay: 1.5)
+            }
         } else {
             SVProgressHUD.showError(withStatus: "Заповніть усі поля")
-            SVProgressHUD.dismiss(withDelay: 1.0)
+            SVProgressHUD.dismiss(withDelay: 1.5)
         }
     }
     
@@ -68,67 +73,11 @@ class LoginViewController: UIViewController {
                             let email = responseDictionary["email"] as! String
                             let pictureUrl = data["url"] as! String
                             
-                            self.loginToServerFB(token: token, email: email, name: name, pictureUrl: pictureUrl)
+                            loginToServerFB(token: token, email: email, name: name, pictureUrl: pictureUrl, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) })
                         }
                     }
                 }
             }
-        }
-    }
-    
-    func loginToServerEmail(email: String, password: String) {
-        loginUserEmail(url: "http://adbusters.chesno.org/login/email/", email: email, password: password) { (error) in
-            if error == nil {
-                self.loadUserData(token: "", isFacebookLogin: false)
-            } else {
-                SVProgressHUD.showError(withStatus: "Помилка завантаження")
-                SVProgressHUD.dismiss(withDelay: 1.0)
-            }
-        }
-    }
-    
-    func loginToServerFB(token: String, email: String, name: String, pictureUrl: String) {
-        loginUserFB(url: "http://adbusters.chesno.org/login/facebook/", token: token, email: email, name: name, pictureUrl: pictureUrl) { (data, error) in
-            if let error = error {
-                print("ERROR WAR", error)
-                SVProgressHUD.showError(withStatus: "Помилка завантаження")
-                SVProgressHUD.dismiss(withDelay: 1.0)
-                return
-            }
-            
-            self.loadUserData(token: token, isFacebookLogin: true)
-        }
-    }
-    
-    func loadUserData (token: String, isFacebookLogin: Bool) {
-        getUserData(url: "http://adbusters.chesno.org/profile/", token: token) { (json, error) in
-            SVProgressHUD.dismiss()
-            if let error = error {
-                print("ERROR WAR", error)
-                SVProgressHUD.showError(withStatus: "Помилка завантаження")
-                SVProgressHUD.dismiss(withDelay: 1.0)
-                return
-            }
-            print("HAVE DATA", json!)
-            if let jsonData = json {
-                if let email = jsonData.email {
-                    setCurrentUser(token: token, email: email, name: jsonData.name!, pictureUrl: jsonData.picture ?? "", garlics: jsonData.rating!)
-                    isFacebook = isFacebookLogin
-                    self.loggedSuccessfully()
-                } else {
-                    SVProgressHUD.showError(withStatus: "Перевірте ваші дані")
-                    SVProgressHUD.dismiss(withDelay: 1.0)
-                }
-            }
-        }
-    }
-    
-    func loggedSuccessfully () {
-        isLogged = true
-        saveUserToStorage ()
-        SVProgressHUD.showSuccess(withStatus: "Ласкаво просимо")
-        SVProgressHUD.dismiss(withDelay: 1.0) {
-            self.performSegue(withIdentifier: "goToMap", sender: self)
         }
     }
 }

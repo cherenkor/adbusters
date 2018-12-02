@@ -2592,6 +2592,10 @@
                         <viewLayoutGuide key="safeArea" id="hqo-mc-h4S"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="kwZ-eI-85K" id="zDk-JT-a1n"/>
+                        <outlet property="nameTextField" destination="E2u-OL-UNP" id="tfP-1f-vhz"/>
+                        <outlet property="passwordRepeatTextField" destination="P4M-70-Lha" id="R9P-zJ-8L6"/>
+                        <outlet property="passwordTextField" destination="akE-Gf-Yoz" id="bL8-s5-bmA"/>
                         <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="rrR-fL-ES1"/>
                     </connections>
                 </viewController>
@@ -2622,6 +2626,6 @@
         <segue reference="9LO-tQ-BRv"/>
         <segue reference="L9R-ll-7yp"/>
         <segue reference="s3p-55-XnR"/>
-        <segue reference="vBf-0B-zvl"/>
+        <segue reference="rrR-fL-ES1"/>
     </inferredMetricsTieBreakers>
 </document>

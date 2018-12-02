@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import MapKit
+import SVProgressHUD
 
 // USER
 
@@ -119,6 +120,14 @@ class MyAnnotation: NSObject, MKAnnotation {
     }
 }
 
+// VALIADATION
+func isValidEmail(testStr:String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailTest.evaluate(with: testStr)
+}
+
 // SAVE USER
 func saveUserToStorage () {
     let defaults = UserDefaults.standard
@@ -142,12 +151,60 @@ func setCurrentUserData () {
     isLogged = defaults.bool(forKey: "isLogged")
 }
 
-func deleteUserFromStorage () {
-    let defaults = UserDefaults.standard
-    defaults.removeObject(forKey: "isFacebook")
-    defaults.removeObject(forKey: "name")
-    defaults.removeObject(forKey: "garlics")
-    defaults.removeObject(forKey: "image")
+
+// LOGINIZATION
+func loginToServerEmail(email: String, password: String, completion: @escaping (()->())) {
+    loginUserEmail(url: "http://adbusters.chesno.org/login/email/", email: email, password: password) { (error) in
+        if error == nil {
+            loadUserData(token: "", isFacebookLogin: false, completion: { completion()} )
+        } else {
+            SVProgressHUD.showError(withStatus: "Помилка завантаження")
+            SVProgressHUD.dismiss(withDelay: 1.5)
+        }
+    }
+}
+
+func loginToServerFB(token: String, email: String, name: String, pictureUrl: String, completion: @escaping (()->())) {
+    loginUserFB(url: "http://adbusters.chesno.org/login/facebook/", token: token, email: email, name: name, pictureUrl: pictureUrl) { (data, error) in
+        if let error = error {
+            print("ERROR WAR", error)
+            SVProgressHUD.showError(withStatus: "Помилка завантаження")
+            SVProgressHUD.dismiss(withDelay: 1.5)
+            return
+        }
+        
+        loadUserData(token: token, isFacebookLogin: true, completion: { completion() })
+    }
+}
+
+func loadUserData (token: String, isFacebookLogin: Bool, completion: @escaping (()->())) {
+    getUserData(url: "http://adbusters.chesno.org/profile/", token: token) { (json, error) in
+        SVProgressHUD.dismiss()
+        if let error = error {
+            print("ERROR WAR", error)
+            SVProgressHUD.showError(withStatus: "Помилка завантаження")
+            SVProgressHUD.dismiss(withDelay: 1.5)
+            return
+        }
+        print("HAVE DATA", json!)
+        if let jsonData = json {
+            if let email = jsonData.email {
+                setCurrentUser(token: token, email: email, name: jsonData.name!, pictureUrl: jsonData.picture ?? "", garlics: jsonData.rating!)
+                isFacebook = isFacebookLogin
+                loggedSuccessfully(completion:  { completion() })
+            } else {
+                SVProgressHUD.showError(withStatus: "Перевірте ваші дані")
+                SVProgressHUD.dismiss(withDelay: 1.5)
+            }
+        }
+    }
+}
+
+func loggedSuccessfully (completion: @escaping (() -> ())) {
+    isLogged = true
+    saveUserToStorage ()
+    SVProgressHUD.showSuccess(withStatus: "Ласкаво просимо")
+    SVProgressHUD.dismiss(withDelay: 1.0) { completion() }
 }
 
 // Additional Types

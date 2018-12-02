@@ -13,13 +13,54 @@ import FacebookCore
 import FacebookLogin
 
 class RegisterViewController: UIViewController {
-
+    
+    
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var passwordRepeatTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func registerTapped(_ sender: Any) {
-        performSegue(withIdentifier: "goToMap", sender: self)
+        SVProgressHUD.show()
+        let email = emailTextField.text
+        let name = nameTextField.text
+        let password = passwordTextField.text
+        let passwordRepeat = passwordRepeatTextField.text
+        let allFilled = email != "" && name != "" && password != "" && passwordRepeat != ""
+        if allFilled {
+            let equalPasswords = passwordTextField.text == passwordRepeatTextField.text
+            
+            if equalPasswords {
+                let invalidEmail = isValidEmail(testStr: emailTextField.text ?? "")
+                
+                if invalidEmail {
+                    registerNewUser(url: "http://adbusters.chesno.org/login/email/", email: email!, name: name!, password: password!) { (error) in
+                        if error == nil {
+                            print("registered")
+                            loadUserData(token: "", isFacebookLogin: false, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) } )
+//                            loginToServerEmail(email: email!, password: password!, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) })
+                        } else {
+                            self.showError("Помилка реєстрації")
+                        }
+                    }
+                } else {
+                    showError("Перевірте email")
+                }
+            } else {
+                showError("Паролі не співпадають")
+            }
+        } else {
+            showError("Заповніть усі поля")
+        }
+    }
+    
+    func showError(_ errorText: String) {
+        SVProgressHUD.showError(withStatus: errorText)
+        SVProgressHUD.dismiss(withDelay: 1.5)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,49 +99,11 @@ class RegisterViewController: UIViewController {
                             let email = responseDictionary["email"] as! String
                             let pictureUrl = data["url"] as! String
                             
-                            self.loginToServer(token: token, email: email, name: name, pictureUrl: pictureUrl)
+                            loginToServerFB(token: token, email: email, name: name, pictureUrl: pictureUrl, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) })
                         }
                     }
                 }
             }
-        }
-    }
-    
-    func loginToServer(token: String, email: String, name: String, pictureUrl: String) {
-        loginUserFB(url: "http://adbusters.chesno.org/login/facebook/", token: token, email: email, name: name, pictureUrl: pictureUrl) { (data, error) in
-            if let error = error {
-                print("ERROR WAR", error)
-                SVProgressHUD.showError(withStatus: "Помилка завантаження")
-                SVProgressHUD.dismiss(withDelay: 2.0)
-                return
-            }
-            
-            self.loadUserData(token: token)
-        }
-    }
-    
-    func loadUserData (token: String) {
-        getUserData(url: "http://adbusters.chesno.org/profile", token: token) { (json, error) in
-            SVProgressHUD.dismiss()
-            if let error = error {
-                print("ERROR WAR", error)
-                SVProgressHUD.showError(withStatus: "Помилка завантаження")
-                SVProgressHUD.dismiss(withDelay: 2.0)
-                return
-            }
-            print("HAVE DATA", json!)
-            if let jsonData = json {
-                setCurrentUser(token: token, email: jsonData.email!, name: jsonData.name!, pictureUrl: jsonData.picture!, garlics: jsonData.rating!)
-                self.loggedSuccessfully()
-            }
-        }
-    }
-    
-    func loggedSuccessfully () {
-        isLogged = true
-        SVProgressHUD.showSuccess(withStatus: "Ласкаво просимо")
-        SVProgressHUD.dismiss(withDelay: 1.0) {
-            self.performSegue(withIdentifier: "goToMap", sender: self)
         }
     }
 }

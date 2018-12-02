@@ -16,6 +16,7 @@ class WelcomeViewController: UIViewController {
             performSegue(withIdentifier: "goToMap", sender: nil)
         } else {
             super.viewDidLoad()
+            cleanCookies()
             textField.textAlignment = .natural
             currentUserId = 21
         }

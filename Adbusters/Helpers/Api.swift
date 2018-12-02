@@ -115,13 +115,7 @@ func logoutRequest (completion: @escaping (_ error: Error?)->()) {
     let urlObject = URL(string: "http://adbusters.chesno.org/logout")
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         if data != nil {
-//            let cookie = HTTPCookie.self
-            let cookieJar = HTTPCookieStorage.shared
-            
-            for cookie in cookieJar.cookies! {
-                // print(cookie.name+"="+cookie.value)
-                cookieJar.deleteCookie(cookie)
-            }
+            cleanCookies()
             print("Logged out successfully")
             completion(nil)
         } else {
@@ -130,4 +124,32 @@ func logoutRequest (completion: @escaping (_ error: Error?)->()) {
         }
     }
     task.resume()
+}
+
+
+func registerNewUser(url: String, email: String, name: String, password: String, completion: @escaping (_ error: Error?)->()) {
+    let urlLink = URL(string: url)!
+    var request = URLRequest(url: urlLink)
+    
+    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "POST"
+    let postString = "register=true&email=\(email)&name=\(name)&password=\(password)"
+    request.httpBody = postString.data(using: .utf8)
+    let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+        if data != nil {
+            print("Registered in successfully")
+            completion(nil)
+        } else {
+            print("Can't register in current user")
+            completion(error)
+        }
+    }
+    task.resume()
+}
+
+func cleanCookies () {
+    let cookieJar = HTTPCookieStorage.shared
+    for cookie in cookieJar.cookies! {
+        cookieJar.deleteCookie(cookie)
+    }
 }
