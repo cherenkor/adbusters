@@ -23,8 +23,8 @@ var currentUserName: String?
 var currentUserGarlics: Int?
 var currentUserImage: UIImage?
 var currentUserId: Int?
-var userToken: String?
 var isLogged = false
+var isFacebook = false
 
 var partiesList = [Party]()
 var politiciansList = [Politician]()
@@ -32,6 +32,7 @@ var ads: [AdModel]?
 var adsAll: [AdModel]?
 let imageCache = NSCache<AnyObject, AnyObject>()
 var loadedAds = false
+let defaults = UserDefaults.standard
 
 class ViewController: UIViewController {
 

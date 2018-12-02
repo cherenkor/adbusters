@@ -62,7 +62,6 @@ class LoginViewController: UIViewController {
                     case .success(let graphResponse):
                         if let responseDictionary = graphResponse.dictionaryValue {
                             let token = accessToken.authenticationToken
-//                            let id = responseDictionary["id"] as! String
                             let picture = responseDictionary["picture"] as! [String: Any]
                             let data = picture["data"] as! [String: Any]
                             let name = responseDictionary["name"] as! String
@@ -80,7 +79,7 @@ class LoginViewController: UIViewController {
     func loginToServerEmail(email: String, password: String) {
         loginUserEmail(url: "http://adbusters.chesno.org/login/email/", email: email, password: password) { (error) in
             if error == nil {
-                self.loadUserData(token: "")
+                self.loadUserData(token: "", isFacebookLogin: false)
             } else {
                 SVProgressHUD.showError(withStatus: "Помилка завантаження")
                 SVProgressHUD.dismiss(withDelay: 1.0)
@@ -97,11 +96,11 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            self.loadUserData(token: token)
+            self.loadUserData(token: token, isFacebookLogin: true)
         }
     }
     
-    func loadUserData (token: String) {
+    func loadUserData (token: String, isFacebookLogin: Bool) {
         getUserData(url: "http://adbusters.chesno.org/profile/", token: token) { (json, error) in
             SVProgressHUD.dismiss()
             if let error = error {
@@ -114,6 +113,7 @@ class LoginViewController: UIViewController {
             if let jsonData = json {
                 if let email = jsonData.email {
                     setCurrentUser(token: token, email: email, name: jsonData.name!, pictureUrl: jsonData.picture ?? "", garlics: jsonData.rating!)
+                    isFacebook = isFacebookLogin
                     self.loggedSuccessfully()
                 } else {
                     SVProgressHUD.showError(withStatus: "Перевірте ваші дані")
@@ -125,6 +125,7 @@ class LoginViewController: UIViewController {
     
     func loggedSuccessfully () {
         isLogged = true
+        saveUserToStorage ()
         SVProgressHUD.showSuccess(withStatus: "Ласкаво просимо")
         SVProgressHUD.dismiss(withDelay: 1.0) {
             self.performSegue(withIdentifier: "goToMap", sender: self)

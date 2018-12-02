@@ -82,15 +82,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             if error == nil {
                 DispatchQueue.main.async {
                     self.setUser()
-                    let loginManager = LoginManager()
-                    loginManager.logOut()
-                    SVProgressHUD.showSuccess(withStatus: "До зустрiчi")
-                    SVProgressHUD.dismiss()
+                    
+                    if isFacebook {
+                        let loginManager = LoginManager()
+                        loginManager.logOut()
+                    }
                     isLogged = false
                     currentUserName = "Гiсть"
                     currentUserGarlics = 0
                     currentUserImage = UIImage(named: "icon_profile")
-                    self.performSegue(withIdentifier: "goToLogin", sender: nil)
+                    saveUserToStorage ()
+                    SVProgressHUD.showSuccess(withStatus: "До зустрiчi")
+                    SVProgressHUD.dismiss(completion: {
+                        self.performSegue(withIdentifier: "goToLogin", sender: nil)
+                    })
                 }
             } else {
                 SVProgressHUD.showError(withStatus: "Помилка cервера")

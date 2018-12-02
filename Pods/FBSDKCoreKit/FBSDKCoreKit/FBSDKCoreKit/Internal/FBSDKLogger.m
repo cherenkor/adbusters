@@ -109,7 +109,7 @@ static NSMutableDictionary *g_startTimesWithTags = nil;
     if (_internalContents.length > MAX_LOG_STRING_LENGTH) {
       logString = [NSString stringWithFormat:@"TRUNCATED: %@", [_internalContents substringToIndex:MAX_LOG_STRING_LENGTH]];
     }
-    NSLog(@"FBSDKLog: %@", logString);
+//    NSLog(@"FBSDKLog: %@", logString);
 
     [_internalContents setString:@""];
   }

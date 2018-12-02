@@ -98,7 +98,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.showSingleAd (_:)))
         currentAdView.addGestureRecognizer(gesture)
         

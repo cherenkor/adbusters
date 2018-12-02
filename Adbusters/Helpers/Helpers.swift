@@ -119,6 +119,36 @@ class MyAnnotation: NSObject, MKAnnotation {
     }
 }
 
+// SAVE USER
+func saveUserToStorage () {
+    let defaults = UserDefaults.standard
+    defaults.set(isLogged, forKey: "isLogged")
+    defaults.set(isFacebook, forKey: "isFacebook")
+    defaults.set(currentUserName, forKey: "name")
+    defaults.set(currentUserGarlics, forKey: "garlics")
+    defaults.set(currentUserImage?.jpegData(compressionQuality: 1.0), forKey: "image")
+}
+
+func setCurrentUserData () {
+    currentUserName = defaults.string(forKey: "name")
+    currentUserGarlics = defaults.integer(forKey: "garlics")
+    let userImage = defaults.object(forKey: "image")
+    if let image = userImage as? Data {
+        currentUserImage = UIImage(data: image)
+    } else {
+        currentUserImage = UIImage(named: "icon_profile")!
+    }
+    isFacebook = defaults.bool(forKey: "isFacebook")
+    isLogged = defaults.bool(forKey: "isLogged")
+}
+
+func deleteUserFromStorage () {
+    let defaults = UserDefaults.standard
+    defaults.removeObject(forKey: "isFacebook")
+    defaults.removeObject(forKey: "name")
+    defaults.removeObject(forKey: "garlics")
+    defaults.removeObject(forKey: "image")
+}
 
 // Additional Types
 struct UserData: Decodable {
@@ -127,3 +157,4 @@ struct UserData: Decodable {
     var name: String?
     var picture: String?
 }
+
