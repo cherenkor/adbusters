@@ -97,10 +97,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.showSingleAd (_:)))
         currentAdView.addGestureRecognizer(gesture)
         let algorithm = CKNonHierarchicalDistanceBasedAlgorithm()
-        algorithm.cellSize = 200
+        algorithm.cellSize = 300
         mapView.clusterManager.algorithm = algorithm
         mapView.clusterManager.marginFactor = 1
-//        mapView.clusterManager.maxZoomLevel = 100
+        mapView.clusterManager.maxZoomLevel = 300
         DispatchQueue.main.async {
             self.configMap()
             self.determinateCurrentLocation()
