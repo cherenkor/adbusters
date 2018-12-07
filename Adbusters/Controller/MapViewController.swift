@@ -336,12 +336,12 @@ extension MapViewController {
             return
         }
         
-        if cluster.count > 1 {
-            let edgePadding = UIEdgeInsets(top: 40, left: 20, bottom: 44, right: 20)
-            mapView.show(cluster, edgePadding: edgePadding, animated: true)
-        } else if let annotation = cluster.firstAnnotation {
-            mapView.clusterManager.selectAnnotation(annotation, animated: false);
-        }
+//        if cluster.count > 1 {
+//            let edgePadding = UIEdgeInsets(top: 40, left: 20, bottom: 44, right: 20)
+//            mapView.show(cluster, edgePadding: edgePadding, animated: true)
+//        } else if let annotation = cluster.firstAnnotation {
+//            mapView.clusterManager.selectAnnotation(annotation, animated: false);
+//        }
         
         let ann = cluster.annotations as! [MyAnnotation]
         print(ann.count)
