@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2736AE8BDAB92A919E16DA5125AD74F0"
+               BlueprintIdentifier = "F5BEB58BD9069925B73E66C0E245AF95"
                BuildableName = "TweeTextField.framework"
                BlueprintName = "TweeTextField"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2736AE8BDAB92A919E16DA5125AD74F0"
+            BlueprintIdentifier = "F5BEB58BD9069925B73E66C0E245AF95"
             BuildableName = "TweeTextField.framework"
             BlueprintName = "TweeTextField"
             ReferencedContainer = "container:Pods.xcodeproj">

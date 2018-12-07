@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import MapKit
 import SVProgressHUD
+import ClusterKit
 
 // USER
 
@@ -99,24 +100,25 @@ func getDateNow () -> String {
 
 // MAP
 class MyAnnotation: NSObject, MKAnnotation {
+    weak public var cluster: CKCluster?
     let title: String?
     let subtitle: String?
+    let party: String?
+//    let politician: String?
+//    let date: String?
+//    let comment: String?
     let coordinate: CLLocationCoordinate2D
     var image: UIImage? = nil
     var id: Int? = nil
-    var grouped: Bool? = nil
-    
-    init(id: Int, coordinate: CLLocationCoordinate2D, grouped: Bool) {
-        var resizedImage = grouped == true ? UIImage(named: "marker_group") : UIImage(named: "marker")
-        resizedImage = resizedImage!.resize(toWidth: 30.0)!
-        resizedImage = resizedImage!.resize(toHeight: 30.0)!
-        self.title = "Ads \(id)"
+//    var grouped: Bool? = nil
+
+    init(id: Int, coordinate: CLLocationCoordinate2D, party: String) {
+        self.title = "\(id)"
         self.subtitle = ""
         self.id = id
         self.coordinate = coordinate
-        self.image = resizedImage
-        self.grouped = grouped
-        super.init()
+        self.party = party
+//        super.init()
     }
 }
 
@@ -215,3 +217,11 @@ struct UserData: Decodable {
     var picture: String?
 }
 
+
+// MARKERS
+func getResizedMarker (_ image: UIImage) -> UIImage {
+    var resizedImage = image
+    resizedImage = image.resize(toWidth: 40.0)!
+    resizedImage = image.resize(toHeight: 40.0)!
+    return resizedImage
+}

@@ -5,6 +5,9 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - ClusterKit/Core (0.3.4)
+  - ClusterKit/MapKit (0.3.4):
+    - ClusterKit/Core
   - DropDown (2.3.6)
   - FacebookCore (0.4.0):
     - Bolts (~> 1.9)
@@ -29,6 +32,7 @@ PODS:
   - TweeTextField (1.5.0)
 
 DEPENDENCIES:
+  - ClusterKit/MapKit
   - DropDown
   - FacebookLogin
   - Material
@@ -38,6 +42,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
+    - ClusterKit
     - DropDown
     - FacebookCore
     - FacebookLogin
@@ -50,6 +55,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  ClusterKit: 30d15b449a398103d130ea9661cab82bb99eb52d
   DropDown: e8bfbce001b2e6b7e8abfdd42e12b565712d84f4
   FacebookCore: 770e57cfe250a4de4458b682191c0ff062dee247
   FacebookLogin: eb0f2251aca835a94d70a5f7e580edc46d1e1603
@@ -60,6 +66,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TweeTextField: 3ae42dd5944571a25a34cbebd361edbb62931c79
 
-PODFILE CHECKSUM: 9b181a08d41a41e124cd1a58363c184ea1d2134e
+PODFILE CHECKSUM: c960c35c81100f36125cd536306b3d0a35fd807b
 
 COCOAPODS: 1.5.3

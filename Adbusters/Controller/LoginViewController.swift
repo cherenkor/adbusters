@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text
         if (email != "" && password != "" ) {
             if isValidEmail(testStr: email ?? "") {
+                SVProgressHUD.show()
                 loginToServerEmail(email: email!, password: password!, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) })
             } else {
                 SVProgressHUD.showError(withStatus: "Перевірте email")

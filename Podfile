@@ -8,4 +8,5 @@ target 'Adbusters' do
 	pod 'DropDown'
 	pod 'Material'
 	pod 'FacebookLogin'
+	pod 'ClusterKit/MapKit'
 end

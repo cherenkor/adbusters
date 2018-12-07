@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2CBBA8049060AE241E0BEBFBDBC609AB"
-               BuildableName = "SVProgressHUD.framework"
-               BlueprintName = "SVProgressHUD"
+               BlueprintIdentifier = "2E5AC83F4348DF20C50806CD934241DB"
+               BuildableName = "ClusterKit.framework"
+               BlueprintName = "ClusterKit"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2CBBA8049060AE241E0BEBFBDBC609AB"
-            BuildableName = "SVProgressHUD.framework"
-            BlueprintName = "SVProgressHUD"
+            BlueprintIdentifier = "2E5AC83F4348DF20C50806CD934241DB"
+            BuildableName = "ClusterKit.framework"
+            BlueprintName = "ClusterKit"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
