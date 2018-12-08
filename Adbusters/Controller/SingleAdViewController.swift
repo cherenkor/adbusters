@@ -27,7 +27,7 @@ class SingleAdViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         currentPartyLbl.text = currentParty
         currentTypeLbl.text = currentType
-        currentDateLbl.text = currentDate
+        currentDateLbl.text = convertDate(dateStr: currentDate ?? "")
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -58,7 +58,7 @@ class SingleAdViewController: UIViewController, UICollectionViewDelegate, UIColl
                     let currentImage = UIImage(data: data)!
                     cell.imageView.image = currentImage
                     currentAdsImages.append(currentImage)
-                    self.collectionView.reloadData()
+//                    self.collectionView.reloadData()
                 })
             }).resume()
         }

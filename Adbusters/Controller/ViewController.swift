@@ -34,6 +34,15 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 var loadedAds = false
 let defaults = UserDefaults.standard
 
+// Single Marker Data
+var singleMarkerParty = ""
+var singleMarkerPolitician = ""
+var singleMarkerDate = ""
+var singleMarkerComment = ""
+var singleMarkerType = ""
+var singleMarkerAdImageArray = [AdImage]()
+var singleMarkerImages = [UIImage]()
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

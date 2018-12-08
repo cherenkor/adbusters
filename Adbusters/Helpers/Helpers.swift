@@ -98,30 +98,6 @@ func getDateNow () -> String {
 }
 
 
-// MAP
-class MyAnnotation: NSObject, MKAnnotation {
-    weak public var cluster: CKCluster?
-    let title: String?
-    let subtitle: String?
-    let party: String?
-//    let politician: String?
-//    let date: String?
-//    let comment: String?
-    let coordinate: CLLocationCoordinate2D
-    var image: UIImage? = nil
-    var id: Int? = nil
-//    var grouped: Bool? = nil
-
-    init(id: Int, coordinate: CLLocationCoordinate2D, party: String) {
-        self.title = "\(id)"
-        self.subtitle = ""
-        self.id = id
-        self.coordinate = coordinate
-        self.party = party
-//        super.init()
-    }
-}
-
 // VALIADATION
 func isValidEmail(testStr:String) -> Bool {
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -218,10 +194,58 @@ struct UserData: Decodable {
 }
 
 
-// MARKERS
+// MARKERS // MAP
 func getResizedMarker (_ image: UIImage) -> UIImage {
     var resizedImage = image
     resizedImage = image.resize(toWidth: 40.0)!
     resizedImage = image.resize(toHeight: 40.0)!
     return resizedImage
+}
+
+class MyAnnotation: NSObject, MKAnnotation {
+    weak public var cluster: CKCluster?
+    let title: String?
+    let subtitle: String?
+    let party: String?
+    let images: [AdImage]
+    let politician: String?
+    let date: String?
+    let comment: String?
+    let coordinate: CLLocationCoordinate2D
+    var image: UIImage? = nil
+    var id: Int? = nil
+    var type: String?
+    //    var grouped: Bool? = nil
+    
+    init(id: Int, coordinate: CLLocationCoordinate2D, party: String, politician: String, date: String, comment: String, type: Int, images: [AdImage]) {
+        self.title = ""
+        self.subtitle = ""
+        self.id = id
+        self.coordinate = coordinate
+        self.party = party
+        self.politician = politician
+        self.date = date
+        self.comment = comment
+        self.type = getTypeText(type)
+        self.images = images
+        //        super.init()
+    }
+}
+
+func setSingleMarkerData(party: String = "", politician: String = "", date: String = "", comment: String = "", type: String = "", images: [AdImage] = [AdImage]() ) {
+    singleMarkerParty = party
+    singleMarkerPolitician = politician
+    singleMarkerDate = date
+    singleMarkerComment = comment
+    singleMarkerType = type
+    singleMarkerAdImageArray = images
+}
+
+func resetSingleMarkerData () {
+    singleMarkerParty = ""
+    singleMarkerPolitician = ""
+    singleMarkerDate = ""
+    singleMarkerComment = ""
+    singleMarkerType = ""
+    singleMarkerAdImageArray = [AdImage]()
 }

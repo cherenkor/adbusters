@@ -114,7 +114,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        }
         
 //        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
-        getAds(url: "https://f603cd4c.ngrok.io/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
+//        http://127.0.0.1:8000/
+//        https://f603cd4c.ngrok.io/
+        getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
         
             if let error = error {
                 print("ERROR WAR", error)
@@ -131,30 +133,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    
-    
-
-    
-//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
-//    {
-//        if let myAnnotation = view.annotation as? MyAnnotation{
-//            print("ad with id - \(String(describing: myAnnotation.id!))");
-//        }
-//    }
-    
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        if let annotation = annotation as? MyAnnotation {
-//            let identifier = "identifier"
-//            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            annotationView.image = annotation.image //add this
-//            annotationView.canShowCallout = true
-//            annotationView.calloutOffset = CGPoint(x: -2, y: 2)
-//            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-//            return annotationView
-//        }
-//        return nil
-//    }
-    
     
     func setCurrentAdress () {
         
@@ -198,27 +176,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    
-//    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-//        let lat = mapView.centerCoordinate.latitude
-//        let lon = mapView.centerCoordinate.longitude
-//        let centralLocation = CLLocation(latitude: lat, longitude: lon)
-//        centralLocationCoordinate = mapView.centerCoordinate
-//        let radius = self.getRadius(centralLocation: centralLocation)
-//        print("Lat - \(lat), Lon - \(lon), Radius - \(radius)")
-//
-//        DispatchQueue.main.async {
-//            self.loadAds(lat, lon, radius)
-//        }
-//    }
 }
 
+// MAP VIEW
 extension MapViewController {
     
     func setPinsOnMap (jsonData: [AdModel]) {
         var annotations = [MyAnnotation]()
         for ad in jsonData {
-            let annotation = self.setPin(id: ad.id!, latitude: ad.latitude!, longitude: ad.longitude!, party: ad.party?.name! ?? "")
+            let annotation = self.setPin(id: ad.id!, latitude: ad.latitude!, longitude: ad.longitude!, party: ad.party?.name ?? "", politician: ad.person?.name ?? "", date: ad.created_date ?? "", comment: ad.comment ?? "", type: ad.type ?? 7, images: ad.images ?? [AdImage]())
             annotations.append(annotation)
         }
         //        self.mapView.addAnnotations(annotaions)
@@ -258,8 +224,8 @@ extension MapViewController {
         }
     }
     
-    func setPin (id: Int, latitude: Double, longitude: Double, party: String) -> MyAnnotation {
-        let marker = MyAnnotation(id: id, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), party: party)
+    func setPin (id: Int, latitude: Double, longitude: Double, party: String, politician: String, date: String, comment: String, type: Int, images: [AdImage]) -> MyAnnotation {
+        let marker = MyAnnotation(id: id, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), party: party, politician: politician, date: date, comment: comment, type: type, images: images)
         return marker
     }
     
@@ -336,17 +302,13 @@ extension MapViewController {
             return
         }
         
-//        if cluster.count > 1 {
+        if cluster.count > 1 {
 //            let edgePadding = UIEdgeInsets(top: 40, left: 20, bottom: 44, right: 20)
 //            mapView.show(cluster, edgePadding: edgePadding, animated: true)
-//        } else if let annotation = cluster.firstAnnotation {
+        } else if let annotation = cluster.firstAnnotation as? MyAnnotation {
+            setSingleMarkerData(party: annotation.party!, politician: annotation.politician!, date: annotation.date!, comment: annotation.comment!, type: annotation.type!, images: annotation.images)
+            performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)
 //            mapView.clusterManager.selectAnnotation(annotation, animated: false);
-//        }
-        
-        let ann = cluster.annotations as! [MyAnnotation]
-        print(ann.count)
-        for an in ann {
-            print(an.party!, an.id!)
         }
     }
     
