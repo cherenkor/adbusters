@@ -34,7 +34,9 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 var loadedAds = false
 let defaults = UserDefaults.standard
 
-// Single Marker Data
+// Marker Data
+var multipleMarkerDate = [AdModel]()
+
 var singleMarkerParty = ""
 var singleMarkerPolitician = ""
 var singleMarkerDate = ""

@@ -16,6 +16,16 @@ struct AdModel: Codable {
     var user: Int?
     var grouped: Bool?
     var created_date: String?
+    
+    init (id: Int, images: [AdImage] = [AdImage](), comment: String = "", type: Int = 7, party: String = "", politician: String = "", date: String = "") {
+        self.id = id
+        self.images = images
+        self.comment = comment
+        self.type = type
+        self.party = PersonParty(id: 0, name: party)
+        self.person = PersonParty(id: 0, name: politician)
+        self.created_date = date
+    }
 }
 
 struct AdImage: Codable {

@@ -8,6 +8,7 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBOutlet var currentComment: UITextView!
     var isImageEmpty = false
+    var tasks = [URLSessionDataTask]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -19,11 +20,13 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
         currentTypeLbl.text = singleMarkerType
         currentDateLbl.text = convertDate(dateStr: singleMarkerDate)
         currentComment.text = singleMarkerComment
-        
     }
     
     @IBAction func goToMapTapped(_ sender: Any) {
         singleMarkerImages = [UIImage]()
+        for task in tasks {
+            task.cancel()
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -45,17 +48,23 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
         } else {
             let urlString = singleMarkerAdImageArray[indexPath.row].image
             if let url = URL(string: urlString!) {
-                URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
+                let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
                     guard let data = data, error == nil else {
                         print("\nerror on download \(error ?? "" as! Error)")
                         return
                     }
-                    DispatchQueue.main.async(execute: {
-                        let currentImage = UIImage(data: data)!
-                        cell.imageView.image = currentImage
-                        singleMarkerImages.append(currentImage)
-                    })
-                }).resume()
+                    if let currentImage = UIImage(data: data) {
+                        DispatchQueue.main.async(execute: {
+                            cell.imageView.image = currentImage
+                            singleMarkerImages.append(currentImage)
+                        })
+                    } else {
+                        cell.imageView.image = UIImage(named: "logo_violet")
+                    }
+                })
+                
+                task.resume()
+                tasks.append(task)
             }
         }
         

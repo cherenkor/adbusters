@@ -1,5 +1,7 @@
 import Foundation
 
+var getAdstask: URLSessionDataTask?
+
 func getPartiesRequest(url: String, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
     let urlObject = URL(string: url)
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
@@ -28,7 +30,11 @@ func getPoliticiansRequest(url: String, completion: @escaping (_ json: Politicia
 
 func getAds(url: String, completion: @escaping (_ json: Array<AdModel>?, _ error: Error?)->()) {
     let urlObject = URL(string: url)
-    let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
+    
+    if getAdstask != nil {
+        getAdstask!.cancel()
+    }
+    getAdstask = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         if let data = data {
             do {
                 let result = try JSONDecoder().decode(Array<AdModel>.self, from: data)
@@ -38,7 +44,7 @@ func getAds(url: String, completion: @escaping (_ json: Array<AdModel>?, _ error
             }
         }
     }
-    task.resume()
+    getAdstask!.resume()
 }
 
 func getUserData(url: String, token: String, completion: @escaping (_ json: UserData?, _ error: Error?)->()) {

@@ -31,13 +31,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var adImage: UIImageView!
     @IBOutlet weak var partyLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     var currentPolitician = ""
+    var canRequest = true
+    var timeFromNow = DispatchTime.now()
     
     @IBOutlet weak var currentAdView: UIView!
     var centralLocationCoordinate : CLLocationCoordinate2D?
@@ -109,29 +110,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func loadAds (_ lat: Double, _ lon: Double, _ radius: Double) {
-//        if let adsExist = adsAll {
-//            setPinsOnMap(jsonData: adsExist)
-//        }
         
 //        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
 //        http://127.0.0.1:8000/
 //        https://f603cd4c.ngrok.io/
-        getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
-        
-            if let error = error {
-                print("ERROR WAR", error)
-//                error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
-                return
-            }
+        let timeDispatch = timeFromNow + 5.0
+        DispatchQueue.main.asyncAfter(deadline: timeDispatch, execute: {
+            let wasTime = Int(self.timeFromNow.rawValue)
+            let nowTime = Int(timeDispatch.rawValue)
             
-            if let jsonData = json {
-                adsAll = jsonData
-                self.setPinsOnMap(jsonData: jsonData)
-            } else {
-                print("ERROR WAR")
-//                error?.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+            print("\((nowTime - wasTime) == 120000000)")
+            if (nowTime - wasTime) == 120000000 {
+                getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
+                
+                    if let error = error {
+                        print("ERROR WAR", error)
+        //                error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+                        return
+                    }
+                    
+                    if let jsonData = json {
+                        adsAll = jsonData
+                        self.setPinsOnMap(jsonData: jsonData)
+                    } else {
+                        print("ERROR WAR")
+                    }
+                }
             }
-        }
+        })
     }
     
     func setCurrentAdress () {
@@ -291,7 +297,7 @@ extension MapViewController {
 //            mapView.clusterManager.marginFactor = 1
 //            self.loadAds(lat, lon, radius)
 //        }
-
+        timeFromNow = DispatchTime.now()
         loadAds(lat, lon, radius)
         mapView.clusterManager.updateClustersIfNeeded()
     }
@@ -302,13 +308,24 @@ extension MapViewController {
             return
         }
         
+        if getAdstask != nil {
+            getAdstask!.cancel()
+        }
+        
         if cluster.count > 1 {
 //            let edgePadding = UIEdgeInsets(top: 40, left: 20, bottom: 44, right: 20)
 //            mapView.show(cluster, edgePadding: edgePadding, animated: true)
+            let markersData = cluster.annotations as! [MyAnnotation]
+            
+            for marker in markersData {
+                multipleMarkerDate.append(AdModel(id: marker.id!, images: marker.images, comment: marker.comment ?? "", type: marker.type ?? 7, party: marker.party ?? "", politician: marker.politician ?? "", date: marker.date!))
+            }
+            performSegue(withIdentifier: "goToMultipleMarkersView", sender: nil)
         } else if let annotation = cluster.firstAnnotation as? MyAnnotation {
             setSingleMarkerData(party: annotation.party!, politician: annotation.politician!, date: annotation.date!, comment: annotation.comment!, type: annotation.type!, images: annotation.images)
+            mapView.clusterManager.selectAnnotation(annotation, animated: false);
             performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)
-//            mapView.clusterManager.selectAnnotation(annotation, animated: false);
+            mapView.clusterManager.deselectAnnotation(annotation, animated: false);
         }
     }
     

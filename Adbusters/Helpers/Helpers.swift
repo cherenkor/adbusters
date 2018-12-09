@@ -214,7 +214,7 @@ class MyAnnotation: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     var image: UIImage? = nil
     var id: Int? = nil
-    var type: String?
+    var type: Int?
     //    var grouped: Bool? = nil
     
     init(id: Int, coordinate: CLLocationCoordinate2D, party: String, politician: String, date: String, comment: String, type: Int, images: [AdImage]) {
@@ -226,18 +226,18 @@ class MyAnnotation: NSObject, MKAnnotation {
         self.politician = politician
         self.date = date
         self.comment = comment
-        self.type = getTypeText(type)
+        self.type = type
         self.images = images
         //        super.init()
     }
 }
 
-func setSingleMarkerData(party: String = "", politician: String = "", date: String = "", comment: String = "", type: String = "", images: [AdImage] = [AdImage]() ) {
+func setSingleMarkerData(party: String = "", politician: String = "", date: String = "", comment: String = "", type: Int = 0, images: [AdImage] = [AdImage]() ) {
     singleMarkerParty = party
     singleMarkerPolitician = politician
     singleMarkerDate = date
     singleMarkerComment = comment
-    singleMarkerType = type
+    singleMarkerType = getTypeText(type)
     singleMarkerAdImageArray = images
 }
 

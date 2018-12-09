@@ -15,6 +15,7 @@ class MyAdsViewTableViewCell: UITableViewCell {
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var adImageView: UIImageView!
+    @IBOutlet var politician: UILabel!
     
     
     
@@ -33,8 +34,8 @@ class MyAdsViewTableViewCell: UITableViewCell {
         //Do reset here
         title.text = ""
         type.text = ""
+        politician.text = ""
         date.text = ""
-        adImageView.image = UIImage(named: "logo_white")
-        
+        adImageView.image = UIImage(named: "logo_violet")
     }
 }

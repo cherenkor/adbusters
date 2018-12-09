@@ -83,15 +83,16 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("\nerror on download \(error ?? "" as! Error)")
                             return
                         }
-                        DispatchQueue.main.async(execute: {
-                            let imageToCache = UIImage(data: data)
-                            
-                            if self.imageUrlString == urlString {
-                                cell.adImageView.image = imageToCache
-                            }
-                            
-                            imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
-                        })
+                        if let imageToCache = UIImage(data: data) {
+                            DispatchQueue.main.async(execute: {
+                                if self.imageUrlString == urlString {
+                                    cell.adImageView.image = imageToCache
+                                }
+                                imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
+                            })
+                        } else {
+                            cell.adImageView.image = UIImage(named: "logo_violet")
+                        }
                     }).resume()
                 }
             }
