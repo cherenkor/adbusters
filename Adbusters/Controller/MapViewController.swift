@@ -114,13 +114,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
 //        http://127.0.0.1:8000/
 //        https://f603cd4c.ngrok.io/
-        let timeDispatch = timeFromNow + 5.0
+        let timeDispatch = timeFromNow + 3
         DispatchQueue.main.asyncAfter(deadline: timeDispatch, execute: {
             let wasTime = Int(self.timeFromNow.rawValue)
             let nowTime = Int(timeDispatch.rawValue)
             
-            print("\((nowTime - wasTime) == 120000000)")
-            if (nowTime - wasTime) == 120000000 {
+            print("\((nowTime - wasTime) >= 72000000)")
+            if (nowTime - wasTime) >= 72000000 {
                 getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
                 
                     if let error = error {

@@ -47,6 +47,7 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
             cell.imageView.image = singleMarkerImages[indexPath.row]
         } else {
             let urlString = singleMarkerAdImageArray[indexPath.row].image
+            print("Inside", urlString)
             if let url = URL(string: urlString!) {
                 let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
                     guard let data = data, error == nil else {

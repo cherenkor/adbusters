@@ -47,9 +47,14 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
         cell.politician.text = multipleMarkerDate[indexPath.row].person?.name
         cell.date.text = convertDate(dateStr: multipleMarkerDate[indexPath.row].created_date!)
         let images = multipleMarkerDate[indexPath.row].images!
+        cell.adImageView.image = UIImage(named: "logo_violet")
+        cell.tag = indexPath.row
         
         if (images.count > 0) {
             let urlString = images[0].image!
+//            cell.adImageView.image = UIImage(named: "logo_violet")  //set placeholder image first.
+//            cell.adImageView.downloadImageFrom(link: urlString, contentMode: UIView.ContentMode.scaleAspectFit)
+            
             let imageKey = urlString + "\(multipleMarkerDate[indexPath.row].id!)"
             imageUrlString = urlString + "\(multipleMarkerDate[indexPath.row].id!)"
 
@@ -62,13 +67,16 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
                             print("\nerror on download \(error ?? "" as! Error)")
                             return
                         }
-
                         if let imageToCache = UIImage(data: data) {
                             DispatchQueue.main.async(execute: {
-                                if self.imageUrlString == imageKey {
-                                    cell.adImageView.image = imageToCache
+                                if cell.tag == indexPath.row {
+                                    if self.imageUrlString == imageKey {
+                                        cell.adImageView.image = imageToCache
+                                    }
+                                    multipleMarkersImageCache.setObject(imageToCache, forKey: self.imageUrlString as AnyObject)
+                                } else {
+                                    print("\(cell.tag) != \(indexPath.row)")
                                 }
-                                multipleMarkersImageCache.setObject(imageToCache, forKey: self.imageUrlString as AnyObject)
                             })
                         } else {
                             cell.adImageView.image = UIImage(named: "logo_violet")
@@ -96,6 +104,7 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func setCurrent(index: Int) {
+        print("Outside", multipleMarkerDate[index].images?[0].image)
         setSingleMarkerData(party: multipleMarkerDate[index].party!.name!, politician: multipleMarkerDate[index].person!.name!, date: convertDate(dateStr: multipleMarkerDate[index].created_date!), comment: multipleMarkerDate[index].comment!, type: multipleMarkerDate[index].type!, images: multipleMarkerDate[index].images ?? [AdImage]())
         performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)
     }
