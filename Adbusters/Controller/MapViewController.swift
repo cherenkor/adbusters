@@ -36,8 +36,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var partyLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
-    var canRequest = true
     var timeFromNow = DispatchTime.now()
+    var lastRequest = 0
     
     @IBOutlet weak var currentAdView: UIView!
     var centralLocationCoordinate : CLLocationCoordinate2D?
@@ -114,12 +114,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        http://127.0.0.1:8000/
 //        https://f603cd4c.ngrok.io/
         let timeDispatch = timeFromNow + 3.0
+        lastRequest += 1
+        let currentRequest = lastRequest
         DispatchQueue.main.asyncAfter(deadline: timeDispatch, execute: {
-            let wasTime = Int(self.timeFromNow.rawValue)
-            let nowTime = Int(timeDispatch.rawValue)
             
-            print("\((nowTime - wasTime) >= 72000000)")
-            if (nowTime - wasTime) >= 72000000 {
+            print("\(self.lastRequest == currentRequest)")
+            if self.lastRequest == currentRequest {
                 getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
                 
                     if let error = error {
