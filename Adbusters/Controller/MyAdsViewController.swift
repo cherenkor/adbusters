@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,23 +21,25 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.separatorColor = UIColor.white
         currentAdsImageUrls = [AdImage]()
         // Do any additional setup after loading the view.
-        
+        if getAdstask != nil {
+            getAdstask!.cancel()
+        }
         loadAds()
     }
     
-    func loadAds() {
-        if loadedAds == true { return }
-        if let haveAds = adsAll {
-            if haveAds.count > 0 {
-                ads = haveAds.filter({ $0.user == currentUserId })
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                return
-            }
+    @IBAction func goBackTapped(_ sender: Any) {
+        ads = nil
+        if getAdstask != nil {
+            getAdstask!.cancel()
         }
-        
-        print("RELOAd")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func loadAds() {
+        if ads != nil {
+            return
+        }
         
         getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
             
@@ -47,7 +50,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             if let jsonData = json {
-                ads = jsonData.filter({ $0.user == currentUserId})
+                ads = jsonData.filter({ $0.user == 167})
                 loadedAds = true
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -65,45 +68,27 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyAdsViewTableViewCell
-        cell.title.text = ads?[indexPath.row].party?.name
+        cell.selectionStyle = .none
+        cell.title.text = ads?[indexPath.row].party?.name ?? ""
         cell.type.text = getTypeText(ads![indexPath.row].type!)
+        cell.politician.text = ads?[indexPath.row].person?.name ?? ""
         cell.date.text = convertDate(dateStr: ads![indexPath.row].created_date!)
         let images = ads![indexPath.row].images!
         
         if (images.count > 0) {
             let urlString = images[0].image!
-            imageUrlString = urlString
-            
-            if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
-                cell.adImageView.image = imageFromCache
-            } else {
                 if let url = URL(string: urlString) {
-                    URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
-                        guard let data = data, error == nil else {
-                            print("\nerror on download \(error ?? "" as! Error)")
-                            return
-                        }
-                        if let imageToCache = UIImage(data: data) {
-                            DispatchQueue.main.async(execute: {
-                                if self.imageUrlString == urlString {
-                                    cell.adImageView.image = imageToCache
-                                }
-                                imageCache.setObject(imageToCache, forKey: urlString as AnyObject)
-                            })
-                        } else {
-                            cell.adImageView.image = UIImage(named: "logo_violet")
-                        }
-                    }).resume()
+                    cell.adImageView.kf.indicatorType = .activity
+                    cell.adImageView.kf.setImage(with: url)
                 }
-            }
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
-        selectedCell.contentView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+//        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
+//        selectedCell.contentView.backgroundColor = UIColor(white: 1, alpha: 0.3)
         
         setCurrent(index: indexPath.row)
     }
@@ -115,8 +100,10 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func setCurrent(index: Int) {
         isAddAdsView = false
         currentAdsImageUrls = ads?[index].images!
-        currentParty = ads?[index].party?.name
+        currentParty = ads?[index].party?.name ?? ""
+        currentPolitician = ""
         currentType = getTypeText(ads![index].type!)
+        currentComment = ""
         currentDate = convertDate(dateStr: ads![index].created_date!)
         performSegue(withIdentifier: "goToSingleAd", sender: nil)
     }

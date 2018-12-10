@@ -17,7 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         adImage.image = images[0]
         currentAdsImages = images
         currentComment = comment
-        currentPolitician = politician == "Політик не вибраний" ? "" : politician
+        currentPolitician = politician
     }
     
     @IBAction func addAdButtonPressed(_ sender: Any) {
@@ -36,7 +36,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var partyLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
-    var currentPolitician = ""
     var canRequest = true
     var timeFromNow = DispatchTime.now()
     
@@ -114,7 +113,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
 //        http://127.0.0.1:8000/
 //        https://f603cd4c.ngrok.io/
-        let timeDispatch = timeFromNow + 3
+        let timeDispatch = timeFromNow + 3.0
         DispatchQueue.main.asyncAfter(deadline: timeDispatch, execute: {
             let wasTime = Int(self.timeFromNow.rawValue)
             let nowTime = Int(timeDispatch.rawValue)

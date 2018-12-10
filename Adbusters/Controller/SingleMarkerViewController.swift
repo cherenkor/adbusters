@@ -2,11 +2,17 @@ import UIKit
 
 class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    
+    @IBOutlet weak var currentPoliticianLbl: UILabel!
+    @IBOutlet weak var currentPartyLbl: UILabel!
+    
+    
     @IBOutlet weak var currentTypeLbl: UILabel!
-    
     @IBOutlet weak var currentDateLbl: UILabel!
+    @IBOutlet weak var currentComment: UITextView!
     
-    @IBOutlet var currentComment: UITextView!
+    
+    
     var isImageEmpty = false
     var tasks = [URLSessionDataTask]()
     
@@ -17,6 +23,8 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
             isImageEmpty = true
         }
         super.viewDidLoad()
+        currentPartyLbl.text = singleMarkerParty
+        currentPoliticianLbl.text = singleMarkerPolitician
         currentTypeLbl.text = singleMarkerType
         currentDateLbl.text = convertDate(dateStr: singleMarkerDate)
         currentComment.text = singleMarkerComment
@@ -47,25 +55,9 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
             cell.imageView.image = singleMarkerImages[indexPath.row]
         } else {
             let urlString = singleMarkerAdImageArray[indexPath.row].image
-            print("Inside", urlString)
             if let url = URL(string: urlString!) {
-                let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
-                    guard let data = data, error == nil else {
-                        print("\nerror on download \(error ?? "" as! Error)")
-                        return
-                    }
-                    if let currentImage = UIImage(data: data) {
-                        DispatchQueue.main.async(execute: {
-                            cell.imageView.image = currentImage
-                            singleMarkerImages.append(currentImage)
-                        })
-                    } else {
-                        cell.imageView.image = UIImage(named: "logo_violet")
-                    }
-                })
-                
-                task.resume()
-                tasks.append(task)
+                cell.imageView.kf.indicatorType = .activity
+                cell.imageView.kf.setImage(with: url)
             }
         }
         
@@ -73,8 +65,9 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if singleMarkerImages.count == 0 { return }
-        currentAdImage = singleMarkerImages[indexPath.row]
+        let currentCell = collectionView.cellForItem(at: indexPath) as! SingleAdCollectionViewCell
+        
+        currentAdImage = currentCell.imageView.image
         performSegue(withIdentifier: "goToSingleMarkerImageView", sender: nil)
     }
 }

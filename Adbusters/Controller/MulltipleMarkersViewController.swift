@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 var multipleMarkersImageCache = NSCache<AnyObject, AnyObject>()
 
@@ -39,6 +40,8 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyAdsViewTableViewCell
+        cell.selectionStyle = .none
+        
         if multipleMarkerDate.count == 0 {
             return cell
         }
@@ -47,45 +50,14 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
         cell.politician.text = multipleMarkerDate[indexPath.row].person?.name
         cell.date.text = convertDate(dateStr: multipleMarkerDate[indexPath.row].created_date!)
         let images = multipleMarkerDate[indexPath.row].images!
-        cell.adImageView.image = UIImage(named: "logo_violet")
         cell.tag = indexPath.row
         
         if (images.count > 0) {
             let urlString = images[0].image!
-//            cell.adImageView.image = UIImage(named: "logo_violet")  //set placeholder image first.
-//            cell.adImageView.downloadImageFrom(link: urlString, contentMode: UIView.ContentMode.scaleAspectFit)
             
-            let imageKey = urlString + "\(multipleMarkerDate[indexPath.row].id!)"
-            imageUrlString = urlString + "\(multipleMarkerDate[indexPath.row].id!)"
-
-            if let imageFromCache = multipleMarkersImageCache.object(forKey: imageKey as AnyObject) as? UIImage {
-                cell.adImageView.image = imageFromCache
-            } else {
-                if let url = URL(string: urlString) {
-                    let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) -> Void in
-                        guard let data = data, error == nil else {
-                            print("\nerror on download \(error ?? "" as! Error)")
-                            return
-                        }
-                        if let imageToCache = UIImage(data: data) {
-                            DispatchQueue.main.async(execute: {
-                                if cell.tag == indexPath.row {
-                                    if self.imageUrlString == imageKey {
-                                        cell.adImageView.image = imageToCache
-                                    }
-                                    multipleMarkersImageCache.setObject(imageToCache, forKey: self.imageUrlString as AnyObject)
-                                } else {
-                                    print("\(cell.tag) != \(indexPath.row)")
-                                }
-                            })
-                        } else {
-                            cell.adImageView.image = UIImage(named: "logo_violet")
-                        }
-                    })
-
-                    task.resume()
-                    tasks.append(task)
-                }
+            if let url = URL(string: urlString) {
+                cell.adImageView.kf.indicatorType = .activity
+                cell.adImageView.kf.setImage(with: url)
             }
         }
         
@@ -93,9 +65,11 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
-        selectedCell.contentView.backgroundColor = UIColor(white: 1, alpha: 0.3)
-        
+//        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
+//        selectedCell.contentView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        for task in tasks {
+            task.cancel()
+        }
         setCurrent(index: indexPath.row)
     }
     
@@ -104,20 +78,7 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func setCurrent(index: Int) {
-        print("Outside", multipleMarkerDate[index].images?[0].image)
         setSingleMarkerData(party: multipleMarkerDate[index].party!.name!, politician: multipleMarkerDate[index].person!.name!, date: convertDate(dateStr: multipleMarkerDate[index].created_date!), comment: multipleMarkerDate[index].comment!, type: multipleMarkerDate[index].type!, images: multipleMarkerDate[index].images ?? [AdImage]())
         performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)
-    }
-}
-
-extension UIImageView {
-    func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
-        URLSession.shared.dataTask(with: URL(string:link)!, completionHandler: {
-            (data, response, error) -> Void in
-            DispatchQueue.main.async {
-                self.contentMode =  contentMode
-                if let data = data { self.image = UIImage(data: data) }
-            }
-        }).resume()
     }
 }

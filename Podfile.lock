@@ -21,6 +21,7 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.37.0):
     - FBSDKCoreKit
+  - Kingfisher (4.10.0)
   - Material (2.16.4):
     - Material/Core (= 2.16.4)
   - Material/Core (2.16.4):
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - ClusterKit/MapKit
   - DropDown
   - FacebookLogin
+  - Kingfisher
   - Material
   - SVProgressHUD
   - TweeTextField
@@ -48,6 +50,7 @@ SPEC REPOS:
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - Kingfisher
     - Material
     - Motion
     - SVProgressHUD
@@ -61,11 +64,12 @@ SPEC CHECKSUMS:
   FacebookLogin: eb0f2251aca835a94d70a5f7e580edc46d1e1603
   FBSDKCoreKit: fe5f3474499a81963e11e3f3a5c753d0a95ca2b4
   FBSDKLoginKit: 2f7249686d1e30ce8a5ef5400eedf50b3e3df332
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TweeTextField: 3ae42dd5944571a25a34cbebd361edbb62931c79
 
-PODFILE CHECKSUM: c960c35c81100f36125cd536306b3d0a35fd807b
+PODFILE CHECKSUM: b40b43b3b2c14d41dbb598fbe638e476360a7e1b
 
 COCOAPODS: 1.5.3
