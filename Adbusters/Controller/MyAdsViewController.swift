@@ -52,7 +52,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             if let jsonData = json {
-                ads = jsonData.filter({ $0.user == 167})
+                ads = jsonData.filter({ $0.user == 194})
 //                ads = jsonData
                 loadedAds = true
                 DispatchQueue.main.async {
@@ -85,6 +85,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 deleteAd(completion: { (error) in
                     if let error = error {
                         print("Didn't delete")
+                        SVProgressHUD.dismiss()
                         error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
                     } else {
                         for (i, ad) in ads!.enumerated() {
@@ -92,9 +93,11 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                 ads?.remove(at: i)
                             }
                         }
-                        self.tableView.reloadData()
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            SVProgressHUD.dismiss()
+                        }
                     }
-                    SVProgressHUD.dismiss()
             })
         }
         
