@@ -13,11 +13,15 @@ var currentAdsImages = [UIImage]()
 var currentAdsImageUrls: [AdImage]?
 var currentAdImage: UIImage?
 var currentParty: String?
+var currentPartyId: Int?
 var currentPolitician: String?
+var currentPoliticianId: Int?
 var currentType: String?
 var currentDate: String?
 var currentComment: String?
 var currentLocation: String?
+var currentLatitude: Double?
+var currentLongitude: Double?
 
 // User Data
 var currentUserName: String?

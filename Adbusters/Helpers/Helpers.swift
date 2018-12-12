@@ -69,6 +69,24 @@ func getTypeText (_ typeInt: Int) -> String {
     }
 }
 
+func getTypeInt (_ typeText: String) -> Int {
+    if typeText == "Бігборд" {
+        return 1
+    } else if typeText == "Сітілайт" {
+        return 2
+    } else if typeText == "Газета" {
+        return 3
+    } else if typeText == "Листівка" {
+        return 4
+    } else if typeText == "Намет" {
+        return 5
+    } else if typeText == "Транспорт" {
+        return 6
+    } else {
+        return 7
+    }
+}
+
 // Date
 
 func convertDate (dateStr : String) -> String {

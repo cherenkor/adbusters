@@ -3,6 +3,9 @@ import UIKit
 
 class RateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var loader: UIActivityIndicatorView!
+    
+    
     let users = [[ "username": "Владислав Пуришов", "garlics": 120, "avatar": "default" ],
                  [ "username": "Ігорь Лакринтиш", "garlics": 20, "avatar": "default" ],
                  [ "username": "Аліса Орхиповна Перекотиполе", "garlics": 10, "avatar": "default" ],

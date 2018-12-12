@@ -13,6 +13,8 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var imageUrlString: String?
     
+    @IBOutlet var loader: UIActivityIndicatorView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -40,22 +42,27 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if ads != nil {
             return
         }
+        showIndicator(true, indicator: loader)
         
-        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
+        getAds(url: "http://adbusters.chesno.org/ads_read/") { (json, error) in
             
             if let error = error {
+                showIndicator(false, indicator: self.loader)
                 print("ERROR WAR", error)
                 error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
                 return
             }
             
             if let jsonData = json {
-                ads = jsonData.filter({ $0.user == 167})
+                showIndicator(false, indicator: self.loader)
+                ads = jsonData.filter({ $0.user == 194})
+//                ads = jsonData
                 loadedAds = true
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             } else {
+                showIndicator(false, indicator: self.loader)
                 error?.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
             }
         }

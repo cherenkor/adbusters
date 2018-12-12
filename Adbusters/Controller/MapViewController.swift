@@ -31,6 +31,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    
+    @IBOutlet var loader: UIActivityIndicatorView!
+    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var adImage: UIImageView!
     @IBOutlet weak var partyLbl: UILabel!
@@ -110,18 +113,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func loadAds (_ lat: Double, _ lon: Double, _ radius: Double) {
         
-//        getAds(url: "http://adbusters.chesno.org/ads/") { (json, error) in
-//        http://127.0.0.1:8000/
-//        https://f603cd4c.ngrok.io/
         let timeDispatch = timeFromNow + 3.0
         lastRequest += 1
         let currentRequest = lastRequest
+        showIndicator(false, indicator: loader)
+        
         DispatchQueue.main.asyncAfter(deadline: timeDispatch, execute: {
             
             print("\(self.lastRequest == currentRequest)")
             if self.lastRequest == currentRequest {
-                getAds(url: "http://adbusters.chesno.org/ads_read/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
-                
+                showIndicator(true, indicator: self.loader)
+                getAds(url: "http://adbusters.chesno.org/ads/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
+                    showIndicator(false, indicator: self.loader)
                     if let error = error {
                         print("ERROR WAR", error)
         //                error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
@@ -305,6 +308,14 @@ extension MapViewController {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let cluster = view.annotation as? CKCluster else {
             return
+        }
+        
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+            
+            currentLatitude = locationManager.location?.coordinate.latitude
+            currentLongitude = locationManager.location?.coordinate.longitude
+            
         }
         
         if getAdstask != nil {

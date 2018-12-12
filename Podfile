@@ -9,5 +9,6 @@ target 'Adbusters' do
 	pod 'Material'
 	pod 'FacebookLogin'
 	pod 'ClusterKit/MapKit'
+	pod 'Alamofire'
 	pod 'Kingfisher'
 end

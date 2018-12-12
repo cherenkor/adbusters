@@ -191,6 +191,9 @@
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jqy-WD-UY7">
                                         <rect key="frame" x="0.0" y="8" width="320" height="410"/>
                                     </mapView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-6t-Zdr">
+                                        <rect key="frame" x="150" y="199" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9w-Hb-cGy">
                                         <rect key="frame" x="241" y="340" width="60" height="60"/>
                                         <subviews>
@@ -471,10 +474,12 @@
                                     <constraint firstItem="xoG-x0-T6n" firstAttribute="leading" secondItem="o00-p5-laq" secondAttribute="leading" id="8lt-bO-ek9"/>
                                     <constraint firstItem="xoG-x0-T6n" firstAttribute="top" secondItem="o00-p5-laq" secondAttribute="top" constant="8" id="MZD-Q4-v1a"/>
                                     <constraint firstAttribute="bottom" secondItem="xoG-x0-T6n" secondAttribute="bottom" id="Ne9-Un-ncV"/>
+                                    <constraint firstItem="VFg-6t-Zdr" firstAttribute="centerY" secondItem="o00-p5-laq" secondAttribute="centerY" id="RKd-7U-Bxq"/>
                                     <constraint firstAttribute="trailing" secondItem="xoG-x0-T6n" secondAttribute="trailing" id="T02-GQ-syL"/>
                                     <constraint firstAttribute="trailing" secondItem="jqy-WD-UY7" secondAttribute="trailing" id="Tna-fo-5Nc"/>
                                     <constraint firstItem="xoG-x0-T6n" firstAttribute="centerX" secondItem="o00-p5-laq" secondAttribute="centerX" id="Y8c-LR-ULo"/>
                                     <constraint firstItem="LUU-mu-g0L" firstAttribute="top" secondItem="o00-p5-laq" secondAttribute="top" constant="47" id="cO6-Wf-rb0"/>
+                                    <constraint firstItem="VFg-6t-Zdr" firstAttribute="centerX" secondItem="o00-p5-laq" secondAttribute="centerX" id="eKt-O6-RWD"/>
                                     <constraint firstAttribute="trailing" secondItem="LUU-mu-g0L" secondAttribute="trailing" constant="23" id="ggB-bf-bxE"/>
                                     <constraint firstItem="jqy-WD-UY7" firstAttribute="top" secondItem="o00-p5-laq" secondAttribute="top" constant="8" id="ocu-mq-fYT"/>
                                     <constraint firstItem="jqy-WD-UY7" firstAttribute="leading" secondItem="o00-p5-laq" secondAttribute="leading" id="wdp-wH-M0g"/>
@@ -549,6 +554,7 @@
                         <outlet property="adImage" destination="Q2J-iq-ZvO" id="oXf-ZQ-kRd"/>
                         <outlet property="currentAdView" destination="qoX-7T-Xbt" id="pyz-5k-BUs"/>
                         <outlet property="dateLbl" destination="v2s-Xi-iXh" id="YJb-YF-JlM"/>
+                        <outlet property="loader" destination="VFg-6t-Zdr" id="HVK-De-6VX"/>
                         <outlet property="mapView" destination="jqy-WD-UY7" id="NfX-qg-Ydr"/>
                         <outlet property="partyLbl" destination="tyA-4X-tdR" id="7ML-Dv-9fw"/>
                         <outlet property="popupView" destination="xoG-x0-T6n" id="bbZ-o5-5NH"/>
@@ -619,8 +625,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="143"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_photo_violet" translatesAutoresizingMaskIntoConstraints="NO" id="DkJ-DP-mQK">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DkJ-DP-mQK">
                                                             <rect key="frame" x="0.0" y="33" width="100" height="110"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                         <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2V-dM-Um9">
                                                             <rect key="frame" x="70" y="14" width="30" height="30"/>
@@ -1403,6 +1410,9 @@
                                     <outlet property="delegate" destination="zX8-dB-ntb" id="ev4-Ey-5fD"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3hy-ke-PBL">
+                                <rect key="frame" x="150" y="230" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1412,12 +1422,15 @@
                             <constraint firstItem="Hmp-IU-JWx" firstAttribute="bottom" secondItem="jtH-no-tDJ" secondAttribute="bottom" id="LYN-nX-Jru"/>
                             <constraint firstItem="Hmp-IU-JWx" firstAttribute="top" secondItem="lze-s5-aFO" secondAttribute="bottom" id="Nw3-Dc-GoZ"/>
                             <constraint firstItem="Hmp-IU-JWx" firstAttribute="leading" secondItem="jtH-no-tDJ" secondAttribute="leading" id="X7r-O0-HxU"/>
+                            <constraint firstItem="3hy-ke-PBL" firstAttribute="centerY" secondItem="NSL-Bb-PnW" secondAttribute="centerY" id="dx8-bO-WAZ"/>
                             <constraint firstItem="Hmp-IU-JWx" firstAttribute="trailing" secondItem="jtH-no-tDJ" secondAttribute="trailing" id="p5v-hG-mZV"/>
+                            <constraint firstItem="3hy-ke-PBL" firstAttribute="centerX" secondItem="NSL-Bb-PnW" secondAttribute="centerX" id="ve2-qj-MH7"/>
                             <constraint firstItem="Hmp-IU-JWx" firstAttribute="top" secondItem="lze-s5-aFO" secondAttribute="bottom" id="zIf-Td-SRM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jtH-no-tDJ"/>
                     </view>
                     <connections>
+                        <outlet property="loader" destination="3hy-ke-PBL" id="zEf-ye-3bD"/>
                         <outlet property="tableView" destination="Hmp-IU-JWx" id="Mof-tt-ZLv"/>
                     </connections>
                 </viewController>
@@ -1576,9 +1589,13 @@
                                     <outlet property="delegate" destination="Aqc-NX-n8v" id="HhV-YT-K3d"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rhr-5a-Lby">
+                                <rect key="frame" x="150" y="230" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="rhr-5a-Lby" firstAttribute="centerY" secondItem="jso-Ez-yWS" secondAttribute="centerY" id="0o3-UP-Bkj"/>
                             <constraint firstItem="SJ6-h6-pKn" firstAttribute="leading" secondItem="DGU-fb-v0T" secondAttribute="leading" id="3qF-sK-jNG"/>
                             <constraint firstItem="JbU-gk-rCU" firstAttribute="top" secondItem="SJ6-h6-pKn" secondAttribute="bottom" id="88s-Fh-QTY"/>
                             <constraint firstItem="SJ6-h6-pKn" firstAttribute="top" secondItem="DGU-fb-v0T" secondAttribute="top" id="GDO-w0-mWX"/>
@@ -1586,11 +1603,13 @@
                             <constraint firstItem="JbU-gk-rCU" firstAttribute="leading" secondItem="DGU-fb-v0T" secondAttribute="leading" id="M6c-YG-kBJ"/>
                             <constraint firstItem="JbU-gk-rCU" firstAttribute="bottom" secondItem="DGU-fb-v0T" secondAttribute="bottom" id="YlX-Hd-iG3"/>
                             <constraint firstItem="JbU-gk-rCU" firstAttribute="top" secondItem="SJ6-h6-pKn" secondAttribute="bottom" id="gRb-nP-pIY"/>
+                            <constraint firstItem="rhr-5a-Lby" firstAttribute="centerX" secondItem="jso-Ez-yWS" secondAttribute="centerX" id="xvq-Ph-9Pp"/>
                             <constraint firstItem="JbU-gk-rCU" firstAttribute="trailing" secondItem="DGU-fb-v0T" secondAttribute="trailing" id="z6Z-fZ-yNJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DGU-fb-v0T"/>
                     </view>
                     <connections>
+                        <outlet property="loader" destination="rhr-5a-Lby" id="7ub-ao-FV1"/>
                         <outlet property="tableView" destination="JbU-gk-rCU" id="gQc-kU-A6x"/>
                         <segue destination="JCm-1Y-yCe" kind="custom" identifier="goToSingleAd" customClass="SegueFromRight" customModule="Adbusters" customModuleProvider="target" id="ybb-UJ-Wha"/>
                     </connections>
@@ -3151,13 +3170,13 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8rg-wx-L7j"/>
-        <segue reference="UMi-KQ-MlK"/>
-        <segue reference="xfT-lN-0KB"/>
-        <segue reference="ybb-UJ-Wha"/>
+        <segue reference="eVG-tF-ALy"/>
+        <segue reference="8PZ-UC-75z"/>
+        <segue reference="aPl-pC-Vdb"/>
+        <segue reference="wJo-3A-m8h"/>
         <segue reference="mm9-QN-m4G"/>
         <segue reference="G9J-Jw-yyF"/>
         <segue reference="a9S-fS-bVK"/>
-        <segue reference="VXT-sX-TDj"/>
+        <segue reference="Vm1-cd-a2B"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -120,6 +120,8 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
     func getAdress(completion: @escaping (_ address: JSONDictionary?, _ error: Error?) -> ()) {
         
         let centerPosition = self.mapView.centerCoordinate
+        currentLatitude = centerPosition.latitude
+        currentLongitude = centerPosition.longitude
         let currentLocation =  CLLocation(latitude: centerPosition.latitude, longitude: centerPosition.longitude)
             
             let geoCoder = CLGeocoder()

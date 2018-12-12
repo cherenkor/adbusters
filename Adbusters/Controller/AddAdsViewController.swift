@@ -99,8 +99,8 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     @IBAction func saveAd(_ sender: Any) {
-        print("Pa \(String(describing: partyLabel.text)), po \(String(describing: politicianLabel.text)), co \(addingImages.count)")
-        if addingImages.count == 0 || adType.text == nil || adLocation.text == nil {
+        SVProgressHUD.show()
+        if addingImages.count == 0 {
             SVProgressHUD.showError(withStatus: "Перевiрте поля")
             SVProgressHUD.dismiss(withDelay: 1.0)
         } else {
@@ -108,7 +108,13 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: date, comment: commentLbl.text ?? "", images: addingImages )
             adsAll = [AdModel]()
-            self.dismiss(animated: true, completion: nil)
+            uplaodImages { isError in
+                SVProgressHUD.dismiss()
+                
+                if isError == true {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
     }
     

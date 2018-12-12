@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "251EBE7434EDECCB57B97BD880D75E7F"
-               BuildableName = "Pods_Adbusters.framework"
-               BlueprintName = "Pods-Adbusters"
+               BlueprintIdentifier = "E76458C58C9140B6A16D60547E68E80C"
+               BuildableName = "Alamofire.framework"
+               BlueprintName = "Alamofire"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "251EBE7434EDECCB57B97BD880D75E7F"
-            BuildableName = "Pods_Adbusters.framework"
-            BlueprintName = "Pods-Adbusters"
+            BlueprintIdentifier = "E76458C58C9140B6A16D60547E68E80C"
+            BuildableName = "Alamofire.framework"
+            BlueprintName = "Alamofire"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
