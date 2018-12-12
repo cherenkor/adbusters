@@ -39,7 +39,7 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyAdsViewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AdsTableViewCell
         cell.selectionStyle = .none
         
         if multipleMarkerDate.count == 0 {

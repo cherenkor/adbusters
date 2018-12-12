@@ -8,7 +8,11 @@ class MyAdsViewTableViewCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var adImageView: UIImageView!
     @IBOutlet var politician: UILabel!
+    var deleteAdClb: (() -> Void)?
     
+    @IBAction func deleteAdd(_ sender: Any) {
+        deleteAdClb?()
+    }
     
     
     override func awakeFromNib() {

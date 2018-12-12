@@ -240,6 +240,7 @@ func uplaodImages(completion: @escaping (Bool) -> ()){
 }
 
 func deleteAd(completion: @escaping (_ error: Error?)->()) {
+    print("Delete with id", currentAdId)
     if let id = currentAdId {
         let urlLink = URL(string: "http://adbusters.chesno.org/ads_write/\(id)")!
         var request = URLRequest(url: urlLink)

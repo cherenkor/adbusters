@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SVProgressHUD
 
 class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -27,10 +28,10 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func goBackTapped(_ sender: Any) {
-        ads = nil
         if getAdstask != nil {
             getAdstask!.cancel()
         }
+        ads = nil
         dismiss(animated: true, completion: nil)
     }
     
@@ -51,11 +52,11 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             if let jsonData = json {
-                showIndicator(false, indicator: self.loader)
-                ads = jsonData.filter({ $0.user == 194})
+                ads = jsonData.filter({ $0.user == 167})
 //                ads = jsonData
                 loadedAds = true
                 DispatchQueue.main.async {
+                    showIndicator(false, indicator: self.loader)
                     self.tableView.reloadData()
                 }
             } else {
@@ -77,6 +78,26 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.type.text = getTypeText(ads![indexPath.row].type!)
         cell.politician.text = ads?[indexPath.row].person?.name ?? ""
         cell.date.text = convertDate(dateStr: ads![indexPath.row].created_date!)
+        cell.tag = ads![indexPath.row].id!
+        cell.deleteAdClb = {() in
+                currentAdId = cell.tag
+                SVProgressHUD.show()
+                deleteAd(completion: { (error) in
+                    if let error = error {
+                        print("Didn't delete")
+                        error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
+                    } else {
+                        for (i, ad) in ads!.enumerated() {
+                            if ad.id == currentAdId {
+                                ads?.remove(at: i)
+                            }
+                        }
+                        self.tableView.reloadData()
+                    }
+                    SVProgressHUD.dismiss()
+            })
+        }
+        
         let images = ads![indexPath.row].images!
         
         if (images.count > 0) {
