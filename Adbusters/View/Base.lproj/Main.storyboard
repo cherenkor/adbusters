@@ -1480,7 +1480,7 @@
                                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="42V-bf-c6X">
                                                     <rect key="frame" x="15" y="9" width="111" height="163"/>
                                                     <subviews>
-                                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCo-GJ-REo">
+                                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_violet" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCo-GJ-REo">
                                                             <rect key="frame" x="0.0" y="0.0" width="111" height="130"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="111" id="9sD-hS-0tf"/>
@@ -1937,7 +1937,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eY2-xz-0Zc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_violet" translatesAutoresizingMaskIntoConstraints="NO" id="eY2-xz-0Zc">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="160"/>
                                                 </imageView>
                                             </subviews>
@@ -2719,7 +2719,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-Uq-v2S">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_violet" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-Uq-v2S">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="160"/>
                                                 </imageView>
                                             </subviews>
@@ -3034,7 +3034,7 @@
                                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-Sc-h8b">
                                                     <rect key="frame" x="15" y="9" width="111" height="140"/>
                                                     <subviews>
-                                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oa-bg-2YS">
+                                                        <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_violet" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oa-bg-2YS">
                                                             <rect key="frame" x="0.0" y="0.0" width="111" height="140"/>
                                                         </imageView>
                                                     </subviews>
@@ -3170,13 +3170,13 @@
         <image name="marker" width="104" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eVG-tF-ALy"/>
-        <segue reference="8PZ-UC-75z"/>
+        <segue reference="8rg-wx-L7j"/>
+        <segue reference="UMi-KQ-MlK"/>
         <segue reference="aPl-pC-Vdb"/>
-        <segue reference="wJo-3A-m8h"/>
+        <segue reference="ybb-UJ-Wha"/>
         <segue reference="mm9-QN-m4G"/>
         <segue reference="G9J-Jw-yyF"/>
         <segue reference="a9S-fS-bVK"/>
-        <segue reference="Vm1-cd-a2B"/>
+        <segue reference="hZU-ge-6Qw"/>
     </inferredMetricsTieBreakers>
 </document>
