@@ -50,6 +50,22 @@ extension Error {
     }
 }
 
+// Notifications
+struct Toast {}
+
+extension Toast {
+    
+    /// displays alert from source controller
+    func alert(with controller: UIViewController, title: String = "Помилка завантаження", message: String) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            controller.present(alertController, animated: true, completion: nil)
+        }
+    }
+}
+
 // JSON settings
 func getTypeText (_ typeInt: Int) -> String {
     if typeInt == 1 {
@@ -131,7 +147,12 @@ func saveUserToStorage () {
     defaults.set(isFacebook, forKey: "isFacebook")
     defaults.set(currentUserName, forKey: "name")
     defaults.set(currentUserGarlics, forKey: "garlics")
-    defaults.set(currentUserImage?.jpegData(compressionQuality: 1.0), forKey: "image")
+    defaults.set(currentUserImage?.jpegData(compressionQuality: 0.5), forKey: "image")
+}
+
+func saveUserGarlicsToStorage () {
+    let defaults = UserDefaults.standard
+    defaults.set(currentUserGarlics, forKey: "garlics")
 }
 
 func setCurrentUserData () {

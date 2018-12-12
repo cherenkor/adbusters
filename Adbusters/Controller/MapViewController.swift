@@ -138,7 +138,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             print("\(self.lastRequest == currentRequest)")
             if self.lastRequest == currentRequest {
-                showIndicator(true, indicator: self.loader)
+                DispatchQueue.main.async {
+                    showIndicator(true, indicator: self.loader)
+                }
                 getAds(url: "http://adbusters.chesno.org/ads/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
                     showIndicator(false, indicator: self.loader)
                     if let error = error {

@@ -51,6 +51,9 @@ var singleMarkerType = ""
 var singleMarkerAdImageArray = [AdImage]()
 var singleMarkerImages = [UIImage]()
 
+// Rating
+var topUsers: [RatingUser]?
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

@@ -57,7 +57,7 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
             
             if let url = URL(string: urlString) {
                 cell.adImageView.kf.indicatorType = .activity
-                cell.adImageView.kf.setImage(with: url)
+                cell.adImageView.kf.setImage(with: url, placeholder: UIImage(named: "logo_violet"))
             }
         }
         

@@ -62,7 +62,7 @@ class SingleAdViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         if let url = URL(string: urlString) {
             cell.imageView.kf.indicatorType = .activity
-            cell.imageView.kf.setImage(with: url)
+            cell.imageView.kf.setImage(with: url, placeholder: UIImage(named: "logo_violet"))
         }
         
         return cell

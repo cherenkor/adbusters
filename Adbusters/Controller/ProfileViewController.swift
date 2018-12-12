@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getGarlics()
         setUser()
         currentUserImageView.layer.masksToBounds = true
         currentUserImageView.layer.cornerRadius = 37

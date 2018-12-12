@@ -28,6 +28,10 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func goBackTapped(_ sender: Any) {
+        KingfisherManager.shared.cache.clearMemoryCache()
+        KingfisherManager.shared.cache.clearDiskCache()
+        KingfisherManager.shared.cache.cleanExpiredDiskCache()
+        
         if getAdstask != nil {
             getAdstask!.cancel()
         }
@@ -40,10 +44,12 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if ads != nil {
             return
         }
-        showIndicator(true, indicator: loader)
+        DispatchQueue.main.async {
+            showIndicator(true, indicator: self.loader)
+        }
         
-        getAds(url: "http://adbusters.chesno.org/ads_read/") { (json, error) in
-            
+        getAds(url: "http://adbusters.chesno.org/ads_read/?my=True") { (json, error) in
+            print("Get data")
             if let error = error {
                 showIndicator(false, indicator: self.loader)
                 print("ERROR WAR", error)
@@ -52,16 +58,20 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             if let jsonData = json {
-                ads = jsonData.filter({ $0.user == 194})
-//                ads = jsonData
+//                ads = jsonData.filter({ $0.user == 194})
+                print("json", jsonData)
+                ads = jsonData
                 loadedAds = true
+                if jsonData.count == 0 {
+                    Toast().alert(with: self, title: "Завантажено", message: "Список пустий")
+                }
                 DispatchQueue.main.async {
                     showIndicator(false, indicator: self.loader)
                     self.tableView.reloadData()
                 }
             } else {
                 showIndicator(false, indicator: self.loader)
-                error?.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+                Toast().alert(with: self, title: "Помилка завантаження", message: "Пошкодженi данi")
             }
         }
     }
@@ -107,7 +117,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let urlString = images[0].image!
                 if let url = URL(string: urlString) {
                     cell.adImageView.kf.indicatorType = .activity
-                    cell.adImageView.kf.setImage(with: url)
+                    cell.adImageView.kf.setImage(with: url, placeholder: UIImage(named: "logo_violet"))
                 }
         }
         

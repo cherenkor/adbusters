@@ -2,6 +2,41 @@ import Foundation
 import Alamofire
 
 var getAdstask: URLSessionDataTask?
+var getGarlicsTask: URLSessionDataTask?
+
+func getGarlics() {
+    let urlObject = URL(string: "http://adbusters.chesno.org/profile/")
+    if getGarlicsTask != nil {
+        return
+    }
+    getGarlicsTask = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
+        do {
+            let result = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String: Any]
+            if let garlics = result["rating"] {
+                print("Garlic", garlics)
+                currentUserGarlics = (garlics as! Int)
+                saveUserGarlicsToStorage()
+            }
+        } catch let error {
+            print("Error", error)
+        }
+    }
+    getGarlicsTask!.resume()
+}
+
+func getRating (completion: @escaping (_ json: RatingTop?, _ error: Error?)->()) {
+    let urlObject = URL(string:"http://adbusters.chesno.org/rating/")
+    let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
+        do {
+            let result = try JSONDecoder().decode(RatingTop.self, from: data!)
+            print("HAVE", result)
+            completion(result, error)
+        } catch let error {
+            completion(nil, error)
+        }
+    }
+    task.resume()
+}
 
 func getPartiesRequest(url: String, completion: @escaping (_ json: Parties?, _ error: Error?)->()) {
     let urlObject = URL(string: url)
@@ -240,19 +275,20 @@ func uplaodImages(completion: @escaping (Bool) -> ()){
 }
 
 func deleteAd(completion: @escaping (_ error: Error?)->()) {
-    print("Delete with id", currentAdId)
     if let id = currentAdId {
-        let urlLink = URL(string: "http://adbusters.chesno.org/ads_write/\(id)")!
+        let urlLink = URL(string: "http://adbusters.chesno.org/ads_write/\(id)/")!
+        print(urlLink)
         var request = URLRequest(url: urlLink)
         request.httpMethod = "DELETE"
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            if data != nil {
-                print("Add successfully deleted")
-                completion(nil)
-            } else {
-                print("Can't delete add")
+            if let error = error {
                 completion(error)
+                print("Error", error)
+                return
             }
+            
+            print("Add successfully deleted")
+            completion(nil)
         }
         task.resume()
     }

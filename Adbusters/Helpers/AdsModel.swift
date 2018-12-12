@@ -36,3 +36,14 @@ struct PersonParty: Codable {
     var id: Int?
     var name: String?
 }
+
+struct RatingTop: Codable {
+    var top: [RatingUser]?
+}
+
+struct RatingUser: Codable {
+    var email: String?
+    var rating: Int?
+    var name: String?
+    var picture: String?
+}
