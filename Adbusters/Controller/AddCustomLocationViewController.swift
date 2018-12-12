@@ -71,7 +71,7 @@ class AddCustomLocationViewController: UIViewController, MKMapViewDelegate, CLLo
         }
         
         if let userLocation = locationManager.location?.coordinate {
-            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 50, longitudinalMeters: 50)
             mapView.setRegion(viewRegion, animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")

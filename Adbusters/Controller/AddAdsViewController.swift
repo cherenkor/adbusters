@@ -45,6 +45,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    var control: Switch?
     var party: String?
     var politician: String?
     @IBOutlet weak var partyLabel: UILabel!
@@ -70,6 +71,15 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             self.dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]
             
             self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+                if item == "Газета" {
+                    self.commentLbl.placeholder = "Вкажiть тираж"
+                    currentLocation = nil
+                    currentLatitude = nil
+                    currentLongitude = nil
+                    self.adLocation.text = ""
+                    self.control!.setSwitchState(state: .off)
+                    self.chooseLocationView.isHidden = true
+                }
                 self.adType.text = item
             }
             
@@ -209,14 +219,14 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
 
 extension AddAdsViewController {
     fileprivate func prepareSwitch() {
-        let control = Switch(state: .on, style: .light, size: .small)
-        control.delegate = self
-        control.buttonOnColor = UIColor(red:0.36, green:0.82, blue:0.67, alpha:1.0)
-        control.buttonOffColor = .white
-        control.trackOnColor = UIColor(red:0.80, green:0.93, blue:0.88, alpha:1.0)
-        control.trackOffColor = .gray
+        control = Switch(state: .on, style: .light, size: .small)
+        control!.delegate = self
+        control!.buttonOnColor = UIColor(red:0.36, green:0.82, blue:0.67, alpha:1.0)
+        control!.buttonOffColor = .white
+        control!.trackOnColor = UIColor(red:0.80, green:0.93, blue:0.88, alpha:1.0)
+        control!.trackOffColor = .gray
         
-        userLocationSwitchView.layout(control).center()
+        userLocationSwitchView.layout(control!).center()
     }
 }
 

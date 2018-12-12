@@ -101,7 +101,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBAction func getCurrentLocationTapped(_ sender: Any) {
         SVProgressHUD.show()
         if let userLocation = locationManager.location?.coordinate {
-            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 50, longitudinalMeters: 50)
             mapView.setRegion(viewRegion, animated: true)
             setCurrentAdress()
             SVProgressHUD.dismiss()

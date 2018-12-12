@@ -53,7 +53,7 @@ class PartiesViewController: UIViewController {
                 tempPartyList.append(partyItem)
             }
             
-            tempPartyList = tempPartyList.sorted(by: { $0.title! < $1.title! })
+//            tempPartyList = tempPartyList.sorted(by: { $0.title! < $1.title! })
             
             for partyItem in tempPartyList {
                 partiesList.append(partyItem)

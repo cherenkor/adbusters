@@ -43,11 +43,12 @@ class PoliticiansViewController: UIViewController {
             }
             
             var tempPoliticianList = [Politician]()
+            
             for politicianItem in json!.results {
                 tempPoliticianList.append(politicianItem)
             }
             
-            tempPoliticianList = tempPoliticianList.sorted(by: { $0.first_name < $1.first_name })
+//            tempPoliticianList = tempPoliticianList.sorted(by: { $0.first_name < $1.first_name })
             
             for politicianItem in tempPoliticianList {
                 politiciansList.append(politicianItem)
