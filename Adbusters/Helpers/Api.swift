@@ -177,16 +177,16 @@ func uplaodImages(completion: @escaping (Bool) -> ()){
     
     parameters["type"] = getTypeInt(currentType ?? "")
     
-    if true {
-        parameters["person_id"] = 1 as Int
+    if let policitianId = currentPoliticianId {
+        parameters["person_id"] = policitianId as Int
     }
     
-    if true {
-        parameters["party_id"] = 1 as Int
+    if let partyId = currentPartyId {
+        parameters["party_id"] = partyId as Int
     }
     
-    if true {
-        parameters["comment"] = "My comment" as String
+    if let comment = currentComment {
+        parameters["comment"] = comment as String
     }
     
     

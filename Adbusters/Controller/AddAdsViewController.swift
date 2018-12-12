@@ -108,6 +108,8 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: date, comment: commentLbl.text ?? "", images: addingImages )
             adsAll = [AdModel]()
+            currentComment = commentLbl.text
+            currentType = adType.text!
             uplaodImages { isError in
                 SVProgressHUD.dismiss()
                 

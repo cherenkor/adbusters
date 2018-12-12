@@ -9,10 +9,8 @@ class PartiesViewController: UIViewController {
     
     var delegate: PartyDelegate?
     
-    
     var searchParties = [Party]()
     var searching = false
-    var selectedParty: String?
     var page = 1
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -105,12 +103,16 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var selectedPartyTitle: String?
+        
         if searching {
-            selectedParty = searchParties[indexPath.row].title!
-            delegate?.haveParty(partyName: selectedParty!)
+            selectedPartyTitle = searchParties[indexPath.row].title!
+            currentPartyId = searchParties[indexPath.row].id!
+            delegate?.haveParty(partyName: selectedPartyTitle!)
         } else {
-            selectedParty = partiesList[indexPath.row].title!
-            delegate?.haveParty(partyName: selectedParty!)
+            selectedPartyTitle = partiesList[indexPath.row].title!
+            currentPartyId = partiesList[indexPath.row].id!
+            delegate?.haveParty(partyName: selectedPartyTitle!)
         }
     }
     

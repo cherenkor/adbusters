@@ -116,6 +116,7 @@ extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func getFullName (row: Int, list: [Politician]) -> String {
+        currentPoliticianId = list[row].id
         let firstName = list[row].first_name
         let lastName = list[row].last_name
         return "\(firstName) \(lastName)"
