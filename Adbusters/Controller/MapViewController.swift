@@ -56,7 +56,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     @IBAction func deleteAdImage(_ sender: Any) {
-        print("DELETE SINGLE AD IMAGE")
+        SVProgressHUD.show()
+        deleteAd { (error) in
+            SVProgressHUD.dismiss()
+            if let error = error {
+                print(error)
+                error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
+                return
+            }
+            currentAdId = nil
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+                    self.popupView.alpha = 0.0
+                }) { (isCompleted) in
+                    self.popupView.isHidden = true
+                }
+            }
+        }
     }
     
     @IBAction func closePopup(_ sender: Any) {

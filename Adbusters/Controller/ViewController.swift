@@ -9,6 +9,7 @@
 import UIKit
 
 var isAddAdsView = false
+var currentAdId: Int?
 var currentAdsImages = [UIImage]()
 var currentAdsImageUrls: [AdImage]?
 var currentAdImage: UIImage?

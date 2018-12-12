@@ -211,7 +211,6 @@ struct UserData: Decodable {
     var picture: String?
 }
 
-
 // MARKERS // MAP
 func getResizedMarker (_ image: UIImage) -> UIImage {
     var resizedImage = image

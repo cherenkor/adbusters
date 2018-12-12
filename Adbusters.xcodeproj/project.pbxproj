@@ -21,6 +21,7 @@
 		D036A42F21811A9000DC8F3C /* SingleAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036A42E21811A9000DC8F3C /* SingleAdViewController.swift */; };
 		D0749C842174B320005CABC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C832174B320005CABC3 /* LoginViewController.swift */; };
 		D0749C862174B32F005CABC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0749C852174B32F005CABC3 /* RegisterViewController.swift */; };
+		D0766D0821C09DE7000A4F19 /* AdsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0766D0721C09DE7000A4F19 /* AdsTableViewCell.swift */; };
 		D084447321750E1D0085A8BA /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447121750E1D0085A8BA /* SegueFromLeft.swift */; };
 		D084447421750E1D0085A8BA /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447221750E1D0085A8BA /* SegueFromRight.swift */; };
 		D084447621751ED50085A8BA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084447521751ED50085A8BA /* MapViewController.swift */; };
@@ -65,6 +66,7 @@
 		D036A42E21811A9000DC8F3C /* SingleAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdViewController.swift; sourceTree = "<group>"; };
 		D0749C832174B320005CABC3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D0749C852174B32F005CABC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D0766D0721C09DE7000A4F19 /* AdsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableViewCell.swift; sourceTree = "<group>"; };
 		D084447121750E1D0085A8BA /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		D084447221750E1D0085A8BA /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
 		D084447521751ED50085A8BA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				D00F54FD217D006A00D11A5B /* PartyTableViewCell.swift */,
 				D00F54FF217D008B00D11A5B /* PoliticianTableViewCell.swift */,
 				D036A42C21811A5200DC8F3C /* SingleAdCollectionViewCell.swift */,
+				D0766D0721C09DE7000A4F19 /* AdsTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				D0EBA4442178FB52003CCBDC /* RateViewTableViewCell.swift in Sources */,
 				D0EBA435217526ED003CCBDC /* RoundShadowView.swift in Sources */,
 				D0EBA43D2177D648003CCBDC /* RateViewController.swift in Sources */,
+				D0766D0821C09DE7000A4F19 /* AdsTableViewCell.swift in Sources */,
 				D00F54FC217CFC1200D11A5B /* PoliticiansViewController.swift in Sources */,
 				D0E3C350218E53B300FD310A /* PartyAndPolitician.swift in Sources */,
 				D0EBA43B2176F617003CCBDC /* ProfileViewController.swift in Sources */,

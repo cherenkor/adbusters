@@ -222,11 +222,14 @@ func uplaodImages(completion: @escaping (Bool) -> ()){
         switch result{
         case .success(let upload, _, _):
             upload.responseJSON { response in
-                print("Succesfully uploaded", response)
+                print("Added successfully", response)
                 if let err = response.error{
                     print("Some errors", err)
                     completion(false)
                     return
+                }
+                if let data = response.result.value as? [String:Any] {
+                    currentAdId = data["id"] as? Int
                 }
                 completion(true)
             }
@@ -236,57 +239,20 @@ func uplaodImages(completion: @escaping (Bool) -> ()){
     }
 }
 
-//func uplaodImages(completion: @escaping () -> ()) {
-//    let headers = [String:String]()
-//    let imageDataArray = currentAdsImages
-//
-//    Alamofire.upload(multipartFormData: { multipartFormData in
-//
-//        var params = [String:AnyObject]()
-//        params["latitude"] = currentLatitude as AnyObject
-//        params["longitude"] = currentLongitude as AnyObject
-//        params["type"] = currentType as AnyObject
-//        params["person_id"] = 1 as AnyObject
-//        params["party_id"] = 1 as AnyObject
-//        params["comment"] = "My comment" as AnyObject
-//
-//        for (key, value) in params {
-//            if let data = value.data(using: String.Encoding.utf8.rawValue) {
-//                multipartFormData.append(data, withName: key)
-//
-//            }
-//        }
-//
-//
-//                for i in 0..<imageDataArray.count {
-//                    let imageData1 = imageDataArray[i].jpegData(compressionQuality: 0.5)!
-//                    multipartFormData.append(imageData1, withName: "image"+String(format:"%d",i), fileName: "image.jpg", mimeType: "image/jpeg")
-//                    print("success");
-//                }
-//
-//            },
-//     to: "http://127.0.0.1:8000/ads_write/",method:HTTPMethod.post,
-//     headers: headers, encodingCompletion: { encodingResult in
-//        switch encodingResult {
-//        case .success(let upload, _, _):
-//            upload
-//                .validate()
-//                .responseJSON { response in
-//                    switch response.result {
-//                    case .success(let value):
-//                        print("responseObject: \(value)")
-//                    case .failure(let responseError):
-//                        print("responseError: \(responseError)")
-//                    }
-//            }
-//        case .failure(let encodingError):
-//            print("encodingError: \(encodingError)")
-//        }
-//        completion()
-//    })
-//
-//
-//
-//
-//}
-
+func deleteAd(completion: @escaping (_ error: Error?)->()) {
+    if let id = currentAdId {
+        let urlLink = URL(string: "http://adbusters.chesno.org/ads_write/\(id)")!
+        var request = URLRequest(url: urlLink)
+        request.httpMethod = "DELETE"
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            if data != nil {
+                print("Add successfully deleted")
+                completion(nil)
+            } else {
+                print("Can't delete add")
+                completion(error)
+            }
+        }
+        task.resume()
+    }
+}

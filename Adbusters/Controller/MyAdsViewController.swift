@@ -23,9 +23,6 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.separatorColor = UIColor.white
         currentAdsImageUrls = [AdImage]()
         // Do any additional setup after loading the view.
-        if getAdstask != nil {
-            getAdstask!.cancel()
-        }
         loadAds()
     }
     
