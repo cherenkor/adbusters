@@ -128,7 +128,7 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
 extension PartiesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchParties = partiesList.filter({$0.title!.prefix(searchText.count) == searchText})
-        searchParties = searchParties.sorted(by: { $0.title! < $1.title! })
+//        searchParties = searchParties.sorted(by: { $0.title! < $1.title! })
         searching = true
         tableView.reloadData()
     }

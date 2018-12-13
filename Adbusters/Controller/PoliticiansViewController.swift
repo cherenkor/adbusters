@@ -126,9 +126,16 @@ extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension PoliticiansViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchPoliticians = politiciansList.filter({($0.first_name.prefix(searchText.count) + $0.last_name.prefix(searchText.count)) == searchText})
-        searchPoliticians = searchPoliticians.sorted(by: { $0.first_name < $1.first_name })
+        searchPoliticians = politiciansList.filter({$0.first_name.prefix(searchText.count) == searchText})
+//        searchPoliticians = searchPoliticians.sorted(by: { $0.first_name < $1.first_name })
         searching = true
         tableView.reloadData()
     }
+    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        searchParties = partiesList.filter({$0.title!.prefix(searchText.count) == searchText})
+//        searchParties = searchParties.sorted(by: { $0.title! < $1.title! })
+//        searching = true
+//        tableView.reloadData()
+//    }
 }

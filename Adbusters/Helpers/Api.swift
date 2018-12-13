@@ -13,7 +13,6 @@ func getGarlics() {
         do {
             let result = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String: Any]
             if let garlics = result["rating"] {
-                print("Garlic", garlics)
                 currentUserGarlics = (garlics as! Int)
                 saveUserGarlicsToStorage()
             }

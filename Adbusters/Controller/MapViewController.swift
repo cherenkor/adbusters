@@ -9,28 +9,32 @@ public let CKMapViewDefaultClusterAnnotationViewReuseIdentifier = "cluster"
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AdvertiseDelegate {
     
+    
+    
     func addAdvertise (party: String, politician: String, type: String, date: String, comment: String, images: [UIImage]) {
-        popupView.isHidden = false
+        DispatchQueue.main.async {
+            self.popupView.isHidden = false
+        }
+        print(party, politician)
         partyLbl.text = party == "Партія не вибрана" ? "" : party
         typeLbl.text = type
         dateLbl.text = convertDate(dateStr: date)
         adImage.image = images[0]
         currentAdsImages = images
         currentComment = comment
-        currentPolitician = politician
+        currentPolitician = politician == "Політик не вибраний" ? "" : politician
     }
     
     @IBAction func addAdButtonPressed(_ sender: Any) {
         if isLogged == false {
-            SVProgressHUD.showError(withStatus: "Спочатку увiйдiть")
-            SVProgressHUD.dismiss(withDelay: 1.0) {
-                self.performSegue(withIdentifier: "goToLogin", sender: nil)
-            }
+            self.performSegue(withIdentifier: "goToLogin", sender: nil)
         } else {
             performSegue(withIdentifier: "goToAddAds", sender: self)
         }
     }
     
+    
+    @IBOutlet var navigationView: UIView!
     
     @IBOutlet var loader: UIActivityIndicatorView!
     
@@ -70,6 +74,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     self.popupView.alpha = 0.0
                 }) { (isCompleted) in
                     self.popupView.isHidden = true
+                    self.popupView.alpha = 1.0
                 }
             }
         }
@@ -80,11 +85,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.popupView.alpha = 0.0
         }) { (isCompleted) in
             self.popupView.isHidden = true
+            self.popupView.alpha = 1.0
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToAddAds" {
+            if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+                CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+                
+                currentLatitude = locationManager.location?.coordinate.latitude
+                currentLongitude = locationManager.location?.coordinate.longitude
+                
+            }
             let addAds = segue.destination as! AddAdsViewController
             addAds.delegate = self
         }
@@ -113,6 +126,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBottomShadow(navigationView)
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.showSingleAd (_:)))
         currentAdView.addGestureRecognizer(gesture)
         let algorithm = CKNonHierarchicalDistanceBasedAlgorithm()
@@ -326,14 +340,6 @@ extension MapViewController {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let cluster = view.annotation as? CKCluster else {
             return
-        }
-        
-        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
-            
-            currentLatitude = locationManager.location?.coordinate.latitude
-            currentLongitude = locationManager.location?.coordinate.longitude
-            
         }
         
         if getAdstask != nil {

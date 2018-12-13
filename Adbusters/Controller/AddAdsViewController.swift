@@ -48,6 +48,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     var control: Switch?
     var party: String?
     var politician: String?
+    var requiredLocation = true
     @IBOutlet weak var partyLabel: UILabel!
     @IBOutlet weak var politicianLabel: UILabel!
     
@@ -58,12 +59,19 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let line = UIView()
+        let width = CGFloat(0.5)
+        line.frame = CGRect(x: 0, y: commentLbl.frame.size.height - width, width:  commentLbl.frame.size.width, height: 1.0)
+//        line.frame.origin = CGPoint(x: 0, y: commentLbl.frame.maxY - line.frame.height)
+        line.backgroundColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
+        line.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        commentLbl.addSubview(line)
+        commentLbl.tintColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
+        
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-        SVProgressHUD.show()
         
         DispatchQueue.main.async{
             self.presentImagePicker()
-            SVProgressHUD.dismiss()
             self.adLocation.text = currentLocation
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
             
@@ -72,6 +80,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
                 if item == "Газета" {
+                    self.requiredLocation = false
                     self.commentLbl.placeholder = "Вкажiть тираж"
                     currentLocation = nil
                     currentLatitude = nil
@@ -79,6 +88,8 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
                     self.adLocation.text = ""
                     self.control!.setSwitchState(state: .off)
                     self.chooseLocationView.isHidden = true
+                } else {
+                    self.requiredLocation = true
                 }
                 self.adType.text = item
             }
@@ -110,22 +121,34 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBAction func saveAd(_ sender: Any) {
         SVProgressHUD.show()
+        
         if addingImages.count == 0 {
-            SVProgressHUD.showError(withStatus: "Перевiрте поля")
+            SVProgressHUD.showError(withStatus: "Додайте фото")
             SVProgressHUD.dismiss(withDelay: 1.0)
-        } else {
-            let date = getDateNow()
+            return
+        }
+        
+        if requiredLocation && (currentLocation == "" || currentLatitude == nil || currentLongitude == nil) {
+            SVProgressHUD.showError(withStatus: "Укажiть мiсце знаходження")
+            SVProgressHUD.dismiss(withDelay: 1.0)
+            return
+        }
+        
+        let date = getDateNow()
+        adsAll = [AdModel]()
+        currentComment = commentLbl.text
+        currentType = adType.text!
+        uplaodImages { noErrors in
+            SVProgressHUD.dismiss()
             
-            delegate?.addAdvertise(party: partyLabel.text!, politician: politicianLabel.text!, type: adType.text!, date: date, comment: commentLbl.text ?? "", images: addingImages )
-            adsAll = [AdModel]()
-            currentComment = commentLbl.text
-            currentType = adType.text!
-            uplaodImages { isError in
-                SVProgressHUD.dismiss()
-                
-                if isError == true {
-                    self.dismiss(animated: true, completion: nil)
-                }
+            if noErrors == true {
+                self.delegate?.addAdvertise(party: self.partyLabel.text ?? "", politician: self.politicianLabel.text ?? "", type: self.adType.text!, date: date, comment: self.commentLbl.text ?? "", images: self.addingImages )
+                currentLocation = ""
+                currentLongitude = nil
+                currentLatitude = nil
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                Toast().alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
             }
         }
     }
@@ -161,7 +184,9 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         actionSheet.addAction(UIAlertAction(title: "Відмінити", style: .cancel, handler: nil))
         
-        self.present(actionSheet, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(actionSheet, animated: true, completion: nil)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

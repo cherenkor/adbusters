@@ -108,8 +108,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func setUser () {
         if isLogged {
             currentUsernameLbl.text = currentUserName
-            currentUserGarlicsAmountLbl.text = "\(currentUserGarlics ?? 0) часничкiв"
-            currentUserImageView.image = currentUserImage
+            let garlics = currentUserGarlics ?? 0
+            currentUserGarlicsAmountLbl.text = "\(garlics) часнич\(getWordEnd(for: garlics))"
+            if isFacebook == true  {
+                currentUserImageView.image =  currentUserImage
+            } else {
+                currentUserImageView.image = UIImage(named: "icon_profile")!
+            }
         }
     }
 }

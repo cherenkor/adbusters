@@ -8,8 +8,15 @@ class RateViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var myGarlics: UILabel!
+    @IBOutlet var myGarlicsView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBottomShadow(myGarlicsView)
+        let garlics = currentUserGarlics ?? 0
+        myGarlics.text = "\(garlics) часнич\(getWordEnd(for: garlics))"
         tableView.tableFooterView = UIView()
         tableView.separatorColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
         loadTopUsersFromApi()
@@ -49,7 +56,8 @@ class RateViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RateViewTableViewCell
         cell.userName.text = topUsers![indexPath.row].name
-        cell.garlics.text = "\(String(describing: topUsers![indexPath.row].rating ?? 0)) часничків"
+        let garlics = topUsers![indexPath.row].rating ?? 0
+        cell.garlics.text = "\(String(describing: garlics)) часнич\(getWordEnd(for: garlics))"
         if let imageUrl = topUsers![indexPath.row].picture {
             cell.avatar.kf.indicatorType = .activity
             cell.avatar.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: "icon_profile"))

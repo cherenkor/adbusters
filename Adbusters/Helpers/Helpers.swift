@@ -15,8 +15,12 @@ func setCurrentUser (token: String, email: String, name: String, pictureUrl: Str
             currentUserImage = UIImage(data: data as Data)
             print("has photo", data)
         } else {
+            print("no photo loaded")
             currentUserImage = UIImage(named: "icon_profile")!
         }
+    } else {
+        print("no photo")
+        currentUserImage = UIImage(named: "icon_profile")!
     }
 }
 
@@ -64,6 +68,34 @@ extension Toast {
             controller.present(alertController, animated: true, completion: nil)
         }
     }
+}
+
+// Add shadow
+func addBottomShadow (_ view: UIView) {
+    view.layer.masksToBounds = false
+    view.layer.shadowRadius = 3
+    view.layer.shadowOpacity = 1
+    view.layer.shadowColor = UIColor.gray.cgColor
+    view.layer.shadowOffset = CGSize(width: 0 , height: 1.5)
+}
+
+// Words ending
+func getWordEnd(for count: Int, one: String = "ка", few: String = "ки", alot: String = "кiв") -> String {
+    if count == 1 {
+        return "ок"
+    }
+    if count == 0 {
+        return "кiв"
+    }
+    let clearCount = count % 100
+    let lastNumber = clearCount % 10
+    if lastNumber == 1 && clearCount != 11 {
+        return one;
+    }
+    if [2,3,4].contains(lastNumber) && ![12,13,14].contains(clearCount) {
+        return few;
+    }
+    return alot;
 }
 
 // JSON settings
@@ -147,7 +179,7 @@ func saveUserToStorage () {
     defaults.set(isFacebook, forKey: "isFacebook")
     defaults.set(currentUserName, forKey: "name")
     defaults.set(currentUserGarlics, forKey: "garlics")
-    defaults.set(currentUserImage?.jpegData(compressionQuality: 0.5), forKey: "image")
+    defaults.set(currentUserImage!.jpegData(compressionQuality: 1.0), forKey: "image")
 }
 
 func saveUserGarlicsToStorage () {
