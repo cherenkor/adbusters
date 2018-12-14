@@ -49,7 +49,6 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         getAds(url: "http://adbusters.chesno.org/ads_read/?my=True") { (json, error) in
-            print("Get data")
             if let error = error {
                 showIndicator(false, indicator: self.loader)
                 print("ERROR WAR", error)
@@ -58,8 +57,6 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             if let jsonData = json {
-//                ads = jsonData.filter({ $0.user == 194})
-                print("json", jsonData)
                 ads = jsonData
                 loadedAds = true
                 if jsonData.count == 0 {

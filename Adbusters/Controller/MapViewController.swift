@@ -149,8 +149,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         showIndicator(false, indicator: loader)
         
         DispatchQueue.main.asyncAfter(deadline: timeDispatch, execute: {
-            
-            print("\(self.lastRequest == currentRequest)")
             if self.lastRequest == currentRequest {
                 DispatchQueue.main.async {
                     showIndicator(true, indicator: self.loader)
@@ -159,7 +157,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     showIndicator(false, indicator: self.loader)
                     if let error = error {
                         print("ERROR WAR", error)
-        //                error.alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
                         return
                     }
                     
@@ -256,11 +253,6 @@ extension MapViewController {
             return nil
         }
         
-//        let ann = cluster.annotations as! [MyAnnotation]
-//        for an in ann {
-//            print(an.party!)
-//        }
-        
         if cluster.count > 1 {
             return mapView.dequeueReusableAnnotationView(withIdentifier: CKMapViewDefaultClusterAnnotationViewReuseIdentifier) ??
                 CKClusterView(annotation: annotation, reuseIdentifier: CKMapViewDefaultClusterAnnotationViewReuseIdentifier)
@@ -278,15 +270,7 @@ extension MapViewController {
         let centralLocation = CLLocation(latitude: lat, longitude: lon)
         centralLocationCoordinate = mapView.centerCoordinate
         let radius = self.getRadius(centralLocation: centralLocation)
-//        print("Lat - \(lat), Lon - \(lon), Radius - \(radius)")
-
-//        DispatchQueue.main.async {
-//            let algorithm = CKNonHierarchicalDistanceBasedAlgorithm()
-//            algorithm.cellSize = CGFloat(radius)
-//            mapView.clusterManager.algorithm = algorithm
-//            mapView.clusterManager.marginFactor = 1
-//            self.loadAds(lat, lon, radius)
-//        }
+        
         timeFromNow = DispatchTime.now()
         loadAds(lat, lon, radius)
         mapView.clusterManager.updateClustersIfNeeded()

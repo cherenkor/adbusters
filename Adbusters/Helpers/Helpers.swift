@@ -13,7 +13,6 @@ func setCurrentUser (token: String, email: String, name: String, pictureUrl: Str
     if let url = NSURL(string: pictureUrl) {
         if let data = NSData(contentsOf: url as URL){
             currentUserImage = UIImage(data: data as Data)
-            print("has photo", data)
         } else {
             print("no photo loaded")
             currentUserImage = UIImage(named: "icon_profile")!
@@ -235,7 +234,7 @@ func loadUserData (token: String, isFacebookLogin: Bool, completion: @escaping (
             SVProgressHUD.dismiss(withDelay: 1.5)
             return
         }
-        print("HAVE DATA", json!)
+        
         if let jsonData = json {
             if let email = jsonData.email {
                 setCurrentUser(token: token, email: email, name: jsonData.name!, pictureUrl: jsonData.picture ?? "", garlics: jsonData.rating!)

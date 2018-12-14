@@ -17,7 +17,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             partyLabel.text = partyName
             partyLabel.textColor = .black
         } else {
-            print("No party")
             SVProgressHUD.showError(withStatus: "Партію не обрано")
             SVProgressHUD.dismiss(withDelay: 1.0)
         }
@@ -28,7 +27,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             politicianLabel.text = politicianName
             politicianLabel.textColor = .black
         } else {
-            print("No politician")
             SVProgressHUD.showError(withStatus: "Політика не обрано")
             SVProgressHUD.dismiss(withDelay: 1.0)
         }
@@ -174,7 +172,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             } else {
                 SVProgressHUD.showError(withStatus: "Камера недоступна")
                 SVProgressHUD.dismiss(withDelay: 1.0)
-                print("Camera is not available")
             }
         }))
         
@@ -203,7 +200,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
                     if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
                         currentLocation = "\(street), \(city), \(country)"
                         self.adLocation.text = currentLocation
-                        print("COORDINATED", location.coordinate)
                     } else {
                         currentLocation = "Невiдомо"
                     }
@@ -238,7 +234,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @objc func deleteAdImage(sender:UIButton) {
         let i : Int = sender.tag
-        print("Delete \(i)")
         addingImages.remove(at:i)
     }
     
