@@ -116,7 +116,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let userLocation = locationManager.location?.coordinate {
             let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 50, longitudinalMeters: 50)
             mapView.setRegion(viewRegion, animated: true)
-            setCurrentAdress()
+            setCurrentAdress(locationManager.location)
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
@@ -173,49 +173,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         })
     }
-    
-    func setCurrentAdress () {
-        
-        getAdress { address, error in
-            if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
-                currentLocation = "\(street), \(city), \(country)"
-            } else {
-                currentLocation = "Невiдомо"
-            }
-        }
-    }
-    
-    func getAdress(completion: @escaping (_ address: JSONDictionary?, _ error: Error?) -> ()) {
-        
-        if let currentLocation = self.locationManager.location {
-        
-            let geoCoder = CLGeocoder()
-        
-            geoCoder.reverseGeocodeLocation(currentLocation) { placemarks, error in
-                
-                if let e = error {
-                    
-                    completion(nil, e)
-                    
-                } else {
-                    
-                    let placeArray = placemarks
-                    
-                    var placeMark: CLPlacemark!
-                    
-                    placeMark = placeArray?[0]
-                    
-                    guard let address = placeMark.addressDictionary as? JSONDictionary else {
-                        return
-                    }
-                    
-                    completion(address, nil)
-                
-                }
-            
-            }
-        }
-    }
 }
 
 // MAP VIEW
@@ -240,8 +197,7 @@ extension MapViewController {
         mapView.delegate = self
     }
     
-    func determinateCurrentLocation ()
-    {
+    func determinateCurrentLocation () {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestLocation()
@@ -256,7 +212,7 @@ extension MapViewController {
         
         if let userLocation = locationManager.location?.coordinate {
             let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
-            setCurrentAdress()
+            setCurrentAdress(locationManager.location)
             mapView.setRegion(viewRegion, animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
@@ -274,7 +230,7 @@ extension MapViewController {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
-            setCurrentAdress()
+            setCurrentAdress(manager.location)
             SVProgressHUD.dismiss()
         } else {
             SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")

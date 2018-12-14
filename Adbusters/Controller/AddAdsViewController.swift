@@ -2,6 +2,7 @@ import UIKit
 import SVProgressHUD
 import DropDown
 import Material
+import Photos
 
 protocol AdvertiseDelegate {
     func addAdvertise(party: String, politician: String, type: String, date: String, comment: String, images: [UIImage])
@@ -192,7 +193,26 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
+        if let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
+            if let location = PHAsset.fetchAssets(withALAssetURLs: [url], options: nil)[0].location {
+                currentLatitude = location.coordinate.latitude
+                currentLongitude = location.coordinate.longitude
+                let location = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                
+                getAdress (location) { address, error in
+                    if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
+                        currentLocation = "\(street), \(city), \(country)"
+                        self.adLocation.text = currentLocation
+                        print("COORDINATED", location.coordinate)
+                    } else {
+                        currentLocation = "Невiдомо"
+                    }
+                }
+            }
+        }
+        
         addingImages.append(image!)
+        
         picker.dismiss(animated: true, completion: nil)
     }
     

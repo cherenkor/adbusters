@@ -264,6 +264,50 @@ struct UserData: Decodable {
     var picture: String?
 }
 
+// Get adress
+func getAdress(_ location: CLLocation?, completion: @escaping (_ address: JSONDictionary?, _ error: Error?) -> ()) {
+    
+    if let currentLocation = location {
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(currentLocation) { placemarks, error in
+            
+            if let e = error {
+                
+                completion(nil, e)
+                
+            } else {
+                
+                let placeArray = placemarks
+                
+                var placeMark: CLPlacemark!
+                
+                placeMark = placeArray?[0]
+                
+                guard let address = placeMark.addressDictionary as? JSONDictionary else {
+                    return
+                }
+                
+                completion(address, nil)
+                
+            }
+            
+        }
+    }
+}
+
+func setCurrentAdress (_ location: CLLocation?) {
+    
+    getAdress (location) { address, error in
+        if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
+            currentLocation = "\(street), \(city), \(country)"
+        } else {
+            currentLocation = "Невiдомо"
+        }
+    }
+}
+
 // MARKERS // MAP
 func getResizedMarker (_ image: UIImage) -> UIImage {
     var resizedImage = image
