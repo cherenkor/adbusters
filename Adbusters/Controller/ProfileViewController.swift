@@ -30,6 +30,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func goToSide(_ sender: Any) {
+        let url = URL(string: "http://chesno.org")
+        UIApplication.shared.open(url!)
+    }
+    
     // Table View
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
