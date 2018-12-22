@@ -50,11 +50,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Дозвольте відкрити Вашу камеру</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Дозвольте дізнатися вашу позицію для додатку</string>
+	<string>Дозвольте дізнатися вашу позицію</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Дозвольте дізнатися вашу позицію для додатку</string>
+	<string>Дозвольте дізнатися вашу позицію</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Дозвольте дізнатися вашу позицію для додатку</string>
+	<string>Дозвольте дізнатися вашу позицію</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Дозвольте відкрити Вашу галерею</string>
 	<key>UILaunchStoryboardName</key>

@@ -68,10 +68,10 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         commentLbl.tintColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
         
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        self.adLocation.text = currentLocation
         
         DispatchQueue.main.async{
             self.presentImagePicker()
-            self.adLocation.text = currentLocation
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
             
             self.dropDown.anchorView = self.adTypeView
@@ -137,17 +137,21 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         adsAll = [AdModel]()
         currentComment = commentLbl.text
         currentType = adType.text!
-        uplaodImages { noErrors in
+        currentAdsImages = addingImages
+        
+        uploadImages { noErrors in
+            DispatchQueue.main.async {
             SVProgressHUD.dismiss()
             
-            if noErrors == true {
-                self.delegate?.addAdvertise(party: self.partyLabel.text ?? "", politician: self.politicianLabel.text ?? "", type: self.adType.text!, date: date, comment: self.commentLbl.text ?? "", images: self.addingImages )
-                currentLocation = ""
-                currentLongitude = nil
-                currentLatitude = nil
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                Toast().alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+                if noErrors == true {
+                    self.delegate?.addAdvertise(party: self.partyLabel.text ?? "", politician: self.politicianLabel.text ?? "", type: self.adType.text!, date: date, comment: self.commentLbl.text ?? "", images: self.addingImages )
+                    currentLocation = ""
+                    currentLongitude = nil
+                    currentLatitude = nil
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    Toast().alert(with: self, title: "Помилка завантаження", message: "Проблеми з сервером або iнтернетом")
+                }
             }
         }
     }
@@ -176,8 +180,21 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { (UIAlertAction) in
-            imageController.sourceType = .photoLibrary
-            self.present(imageController, animated: true, completion: nil)
+            PHPhotoLibrary.requestAuthorization { (status) in
+                if status == .authorized {
+                    if UIImagePickerController.isSourceTypeAvailable(.photoLibrary ) {
+                        imageController.sourceType = .photoLibrary
+                        self.present(imageController, animated: true, completion: nil)
+                    } else {
+                        SVProgressHUD.showError(withStatus: "Галерея недоступна")
+                        SVProgressHUD.dismiss(withDelay: 1.0)
+                    }
+                    
+                   
+                } else {
+                    Toast().alert(with: self, title: "Помилка доступу", message: "Надайте доступ до фото та камери вручну")
+                }
+            }
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Відмінити", style: .cancel, handler: nil))

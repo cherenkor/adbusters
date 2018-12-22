@@ -143,7 +143,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func loadAds (_ lat: Double, _ lon: Double, _ radius: Double) {
         
-        let timeDispatch = timeFromNow + 3.0
+        let timeDispatch = timeFromNow + 0.5
         lastRequest += 1
         let currentRequest = lastRequest
         showIndicator(false, indicator: loader)
@@ -192,6 +192,7 @@ extension MapViewController {
         mapView.showsScale = true
         mapView.showsUserLocation = true
         mapView.delegate = self
+        mapView.userLocation.title = ""
     }
     
     func determinateCurrentLocation () {
@@ -212,7 +213,7 @@ extension MapViewController {
             setCurrentAdress(locationManager.location)
             mapView.setRegion(viewRegion, animated: true)
         } else {
-            SVProgressHUD.showError(withStatus: "Не можу оновити мiсцезнаходження")
+            SVProgressHUD.showError(withStatus: "Неможливо визначити мiсцезнаходження")
             SVProgressHUD.dismiss(withDelay: 0.8)
         }
     }

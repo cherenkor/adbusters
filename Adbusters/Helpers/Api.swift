@@ -197,8 +197,7 @@ func cleanCookies () {
     }
 }
 
-func uplaodImages(completion: @escaping (Bool) -> ()){
-    
+func uploadImages(completion: @escaping (Bool) -> ()){
     let url = "http://adbusters.chesno.org/ads_write/"
     var parameters = [String : Any]()
     
@@ -233,24 +232,23 @@ func uplaodImages(completion: @escaping (Bool) -> ()){
     }
     
     let headers: HTTPHeaders = [
-        /* "Authorization": "your_access_token",  in case you need authorization header */
         "Content-type": "multipart/form-data"
     ]
     
     let manager = Alamofire.SessionManager.default
     manager.session.configuration.httpCookieStorage = HTTPCookieStorage.shared
     manager.session.configuration.timeoutIntervalForRequest = 30
-    
+
     manager.upload(multipartFormData: { (multipartFormData) in
         for (key, value) in parameters {
             multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
         }
-        
+
         for (i, ads) in currentAdsImages.enumerated() {
             let data = ads.jpegData(compressionQuality: 0.5)!
             multipartFormData.append(data, withName: "image\(i)", fileName: "jpg", mimeType: "image/jpg")
         }
-        
+
     }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
         print("Response", result)
         switch result{

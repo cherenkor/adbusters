@@ -1,0 +1,127 @@
+
+App Thinning Size Report for All Variants of Adbusters
+
+Variant: Adbusters-1BD397FA-D7FF-4B47-B988-247E7E9676D9.ipa
+Supported variant descriptors: [device: iPad3,5, os-version: 10], [device: iPad3,6, os-version: 10], [device: iPad3,3, os-version: 9], [device: iPad3,4, os-version: 10], [device: iPad3,2, os-version: 9], and [device: iPad3,1, os-version: 9]
+App + On Demand Resources size: 6.3 MB compressed, 30 MB uncompressed
+App size: 6.3 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-20A4C164-7C90-4C3B-AE70-D4C08C637DC7.ipa
+Supported variant descriptors: [device: iPad7,3, os-version: 10], [device: iPad7,2, os-version: 10], [device: iPad7,4, os-version: 10], [device: iPad7,1, os-version: 10], [device: iPad6,4, os-version: 10], and [device: iPad6,3, os-version: 10]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-2F738943-0A17-4DF5-8005-A360F8C98223.ipa
+Supported variant descriptors: [device: iPhone10,4, os-version: 12], [device: iPhone9,1, os-version: 12], [device: iPhone9,3, os-version: 12], and [device: iPhone10,1, os-version: 12]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-2FE89114-769D-4D12-8BFB-35B636B8666B.ipa
+Supported variant descriptors: [device: iPhone8,1, os-version: 10], [device: iPhone6,2, os-version: 10], [device: iPhone8,4, os-version: 10], [device: iPhone6,1, os-version: 10], [device: iPhone7,2, os-version: 10], and [device: iPod7,1, os-version: 10]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-38F849FF-9FE1-462A-B371-5B559CEE06FA.ipa
+Supported variant descriptors: [device: iPhone5,3, os-version: 10], [device: iPhone5,1, os-version: 10], [device: iPhone5,4, os-version: 10], and [device: iPhone5,2, os-version: 10]
+App + On Demand Resources size: 6.3 MB compressed, 30 MB uncompressed
+App size: 6.3 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-43B21A4D-AF8A-4768-B1F5-BAAD01162548.ipa
+Supported variant descriptors: [device: iPad2,3, os-version: 9], [device: iPad2,1, os-version: 9], [device: iPad2,2, os-version: 9], [device: iPad2,5, os-version: 9], [device: iPad2,6, os-version: 9], [device: iPad2,4, os-version: 9], and [device: iPad2,7, os-version: 9]
+App + On Demand Resources size: 6.3 MB compressed, 30 MB uncompressed
+App size: 6.3 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-608D6A43-E8FF-448C-A768-BA28CC539001.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 10] and [device: iPhone7,1, os-version: 10]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-6B9E9C7A-54D1-4B54-9F5F-50609CA376AC.ipa
+Supported variant descriptors: [device: iPad8,6, os-version: 12], [device: iPad8,1, os-version: 12], [device: iPad7,4, os-version: 12], [device: iPad8,5, os-version: 12], [device: iPad8,7, os-version: 12], [device: iPad8,4, os-version: 12], [device: iPad7,1, os-version: 12], [device: iPad6,3, os-version: 12], [device: iPad6,4, os-version: 12], [device: iPad7,2, os-version: 12], [device: iPad8,8, os-version: 12], [device: iPad7,3, os-version: 12], [device: iPad8,2, os-version: 12], and [device: iPad8,3, os-version: 12]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-6EA82F56-B410-4F47-9106-D0247B23D373.ipa
+Supported variant descriptors: [device: iPad6,12, os-version: 10], [device: iPad6,8, os-version: 10], [device: iPad7,5, os-version: 11], [device: iPad4,1, os-version: 10], [device: iPad6,11, os-version: 10], [device: iPad7,6, os-version: 11], [device: iPad4,8, os-version: 10], [device: iPad6,7, os-version: 10], [device: iPad5,3, os-version: 10], [device: iPad5,4, os-version: 10], [device: iPad4,6, os-version: 10], [device: iPad5,2, os-version: 10], [device: iPad4,5, os-version: 10], [device: iPad4,7, os-version: 10], [device: iPad5,1, os-version: 10], [device: iPad4,2, os-version: 10], [device: iPad4,3, os-version: 10], [device: iPad4,4, os-version: 10], and [device: iPad4,9, os-version: 10]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-7091673C-C0C9-40AD-8781-E040BB95CBBD.ipa
+Supported variant descriptors: [device: iPhone8,4, os-version: 12], [device: iPhone8,1, os-version: 12], [device: iPod7,1, os-version: 12], [device: iPhone6,1, os-version: 12], [device: iPhone7,2, os-version: 12], and [device: iPhone6,2, os-version: 12]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-8C98CA60-74FE-427C-B929-6459176FB2D9.ipa
+Supported variant descriptors: [device: iPhone8,2, os-version: 12]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-8EBFBCE8-614E-4D04-831E-7FB68D8B4F73.ipa
+Supported variant descriptors: [device: iPhone10,1, os-version: 11], [device: iPhone9,1, os-version: 10], [device: iPhone10,4, os-version: 11], and [device: iPhone9,3, os-version: 10]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-99AFFDD1-EAEE-41C9-B43F-0DF7A6B65D3F.ipa
+Supported variant descriptors: [device: iPhone10,3, os-version: 12], [device: iPhone10,5, os-version: 12], [device: iPhone9,2, os-version: 12], [device: iPhone11,6, os-version: 12], [device: iPhone11,2, os-version: 12], [device: iPhone11,4, os-version: 12], [device: iPhone9,4, os-version: 12], [device: iPhone10,6, os-version: 12], and [device: iPhone10,2, os-version: 12]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-B059958F-914A-4D56-B35B-B9340A7D573F.ipa
+Supported variant descriptors: [device: iPad4,3, os-version: 12], [device: iPad5,3, os-version: 12], [device: iPad4,1, os-version: 12], [device: iPad5,2, os-version: 12], [device: iPad7,6, os-version: 12], [device: iPad6,8, os-version: 12], [device: iPad6,7, os-version: 12], [device: iPad4,6, os-version: 12], [device: iPad5,1, os-version: 12], [device: iPad4,9, os-version: 12], [device: iPad7,5, os-version: 12], [device: iPad4,5, os-version: 12], [device: iPad4,4, os-version: 12], [device: iPad4,7, os-version: 12], [device: iPad5,4, os-version: 12], [device: iPad6,12, os-version: 12], [device: iPad6,11, os-version: 12], [device: iPad4,8, os-version: 12], and [device: iPad4,2, os-version: 12]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-CC8BC980-4EC9-4CF8-B584-D89DC5926FA9.ipa
+Supported variant descriptors: [device: iPhone9,2, os-version: 10], [device: iPhone9,4, os-version: 10], [device: iPhone10,6, os-version: 11], [device: iPhone10,5, os-version: 11], [device: iPhone10,3, os-version: 11], and [device: iPhone10,2, os-version: 11]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-E4776C02-C9CA-4F18-A5F5-BC94EDBC2746.ipa
+Supported variant descriptors: [device: iPod5,1, os-version: 9] and [device: iPhone4,1, os-version: 9]
+App + On Demand Resources size: 6.3 MB compressed, 30 MB uncompressed
+App size: 6.3 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters-F91FA5DF-5046-4075-AE58-EBA67B113523.ipa
+Supported variant descriptors: [device: iPhone11,8, os-version: 12]
+App + On Demand Resources size: 6 MB compressed, 30 MB uncompressed
+App size: 6 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
+
+
+Variant: Adbusters.ipa
+Supported variant descriptors: Universal
+App + On Demand Resources size: 11.5 MB compressed, 30 MB uncompressed
+App size: 11.5 MB compressed, 30 MB uncompressed
+On Demand Resources size: Zero KB compressed, Zero KB uncompressed
