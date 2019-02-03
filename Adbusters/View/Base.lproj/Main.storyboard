@@ -85,7 +85,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="3IN-OU-eyC"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                <color key="textColor" red="0.36078431370000003" green="0.14229881759999999" blue="0.48681175710000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.36078431372549019" green="0.14117647058823529" blue="0.48627450980392156" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGX-wI-47X">
@@ -96,21 +96,20 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <attributedString key="attributedText">
                                                             <fragment>
-                                                                <string key="content">“Мисливця за Рекламою” створено, щоб викрити фінансові махінації та тіньові кошти на рекламу партіями та політиками. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларувала партія видатки на неї в офіційних фінансових звітах партій та кандидатів. Так ми разом оцінимо реальну ціну “входу в політику” та виявимо, хто ж насправді спонсорує політичні бренди.
-
-Як користуватися?
-
-1. Авторизуйся через соцмережі Facebook, Twitter, або Google. Без авторизації ти зможеш тільки переглядати інформацію. 
-2. Увімкни геолокацію у налаштуваннях, аби ми знали де ти спіймав/спіймала рекламу. 
-3. Ти побачиш карту зі “здобиччю” інших користувачів - мітками, де вже були зроблені фото реклами 
-4. Якщо побачиш політичну рекламу - мерщій роби фото за завантажуй. Обов’язково вкажи назву партії або кандидата, які рекламуються. 
-5. Ти дуже допоможеш, якщо зазначиш тип рекламного носія. 
-6. За кожне завантажене фото ти отримаєш від нас часничок, на зможеш змагатися за рейтинг з іншими користувачами. 
-7. Якщо тебе зацікавила реклама - можеш пошерити її через соціальні мережі.</string>
+                                                                <mutableString key="content">"Мисливця за Рекламою" (англійською — Adbusters) створено, щоби викривати фінансові схеми та тіньові кошти політиків та партій, витрачені на рекламу. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларував політик чи партія видатки на неї у своїх офіційних фінансових звітах. Якщо в цих документах немає оплати такої реклами, це означає, що має місце певне порушення чи махінація. У цьому разі ЧЕСНО розпочне розслідування і завдяки твоїй допомозі спробує виявити, хто ж насправді фінансує політичний бренд.
+Як користуватись? 1. Авторизуйся. Без авторизації ти зможеш лише переглядати інформацію. 2. У налаштуваннях телефона увімкни геолокацію, аби додаток автоматично визначив, де ти спіймав/спіймала рекламу. 3. Повернись до додатку. У ньому ти побачиш карту зі "здобиччю" інших мисливців, де "впіймана" реклама нанесена на ній мітками. 4. Якщо побачиш політичну рекламу — мерщій роби фото та завантажуй його. Не забудь вказати назву партії чи політика, який рекламується. 5. Будь ласка, вкажи тип рекламного носія (бігборд, сітілайт, намет, друкована реклама чи інше). 6. За кожне завантажене фото реклами ти отримаєш від нас символічну валюту — часничок, та зможеш змагатися за рейтинг з іншими користувачами.
+Готово! Ти — неперевершений мисливець за рекламою!
+</mutableString>
                                                                 <attributes>
-                                                                    <color key="NSColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" metaFont="system" size="15"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="NSColor" red="0.34509803921568627" green="0.19607843137254902" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                                    <real key="NSKern" value="0.0"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                                        <tabStops/>
+                                                                    </paragraphStyle>
+                                                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <real key="NSStrokeWidth" value="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1907,21 +1906,19 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">“Мисливця за Рекламою” створено, щоб викрити фінансові махінації та тіньові кошти на рекламу партіями та політиками. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларувала партія видатки на неї в офіційних фінансових звітах партій та кандидатів. Так ми разом оцінимо реальну ціну “входу в політику” та виявимо, хто ж насправді спонсорує політичні бренди.
-
-Як користуватися?
-
-1. Авторизуйся через соцмережі Facebook, Twitter, або Google. Без авторизації ти зможеш тільки переглядати інформацію. 
-2. Увімкни геолокацію у налаштуваннях, аби ми знали де ти спіймав/спіймала рекламу. 
-3. Ти побачиш карту зі “здобиччю” інших користувачів - мітками, де вже були зроблені фото реклами 
-4. Якщо побачиш політичну рекламу - мерщій роби фото за завантажуй. Обов’язково вкажи назву партії або кандидата, які рекламуються. 
-5. Ти дуже допоможеш, якщо зазначиш тип рекламного носія. 
-6. За кожне завантажене фото ти отримаєш від нас часничок, на зможеш змагатися за рейтинг з іншими користувачами. 
-7. Якщо тебе зацікавила реклама - можеш пошерити її через соціальні мережі.</string>
+                                                <mutableString key="content">"Мисливця за Рекламою" (англійською — Adbusters) створено, щоби викривати фінансові схеми та тіньові кошти політиків та партій, витрачені на рекламу. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларував політик чи партія видатки на неї у своїх офіційних фінансових звітах. Якщо в цих документах немає оплати такої реклами, це означає, що має місце певне порушення чи махінація. У цьому разі ЧЕСНО розпочне розслідування і завдяки твоїй допомозі спробує виявити, хто ж насправді фінансує політичний бренд.
+Як користуватись? 1. Авторизуйся. Без авторизації ти зможеш лише переглядати інформацію. 2. У налаштуваннях телефона увімкни геолокацію, аби додаток автоматично визначив, де ти спіймав/спіймала рекламу. 3. Повернись до додатку. У ньому ти побачиш карту зі "здобиччю" інших мисливців, де "впіймана" реклама нанесена на ній мітками. 4. Якщо побачиш політичну рекламу — мерщій роби фото та завантажуй його. Не забудь вказати назву партії чи політика, який рекламується. 5. Будь ласка, вкажи тип рекламного носія (бігборд, сітілайт, намет, друкована реклама чи інше). 6. За кожне завантажене фото реклами ти отримаєш від нас символічну валюту — часничок, та зможеш змагатися за рейтинг з іншими користувачами.
+Готово! Ти — неперевершений мисливець за рекламою!
+</mutableString>
                                                 <attributes>
-                                                    <color key="NSColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="15"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="NSColor" red="0.34510000000000002" green="0.19608" blue="0.48235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                    <real key="NSKern" value="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="15" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                        <tabStops/>
+                                                    </paragraphStyle>
+                                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -3306,12 +3303,12 @@
     <inferredMetricsTieBreakers>
         <segue reference="eVG-tF-ALy"/>
         <segue reference="8PZ-UC-75z"/>
-        <segue reference="pUg-Yd-q9W"/>
+        <segue reference="xfT-lN-0KB"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="9LO-tQ-BRv"/>
-        <segue reference="G9J-Jw-yyF"/>
+        <segue reference="pU2-eh-hHY"/>
         <segue reference="a9S-fS-bVK"/>
-        <segue reference="vBf-0B-zvl"/>
+        <segue reference="gQg-cU-FWQ"/>
         <segue reference="XVb-xz-XLe"/>
     </inferredMetricsTieBreakers>
 </document>

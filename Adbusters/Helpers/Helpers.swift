@@ -236,6 +236,7 @@ func loadUserData (token: String, isFacebookLogin: Bool, completion: @escaping (
         }
         
         if let jsonData = json {
+            print(jsonData)
             if let email = jsonData.email {
                 setCurrentUser(token: token, email: email, name: jsonData.name!, pictureUrl: jsonData.picture ?? "", garlics: jsonData.rating!)
                 isFacebook = isFacebookLogin

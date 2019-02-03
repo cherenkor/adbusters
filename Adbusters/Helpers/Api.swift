@@ -180,6 +180,7 @@ func registerNewUser(url: String, email: String, name: String, password: String,
     request.httpBody = postString.data(using: .utf8)
     let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
         if data != nil {
+            print(data)
             print("Registered in successfully")
             completion(nil)
         } else {
