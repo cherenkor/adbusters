@@ -28,7 +28,6 @@ func getRating (completion: @escaping (_ json: RatingTop?, _ error: Error?)->())
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         do {
             let result = try JSONDecoder().decode(RatingTop.self, from: data!)
-            print("HAVE", result)
             completion(result, error)
         } catch let error {
             completion(nil, error)
@@ -244,7 +243,8 @@ func uploadImages(completion: @escaping (Bool) -> ()){
     let manager = Alamofire.SessionManager.default
     manager.session.configuration.httpCookieStorage = HTTPCookieStorage.shared
     manager.session.configuration.timeoutIntervalForRequest = 30
-
+    print("Trying to send", parameters)
+    return
     manager.upload(multipartFormData: { (multipartFormData) in
         for (key, value) in parameters {
             multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)

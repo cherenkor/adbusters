@@ -26,8 +26,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func addAdButtonPressed(_ sender: Any) {
-//        if isLogged == false {
-        if isLogged == true {
+        if isLogged == false {
+//        if isLogged == true {
             self.performSegue(withIdentifier: "goToLogin", sender: nil)
         } else {
             performSegue(withIdentifier: "goToAddAds", sender: self)

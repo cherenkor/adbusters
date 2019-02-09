@@ -17,6 +17,7 @@ var currentParty: String?
 var currentPartyId: Int?
 var currentPolitician: String?
 var currentPoliticianId: Int?
+var currentPictureUrl: String?
 var currentType: String?
 var currentDate: String?
 var currentComment: String?

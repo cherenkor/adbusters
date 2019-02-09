@@ -88,6 +88,7 @@ extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentPoliticianId = politiciansList[indexPath.row].external_id
         delegate?.havePolitician(politicianName: politiciansList[indexPath.row].name)
     }
     

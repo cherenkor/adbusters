@@ -3,6 +3,7 @@ import MessageUI
 import SVProgressHUD
 import FacebookCore
 import FacebookLogin
+import Kingfisher
 
 var menu : [String]?
 var myIndex = 0
@@ -97,6 +98,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     currentUserName = "Гiсть"
                     currentUserGarlics = 0
                     currentUserImage = UIImage(named: "icon_profile")
+                    currentPictureUrl = nil
                     saveUserToStorage ()
                     SVProgressHUD.showSuccess(withStatus: "До зустрiчi")
                     SVProgressHUD.dismiss(completion: {
@@ -116,7 +118,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             let garlics = currentUserGarlics ?? 0
             currentUserGarlicsAmountLbl.text = "\(garlics) часнич\(getWordEnd(for: garlics))"
             if isFacebook == true  {
-                currentUserImageView.image =  currentUserImage
+                currentUserImageView.image = currentUserImage
             } else {
                 currentUserImageView.image = UIImage(named: "icon_profile")!
             }

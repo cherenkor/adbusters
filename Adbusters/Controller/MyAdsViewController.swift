@@ -57,7 +57,11 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             if let jsonData = json {
+                
                 ads = jsonData
+                for ad in jsonData {
+                    print(ad.party, ad.person, ad.comment)
+                }
                 loadedAds = true
                 if jsonData.count == 0 {
                     Toast().alert(with: self, title: "Завантажено", message: "Список пустий")
@@ -136,9 +140,9 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         isAddAdsView = false
         currentAdsImageUrls = ads?[index].images!
         currentParty = ads?[index].party?.name ?? ""
-        currentPolitician = ""
+        currentPolitician = ads?[index].person?.name ?? ""
         currentType = getTypeText(ads![index].type!)
-        currentComment = ""
+        currentComment = ads?[index].comment ?? ""
         currentDate = convertDate(dateStr: ads![index].created_date!)
         performSegue(withIdentifier: "goToSingleAd", sender: nil)
     }

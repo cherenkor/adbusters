@@ -95,7 +95,7 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        currentPartyId = partiesList[indexPath.row].id
         delegate?.haveParty(partyName: getPartyName(partiesList[indexPath.row]))
     }
     

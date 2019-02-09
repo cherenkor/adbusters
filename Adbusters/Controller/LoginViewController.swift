@@ -73,7 +73,7 @@ class LoginViewController: UIViewController {
                             let name = responseDictionary["name"] as! String
                             let email = responseDictionary["email"] as! String
                             let pictureUrl = data["url"] as! String
-                            
+                            currentPictureUrl = pictureUrl
                             loginToServerFB(token: token, email: email, name: name, pictureUrl: pictureUrl, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) })
                         }
                     }

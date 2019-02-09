@@ -9,13 +9,18 @@ import ClusterKit
 func setCurrentUser (token: String, email: String, name: String, pictureUrl: String, garlics: Int) {
     currentUserName = name
     currentUserGarlics = garlics
-    
-    if let url = NSURL(string: pictureUrl) {
-        if let data = NSData(contentsOf: url as URL){
-            currentUserImage = UIImage(data: data as Data)
-        } else {
-            print("no photo loaded")
-            currentUserImage = UIImage(named: "icon_profile")!
+
+    if let url = NSURL(string: currentPictureUrl!) {
+        DispatchQueue.main.async {
+            let imageData = NSData(contentsOf: url as URL)
+            DispatchQueue.main.async {
+                if let imageData = imageData {
+                    currentUserImage = UIImage(data: imageData as Data)
+                } else {
+                    print("no photo loaded")
+                    currentUserImage = UIImage(named: "icon_profile")!
+                }
+            }
         }
     } else {
         print("no photo")
@@ -179,6 +184,7 @@ func saveUserToStorage () {
     defaults.set(currentUserName, forKey: "name")
     defaults.set(currentUserGarlics, forKey: "garlics")
     defaults.set(currentUserImage!.jpegData(compressionQuality: 1.0), forKey: "image")
+    defaults.set(currentPictureUrl, forKey: "imageUrl")
 }
 
 func saveUserGarlicsToStorage () {
@@ -189,12 +195,29 @@ func saveUserGarlicsToStorage () {
 func setCurrentUserData () {
     currentUserName = defaults.string(forKey: "name")
     currentUserGarlics = defaults.integer(forKey: "garlics")
-    let userImage = defaults.object(forKey: "image")
-    if let image = userImage as? Data {
-        currentUserImage = UIImage(data: image)
+    let userImageUrl = defaults.string(forKey: "imageUrl")
+    if let userImageUrl = userImageUrl {
+        if let url = NSURL(string: userImageUrl) {
+            DispatchQueue.main.async {
+                let imageData = NSData(contentsOf: url as URL)
+                DispatchQueue.main.async {
+                    if let imageData = imageData {
+                        currentUserImage = UIImage(data: imageData as Data)
+                    } else {
+                        print("no photo loaded")
+                        currentUserImage = UIImage(named: "icon_profile")!
+                    }
+                }
+            }
+        } else {
+            print("no photo")
+            currentUserImage = UIImage(named: "icon_profile")!
+        }
     } else {
+        print("no url photo")
         currentUserImage = UIImage(named: "icon_profile")!
     }
+    
     isFacebook = defaults.bool(forKey: "isFacebook")
     isLogged = defaults.bool(forKey: "isLogged")
 }
@@ -236,7 +259,6 @@ func loadUserData (token: String, isFacebookLogin: Bool, completion: @escaping (
         }
         
         if let jsonData = json {
-            print(jsonData)
             if let email = jsonData.email {
                 setCurrentUser(token: token, email: email, name: jsonData.name!, pictureUrl: jsonData.picture ?? "", garlics: jsonData.rating!)
                 isFacebook = isFacebookLogin
