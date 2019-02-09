@@ -23,15 +23,20 @@ class PoliticiansViewController: UIViewController {
         loadPoliticiansFromApi()
     }
     
-    func loadPoliticiansFromApi () {
+    func loadPoliticiansFromApi (_ searchText:String = "") {
         if page == 0 { return }
         
         showIndicator(true, indicator: activityIndicator)
+        var params = ""
+        if searchText.count >= 1 {
+            params = "&query=\(searchText)".addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)!
+        }
         
-        getPoliticiansRequest(url: "http://www.chesno.org/politician/api?page=\(page)") { (json, error) in
-            
+        getPoliticiansRequest(url: "https://adbusters.chesno.org/persons?page=\(page)\(params)") { (json, error) in
             if let error = error {
-                showIndicator(false, indicator: self.activityIndicator)
+                DispatchQueue.main.async {
+                    showIndicator(false, indicator: self.activityIndicator)
+                }
                 let lastPageError = "The data couldn’t be read because it is missing."
                 if error.localizedDescription == lastPageError {
                     self.page = 0
@@ -42,27 +47,21 @@ class PoliticiansViewController: UIViewController {
                 return
             }
             
-            var tempPoliticianList = [Politician]()
-            
-            for politicianItem in json!.results {
-                tempPoliticianList.append(politicianItem)
+            if json!.next == nil {
+                self.page = 0;
             }
             
-//            tempPoliticianList = tempPoliticianList.sorted(by: { $0.first_name < $1.first_name })
-            
-            for politicianItem in tempPoliticianList {
+            for politicianItem in json!.results {
                 politiciansList.append(politicianItem)
             }
             
-            showIndicator(false, indicator: self.activityIndicator)
-            
             DispatchQueue.main.async {
+                showIndicator(false, indicator: self.activityIndicator)
                 self.tableView.reloadData()
                 self.page += self.page
             }
         }
     }
-    
     
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -79,33 +78,17 @@ class PoliticiansViewController: UIViewController {
 
 extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
-            return searchPoliticians.count
-        } else {
-            return politiciansList.count
-        }
+        return politiciansList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        
-        if searching {
-            cell?.textLabel?.text = getFullName(row: indexPath.row, list: searchPoliticians)
-        } else {
-            cell?.textLabel?.text = getFullName(row: indexPath.row, list: politiciansList)
-        }
-        
+        cell?.textLabel?.text = politiciansList[indexPath.row].name
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if searching {
-            selectedPolitician = getFullName(row: indexPath.row, list: searchPoliticians)
-            delegate?.havePolitician(politicianName: selectedPolitician!)
-        } else {
-            selectedPolitician = getFullName(row: indexPath.row, list: politiciansList)
-            delegate?.havePolitician(politicianName: selectedPolitician!)
-        }
+        delegate?.havePolitician(politicianName: politiciansList[indexPath.row].name)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -115,27 +98,12 @@ extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource 
             loadPoliticiansFromApi()
         }
     }
-    
-    func getFullName (row: Int, list: [Politician]) -> String {
-        currentPoliticianId = list[row].id
-        let firstName = list[row].first_name
-        let lastName = list[row].last_name
-        return "\(firstName) \(lastName)"
-    }
 }
 
 extension PoliticiansViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchPoliticians = politiciansList.filter({$0.first_name.prefix(searchText.count) == searchText})
-//        searchPoliticians = searchPoliticians.sorted(by: { $0.first_name < $1.first_name })
-        searching = true
-        tableView.reloadData()
+        page = 1
+        politiciansList = [Politician]()
+        loadPoliticiansFromApi(searchText)
     }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        searchParties = partiesList.filter({$0.title!.prefix(searchText.count) == searchText})
-//        searchParties = searchParties.sorted(by: { $0.title! < $1.title! })
-//        searching = true
-//        tableView.reloadData()
-//    }
 }

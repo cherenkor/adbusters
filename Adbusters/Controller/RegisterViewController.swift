@@ -38,7 +38,7 @@ class RegisterViewController: UIViewController {
                 let invalidEmail = isValidEmail(testStr: emailTextField.text ?? "")
                 
                 if invalidEmail {
-                    registerNewUser(url: "http://adbusters.chesno.org/login/email/", email: email!, name: name!, password: password!) { (error) in
+                    registerNewUser(url: "https://adbusters.chesno.org/login/email/", email: email!, name: name!, password: password!) { (error) in
                         if error == nil {
                             print("registered")
                             loadUserData(token: "", isFacebookLogin: false, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) } )
@@ -80,6 +80,7 @@ class RegisterViewController: UIViewController {
                 print("User cancelled login")
                 SVProgressHUD.dismiss()
             case .success(_, _, let accessToken):
+                print("Logged with FB")
                 let params = ["fields" : "email, name, picture.type(large)"]
                 let graphRequest = GraphRequest(graphPath: "me", parameters: params)
                 graphRequest.start {
@@ -92,7 +93,6 @@ class RegisterViewController: UIViewController {
                     case .success(let graphResponse):
                         if let responseDictionary = graphResponse.dictionaryValue {
                             let token = accessToken.authenticationToken
-                            //                            let id = responseDictionary["id"] as! String
                             let picture = responseDictionary["picture"] as! [String: Any]
                             let data = picture["data"] as! [String: Any]
                             let name = responseDictionary["name"] as! String

@@ -26,7 +26,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @IBAction func addAdButtonPressed(_ sender: Any) {
-        if isLogged == false {
+//        if isLogged == false {
+        if isLogged == true {
             self.performSegue(withIdentifier: "goToLogin", sender: nil)
         } else {
             performSegue(withIdentifier: "goToAddAds", sender: self)
@@ -153,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 DispatchQueue.main.async {
                     showIndicator(true, indicator: self.loader)
                 }
-                getAds(url: "http://adbusters.chesno.org/ads/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
+                getAds(url: "https://adbusters.chesno.org/ads/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
                     showIndicator(false, indicator: self.loader)
                     if let error = error {
                         print("ERROR WAR", error)

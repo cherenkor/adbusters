@@ -202,7 +202,7 @@ func setCurrentUserData () {
 
 // LOGINIZATION
 func loginToServerEmail(email: String, password: String, completion: @escaping (()->())) {
-    loginUserEmail(url: "http://adbusters.chesno.org/login/email/", email: email, password: password) { (error) in
+    loginUserEmail(url: "https://adbusters.chesno.org/login/email/", email: email, password: password) { (error) in
         if error == nil {
             loadUserData(token: "", isFacebookLogin: false, completion: { completion()} )
         } else {
@@ -213,7 +213,7 @@ func loginToServerEmail(email: String, password: String, completion: @escaping (
 }
 
 func loginToServerFB(token: String, email: String, name: String, pictureUrl: String, completion: @escaping (()->())) {
-    loginUserFB(url: "http://adbusters.chesno.org/login/facebook/", token: token, email: email, name: name, pictureUrl: pictureUrl) { (data, error) in
+    loginUserFB(url: "https://adbusters.chesno.org/login/facebook/", token: token, email: email, name: name, pictureUrl: pictureUrl) { (data, error) in
         if let error = error {
             print("ERROR WAR", error)
             SVProgressHUD.showError(withStatus: "Помилка завантаження")
@@ -226,7 +226,7 @@ func loginToServerFB(token: String, email: String, name: String, pictureUrl: Str
 }
 
 func loadUserData (token: String, isFacebookLogin: Bool, completion: @escaping (()->())) {
-    getUserData(url: "http://adbusters.chesno.org/profile/", token: token) { (json, error) in
+    getUserData(url: "https://adbusters.chesno.org/profile/", token: token) { (json, error) in
         SVProgressHUD.dismiss()
         if let error = error {
             print("ERROR WAR", error)

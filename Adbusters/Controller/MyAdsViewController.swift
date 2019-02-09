@@ -48,7 +48,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             showIndicator(true, indicator: self.loader)
         }
         
-        getAds(url: "http://adbusters.chesno.org/ads_read/?my=True") { (json, error) in
+        getAds(url: "https://adbusters.chesno.org/ads_read/?my=True") { (json, error) in
             if let error = error {
                 showIndicator(false, indicator: self.loader)
                 print("ERROR WAR", error)

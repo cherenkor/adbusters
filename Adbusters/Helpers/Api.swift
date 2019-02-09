@@ -5,7 +5,7 @@ var getAdstask: URLSessionDataTask?
 var getGarlicsTask: URLSessionDataTask?
 
 func getGarlics() {
-    let urlObject = URL(string: "http://adbusters.chesno.org/profile/")
+    let urlObject = URL(string: "https://adbusters.chesno.org/profile/")
     if getGarlicsTask != nil {
         return
     }
@@ -24,7 +24,7 @@ func getGarlics() {
 }
 
 func getRating (completion: @escaping (_ json: RatingTop?, _ error: Error?)->()) {
-    let urlObject = URL(string:"http://adbusters.chesno.org/rating/")
+    let urlObject = URL(string:"https://adbusters.chesno.org/rating/")
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         do {
             let result = try JSONDecoder().decode(RatingTop.self, from: data!)
@@ -51,14 +51,20 @@ func getPartiesRequest(url: String, completion: @escaping (_ json: Parties?, _ e
 }
 
 func getPoliticiansRequest(url: String, completion: @escaping (_ json: Politicians?, _ error: Error?)->()) {
+    print("url - \(url)")
     let urlObject = URL(string: url)
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
-        do {
-            let result = try JSONDecoder().decode(Politicians.self, from: data!)
-            completion(result, error)
-        } catch let error {
+        if let data = data {
+            do {
+                let result = try JSONDecoder().decode(Politicians.self, from: data)
+                completion(result, error)
+            } catch let error {
+                completion(nil, error)
+            }
+        } else {
             completion(nil, error)
         }
+       
     }
     task.resume()
 }
@@ -155,7 +161,7 @@ func loginUserFB(url: String, token: String, email: String, name: String, pictur
 
 
 func logoutRequest (completion: @escaping (_ error: Error?)->()) {
-    let urlObject = URL(string: "http://adbusters.chesno.org/logout")
+    let urlObject = URL(string: "https://adbusters.chesno.org/logout")
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         if data != nil {
             cleanCookies()
@@ -180,7 +186,6 @@ func registerNewUser(url: String, email: String, name: String, password: String,
     request.httpBody = postString.data(using: .utf8)
     let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
         if data != nil {
-            print(data)
             print("Registered in successfully")
             completion(nil)
         } else {
@@ -199,7 +204,7 @@ func cleanCookies () {
 }
 
 func uploadImages(completion: @escaping (Bool) -> ()){
-    let url = "http://adbusters.chesno.org/ads_write/"
+    let url = "https://adbusters.chesno.org/ads_write/"
     var parameters = [String : Any]()
     
     if let lat = currentLatitude {
@@ -274,7 +279,7 @@ func uploadImages(completion: @escaping (Bool) -> ()){
 
 func deleteAd(completion: @escaping (_ error: Error?)->()) {
     if let id = currentAdId {
-        let urlLink = URL(string: "http://adbusters.chesno.org/ads_write/\(id)/")!
+        let urlLink = URL(string: "https://adbusters.chesno.org/ads_write/\(id)/")!
         print(urlLink)
         var request = URLRequest(url: urlLink)
         request.httpMethod = "DELETE"
