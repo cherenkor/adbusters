@@ -10,21 +10,23 @@ func setCurrentUser (token: String, email: String, name: String, pictureUrl: Str
     currentUserName = name
     currentUserGarlics = garlics
 
-    if let url = NSURL(string: currentPictureUrl!) {
-        DispatchQueue.main.async {
-            let imageData = NSData(contentsOf: url as URL)
+    if let currentPictureUrl = currentPictureUrl {
+        if let url = NSURL(string: currentPictureUrl) {
             DispatchQueue.main.async {
-                if let imageData = imageData {
-                    currentUserImage = UIImage(data: imageData as Data)
-                } else {
-                    print("no photo loaded")
-                    currentUserImage = UIImage(named: "icon_profile")!
+                let imageData = NSData(contentsOf: url as URL)
+                DispatchQueue.main.async {
+                    if let imageData = imageData {
+                        currentUserImage = UIImage(data: imageData as Data)
+                    } else {
+                        print("no photo loaded")
+                        currentUserImage = UIImage(named: "icon_profile")!
+                    }
                 }
             }
+        } else {
+            print("no photo")
+            currentUserImage = UIImage(named: "icon_profile")!
         }
-    } else {
-        print("no photo")
-        currentUserImage = UIImage(named: "icon_profile")!
     }
 }
 

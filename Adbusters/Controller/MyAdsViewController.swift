@@ -59,9 +59,6 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if let jsonData = json {
                 
                 ads = jsonData
-                for ad in jsonData {
-                    print(ad.party, ad.person, ad.comment)
-                }
                 loadedAds = true
                 if jsonData.count == 0 {
                     Toast().alert(with: self, title: "Завантажено", message: "Список пустий")

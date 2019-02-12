@@ -42,7 +42,6 @@ class RegisterViewController: UIViewController {
                         if error == nil {
                             print("registered")
                             loadUserData(token: "", isFacebookLogin: false, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) } )
-//                            loginToServerEmail(email: email!, password: password!, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) })
                         } else {
                             self.showError("Помилка реєстрації")
                         }

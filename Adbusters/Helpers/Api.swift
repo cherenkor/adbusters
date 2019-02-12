@@ -244,7 +244,6 @@ func uploadImages(completion: @escaping (Bool) -> ()){
     manager.session.configuration.httpCookieStorage = HTTPCookieStorage.shared
     manager.session.configuration.timeoutIntervalForRequest = 30
     print("Trying to send", parameters)
-    return
     manager.upload(multipartFormData: { (multipartFormData) in
         for (key, value) in parameters {
             multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
