@@ -73,10 +73,6 @@ class PartiesViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveParty(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.tableView.endEditing(true)
     }
@@ -97,6 +93,7 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentPartyId = partiesList[indexPath.row].id
         delegate?.haveParty(partyName: getPartyName(partiesList[indexPath.row]))
+         self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

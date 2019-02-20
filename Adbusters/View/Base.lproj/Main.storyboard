@@ -96,10 +96,10 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <attributedString key="attributedText">
                                                             <fragment>
-                                                                <mutableString key="content">"Мисливця за Рекламою" (англійською — Adbusters) створено, щоби викривати фінансові схеми та тіньові кошти політиків та партій, витрачені на рекламу. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларував політик чи партія видатки на неї у своїх офіційних фінансових звітах. Якщо в цих документах немає оплати такої реклами, це означає, що має місце певне порушення чи махінація. У цьому разі ЧЕСНО розпочне розслідування і завдяки твоїй допомозі спробує виявити, хто ж насправді фінансує політичний бренд.
+                                                                <string key="content">"Мисливця за Рекламою" (англійською — Adbusters) створено, щоби викривати фінансові схеми та тіньові кошти політиків та партій, витрачені на рекламу. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларував політик чи партія видатки на неї у своїх офіційних фінансових звітах. Якщо в цих документах немає оплати такої реклами, це означає, що має місце певне порушення чи махінація. У цьому разі ЧЕСНО розпочне розслідування і завдяки твоїй допомозі спробує виявити, хто ж насправді фінансує політичний бренд.
 Як користуватись? 1. Авторизуйся. Без авторизації ти зможеш лише переглядати інформацію. 2. У налаштуваннях телефона увімкни геолокацію, аби додаток автоматично визначив, де ти спіймав/спіймала рекламу. 3. Повернись до додатку. У ньому ти побачиш карту зі "здобиччю" інших мисливців, де "впіймана" реклама нанесена на ній мітками. 4. Якщо побачиш політичну рекламу — мерщій роби фото та завантажуй його. Не забудь вказати назву партії чи політика, який рекламується. 5. Будь ласка, вкажи тип рекламного носія (бігборд, сітілайт, намет, друкована реклама чи інше). 6. За кожне завантажене фото реклами ти отримаєш від нас символічну валюту — часничок, та зможеш змагатися за рейтинг з іншими користувачами.
 Готово! Ти — неперевершений мисливець за рекламою!
-</mutableString>
+</string>
                                                                 <attributes>
                                                                     <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="NSColor" red="0.34509803921568627" green="0.19607843137254902" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1688,12 +1688,6 @@
                                                 <action selector="goBack:" destination="xVi-c1-Jjl" id="KTD-Fk-5tS"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="icon_done" landscapeImage="icon_done" largeContentSizeImage="icon_done" style="done" id="e2R-jm-Y92">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <action selector="saveParty:" destination="xVi-c1-Jjl" id="1BJ-wv-4b4"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1815,12 +1809,6 @@
                                                 <action selector="goBack:" destination="E0S-PE-JXq" id="jvi-M5-K50"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="icon_done" landscapeImage="icon_done" largeContentSizeImage="icon_done" style="done" id="e8m-Iz-Aav">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <action selector="savePolitician:" destination="E0S-PE-JXq" id="E2C-d8-Blq"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1906,10 +1894,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <mutableString key="content">"Мисливця за Рекламою" (англійською — Adbusters) створено, щоби викривати фінансові схеми та тіньові кошти політиків та партій, витрачені на рекламу. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларував політик чи партія видатки на неї у своїх офіційних фінансових звітах. Якщо в цих документах немає оплати такої реклами, це означає, що має місце певне порушення чи махінація. У цьому разі ЧЕСНО розпочне розслідування і завдяки твоїй допомозі спробує виявити, хто ж насправді фінансує політичний бренд.
+                                                <string key="content">"Мисливця за Рекламою" (англійською — Adbusters) створено, щоби викривати фінансові схеми та тіньові кошти політиків та партій, витрачені на рекламу. Фіксуючи політичну рекламу на карті, ти допоможеш ЧЕСНО перевірити, чи задекларував політик чи партія видатки на неї у своїх офіційних фінансових звітах. Якщо в цих документах немає оплати такої реклами, це означає, що має місце певне порушення чи махінація. У цьому разі ЧЕСНО розпочне розслідування і завдяки твоїй допомозі спробує виявити, хто ж насправді фінансує політичний бренд.
 Як користуватись? 1. Авторизуйся. Без авторизації ти зможеш лише переглядати інформацію. 2. У налаштуваннях телефона увімкни геолокацію, аби додаток автоматично визначив, де ти спіймав/спіймала рекламу. 3. Повернись до додатку. У ньому ти побачиш карту зі "здобиччю" інших мисливців, де "впіймана" реклама нанесена на ній мітками. 4. Якщо побачиш політичну рекламу — мерщій роби фото та завантажуй його. Не забудь вказати назву партії чи політика, який рекламується. 5. Будь ласка, вкажи тип рекламного носія (бігборд, сітілайт, намет, друкована реклама чи інше). 6. За кожне завантажене фото реклами ти отримаєш від нас символічну валюту — часничок, та зможеш змагатися за рейтинг з іншими користувачами.
 Готово! Ти — неперевершений мисливець за рекламою!
-</mutableString>
+</string>
                                                 <attributes>
                                                     <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="NSColor" red="0.34510000000000002" green="0.19608" blue="0.48235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3305,9 +3293,9 @@
         <segue reference="8PZ-UC-75z"/>
         <segue reference="xfT-lN-0KB"/>
         <segue reference="wJo-3A-m8h"/>
-        <segue reference="9LO-tQ-BRv"/>
+        <segue reference="mm9-QN-m4G"/>
         <segue reference="pU2-eh-hHY"/>
-        <segue reference="a9S-fS-bVK"/>
+        <segue reference="wba-ga-xQQ"/>
         <segue reference="gQg-cU-FWQ"/>
         <segue reference="XVb-xz-XLe"/>
     </inferredMetricsTieBreakers>

@@ -67,10 +67,6 @@ class PoliticiansViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func savePolitician(_ sender: Any) {
-         self.dismiss(animated: true, completion: nil)
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.tableView.endEditing(true)
     }
@@ -90,6 +86,7 @@ extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentPoliticianId = politiciansList[indexPath.row].external_id
         delegate?.havePolitician(politicianName: politiciansList[indexPath.row].name)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
