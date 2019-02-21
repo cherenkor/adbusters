@@ -4,6 +4,7 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var instructionsView: UIView!
     @IBOutlet weak var textField: UITextView!
+    @IBOutlet var mask: UIView!
     
     @IBAction func closeInstructions(_ sender: Any) {
         instructionsView.isHidden = true
@@ -15,6 +16,7 @@ class WelcomeViewController: UIViewController {
         if isLogged {
             performSegue(withIdentifier: "goToMap", sender: nil)
         } else {
+             mask.isHidden = true
             super.viewDidLoad()
             cleanCookies()
             textField.textAlignment = .natural
@@ -23,6 +25,7 @@ class WelcomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        instructionsView.isHidden = true
         let showInstructions = defaults.bool(forKey: "showInstructions")
         instructionsView.isHidden = showInstructions
     }

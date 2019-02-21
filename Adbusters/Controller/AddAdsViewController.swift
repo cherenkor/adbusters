@@ -145,7 +145,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
             
                 if noErrors == true {
                     self.delegate?.addAdvertise(party: self.partyLabel.text ?? "", politician: self.politicianLabel.text ?? "", type: self.adType.text!, date: date, comment: self.commentLbl.text ?? "", images: self.addingImages )
-                    currentLocation = ""
+//                    currentLocation = ""
                     currentLongitude = nil
                     currentLatitude = nil
                     self.dismiss(animated: true, completion: nil)
@@ -212,7 +212,7 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 currentLatitude = location.coordinate.latitude
                 currentLongitude = location.coordinate.longitude
                 let location = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                
+                print("Coordinate - ", location.coordinate)
                 getAdress (location) { address, error in
                     if let a = address, let street = a["Street"] as? String, let city = a["City"] as? String, let country = a["Country"] as? String {
                         currentLocation = "\(street), \(city), \(country)"
@@ -271,8 +271,6 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var chooseLocationView: UIView!
     
 }
-
-
 
 extension AddAdsViewController {
     fileprivate func prepareSwitch() {

@@ -157,11 +157,34 @@
                                     <constraint firstAttribute="bottom" secondItem="lx9-A2-zTq" secondAttribute="bottom" id="yeF-GI-JOb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9E-X6-b3R">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uCG-3z-WIE">
+                                        <rect key="frame" x="150" y="230" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="EBh-jw-EX1"/>
+                                            <constraint firstAttribute="width" constant="20" id="bqH-cI-hhZ"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="uCG-3z-WIE" firstAttribute="centerY" secondItem="q9E-X6-b3R" secondAttribute="centerY" id="2rw-Uh-Cw6"/>
+                                    <constraint firstItem="uCG-3z-WIE" firstAttribute="centerX" secondItem="q9E-X6-b3R" secondAttribute="centerX" id="cYf-yR-Nqp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="q9E-X6-b3R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BMH-RO-5aC"/>
                             <constraint firstItem="Ko0-QD-P32" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Gxo-t9-uFg"/>
+                            <constraint firstItem="q9E-X6-b3R" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hsp-Cf-kWT"/>
+                            <constraint firstItem="q9E-X6-b3R" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RrH-A3-2bX"/>
                             <constraint firstItem="Ko0-QD-P32" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eGa-CB-t30"/>
+                            <constraint firstItem="q9E-X6-b3R" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eos-Go-3cU"/>
+                            <constraint firstItem="q9E-X6-b3R" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jjf-6t-Mfg"/>
+                            <constraint firstItem="q9E-X6-b3R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lHe-r5-a90"/>
                             <constraint firstItem="Ko0-QD-P32" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="wsi-Mf-YuW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ko0-QD-P32" secondAttribute="bottom" id="zv9-tK-0I7"/>
                         </constraints>
@@ -169,12 +192,13 @@
                     </view>
                     <connections>
                         <outlet property="instructionsView" destination="lx9-A2-zTq" id="sOk-hy-7vD"/>
+                        <outlet property="mask" destination="q9E-X6-b3R" id="UWz-C3-cl5"/>
                         <outlet property="textField" destination="6Hq-JH-FXw" id="fJh-yG-xn7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1251" y="33"/>
+            <point key="canvasLocation" x="-1252.5" y="32.5"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="REk-8T-opT">
