@@ -26,6 +26,6 @@ struct Party: Decodable {
 }
 
 struct Politician: Decodable {
-    var external_id: Int
+    var id: Int
     var name: String
 }

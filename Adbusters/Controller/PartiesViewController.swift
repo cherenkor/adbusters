@@ -105,11 +105,8 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func getPartyName(_ party: Party) -> String {
-        var name = party.short_name
-        if name == nil || name == "" {
-            name = party.name
-        }
-        return name!
+        let name = party.name ?? ""
+        return name
     }
 }
 
