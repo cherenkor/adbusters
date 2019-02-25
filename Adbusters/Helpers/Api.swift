@@ -4,23 +4,20 @@ import Alamofire
 var getAdstask: URLSessionDataTask?
 var getGarlicsTask: URLSessionDataTask?
 
-func getGarlics() {
-    let urlObject = URL(string: "https://adbusters.chesno.org/profile/")
-    if getGarlicsTask != nil {
-        return
-    }
-    getGarlicsTask = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
-        do {
-            let result = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String: Any]
-            if let garlics = result["rating"] {
+func getGarlics(completion: @escaping ()-> ()) {
+    print("Inside GETGARLICS ")
+    Alamofire.request("https://adbusters.chesno.org/profile/").responseJSON { response in
+        
+        if let json = response.result.value as? [String:AnyObject] {
+            print("JSON: \(json)") // serialized json response
+            if let garlics = json["rating"] {
+                print("Have garlics", garlics)
                 currentUserGarlics = (garlics as! Int)
                 saveUserGarlicsToStorage()
+                completion()
             }
-        } catch let error {
-            print("Error", error)
         }
     }
-    getGarlicsTask!.resume()
 }
 
 func getRating (completion: @escaping (_ json: RatingTop?, _ error: Error?)->()) {

@@ -18,8 +18,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getGarlics()
         setUser()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getGarlics { () -> () in
+            self.setUser()
+        }
         currentUserImageView.layer.masksToBounds = true
         currentUserImageView.layer.cornerRadius = 37
         tableView.tableFooterView = UIView()

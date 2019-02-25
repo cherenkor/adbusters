@@ -96,6 +96,9 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         SVProgressHUD.dismiss()
                         error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
                     } else {
+                        getGarlics { () -> () in
+                           print("Update Rating")
+                        }
                         for (i, ad) in ads!.enumerated() {
                             if ad.id == currentAdId {
                                 ads?.remove(at: i)

@@ -46,7 +46,7 @@ class PoliticiansViewController: UIViewController {
                 print("ERROR WAR", error.localizedDescription)
                 return
             }
-            
+            print(json!.results)
             if json!.next == nil {
                 self.page = 0;
             }
@@ -86,6 +86,7 @@ extension PoliticiansViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentPoliticianId = politiciansList[indexPath.row].id
         delegate?.havePolitician(politicianName: politiciansList[indexPath.row].name)
+        politiciansList = [Politician]()
         self.dismiss(animated: true, completion: nil)
     }
     
