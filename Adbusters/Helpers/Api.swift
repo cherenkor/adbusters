@@ -6,7 +6,7 @@ var getGarlicsTask: URLSessionDataTask?
 
 func getGarlics(completion: @escaping ()-> ()) {
     print("Inside GETGARLICS ")
-    Alamofire.request("https://adbusters.chesno.org/profile/").responseJSON { response in
+    Alamofire.request(API_URL + "/profile/").responseJSON { response in
         
         if let json = response.result.value as? [String:AnyObject] {
             print("JSON: \(json)") // serialized json response
@@ -21,7 +21,7 @@ func getGarlics(completion: @escaping ()-> ()) {
 }
 
 func getRating (completion: @escaping (_ json: RatingTop?, _ error: Error?)->()) {
-    let urlObject = URL(string:"https://adbusters.chesno.org/rating/")
+    let urlObject = URL(string: API_URL + "/rating/")
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         do {
             let result = try JSONDecoder().decode(RatingTop.self, from: data!)
@@ -157,7 +157,7 @@ func loginUserFB(url: String, token: String, email: String, name: String, pictur
 
 
 func logoutRequest (completion: @escaping (_ error: Error?)->()) {
-    let urlObject = URL(string: "https://adbusters.chesno.org/logout")
+    let urlObject = URL(string: API_URL + "/logout")
     let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
         if data != nil {
             cleanCookies()
@@ -200,7 +200,7 @@ func cleanCookies () {
 }
 
 func uploadImages(completion: @escaping (Bool) -> ()){
-    let url = "https://adbusters.chesno.org/ads_write/"
+    let url = API_URL + "/ads_write/"
     var parameters = [String : Any]()
     
     if let lat = currentLatitude {
@@ -275,7 +275,7 @@ func uploadImages(completion: @escaping (Bool) -> ()){
 
 func deleteAd(completion: @escaping (_ error: Error?)->()) {
     if let id = currentAdId {
-        let urlLink = URL(string: "https://adbusters.chesno.org/ads_write/\(id)/")!
+        let urlLink = URL(string: API_URL + "/ads_write/\(id)/")!
         print(urlLink)
         var request = URLRequest(url: urlLink)
         request.httpMethod = "DELETE"

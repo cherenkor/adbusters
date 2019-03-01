@@ -37,7 +37,7 @@ class PartiesViewController: UIViewController {
             params = "&query=\(searchText)".addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)!
         }
         
-        getPartiesRequest(url: "https://adbusters.chesno.org/parties?page=\(page)\(params)") { (json, error) in
+        getPartiesRequest(url: API_URL + "/parties?page=\(page)\(params)") { (json, error) in
             
             if let error = error {
                 DispatchQueue.main.async {

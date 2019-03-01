@@ -8,6 +8,7 @@
 
 import UIKit
 
+let API_URL = "localhost:3000/api"
 var isAddAdsView = false
 var currentAdId: Int?
 var currentAdsImages = [UIImage]()

@@ -32,7 +32,7 @@ class PoliticiansViewController: UIViewController {
             params = "&query=\(searchText)".addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)!
         }
         
-        getPoliticiansRequest(url: "https://adbusters.chesno.org/persons?page=\(page)\(params)") { (json, error) in
+        getPoliticiansRequest(url: API_URL + "/persons?page=\(page)\(params)") { (json, error) in
             if let error = error {
                 DispatchQueue.main.async {
                     showIndicator(false, indicator: self.activityIndicator)

@@ -38,7 +38,7 @@ class RegisterViewController: UIViewController {
                 let invalidEmail = isValidEmail(testStr: emailTextField.text ?? "")
                 
                 if invalidEmail {
-                    registerNewUser(url: "https://adbusters.chesno.org/login/email/", email: email!, name: name!, password: password!) { (error) in
+                    registerNewUser(url: API_URL + "/login/email/", email: email!, name: name!, password: password!) { (error) in
                         if error == nil {
                             print("registered")
                             loadUserData(token: "", isFacebookLogin: false, completion: { self.performSegue(withIdentifier: "goToMap", sender: self) } )

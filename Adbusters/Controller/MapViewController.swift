@@ -154,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 DispatchQueue.main.async {
                     showIndicator(true, indicator: self.loader)
                 }
-                getAds(url: "https://adbusters.chesno.org/ads/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
+                getAds(url: API_URL + "/ads/?latitude=\(lat)&longitude=\(lon)&radius=\(radius)") { (json, error) in
                     showIndicator(false, indicator: self.loader)
                     if let error = error {
                         print("ERROR WAR", error)
