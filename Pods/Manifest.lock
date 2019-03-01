@@ -10,17 +10,24 @@ PODS:
   - ClusterKit/MapKit (0.3.4):
     - ClusterKit/Core
   - DropDown (2.3.6)
-  - FacebookCore (0.4.0):
+  - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
-    - FBSDKCoreKit (~> 4.36)
-  - FacebookLogin (0.4.0):
+    - FBSDKCoreKit (~> 4.37)
+  - FacebookLogin (0.5.0):
     - Bolts (~> 1.9)
-    - FacebookCore (~> 0.4)
-    - FBSDKCoreKit (~> 4.36)
-    - FBSDKLoginKit (~> 4.36)
-  - FBSDKCoreKit (4.37.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.37.0):
+    - FacebookCore (~> 0.5)
+    - FBSDKCoreKit (~> 4.37)
+    - FBSDKLoginKit (~> 4.37)
+  - FacebookShare (0.5.0):
+    - Bolts (~> 1.9)
+    - FacebookCore (~> 0.5)
+    - FBSDKCoreKit (~> 4.37)
+    - FBSDKShareKit (~> 4.37)
+  - FBSDKCoreKit (4.40.0):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.40.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.40.0):
     - FBSDKCoreKit
   - Kingfisher (4.10.0)
   - Material (2.16.4):
@@ -37,7 +44,9 @@ DEPENDENCIES:
   - Alamofire
   - ClusterKit/MapKit
   - DropDown
+  - FacebookCore
   - FacebookLogin
+  - FacebookShare
   - Kingfisher
   - Material
   - SVProgressHUD
@@ -51,8 +60,10 @@ SPEC REPOS:
     - DropDown
     - FacebookCore
     - FacebookLogin
+    - FacebookShare
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - FBSDKShareKit
     - Kingfisher
     - Material
     - Motion
@@ -64,16 +75,18 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   ClusterKit: 30d15b449a398103d130ea9661cab82bb99eb52d
   DropDown: e8bfbce001b2e6b7e8abfdd42e12b565712d84f4
-  FacebookCore: 770e57cfe250a4de4458b682191c0ff062dee247
-  FacebookLogin: eb0f2251aca835a94d70a5f7e580edc46d1e1603
-  FBSDKCoreKit: fe5f3474499a81963e11e3f3a5c753d0a95ca2b4
-  FBSDKLoginKit: 2f7249686d1e30ce8a5ef5400eedf50b3e3df332
+  FacebookCore: 74288d0add931d361b1596beae787ab72c438249
+  FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
+  FacebookShare: 963b4bb1124a64a395b1e428163d70b5774116e8
+  FBSDKCoreKit: ae214474b25033399c131dc81d258e412582a2ba
+  FBSDKLoginKit: 7a1e411d46acc8834588eca437daf34de42e1d52
+  FBSDKShareKit: 0e45916f4150da485928ae2a17ca021950b194f5
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TweeTextField: 3ae42dd5944571a25a34cbebd361edbb62931c79
 
-PODFILE CHECKSUM: 3ccb4ac222fe5a2784d281026b82e38f8e9752c4
+PODFILE CHECKSUM: 2cb9f08b6242a5999d7ecc64be867e73231f8976
 
 COCOAPODS: 1.5.3

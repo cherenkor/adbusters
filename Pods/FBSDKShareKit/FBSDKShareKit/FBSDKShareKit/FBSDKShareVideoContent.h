@@ -18,34 +18,33 @@
 
 #import <Foundation/Foundation.h>
 
-@class FBSDKURLConnection;
+#import <FBSDKShareKit/FBSDKSharePhoto.h>
+#import <FBSDKShareKit/FBSDKShareVideo.h>
+#import <FBSDKShareKit/FBSDKSharingContent.h>
 
-typedef void (^FBSDKURLConnectionHandler)(FBSDKURLConnection *connection,
-                                          NSError *error,
-                                          NSURLResponse *response,
-                                          NSData *responseData);
+/**
+  A model for video content to be shared.
+ */
+@interface FBSDKShareVideoContent : NSObject <FBSDKSharingContent>
 
-@protocol FBSDKURLConnectionDelegate <NSObject>
+/**
+  The photo that represents the video.
+ @return The photo
+ */
+@property (nonatomic, copy) FBSDKSharePhoto *previewPhoto
+DEPRECATED_MSG_ATTRIBUTE("Use `video.previewPhoto`");
 
-@optional
+/**
+  The video to be shared.
+ @return The video
+ */
+@property (nonatomic, copy) FBSDKShareVideo *video;
 
-- (void)facebookURLConnection:(FBSDKURLConnection *)connection
-              didSendBodyData:(NSInteger)bytesWritten
-            totalBytesWritten:(NSInteger)totalBytesWritten
-    totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
-
-@end
-
-@interface FBSDKURLConnection : NSObject
-
-- (FBSDKURLConnection *)initWithRequest:(NSURLRequest *)request
-                      completionHandler:(FBSDKURLConnectionHandler)handler
-NS_DESIGNATED_INITIALIZER;
-
-@property (nonatomic, weak) id<FBSDKURLConnectionDelegate> delegate;
-
-- (void)cancel;
-- (void)start;
-- (void)setDelegateQueue:(NSOperationQueue *)queue;
+/**
+  Compares the receiver to another video content.
+ @param content The other content
+ @return YES if the receiver's values are equal to the other content's values; otherwise NO
+ */
+- (BOOL)isEqualToShareVideoContent:(FBSDKShareVideoContent *)content;
 
 @end
