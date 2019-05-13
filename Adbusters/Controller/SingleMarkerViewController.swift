@@ -38,6 +38,13 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func markAbusive(_ sender: Any) {
+    }
+    
+    @IBAction func blockUser(_ sender: Any) {
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return singleMarkerAdImageArray.count

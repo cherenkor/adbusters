@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.7</string>
+	<string>1.0.9</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -48,15 +48,15 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Дозвольте відкрити Вашу камеру</string>
+	<string>Доступ до камери необхідний для того, щоб робити фотографії зовнішньої реклами безпосередньо з додатку</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Дозвольте дізнатися вашу позицію</string>
+	<string>Дані геолокації необхідні виключно для точного визначнення місцезнаходження обʼєкта зовнішньої реклами</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Дозвольте дізнатися вашу позицію</string>
+	<string>Дані геолокації необхідні виключно для точного визначнення місцезнаходження обʼєкта зовнішньої реклами</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Дозвольте дізнатися вашу позицію</string>
+	<string>Дані геолокації необхідні виключно для точного визначнення місцезнаходження обʼєкта зовнішньої реклами</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Дозвольте відкрити Вашу галерею</string>
+	<string>Доступ до Галереї необіхдний для завантаження фотографій зовнішньої реклами, зроблених користувачем заздалегідь</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

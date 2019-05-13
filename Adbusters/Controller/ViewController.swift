@@ -8,7 +8,7 @@
 
 import UIKit
 
-let API_URL = "localhost:3000/api"
+let API_URL = "https://adbusters.chesno.org"
 var isAddAdsView = false
 var currentAdId: Int?
 var currentAdsImages = [UIImage]()
