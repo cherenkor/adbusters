@@ -298,6 +298,7 @@ extension MapViewController {
             }
             performSegue(withIdentifier: "goToMultipleMarkersView", sender: nil)
         } else if let annotation = cluster.firstAnnotation as? MyAnnotation {
+            currentAdId = annotation.id!
             setSingleMarkerData(party: annotation.party!, politician: annotation.politician!, date: annotation.date!, comment: annotation.comment!, type: annotation.type!, images: annotation.images)
             mapView.clusterManager.selectAnnotation(annotation, animated: false);
             performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)

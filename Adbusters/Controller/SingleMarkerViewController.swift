@@ -1,4 +1,5 @@
 import UIKit
+import SVProgressHUD
 
 class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -39,9 +40,21 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func markAbusive(_ sender: Any) {
+        SVProgressHUD.show()
+        
+        sendAbusive(completion: { (error) in
+            if let error = error {
+                print("Didn't mark")
+                error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
+            }
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+        })
     }
     
     @IBAction func blockUser(_ sender: Any) {
+        
     }
     
     

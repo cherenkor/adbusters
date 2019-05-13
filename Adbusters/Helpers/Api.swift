@@ -67,6 +67,7 @@ func getPoliticiansRequest(url: String, completion: @escaping (_ json: Politicia
 
 func getAds(url: String, completion: @escaping (_ json: Array<AdModel>?, _ error: Error?)->()) {
     let urlObject = URL(string: url)
+    print(url)
     
     if getAdstask != nil {
         getAdstask!.cancel()
@@ -224,7 +225,6 @@ func uploadImages(completion: @escaping (Bool) -> ()){
         parameters["comment"] = comment as String
     }
     
-    
     let cookies = HTTPCookieStorage.shared.cookies
     
     if let cookies = cookies {
@@ -290,5 +290,32 @@ func deleteAd(completion: @escaping (_ error: Error?)->()) {
             completion(nil)
         }
         task.resume()
+    }
+}
+
+func sendAbusive(completion: @escaping (_ error: Error?)->()) {
+    print("send with Id", currentAdId)
+    if let id = currentAdId {
+        let urlLink = URL(string: API_URL + "/ad_block/?id=\(id)&abusive=1")!
+        print("Id sending...", id, urlLink)
+        Alamofire.request(urlLink, method: .get)
+            .responseJSON { response in
+                print("JSON:\(String(describing: response.result.value))")
+                switch(response.result) {
+                case .success(_):
+                    if let data = response.result.value{
+                        print("Add marked as abusive", data)
+                        completion(nil)
+                    }
+                    
+                case .failure(_):
+                    print("Error message:\(String(describing: response.result.error))")
+                        completion(response.result.error)
+                    break
+                    
+                }
+            }
+    } else {
+        completion(nil)
     }
 }
