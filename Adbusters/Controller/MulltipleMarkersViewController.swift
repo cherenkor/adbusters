@@ -26,6 +26,7 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func goToMapTapped(_ sender: Any) {
         currentAdId = nil
+        currentUserId = nil
         multipleMarkerDate = [AdModel]()
         multipleMarkersImageCache = NSCache<AnyObject, AnyObject>()
         for task in tasks {
@@ -80,6 +81,7 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
     
     func setCurrent(index: Int) {
         currentAdId = multipleMarkerDate[index].id
+        currentUserId = multipleMarkerDate[index].user
         setSingleMarkerData(party: multipleMarkerDate[index].party!.name!, politician: multipleMarkerDate[index].person!.name!, date: convertDate(dateStr: multipleMarkerDate[index].created_date!), comment: multipleMarkerDate[index].comment!, type: multipleMarkerDate[index].type!, images: multipleMarkerDate[index].images ?? [AdImage]())
         performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)
     }

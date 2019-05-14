@@ -46,15 +46,31 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
             if let error = error {
                 print("Didn't mark")
                 error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
+                SVProgressHUD.dismiss()
+                return
             }
             DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
+                SVProgressHUD.showSuccess(withStatus: "Готово")
+                SVProgressHUD.dismiss(withDelay: 1.0)
             }
         })
     }
     
     @IBAction func blockUser(_ sender: Any) {
+        SVProgressHUD.show()
         
+        requestBlockUser(completion: { (error) in
+            if let error = error {
+                print("Didn't block")
+                error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
+                SVProgressHUD.dismiss()
+                return
+            }
+            DispatchQueue.main.async {
+                SVProgressHUD.showSuccess(withStatus: "Готово")
+                SVProgressHUD.dismiss(withDelay: 1.0)
+            }
+        })
     }
     
     

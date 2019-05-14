@@ -294,10 +294,8 @@ func deleteAd(completion: @escaping (_ error: Error?)->()) {
 }
 
 func sendAbusive(completion: @escaping (_ error: Error?)->()) {
-    print("send with Id", currentAdId)
     if let id = currentAdId {
         let urlLink = URL(string: API_URL + "/ad_block/?id=\(id)&abusive=1")!
-        print("Id sending...", id, urlLink)
         Alamofire.request(urlLink, method: .get)
             .responseJSON { response in
                 print("JSON:\(String(describing: response.result.value))")
@@ -315,6 +313,32 @@ func sendAbusive(completion: @escaping (_ error: Error?)->()) {
                     
                 }
             }
+    } else {
+        completion(nil)
+    }
+}
+
+func requestBlockUser(completion: @escaping (_ error: Error?)->()) {
+    if let id = currentUserId {
+        let urlLink = URL(string: API_URL + "/user_block/?id=\(id)&blocked=1")!
+        print("Send \(id)")
+        Alamofire.request(urlLink, method: .get)
+            .responseJSON { response in
+                print("JSON:\(String(describing: response.result.value))")
+                switch(response.result) {
+                case .success(_):
+                    if let data = response.result.value{
+                        print("Add marked as abusive", data)
+                        completion(nil)
+                    }
+                    
+                case .failure(_):
+                    print("Error message:\(String(describing: response.result.error))")
+                    completion(response.result.error)
+                    break
+                    
+                }
+        }
     } else {
         completion(nil)
     }

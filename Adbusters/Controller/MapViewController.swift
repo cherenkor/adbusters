@@ -179,7 +179,7 @@ extension MapViewController {
     func setPinsOnMap (jsonData: [AdModel]) {
         var annotations = [MyAnnotation]()
         for ad in jsonData {
-            let annotation = self.setPin(id: ad.id!, latitude: ad.latitude!, longitude: ad.longitude!, party: ad.party?.name ?? "", politician: ad.person?.name ?? "", date: ad.created_date ?? "", comment: ad.comment ?? "", type: ad.type ?? 7, images: ad.images ?? [AdImage]())
+            let annotation = self.setPin(id: ad.id!, user: ad.user!, latitude: ad.latitude!, longitude: ad.longitude!, party: ad.party?.name ?? "", politician: ad.person?.name ?? "", date: ad.created_date ?? "", comment: ad.comment ?? "", type: ad.type ?? 7, images: ad.images ?? [AdImage]())
             annotations.append(annotation)
         }
         //        self.mapView.addAnnotations(annotaions)
@@ -219,8 +219,8 @@ extension MapViewController {
         }
     }
     
-    func setPin (id: Int, latitude: Double, longitude: Double, party: String, politician: String, date: String, comment: String, type: Int, images: [AdImage]) -> MyAnnotation {
-        let marker = MyAnnotation(id: id, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), party: party, politician: politician, date: date, comment: comment, type: type, images: images)
+    func setPin (id: Int, user: Int, latitude: Double, longitude: Double, party: String, politician: String, date: String, comment: String, type: Int, images: [AdImage]) -> MyAnnotation {
+        let marker = MyAnnotation(id: id, user: user, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), party: party, politician: politician, date: date, comment: comment, type: type, images: images)
         return marker
     }
     
@@ -299,6 +299,7 @@ extension MapViewController {
             performSegue(withIdentifier: "goToMultipleMarkersView", sender: nil)
         } else if let annotation = cluster.firstAnnotation as? MyAnnotation {
             currentAdId = annotation.id!
+            currentUserId = annotation.user!
             setSingleMarkerData(party: annotation.party!, politician: annotation.politician!, date: annotation.date!, comment: annotation.comment!, type: annotation.type!, images: annotation.images)
             mapView.clusterManager.selectAnnotation(annotation, animated: false);
             performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)

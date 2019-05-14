@@ -352,13 +352,15 @@ class MyAnnotation: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     var image: UIImage? = nil
     var id: Int? = nil
+    var user: Int? = nil
     var type: Int?
     //    var grouped: Bool? = nil
     
-    init(id: Int, coordinate: CLLocationCoordinate2D, party: String, politician: String, date: String, comment: String, type: Int, images: [AdImage]) {
+    init(id: Int, user: Int, coordinate: CLLocationCoordinate2D, party: String, politician: String, date: String, comment: String, type: Int, images: [AdImage]) {
         self.title = ""
         self.subtitle = ""
         self.id = id
+        self.user = user
         self.coordinate = coordinate
         self.party = party
         self.politician = politician
