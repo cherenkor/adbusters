@@ -3,6 +3,9 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var instructionsView: UIView!
+    
+    @IBOutlet var termsAndConditionsView: UIView!
+    
     @IBOutlet weak var textField: UITextView!
     @IBOutlet var mask: UIView!
     
@@ -10,6 +13,12 @@ class WelcomeViewController: UIViewController {
         instructionsView.isHidden = true
         defaults.set(true, forKey: "showInstructions")
     }
+    
+    @IBAction func closeTermsAndConditions(_ sender: Any) {
+        termsAndConditionsView.isHidden = true
+        defaults.set(true, forKey: "showTerms")
+    }
+    
     
     override func viewDidLoad() {
         setCurrentUserData ()
@@ -27,6 +36,9 @@ class WelcomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         instructionsView.isHidden = true
         let showInstructions = defaults.bool(forKey: "showInstructions")
+        let showTerms = defaults.bool(forKey: "showTerms")
+        
         instructionsView.isHidden = showInstructions
+        termsAndConditionsView.isHidden = showTerms
     }
 }

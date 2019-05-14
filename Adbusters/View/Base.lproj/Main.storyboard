@@ -62,6 +62,149 @@
                                             <constraint firstAttribute="width" constant="240" id="vHj-eA-PIl"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYa-FZ-YdH">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fub-99-Scy">
+                                                <rect key="frame" x="100" y="402" width="120" height="32"/>
+                                                <color key="backgroundColor" red="0.36862745099999999" green="0.83921568629999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="9sC-yz-40m"/>
+                                                    <constraint firstAttribute="height" constant="32" id="TuH-Vu-zkl"/>
+                                                </constraints>
+                                                <state key="normal" title="Прийняти">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeInstructions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bP4-YZ-3Aa"/>
+                                                    <action selector="closeTermsAndConditions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pNW-qB-OhX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Умови використання" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJT-xG-LCh">
+                                                <rect key="frame" x="16" y="8" width="288" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="SRI-Mo-mKA"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dh0-Qf-gSl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" red="0.36078431370000003" green="0.14117647059999999" blue="0.48627450979999998" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0F-ha-cgd">
+                                                <rect key="frame" x="16" y="56" width="288" height="326"/>
+                                                <subviews>
+                                                    <textView opaque="NO" multipleTouchEnabled="YES" contentMode="top" semanticContentAttribute="forceLeftToRight" showsHorizontalScrollIndicator="NO" indicatorStyle="black" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xm7-BE-CXI">
+                                                        <rect key="frame" x="1" y="1" width="286" height="324"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment>
+                                                                <mutableString key="content">1. ЗАГАЛЬНІ ПОЛОЖЕННЯ
+1.1. Ця Угода (далі - «Угода») регламентує відносини між розробником мобільного додатка «Мисливець за рекламою» (далі - «Розробник»), і Фізичною особою, яка належним чином, приєдналася до цієї Угоди (далі - «Користувач») для отримання права використання мобільного додатка «Мисливець за рекламою» (далі - «Додаток»).
+Користувачем мобільного додатку «Мисливець за рекламою» вважається будь-яка фізична особа, яка коли-небудь здійснювала доступ до Додатку, та досягла віку допустимого для акцепту цієї Угоди.
+1.2. Додаток є програмою хмарної комунікації між Користувачами і WEB інтерфейсом Програми розробленої для мобільних пристроїв, що працюють під управлінням операційних систем «iOS» і «Android» (далі - мобільні пристрої).
+1.3. Встановлення Додатка на мобільний пристрій Користувача є акцептом і підтвердженням згоди Користувача з умовами цієї Угоди.
+1.4. Приймаючи умови цієї Угоди, Користувач підтверджує свою згоду на обробку Розробником його даних, в тому числі персональних, внесених Користувачем в Додаток.
+1.5. Перед початком роботи мобільного Додатку розробник запитує у Користувача особисті дані та проводить реєстрацію, які включають у себе: адресу електронної пошти, ім’я (логін) та пароль. Також Користувач на власне бажання має право зареєструватись у Додатку за допомогою соціальної мережі Facebook. У разі небажання Користувача надавати особисту інформацію, Користувач зобов’язаний припинити реєстрацію та подальше використання мобільного Додатку.
+Особиста інформація Користувача використовується Розробником з метою оброблення даних при використанні Додатку.
+1.6. Умови цієї Угоди є публічною офертою відповідно до ст. 641 Цивільного кодексу України. Розробник надає Користувачеві права доступу і використання Додатка на умовах цієї Угоди.
+1.7. Ця Угода може бути змінена та/або доповнена Розробником в односторонньому порядку, без будь-якого спеціального повідомлення. При цьому продовження використання Додатка після внесення змін і/або доповнень до цієї Угоди, означає згоду Користувача з такими змінами та/або доповненнями.
+1.8. Приймаючи умови цієї Угоди, Користувач підтверджує своє право і дієздатність, підтверджує достовірність своїх персональних даних та приймає на себе всю відповідальність за їх точність, повноту і достовірність.
+1.9. Користувач приймає на себе всі можливі ризики, в тому числі матеріальні, пов'язані з його діями по використанню Додатка.
+1.10. Користувач приймає умови користування Додатком.
+1.11. Розробник не несе відповідальності за помилки, збої у роботі Програми, схоронність даних Користувача та інші недоліки пов’язані з порушенням функціювання в Додатку та їх наслідки які виникли у Користувача, в тому числі: реальний збиток, упущену вигоду, збитки, моральну шкоду, шкоду честі, гідності та ділової репутації.
+
+2. ПРАВА ТА ОБОВ'ЯЗКИ КОРИСТУВАЧА
+2.1. Користувач зобов'язується належним чином дотримуватися умови цієї Угоди.
+2.2. Користувач має право використання Додатку виключно з метою особистого використання відповідно до умов цієї Угоди.
+2.3. Користувач зобов'язується не використовувати Додаток в порушення прав і законних інтересів Розробника, інших правовласників, третіх осіб, та цієї Угоди.
+2.4. Користувач зобов'язується не завантажувати та не розміщувати у Додатку матеріали, які:
+- носять образливий, шкідливий, вульгарний, відверто сексуальний або інший неприйнятний характер;
+- порушують, в тому числі, крім іншого, патенти, товарні знаки, комерційну таємницю, авторські права або інші виняткові права; 
+- містять програмні віруси або будь-який інший комп'ютерний код, який може завдати шкоди Розробнику.
+2.5. Користувачеві заборонено самостійно або із залученням третіх осіб здійснювати декомпілювання Додатку, а також здійснювати реверс-інжиніринг Додатку.
+2.6. Користувач несе особисту відповідальність за використання Додатку будь-якими способами, прямо не дозволеними цією Угодою.
+2.7. Користувач не має права здійснювати будь-які несанкціоновані дії з Додатком.
+2.8. Перед установкою Додатка у свій мобільний пристрій, Користувач зобов'язаний ознайомитися з усією інформацією про Додаток. Установка Додатку у мобільний пристрій підтверджує виконання Користувачем зазначеного в цьому пункті зобов'язання. У разі незгоди з умовами цієї Угоди, використання Додатка Користувачем повинно бути негайно припинено.
+2.9. Користувачеві надається можливість безоплатно завантажувати і користуватися повним функціоналом.
+2.10. Умови використання Додатка можуть бути змінені та/або доповнені Розробником в односторонньому порядку. При цьому продовження використання Додатка після внесення змін і/або таких доповнень, означає згоду Користувача з такими змінами та/або доповненнями.
+2.11. Користувач надає згоду Розробникові здійснювати обробку його персональних даних для поліпшення сервісу і збору статистики.
+
+3. ПРАВА ТА ОБОВ'ЯЗКИ РОЗРОБНИКА
+3.1. Розробник має право передавати права та обов'язки за цією Угодою, третім особам в цілях виконання цієї Угоди без додаткової згоди Користувача.
+3.2. Розробник має право направляти Користувачеві будь-яким способом інформацію про функціонування Програми, в тому числі направляти інформаційні та інші повідомлення на адресу електронної пошти, вказану Користувачем, або розміщувати відповідну інформацію в самому Додатку.
+3.3. Розробник має право заблокувати доступ Користувача до Додатка або його частини в разі виявлення порушень Користувачем цієї Угоди.
+3.4. Розробник має право, з урахуванням пункту 2.10 цієї Угоди, здійснювати обробку персональних даних Користувача. Дані використовуються для поліпшення сервісу і збору статистики.
+3.5. Розробник має право без попереднього повідомлення обмежити, призупинити або припинити користування Додатком, в тому числі в разі, якщо у Розробника є дані вважати, що Користувач (навмисно чи ненавмисно):
+- при користуванні Додатком порушує Законодавство України, пункт 2.4 та інші положення цієї Угоди або права і законні інтереси третіх осіб;
+- користуються Додатком недобросовісно, надмірно або не у відповідності з його призначенням;
+- завдають шкоди Додатку або його працездатності;
+- здійснюють спроби несанкціонованого доступу до Додатка та інформації яка міститься в ньому;
+- створюють загрозу збою технічних і/або програмних засобів Розробника і/або третіх осіб.
+3.6 Розробник має право без попереднього повідомлення заблокувати Користувача та/або видалити його матеріали у разі порушення Користувачем пункту 2.4 цієї Угоди.
+3.7. Розробник має право без попереднього повідомлення обмежити, призупинити або припинити користування Додатком в разі прийняття відповідного рішення державного чи іншого уповноваженого органу, або в інших випадках передбачених чинним законодавством України та Міжнародними правилами/законами.
+
+4. ГАРАНТІЇ ТА ВІДПОВІДАЛЬНІСТЬ СТОРІН
+4.1. Для виконання цієї Угоди можуть залучатися треті особи. Користувач підтверджує, що зазначеним третім особам надаються такі ж права, як і власникові прав на використання Програми, в тому числі щодо використання персональних даних Користувача.
+4.2. Користувач гарантує, що не буде робити будь-яких дій, спрямованих виключно на заподіяння шкоди Розробникові, правовласникам або іншим особам.
+4.3. Користувач Додатку зобов’язується не виконувати дій, які можуть розглядатись як порушення законодавства України або норм міжнародного права, у тому числі у сфері інтелектуальної власності, авторських та/або суміжних прав, а також будь яких дій, які призводять або можуть призвести до порушення нормальної роботи Додатку.
+
+5. ЗАКЛЮЧНІ ПОЛОЖЕННЯ
+5.1. У разі виникнення будь-яких суперечок або розбіжностей, пов'язаних з виконанням цієї Угоди, Користувач і Розробник докладуть усіх зусиль для їх вирішення шляхом проведення переговорів між ними. У разі, якщо суперечки не будуть вирішені шляхом переговорів, спори підлягають вирішенню відповідно до законодавства України.
+5.2. Жодна із Сторін Угоди не несе відповідальності за невиконання або неналежне виконання зобов'язань за цією Угодою, якщо належне виконання виявилося неможливим внаслідок непереборної сили.
+5.3. Ця Угода набирає чинності для Користувача з моменту встановлення Додатку в мобільний пристрій і діє безстроково, протягом усього періоду використання Користувачем Додатку.
+5.4. Ця Угода складена українською мовою.
+5.5. Якщо будь-яке положення цієї Угоди буде визнано недійсним, це не впливає на дійсність або застосовність інших положень цієї Угоди.
+
+</mutableString>
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.34509803921568627" green="0.19607843137254902" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                                    <real key="NSKern" value="0.0"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops/>
+                                                                    </paragraphStyle>
+                                                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="Користувач підтверджує, що ознайомлений із усіма пунктами цієї Угоди та вважає їх зрозумілими і приймає їх умови.">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.34509803921568627" green="0.19607843137254902" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                                    <real key="NSKern" value="0.0"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" firstLineHeadIndent="36" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops/>
+                                                                    </paragraphStyle>
+                                                                    <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.30588235289999999" green="0.1333333333" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Xm7-BE-CXI" secondAttribute="trailing" constant="1" id="4iR-mH-AQu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Xm7-BE-CXI" secondAttribute="bottom" constant="1" id="8u3-5C-SAs"/>
+                                                    <constraint firstItem="Xm7-BE-CXI" firstAttribute="leading" secondItem="A0F-ha-cgd" secondAttribute="leading" constant="1" id="px7-lM-WeS"/>
+                                                    <constraint firstItem="Xm7-BE-CXI" firstAttribute="top" secondItem="A0F-ha-cgd" secondAttribute="top" constant="1" id="shW-kT-G57"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="dJT-xG-LCh" firstAttribute="top" secondItem="VYa-FZ-YdH" secondAttribute="top" constant="8" id="22T-zd-B6V"/>
+                                            <constraint firstItem="A0F-ha-cgd" firstAttribute="top" secondItem="dJT-xG-LCh" secondAttribute="bottom" constant="8" id="5hC-aE-OIE"/>
+                                            <constraint firstItem="A0F-ha-cgd" firstAttribute="top" secondItem="dJT-xG-LCh" secondAttribute="bottom" constant="8" id="7Xp-B3-Lhc"/>
+                                            <constraint firstAttribute="bottom" secondItem="fub-99-Scy" secondAttribute="bottom" constant="26" id="C4F-f4-Jud"/>
+                                            <constraint firstAttribute="trailing" secondItem="A0F-ha-cgd" secondAttribute="trailing" constant="16" id="NM5-2a-9EL"/>
+                                            <constraint firstItem="dJT-xG-LCh" firstAttribute="leading" secondItem="VYa-FZ-YdH" secondAttribute="leading" constant="16" id="X2d-wm-RnZ"/>
+                                            <constraint firstItem="fub-99-Scy" firstAttribute="top" secondItem="A0F-ha-cgd" secondAttribute="bottom" constant="20" id="dd1-cd-ucJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="dJT-xG-LCh" secondAttribute="trailing" constant="16" id="j6c-Oq-sbh"/>
+                                            <constraint firstItem="A0F-ha-cgd" firstAttribute="leading" secondItem="VYa-FZ-YdH" secondAttribute="leading" constant="16" id="jdB-2w-4JG"/>
+                                            <constraint firstItem="A0F-ha-cgd" firstAttribute="top" secondItem="dJT-xG-LCh" secondAttribute="bottom" constant="8" id="uK4-l9-p4d"/>
+                                            <constraint firstItem="fub-99-Scy" firstAttribute="centerX" secondItem="VYa-FZ-YdH" secondAttribute="centerX" id="wj5-ar-l2T"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lx9-A2-zTq">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                         <subviews>
@@ -144,16 +287,20 @@
                                 <constraints>
                                     <constraint firstItem="wJp-w8-xTj" firstAttribute="top" secondItem="uMU-jJ-csc" secondAttribute="bottom" constant="24" id="14V-Y1-oZF"/>
                                     <constraint firstItem="O9c-y6-bTB" firstAttribute="top" secondItem="xIt-DA-b5E" secondAttribute="bottom" constant="57" id="2WN-ZU-N4D"/>
+                                    <constraint firstItem="VYa-FZ-YdH" firstAttribute="leading" secondItem="Ko0-QD-P32" secondAttribute="leading" id="6to-3J-9rP"/>
                                     <constraint firstItem="xIt-DA-b5E" firstAttribute="top" secondItem="Ko0-QD-P32" secondAttribute="top" constant="58" id="GFa-af-Ccw"/>
+                                    <constraint firstItem="VYa-FZ-YdH" firstAttribute="top" secondItem="Ko0-QD-P32" secondAttribute="top" id="Jrg-gn-idy"/>
                                     <constraint firstAttribute="bottom" secondItem="wJp-w8-xTj" secondAttribute="bottom" constant="47" id="QF5-uA-AB5"/>
                                     <constraint firstItem="lx9-A2-zTq" firstAttribute="top" secondItem="Ko0-QD-P32" secondAttribute="top" id="QV8-AT-UvA"/>
                                     <constraint firstItem="O9c-y6-bTB" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="UUq-Hf-2H1"/>
                                     <constraint firstItem="lx9-A2-zTq" firstAttribute="leading" secondItem="Ko0-QD-P32" secondAttribute="leading" id="atk-vO-mrb"/>
+                                    <constraint firstAttribute="trailing" secondItem="VYa-FZ-YdH" secondAttribute="trailing" id="d2L-VV-RAQ"/>
                                     <constraint firstItem="uMU-jJ-csc" firstAttribute="top" secondItem="O9c-y6-bTB" secondAttribute="bottom" constant="8" id="e3G-qC-23D"/>
                                     <constraint firstAttribute="trailing" secondItem="lx9-A2-zTq" secondAttribute="trailing" id="k9I-gP-0Sh"/>
                                     <constraint firstItem="xIt-DA-b5E" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="kFl-Sd-wEb"/>
                                     <constraint firstItem="uMU-jJ-csc" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="r3z-KS-dse"/>
                                     <constraint firstItem="wJp-w8-xTj" firstAttribute="centerX" secondItem="Ko0-QD-P32" secondAttribute="centerX" id="v6t-vw-qas"/>
+                                    <constraint firstAttribute="bottom" secondItem="VYa-FZ-YdH" secondAttribute="bottom" id="yFw-8k-CKY"/>
                                     <constraint firstAttribute="bottom" secondItem="lx9-A2-zTq" secondAttribute="bottom" id="yeF-GI-JOb"/>
                                 </constraints>
                             </view>
@@ -193,6 +340,7 @@
                     <connections>
                         <outlet property="instructionsView" destination="lx9-A2-zTq" id="sOk-hy-7vD"/>
                         <outlet property="mask" destination="q9E-X6-b3R" id="UWz-C3-cl5"/>
+                        <outlet property="termsAndConditionsView" destination="VYa-FZ-YdH" id="HDv-we-ja3"/>
                         <outlet property="textField" destination="6Hq-JH-FXw" id="fJh-yG-xn7"/>
                     </connections>
                 </viewController>
@@ -3368,7 +3516,7 @@
         <segue reference="mm9-QN-m4G"/>
         <segue reference="pU2-eh-hHY"/>
         <segue reference="wba-ga-xQQ"/>
-        <segue reference="hZU-ge-6Qw"/>
+        <segue reference="gQg-cU-FWQ"/>
         <segue reference="XVb-xz-XLe"/>
     </inferredMetricsTieBreakers>
 </document>
