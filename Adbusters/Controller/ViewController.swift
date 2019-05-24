@@ -45,6 +45,12 @@ let defaults = UserDefaults.standard
 // Marker Data
 var multipleMarkerDate = [AdModel]()
 
+var reloadMultiples = false
+var multiples = [MyAnnotation]()
+var reloadClusters = false
+var reloadSingleCluster = false
+var singleId = 0
+var singleUser = 0
 var singleMarkerParty = ""
 var singleMarkerPolitician = ""
 var singleMarkerDate = ""

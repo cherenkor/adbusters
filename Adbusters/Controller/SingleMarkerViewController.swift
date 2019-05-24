@@ -42,16 +42,30 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
     @IBAction func markAbusive(_ sender: Any) {
         SVProgressHUD.show()
         
-        sendAbusive(completion: { (error) in
+        sendAbusive(completion: { error, stopped in
             if let error = error {
                 print("Didn't mark")
                 error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
                 SVProgressHUD.dismiss()
                 return
             }
+            
+            if stopped == true {
+                SVProgressHUD.showError(withStatus: "Проблеми з сервером або iнтернетом")
+                SVProgressHUD.dismiss(withDelay: 1.0)
+                return
+            }
+            
+            reloadSingleCluster = true
+            
             DispatchQueue.main.async {
                 SVProgressHUD.showSuccess(withStatus: "Готово")
                 SVProgressHUD.dismiss(withDelay: 1.0)
+                singleMarkerImages = [UIImage]()
+                for task in self.tasks {
+                    task.cancel()
+                }
+                self.dismiss(animated: true, completion: nil)
             }
         })
     }
@@ -59,16 +73,30 @@ class SingleMarkerViewController: UIViewController, UICollectionViewDelegate, UI
     @IBAction func blockUser(_ sender: Any) {
         SVProgressHUD.show()
         
-        requestBlockUser(completion: { (error) in
+        requestBlockUser(completion: { (error, stopped) in
             if let error = error {
                 print("Didn't block")
                 error.alert(with: self, title: "Помилка", message: "Проблеми з сервером або iнтернетом")
                 SVProgressHUD.dismiss()
                 return
             }
+            
+            if stopped == true {
+                SVProgressHUD.showError(withStatus: "Проблеми з сервером або iнтернетом")
+                SVProgressHUD.dismiss(withDelay: 1.0)
+                return
+            }
+            
+            reloadClusters = true
+            
             DispatchQueue.main.async {
                 SVProgressHUD.showSuccess(withStatus: "Готово")
                 SVProgressHUD.dismiss(withDelay: 1.0)
+                singleMarkerImages = [UIImage]()
+                for task in self.tasks {
+                    task.cancel()
+                }
+                self.dismiss(animated: true, completion: nil)
             }
         })
     }

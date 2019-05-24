@@ -24,7 +24,35 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
         tableView.separatorColor = UIColor.white
     }
     
+    override func viewWillAppear(_ animated: Bool){
+        if reloadSingleCluster == true {
+            multipleMarkerDate = multipleMarkerDate.filter{ $0.id != currentAdId }
+            multiples = multiples.filter{ $0.id != currentAdId }
+            singleId = currentAdId ?? 0
+        }
+        if reloadClusters == true {
+            multipleMarkerDate = multipleMarkerDate.filter{ $0.user != currentUserId }
+            multiples = multiples.filter{ $0.user != currentUserId }
+            singleUser = currentUserId ?? 0
+        }
+        
+        reloadMultiples = true
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+        if multipleMarkerDate.count == 0 {
+            returnToMap()
+            return
+        }
+    }
+    
     @IBAction func goToMapTapped(_ sender: Any) {
+        returnToMap()
+    }
+    
+    func clearInputs () {
         currentAdId = nil
         currentUserId = nil
         multipleMarkerDate = [AdModel]()
@@ -32,6 +60,11 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
         for task in tasks {
             task.cancel()
         }
+        
+    }
+    
+    func returnToMap () {
+        clearInputs()
         dismiss(animated: true, completion: nil)
     }
     
@@ -80,8 +113,10 @@ class MulltipleMarkersViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func setCurrent(index: Int) {
-        currentAdId = multipleMarkerDate[index].id
-        currentUserId = multipleMarkerDate[index].user
+        currentAdId = multipleMarkerDate[index].id!
+        currentUserId = multipleMarkerDate[index].user!
+        singleId = multipleMarkerDate[index].id!
+        singleUser = multipleMarkerDate[index].user!
         setSingleMarkerData(party: multipleMarkerDate[index].party!.name!, politician: multipleMarkerDate[index].person!.name!, date: convertDate(dateStr: multipleMarkerDate[index].created_date!), comment: multipleMarkerDate[index].comment!, type: multipleMarkerDate[index].type!, images: multipleMarkerDate[index].images ?? [AdImage]())
         performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)
     }

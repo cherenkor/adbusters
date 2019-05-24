@@ -17,8 +17,9 @@ struct AdModel: Codable {
     var grouped: Bool?
     var created_date: String?
     
-    init (id: Int, images: [AdImage] = [AdImage](), comment: String = "", type: Int = 7, party: String = "", politician: String = "", date: String = "") {
+    init (id: Int, user: Int = 0, images: [AdImage] = [AdImage](), comment: String = "", type: Int = 7, party: String = "", politician: String = "", date: String = "") {
         self.id = id
+        self.user = user
         self.images = images
         self.comment = comment
         self.type = type

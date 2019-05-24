@@ -9,13 +9,11 @@ public let CKMapViewDefaultClusterAnnotationViewReuseIdentifier = "cluster"
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AdvertiseDelegate {
     
-    
-    
     func addAdvertise (party: String, politician: String, type: String, date: String, comment: String, images: [UIImage]) {
         DispatchQueue.main.async {
             self.popupView.isHidden = false
         }
-        print(party, politician)
+//        print(party, politician)
         partyLbl.text = party == "Партія не вибрана" ? "" : party
         typeLbl.text = type
         dateLbl.text = convertDate(dateStr: date)
@@ -139,6 +137,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.configMap()
             self.determinateCurrentLocation()
             SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        if reloadMultiples == true {
+            DispatchQueue.main.async {
+                self.mapView.clusterManager.annotations = multiples
+            }
+            
+            reloadMultiples = false
+        }
+        if reloadClusters == true {
+            DispatchQueue.main.async {
+                 var annotations = self.mapView.clusterManager.annotations as! [MyAnnotation]
+                annotations = annotations.filter{ $0.user != singleUser }
+                self.mapView.clusterManager.annotations = annotations
+            }
+            
+            reloadClusters = false
+        }
+        
+        if reloadSingleCluster == true {
+            DispatchQueue.main.async {
+                var annotations = self.mapView.clusterManager.annotations as! [MyAnnotation]
+                annotations = annotations.filter{ $0.id != singleId }
+                self.mapView.clusterManager.annotations = annotations
+            }
+            
+            reloadSingleCluster = false
         }
     }
     
@@ -292,15 +319,17 @@ extension MapViewController {
 //            let edgePadding = UIEdgeInsets(top: 40, left: 20, bottom: 44, right: 20)
 //            mapView.show(cluster, edgePadding: edgePadding, animated: true)
             let markersData = cluster.annotations as! [MyAnnotation]
+            let annotations = self.mapView.clusterManager.annotations as! [MyAnnotation]
+            multiples = annotations
             
             for marker in markersData {
-                multipleMarkerDate.append(AdModel(id: marker.id!, images: marker.images, comment: marker.comment ?? "", type: marker.type ?? 7, party: marker.party ?? "", politician: marker.politician ?? "", date: marker.date!))
+                multipleMarkerDate.append(AdModel(id: marker.id!, user: marker.user!, images: marker.images, comment: marker.comment ?? "", type: marker.type ?? 7, party: marker.party ?? "", politician: marker.politician ?? "", date: marker.date!))
             }
             performSegue(withIdentifier: "goToMultipleMarkersView", sender: nil)
         } else if let annotation = cluster.firstAnnotation as? MyAnnotation {
             currentAdId = annotation.id!
             currentUserId = annotation.user!
-            setSingleMarkerData(party: annotation.party!, politician: annotation.politician!, date: annotation.date!, comment: annotation.comment!, type: annotation.type!, images: annotation.images)
+            setSingleMarkerData(id: annotation.id!, user: annotation.user!, party: annotation.party!, politician: annotation.politician!, date: annotation.date!, comment: annotation.comment!, type: annotation.type!, images: annotation.images)
             mapView.clusterManager.selectAnnotation(annotation, animated: false);
             performSegue(withIdentifier: "goToSingleMarkerView", sender: nil)
             mapView.clusterManager.deselectAnnotation(annotation, animated: false);

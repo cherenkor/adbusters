@@ -372,7 +372,9 @@ class MyAnnotation: NSObject, MKAnnotation {
     }
 }
 
-func setSingleMarkerData(party: String = "", politician: String = "", date: String = "", comment: String = "", type: Int = 0, images: [AdImage] = [AdImage]() ) {
+func setSingleMarkerData(id: Int = 0, user: Int = 0,party: String = "", politician: String = "", date: String = "", comment: String = "", type: Int = 0, images: [AdImage] = [AdImage]() ) {
+    singleId = id
+    singleUser = user
     singleMarkerParty = party
     singleMarkerPolitician = politician
     singleMarkerDate = date
