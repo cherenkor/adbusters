@@ -98,7 +98,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <attributedString key="attributedText">
                                                             <fragment>
-                                                                <mutableString key="content">1. ЗАГАЛЬНІ ПОЛОЖЕННЯ
+                                                                <string key="content">1. ЗАГАЛЬНІ ПОЛОЖЕННЯ
 1.1. Ця Угода (далі - «Угода») регламентує відносини між розробником мобільного додатка «Мисливець за рекламою» (далі - «Розробник»), і Фізичною особою, яка належним чином, приєдналася до цієї Угоди (далі - «Користувач») для отримання права використання мобільного додатка «Мисливець за рекламою» (далі - «Додаток»).
 Користувачем мобільного додатку «Мисливець за рекламою» вважається будь-яка фізична особа, яка коли-небудь здійснювала доступ до Додатку, та досягла віку допустимого для акцепту цієї Угоди.
 1.2. Додаток є програмою хмарної комунікації між Користувачами і WEB інтерфейсом Програми розробленої для мобільних пристроїв, що працюють під управлінням операційних систем «iOS» і «Android» (далі - мобільні пристрої).
@@ -155,7 +155,7 @@
 5.4. Ця Угода складена українською мовою.
 5.5. Якщо будь-яке положення цієї Угоди буде визнано недійсним, це не впливає на дійсність або застосовність інших положень цієї Угоди.
 
-</mutableString>
+</string>
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.34509803921568627" green="0.19607843137254902" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <font key="NSFont" size="15" name="HelveticaNeue"/>
@@ -1142,6 +1142,7 @@
                         <outlet property="politicianLabel" destination="cJ8-ch-OvR" id="gyq-8o-o3V"/>
                         <outlet property="userLocationSwitchView" destination="5u7-M1-kzU" id="n72-k7-Zli"/>
                         <segue destination="cLT-OV-9Rz" kind="custom" identifier="goToMap" customClass="SegueFromLeft" customModule="Adbusters" customModuleProvider="target" id="ChZ-b1-s46"/>
+                        <segue destination="fpY-VD-T2B" kind="show" identifier="goToLogin" id="1ld-vk-0LW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFj-9L-TPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3511,12 +3512,12 @@
     <inferredMetricsTieBreakers>
         <segue reference="8rg-wx-L7j"/>
         <segue reference="UMi-KQ-MlK"/>
-        <segue reference="xfT-lN-0KB"/>
+        <segue reference="1ld-vk-0LW"/>
         <segue reference="wJo-3A-m8h"/>
         <segue reference="mm9-QN-m4G"/>
         <segue reference="pU2-eh-hHY"/>
         <segue reference="wba-ga-xQQ"/>
-        <segue reference="gQg-cU-FWQ"/>
+        <segue reference="ChZ-b1-s46"/>
         <segue reference="XVb-xz-XLe"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -58,44 +58,53 @@ class AddAdsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let line = UIView()
-        let width = CGFloat(0.5)
-        line.frame = CGRect(x: 0, y: commentLbl.frame.size.height - width, width:  commentLbl.frame.size.width, height: 1.0)
-//        line.frame.origin = CGPoint(x: 0, y: commentLbl.frame.maxY - line.frame.height)
-        line.backgroundColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
-        line.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-        commentLbl.addSubview(line)
-        commentLbl.tintColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
         
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-        self.adLocation.text = currentLocation
-        
-        DispatchQueue.main.async{
-            self.presentImagePicker()
-            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
-            
-            self.dropDown.anchorView = self.adTypeView
-            self.dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]
-            
-            self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-                if item == "Газета" {
-                    self.requiredLocation = false
-                    self.commentLbl.placeholder = "Вкажiть тираж"
-                    currentLocation = nil
-                    currentLatitude = nil
-                    currentLongitude = nil
-                    self.adLocation.text = ""
-                    self.control!.setSwitchState(state: .off)
-                    self.chooseLocationView.isHidden = true
-                } else {
-                    self.requiredLocation = true
+        SVProgressHUD.show()
+        checkRequest { (error) in
+            if error == true {
+                self.performSegue(withIdentifier: "goToLogin", sender: nil)
+            } else {
+                SVProgressHUD.dismiss()
+                let line = UIView()
+                let width = CGFloat(0.5)
+                line.frame = CGRect(x: 0, y: self.commentLbl.frame.size.height - width, width:  self.commentLbl.frame.size.width, height: 1.0)
+                //        line.frame.origin = CGPoint(x: 0, y: commentLbl.frame.maxY - line.frame.height)
+                line.backgroundColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
+                line.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+                self.commentLbl.addSubview(line)
+                self.commentLbl.tintColor = UIColor(red:0.31, green:0.13, blue:0.47, alpha:1.0)
+                
+                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+                self.adLocation.text = currentLocation
+                
+                DispatchQueue.main.async{
+                    self.presentImagePicker()
+                    SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+                    
+                    self.dropDown.anchorView = self.adTypeView
+                    self.dropDown.dataSource = ["Бігборд", "Сітілайт", "Газета", "Листівка", "Намет", "Транспорт", "Інше"]
+                    
+                    self.dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+                        if item == "Газета" {
+                            self.requiredLocation = false
+                            self.commentLbl.placeholder = "Вкажiть тираж"
+                            currentLocation = nil
+                            currentLatitude = nil
+                            currentLongitude = nil
+                            self.adLocation.text = ""
+                            self.control!.setSwitchState(state: .off)
+                            self.chooseLocationView.isHidden = true
+                        } else {
+                            self.requiredLocation = true
+                        }
+                        self.adType.text = item
+                    }
+                    
+                    // Will set a custom width instead of the anchor view width
+                    self.dropDown.width = 200
+                    self.prepareSwitch()
                 }
-                self.adType.text = item
             }
-            
-            // Will set a custom width instead of the anchor view width
-            self.dropDown.width = 200
-            self.prepareSwitch()
         }
         
     }

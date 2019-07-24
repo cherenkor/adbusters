@@ -172,6 +172,21 @@ func logoutRequest (completion: @escaping (_ error: Error?)->()) {
     task.resume()
 }
 
+func checkRequest (completion: @escaping (_ error: Bool)->()) {
+    let urlObject = URL(string: API_URL + "/profile")
+    let task = URLSession.shared.dataTask(with: urlObject!) {(data, response, error) in
+        if data != nil {
+            print("Profile checked successfully")
+            completion(false)
+        } else {
+            print("Can't logout current user")
+            isLogged = false
+            completion(true)
+        }
+    }
+    task.resume()
+}
+
 
 func registerNewUser(url: String, email: String, name: String, password: String, completion: @escaping (_ error: Error?)->()) {
     let urlLink = URL(string: url)!
@@ -269,6 +284,7 @@ func uploadImages(completion: @escaping (Bool) -> ()){
             }
         case .failure(let error):
             print("Error in upload: \(error.localizedDescription)")
+            completion(false)
         }
     }
 }
